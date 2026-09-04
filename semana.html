@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu semana · DataChinchilla</title>
+<meta name="description" content="Dinos cuánto tiempo tienes y a qué apuntas, y te queda la semana escrita: qué día, cuánto rato y qué exactamente.">
+<link rel="canonical" href="https://datachinchilla.com/semana.html">
+<meta name="theme-color" content="#04120E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%230B1E2E%22%2F%3E%3Cg%20transform%3D%22translate%2812%2012.2%29%20scale%28.88%29%20translate%28-12%20-12.2%29%22%3E%3Cpath%20fill%3D%22%232A8DBB%22%20d%3D%22M%206.47%2017.58%20Q%206.26%2019.36%205.23%2017.77%20Q%204.28%2019.19%204.10%2017.39%20Q%202.68%2018.16%203.32%2016.56%20Q%201.79%2016.60%203.03%2015.53%20Q%201.74%2014.90%203.24%2014.54%20Q%202.44%2013.45%203.85%2013.80%20C%204.4%2010.6%207.6%2010.0%209.4%2011.8%20C%2010.6%2014.2%2010.4%2017.2%209.6%2019.4%20Z%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2210.4%22%20cy%3D%225.3%22%20rx%3D%222.8%22%20ry%3D%223.4%22%20transform%3D%22rotate%28-21%2010.4%205.3%29%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2218.0%22%20cy%3D%225.3%22%20rx%3D%222.8%22%20ry%3D%223.4%22%20transform%3D%22rotate%2821%2018.0%205.3%29%22%2F%3E%3Cellipse%20fill%3D%22%23BAE6FD%22%20cx%3D%2210.6%22%20cy%3D%225.7%22%20rx%3D%221.4%22%20ry%3D%221.8%22%20transform%3D%22rotate%28-21%2010.6%205.7%29%22%2F%3E%3Cellipse%20fill%3D%22%23BAE6FD%22%20cx%3D%2217.8%22%20cy%3D%225.7%22%20rx%3D%221.4%22%20ry%3D%221.8%22%20transform%3D%22rotate%2821%2017.8%205.7%29%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2214.2%22%20cy%3D%2217.2%22%20rx%3D%225.8%22%20ry%3D%225.2%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2214.2%22%20cy%3D%2211.3%22%20r%3D%225.4%22%2F%3E%3Cellipse%20fill%3D%22%230B1E2E%22%20cx%3D%2212.3%22%20cy%3D%2210.8%22%20rx%3D%22.85%22%20ry%3D%221.05%22%2F%3E%3Cellipse%20fill%3D%22%230B1E2E%22%20cx%3D%2216.3%22%20cy%3D%2210.8%22%20rx%3D%22.85%22%20ry%3D%221.05%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2212.6%22%20cy%3D%2210.4%22%20r%3D%22.3%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2216.6%22%20cy%3D%2210.4%22%20r%3D%22.3%22%2F%3E%3Cpath%20fill%3D%22%230B1E2E%22%20d%3D%22M13.6%2012.5h1.4c.26%200%20.41.29.25.5l-.7.92a.31.31%200%200%201-.5%200l-.7-.92a.31.31%200%200%201%20.25-.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<meta name="author" content="Luca Lamorte">
+<meta name="robots" content="index, follow">
+
+<!-- Los neutros, los radios y el ritmo, compartidos por todas las páginas.
+     Cada una define encima solo su acento. Va acá dentro y no a mano en el
+     HTML: esta plantilla reescribe toda la cabecera en cada corrida. -->
+<link rel="stylesheet" href="tema.css?v=75aecb1a">
+<!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
+     lo mismo: si lo escribe otro script en el HTML, la próxima corrida
+     de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
+<link rel="stylesheet" href="chinchilla.css?v=758a1e96">
+
+<!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
+     estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
+<meta property="og:site_name" content="DataChinchilla">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_LA">
+<meta property="og:title" content="Tu semana de estudio, ya repartida">
+<meta property="og:description" content="Dinos cuánto tiempo tienes y a qué apuntas, y te queda la semana escrita: qué día, cuánto rato y qué exactamente.">
+<meta property="og:url" content="https://datachinchilla.com/semana.html">
+<meta property="og:image" content="https://datachinchilla.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tu semana de estudio, ya repartida">
+<meta name="twitter:description" content="Dinos cuánto tiempo tienes y a qué apuntas, y te queda la semana escrita: qué día, cuánto rato y qué exactamente.">
+<meta name="twitter:image" content="https://datachinchilla.com/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DataChinchilla",
+  "url": "https://datachinchilla.com/",
+  "description": "No planificar es planificar el fracaso. Rutas de estudio gratuitas y ordenadas para trabajar con datos.",
+  "inLanguage": "es",
+  "author": { "@type": "Person", "name": "Luca Lamorte", "url": "https://www.linkedin.com/in/lclamorte/" }
+}
+</script>
+<style>
+
+/* ============================================================
+   1. TOKENS
+   La estructura es la misma que el path de SnowPro Core, pero el
+   acento es violeta: son dos rutas distintas y tienen que verse
+   distintas de un vistazo.
+   ============================================================ */
+:root{
+  /* Tu semana */
+  --accent:        #0D7A5F;
+  --accent-strong: #0A6650;
+  --accent-soft:   #E9F7F2;
+  --accent-line:   #B0E0D0;
+}
+:root[data-theme="dark"]{
+  --accent:        #34D399;
+  --accent-strong: #6EE7B7;
+  --accent-soft:   #06291F;
+  --accent-line:   #12483A;
+}
+:root{ color-scheme: light; }
+:root[data-theme="dark"]{ color-scheme: dark; }
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0;
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{ margin:0; line-height:1.16; letter-spacing:-.02em; font-weight:800; }
+p{ margin:0; }
+a{ color:var(--accent-strong); }
+button{ font:inherit; color:inherit; }
+svg{ flex-shrink:0; }
+.num{ font-variant-numeric: tabular-nums; }
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.eyebrow{ font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:0 0 10px; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+
+/* ============================================================
+   3. BOTONES
+   ============================================================ */
+.btn-primary{
+  display:inline-flex; align-items:center; gap:12px;
+  padding:13px 22px; border:0; border-radius:var(--r-xl); cursor:pointer;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2));
+  color:var(--warm-ink); font-weight:800; text-decoration:none;
+  box-shadow:0 8px 24px var(--warm-shadow);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 30px var(--warm-shadow); }
+.stack{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.18; text-align:left; }
+.btn-primary .verb{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; opacity:.72; }
+.btn-primary .dest{ font-size:15px; }
+.btn-quiet{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:11px 17px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider);
+  color:var(--text-2); font-weight:700; font-size:13.5px; text-decoration:none;
+  transition:color var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease, background var(--dur) ease;
+}
+.btn-quiet:hover{ color:var(--accent-strong); border-color:var(--accent); background:var(--surface-2); transform:translateY(-1px); }
+.btn-quiet .verb{ font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); }
+.btn-quiet .dest{ font-size:13.5px; }
+.btn-quiet[aria-disabled="true"]{
+  background:var(--surface-sunk); color:var(--text-3);
+  border:1px dashed var(--divider); cursor:not-allowed; transform:none;
+}
+.btn-done{
+  display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+  padding:12px 20px; border-radius:var(--r-xl); border:0; font-weight:800; font-size:14px;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2)); color:var(--warm-ink);
+  box-shadow:0 8px 22px var(--warm-shadow); text-decoration:none;
+  transition:transform var(--dur) ease;
+}
+.btn-done:hover{ transform:translateY(-2px); }
+.btn-done.done{ background:var(--good-soft); color:var(--good); border:1px solid color-mix(in srgb, var(--good) 40%, transparent); box-shadow:none; }
+.icon-btn{
+  display:inline-grid; place-items:center; width:36px; height:36px; flex-shrink:0;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface); color:var(--text-2); cursor:pointer;
+  transition:color var(--dur) ease, border-color var(--dur) ease;
+}
+.icon-btn:hover{ color:var(--accent-strong); border-color:var(--accent); }
+
+/* ============================================================
+   4. BARRA
+   ============================================================ */
+.topbar{ position:sticky; top:0; z-index:40; background:var(--bg); border-bottom:1px solid var(--divider); }
+@supports (backdrop-filter: blur(4px)){
+  .topbar{ background:color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter:blur(14px); }
+}
+.topbar-in{ display:flex; align-items:center; gap:16px; height:60px; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.brand{ display:flex; align-items:center; gap:9px; font-weight:800; font-size:14px; white-space:nowrap; text-decoration:none; color:inherit; }
+.brand svg{ color:var(--accent); }
+.brand-sub{ color:var(--text-3); font-weight:600; }
+.marca{ letter-spacing:-.02em; }
+.topbar-meter{ flex:1; display:flex; align-items:center; gap:12px; min-width:0; }
+.meter{
+  position:relative; flex:1; height:8px; min-width:50px;
+  background:var(--surface-sunk); border:1px solid var(--divider-soft);
+  border-radius:var(--r-pill); overflow:hidden;
+}
+.meter-fill{
+  position:absolute; inset:0 auto 0 0; width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-strong));
+  border-radius:var(--r-pill);
+  transition:width 420ms cubic-bezier(.4,0,.2,1);
+}
+.meter-label{ font-size:12px; font-weight:800; color:var(--text-2); white-space:nowrap; flex-shrink:0; }
+.meter-label b{ color:var(--text); }
+.acct{
+  display:inline-flex; align-items:center; gap:8px; flex-shrink:0;
+  height:36px; padding:0 13px 0 5px; cursor:pointer;
+  border-radius:var(--r-pill); border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-weight:700; font-size:12.5px;
+  transition:color var(--dur) ease, border-color var(--dur) ease;
+}
+.acct:hover{ color:var(--accent-strong); border-color:var(--accent); }
+.avatar{
+  display:grid; place-items:center; width:26px; height:26px; flex-shrink:0;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  font-size:12px; font-weight:800; line-height:1;
+}
+@media (max-width:760px){ .brand-sub{ display:none; } .lbl-word{ display:none; } .topbar-in{ gap:10px; } }
+@media (max-width:560px){
+  .topbar-meter{ flex:0 0 auto; }
+  .meter{ display:none; }
+  .acct .who{ display:none; }
+  .acct{ padding:0 4px; }
+}
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero{ padding:56px 0 30px; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.tag{
+  display:inline-flex; align-items:center; gap:6px; padding:5px 11px;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  border:1px solid var(--accent-line); font-size:11px; font-weight:800;
+}
+.tag.free{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 30%, transparent); }
+.tag.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 32%, transparent); }
+.hero h1{ font-size:clamp(32px,5vw,54px); max-width:34ch; }
+.hero h1 .grad{ background:linear-gradient(120deg,var(--accent),var(--accent-strong)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-lead{ margin-top:18px; font-size:17px; color:var(--text-2); max-width:82ch; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.hero-foot{ margin-top:18px; font-size:12.5px; color:var(--text-3); max-width:72ch; }
+.hero-foot a{ color:var(--text-2); }
+
+/* ============================================================
+   6. SECCIONES Y RACHA
+   ============================================================ */
+.section{ padding:48px 0; }
+.section-head{ max-width:64ch; margin-bottom:30px; }
+.section-head h2{ font-size:clamp(24px,3.4vw,34px); }
+.section-head p{ margin-top:12px; color:var(--text-2); font-size:15.5px; }
+
+.daily{
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:24px;
+  padding:26px; border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--divider); box-shadow:var(--shadow-md);
+}
+@media (max-width:820px){ .daily{ grid-template-columns:1fr; padding:22px; } }
+.streak{ background:var(--surface-2); border:1px solid var(--divider-soft); border-radius:var(--r-lg); padding:20px; }
+.streak .big{ font-size:44px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+.streak .big.on{ color:var(--warm); }
+.streak .k{ font-size:12px; color:var(--text-2); font-weight:700; margin-top:4px; }
+.week{ display:flex; gap:6px; margin:18px 0 16px; }
+.day{
+  flex:1; display:grid; place-items:center; gap:2px; cursor:pointer;
+  padding:7px 0; border-radius:var(--r-sm);
+  background:var(--surface); border:1px solid var(--divider-soft);
+  font-size:10px; font-weight:800; color:var(--text-3);
+  transition:border-color var(--dur) ease, background var(--dur) ease, transform var(--dur) ease;
+}
+.day:hover{ border-color:var(--accent); transform:translateY(-1px); }
+.day .dnum{ font-size:11px; color:var(--text-2); }
+.day.today{ border-color:var(--accent); border-width:2px; }
+.streak-note{ font-size:11.5px; color:var(--text-3); line-height:1.5; margin-top:12px; }
+.daily-links{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; align-content:start; }
+.daily-card{
+  display:flex; flex-direction:column; gap:8px; padding:18px;
+  border-radius:var(--r-lg); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text);
+  transition:border-color var(--dur) ease, transform var(--dur) ease;
+}
+.daily-card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.daily-card .ico{ display:grid; place-items:center; width:36px; height:36px; border-radius:var(--r-md); background:var(--accent-soft); color:var(--accent-strong); }
+.daily-card h3{ font-size:15px; }
+.daily-card p{ font-size:12.5px; color:var(--text-2); }
+.daily-card .go{ margin-top:auto; padding-top:6px; font-size:11px; font-weight:800; color:var(--accent-strong); display:flex; align-items:center; gap:6px; }
+/* ============================================================
+   7. EL CAMINO · camino serpenteante, tramos y nodos
+   ============================================================ */
+.map{ position:relative; padding-bottom:20px; }
+.track{ position:relative; padding:10px 0 30px; }
+.track-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:visible; }
+.track-line{ fill:none; stroke:var(--accent-line); stroke-width:14; stroke-linecap:round; stroke-linejoin:round; }
+.track-line-dash{ fill:none; stroke:var(--surface); stroke-width:3; stroke-linecap:round; stroke-dasharray:2 16; opacity:.85; }
+.track-line-done{
+  fill:none; stroke:url(#trailGrad); stroke-width:14; stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke-dashoffset 620ms cubic-bezier(.4,0,.2,1);
+}
+
+.act{ position:relative; z-index:2; display:flex; justify-content:center; margin:52px 0 30px; }
+.act:first-child{ margin-top:0; }
+.act-chip{
+  display:flex; align-items:center; gap:14px; max-width:min(560px,100%);
+  padding:12px 22px; border-radius:var(--r-pill);
+  background:var(--surface); border:1px solid var(--divider); box-shadow:var(--shadow-sm);
+}
+.act-chip .n{
+  display:grid; place-items:center; width:26px; height:26px; flex-shrink:0;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  font-size:12px; font-weight:800;
+}
+.act-chip .t{ font-size:14px; font-weight:800; letter-spacing:-.01em; }
+.act-chip .d{ font-size:12px; color:var(--text-3); font-weight:600; }
+@media (max-width:640px){
+  .act-chip{ flex-direction:column; align-items:flex-start; gap:4px; border-radius:var(--r-lg); text-align:left; width:100%; }
+  .act-chip .n{ display:none; }
+}
+
+.node-row{ position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:0 132px; margin:26px 0; }
+.node-row.side-left .node{ grid-column:1; }
+.node-row.side-right .node{ grid-column:2; }
+
+.node{
+  position:relative; width:100%; text-align:left; cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-lg);
+  padding:18px 20px 16px; box-shadow:var(--shadow-sm);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease, border-color var(--dur) ease;
+}
+.node:hover{ transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--accent); }
+/* keep the copy clear of the marker that straddles the inner edge */
+.side-left .node{ padding-right:44px; }
+.side-right .node{ padding-left:44px; }
+.node-marker{
+  position:absolute; top:50%; z-index:3;
+  display:grid; place-items:center; width:46px; height:46px;
+  border-radius:var(--r-pill); background:var(--surface);
+  border:3px solid var(--accent-line); color:var(--text-2);
+  font-size:15px; font-weight:800; box-shadow:var(--shadow-sm);
+  transition:background var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease;
+}
+.side-left .node-marker{ right:0; transform:translate(50%,-50%); }
+.side-right .node-marker{ left:0; transform:translate(-50%,-50%); }
+.node:hover .node-marker{ border-color:var(--accent); }
+.side-left .node:hover .node-marker{ transform:translate(50%,-50%) scale(1.06); }
+.side-right .node:hover .node-marker{ transform:translate(-50%,-50%) scale(1.06); }
+
+.node-kicker{ display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+.lvl{ font-size:9.5px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--text-3); }
+.node h3{ font-size:16.5px; }
+.node p{ margin-top:7px; font-size:13.5px; color:var(--text-2); }
+.node-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:13px; }
+.chip{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  border-radius:var(--r-sm); background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-2); white-space:nowrap;
+}
+.chip.free{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 28%, transparent); }
+.chip.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
+/* qué lo publica el fabricante y qué deja una credencial */
+.chip.official{ background:var(--accent-soft); color:var(--accent-strong); border-color:var(--accent-line); }
+.chip.cert{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
+.res .txt .t .chip{ margin-left:6px; vertical-align:middle; }
+
+/* node states */
+.node.is-done{ border-color:color-mix(in srgb, var(--good) 42%, var(--divider)); }
+.node.is-done .node-marker{ background:var(--good); border-color:var(--good); color:#04120D; }
+.node.is-done h3{ color:var(--text-2); }
+.node.is-current{ border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft), var(--shadow-md); }
+.node.is-current .node-marker{ background:var(--accent); border-color:var(--accent); color:var(--warm-ink); }
+.node.is-current .node-marker::after{
+  content:""; position:absolute; inset:-3px; border-radius:var(--r-pill);
+  border:3px solid var(--accent); animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:.7; }
+  70%{ transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+.node.is-boss{ background:linear-gradient(150deg,var(--surface),var(--surface-2)); border-color:var(--accent-line); }
+.node.is-boss h3{ font-size:19px; }
+.node.is-boss .node-marker{ width:56px; height:56px; border-width:3px; }
+.side-left .is-boss .node-marker{ transform:translate(50%,-50%); }
+.side-right .is-boss .node-marker{ transform:translate(-50%,-50%); }
+.node-check{
+  position:absolute; top:14px; right:14px; width:22px; height:22px;
+  display:grid; place-items:center; border-radius:var(--r-pill);
+  border:1px solid var(--divider); color:transparent; background:var(--surface-2);
+}
+.node.is-done .node-check{ background:var(--good); border-color:var(--good); color:#04120D; }
+
+@media (max-width:820px){
+  .node-row{ grid-template-columns:1fr; gap:0; margin:20px 0; }
+  .node-row.side-left .node, .node-row.side-right .node{ grid-column:1; margin-left:44px; width:auto; padding-left:20px; padding-right:20px; }
+  .side-left .node-marker, .side-right .node-marker{
+    left:0; right:auto; top:26px; transform:translate(calc(-50% - 22px),0);
+  }
+  .side-left .node:hover .node-marker, .side-right .node:hover .node-marker{ transform:translate(calc(-50% - 22px),0) scale(1.06); }
+  .side-left .is-boss .node-marker, .side-right .is-boss .node-marker{ transform:translate(calc(-50% - 17px),0); }
+  .node.is-boss .node-marker{ width:46px; height:46px; }
+  .node-check{ top:12px; right:12px; }
+  .track{ padding-left:0; }
+}
+
+
+/* ============================================================
+   8. FICHA DEL HITO
+   ============================================================ */
+dialog.sheet{
+  width:min(640px,calc(100vw - 32px)); max-height:min(86vh,880px);
+  padding:0; border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); color:var(--text); box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+dialog.sheet::backdrop{ background:rgba(10,6,24,.66); backdrop-filter:blur(3px); }
+dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
+@keyframes sheetIn{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+.sheet-in{ display:flex; flex-direction:column; max-height:inherit; }
+.sheet-head{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:22px 22px 18px; border-bottom:1px solid var(--divider-soft); background:var(--surface-2);
+}
+.sheet-head .head-txt{ flex:1; min-width:0; }
+.sheet-head h2{ font-size:21px; margin-top:6px; }
+.sheet-body{ padding:20px 22px 8px; overflow-y:auto; }
+.sheet-body h4{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:22px 0 10px; }
+.sheet-body h4:first-child{ margin-top:0; }
+.sheet-goal{ font-size:14.5px; color:var(--text-2); }
+.win-list{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.win-list li{ display:flex; gap:10px; font-size:13.5px; color:var(--text-2); }
+.win-list li svg{ color:var(--accent); margin-top:3px; }
+.res-list{ display:grid; gap:9px; }
+.res{
+  display:flex; align-items:center; gap:12px; padding:12px 14px;
+  border-radius:var(--r-md); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text); width:100%; text-align:left; cursor:pointer;
+  transition:border-color var(--dur) ease, transform var(--dur) ease, background var(--dur) ease;
+}
+.res:hover{ border-color:var(--accent); background:var(--surface-2); transform:translateY(-1px); }
+.res .ico{ display:grid; place-items:center; width:34px; height:34px; border-radius:var(--r-sm); background:var(--surface-2); color:var(--accent-strong); border:1px solid var(--divider-soft); }
+.res .txt{ flex:1; min-width:0; }
+.res .txt .t{ font-size:13.5px; font-weight:700; display:block; }
+.res .txt .s{ font-size:11px; color:var(--text-3); font-weight:600; }
+.res .go{ color:var(--text-3); }
+.res:hover .go{ color:var(--accent-strong); }
+.sheet-foot{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:16px 22px; border-top:1px solid var(--divider-soft); background:var(--surface-2);
+}
+.sheet-foot .grow{ flex:1; }
+.self-note{
+  display:flex; gap:10px; margin-top:16px; padding:12px 14px;
+  border-radius:var(--r-md); background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12px; line-height:1.55; color:var(--text-3);
+}
+@media (max-width:560px){
+  dialog.sheet{ width:100vw; max-width:100vw; max-height:92vh; margin:auto auto 0; border-radius:var(--r-xl) var(--r-xl) 0 0; }
+  .sheet-foot{ position:sticky; bottom:0; }
+}
+
+.finish{
+  position:relative; overflow:hidden;
+  border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); box-shadow:var(--shadow-md);
+}
+.finish.unlocked{ border-color:var(--accent); box-shadow:0 0 0 5px var(--accent-soft), var(--shadow-md); }
+.finish-in{ padding:34px; }
+.finish h2{ font-size:clamp(22px,3vw,30px); }
+.finish-lead{ margin-top:12px; color:var(--text-2); font-size:15px; max-width:52ch; }
+.finish-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.lock-note{ margin-top:12px; font-size:12px; color:var(--text-3); display:flex; align-items:center; gap:7px; }
+.support{ background:var(--surface-2); border:1px solid var(--divider-soft); border-radius:var(--r-lg); padding:22px; display:flex; flex-direction:column; gap:10px; }
+.support h3{ font-size:16px; }
+.support p{ font-size:13px; color:var(--text-2); }
+.support .btn-quiet{ margin-top:6px; align-self:flex-start; background:var(--surface); }
+@media (max-width:860px){ .finish-in{ grid-template-columns:1fr; gap:24px; padding:26px 22px; } }
+
+
+/* ============================================================
+   11. CERTIFICATE · watermarked, personal, plainly unofficial
+   ============================================================ */
+.cert{
+  position:relative; overflow:hidden; isolation:isolate;
+  border-radius:var(--r-lg); border:1px solid var(--accent-line);
+  background:linear-gradient(150deg, var(--surface), var(--surface-2) 60%, var(--accent-soft));
+  padding:26px 26px 20px;
+}
+.cert-wm{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.cert-wm text{
+  fill:var(--accent-strong); opacity:.13; font-weight:800; letter-spacing:.18em;
+  font-size:13px; font-family:inherit; text-transform:uppercase;
+}
+.cert-in{ position:relative; z-index:1; }
+.cert-badge{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid color-mix(in srgb, var(--warn) 34%, transparent);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+.cert-eyebrow{ font-size:10px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--text-3); }
+.cert-name{
+  margin:8px 0 6px; font-size:clamp(22px,3.4vw,32px); letter-spacing:-.03em;
+  border-bottom:2px solid var(--accent-line); padding-bottom:10px; display:inline-block;
+}
+.cert-line{ font-size:14px; color:var(--text-2); max-width:46ch; }
+.cert-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.cert-foot{
+  margin-top:18px; padding-top:14px; border-top:1px solid var(--divider-soft);
+  font-size:11px; line-height:1.55; color:var(--text-3);
+}
+.cert.mini{ padding:16px 16px 12px; }
+.cert.mini .cert-name{ font-size:17px; padding-bottom:6px; }
+.cert.mini .cert-line{ font-size:11.5px; }
+.cert.mini .cert-foot{ font-size:9.5px; margin-top:12px; padding-top:10px; }
+.cert.mini .cert-badge{ margin-bottom:10px; font-size:8.5px; padding:3px 8px; }
+.cert.sample{ filter:saturate(.55); }
+
+.preview-row{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,300px); gap:22px;
+  padding:24px 34px 34px; border-top:1px solid var(--divider-soft);
+}
+.preview-row h4{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:0 0 12px; }
+@media (max-width:860px){ .preview-row{ grid-template-columns:1fr; padding:20px 22px 26px; } }
+
+.post-mock{
+  border-radius:var(--r-lg); border:1px solid var(--divider);
+  background:var(--surface); box-shadow:var(--shadow-sm); overflow:hidden;
+}
+.post-head{ display:flex; align-items:center; gap:10px; padding:14px 16px 10px; }
+.post-head .who{ font-size:13.5px; font-weight:800; line-height:1.2; }
+.post-head .sub{ font-size:11px; color:var(--text-3); font-weight:600; }
+.post-body{ padding:0 16px 12px; font-size:13px; color:var(--text-2); }
+.post-thumb{ border-top:1px solid var(--divider-soft); border-bottom:1px solid var(--divider-soft); padding:14px 16px; background:var(--surface-2); }
+.post-link{ padding:10px 16px; font-size:11px; color:var(--text-3); font-weight:700; }
+.post-tag{
+  display:inline-flex; align-items:center; gap:6px; margin:0 16px 12px;
+  font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);
+}
+
+
+/* ============================================================
+   9. CREDITOS Y PIE
+   ============================================================ */
+/* ============================================================
+   PATH PROPIO · las rutas de esta guía se ven de lejos, tanto en el
+   mapa como adentro de la ficha del nivel
+   ============================================================ */
+.node.has-path{
+  border-color:var(--accent); border-width:2px;
+  background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow-md);
+}
+.own-ribbon{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:10px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--surface);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+.res.own{
+  padding:16px 18px; border:2px solid var(--accent);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.res.own:hover{ transform:translateY(-2px); background:linear-gradient(135deg, var(--accent-soft), var(--surface-2)); }
+.res.own .ico{ width:42px; height:42px; background:var(--accent); color:var(--surface); border-color:var(--accent); }
+.res.own .txt .t{ font-size:15px; }
+.res.own .go{ color:var(--accent-strong); }
+.own-tag{
+  display:block; margin-bottom:4px;
+  font-size:9.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--accent-strong);
+}
+
+/* tarjetas de la seccion de paths */
+.grid-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:16px; }
+.card{
+  display:flex; flex-direction:column; gap:9px; padding:20px;
+  background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-lg);
+  box-shadow:var(--shadow-sm); text-decoration:none; color:var(--text);
+  transition:transform var(--dur) ease, border-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+a.card:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:var(--shadow-md); }
+.card .ico{ display:grid; place-items:center; width:38px; height:38px; border-radius:var(--r-md); background:var(--accent-soft); color:var(--accent-strong); }
+.card h3{ font-size:16px; }
+.card p{ font-size:13px; color:var(--text-2); }
+.card .go{ margin-top:auto; padding-top:8px; font-size:11.5px; font-weight:800; color:var(--accent-strong); display:flex; align-items:center; gap:6px; }
+.card-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+/* Una ruta que todavía no existe no está bloqueada: se puede pedir.
+   Por eso no lleva borde punteado ni cursor de prohibido. */
+.paths-top{ padding-top:10px; }
+.card.own{
+  border-color:var(--accent); border-width:2px;
+  background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow-md);
+}
+.card.own .ico{ background:var(--accent); color:var(--surface); }
+.own-ribbon{
+  display:inline-flex; align-items:center; gap:7px; align-self:flex-start;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--surface);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+/* Una ruta que todavía no existe se muestra bloqueada, no se disfraza
+   de link: el pedido para que exista está una sola vez, bajo la grilla. */
+.card.locked{
+  border-style:dashed; box-shadow:none; background:var(--surface-sunk); cursor:not-allowed;
+}
+.card.locked .ico{ background:var(--surface-2); color:var(--text-3); border:1px solid var(--divider); }
+.card.locked h3, .card.locked p{ color:var(--text-3); }
+.card.locked .chip{ opacity:.75; }
+.card.locked .go{ color:var(--text-3); }
+.pedir{
+  display:flex; align-items:center; gap:9px; margin-top:16px;
+  font-size:12.5px; color:var(--text-3);
+}
+.pedir a{ font-weight:700; }
+
+
+/* ============================================================
+   BIBLIOTECA · créditos filtrables
+   ============================================================ */
+
+.lib-bar{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.lib-filter{
+  display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  padding:7px 13px; border-radius:var(--r-pill);
+  border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-size:12px; font-weight:800;
+  transition:border-color var(--dur) ease, color var(--dur) ease, background var(--dur) ease;
+}
+.lib-filter:hover{ border-color:var(--accent); color:var(--accent-strong); }
+.lib-filter.on{ background:var(--accent-strong); border-color:var(--accent-strong); color:var(--surface); }
+.lib-filter .n{ font-variant-numeric:tabular-nums; opacity:.7; }
+.lib-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.lib-card{
+  display:flex; flex-direction:column; gap:8px; padding:18px;
+  border-radius:var(--r-lg); border:1px solid var(--divider); background:var(--surface);
+  box-shadow:var(--shadow-sm); text-decoration:none; color:var(--text);
+  transition:transform var(--dur) ease, border-color var(--dur) ease;
+}
+a.lib-card:hover{ transform:translateY(-2px); border-color:var(--accent); }
+.lib-card .top{ display:flex; align-items:center; gap:10px; }
+.lib-card .ico{ display:grid; place-items:center; width:34px; height:34px; flex-shrink:0; border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-line); }
+.lib-card .t{ font-size:14px; font-weight:800; line-height:1.25; }
+.lib-card .d{ font-size:12.5px; color:var(--text-2); }
+.lib-card .s{ margin-top:auto; padding-top:6px; font-size:11px; color:var(--text-3); font-weight:700; display:flex; align-items:center; gap:6px; }
+.lib-more{ display:flex; justify-content:center; margin-top:20px; }
+.credit-list{ display:grid; gap:12px; }
+.credit{
+  display:flex; align-items:flex-start; gap:14px; padding:16px 18px;
+  border-radius:var(--r-md); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text);
+  transition:border-color var(--dur) ease, background var(--dur) ease;
+}
+a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
+.credit .ico{ display:grid; place-items:center; width:36px; height:36px; flex-shrink:0; border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-line); }
+.credit .t{ display:block; font-size:14px; font-weight:800; }
+.credit .d{ font-size:12.5px; color:var(--text-2); margin-top:3px; }
+.credit .s{ font-size:11px; color:var(--text-3); font-weight:700; margin-top:6px; display:block; }
+
+.suggest{
+  display:grid; grid-template-columns:auto minmax(0,1fr); gap:16px; align-items:start;
+  margin-top:26px; padding:20px 22px; border-radius:var(--r-lg);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  border:1px solid var(--accent-line);
+}
+.suggest .ico{ display:grid; place-items:center; width:42px; height:42px; border-radius:var(--r-md); background:var(--accent); color:var(--surface); }
+.suggest h3{ font-size:16px; }
+.suggest p{ font-size:13px; color:var(--text-2); margin-top:5px; max-width:62ch; }
+.suggest .acciones{ display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+@media (max-width:640px){ .suggest{ grid-template-columns:1fr; } }
+.disclaimer{
+  display:flex; align-items:flex-start; gap:12px; margin-top:26px;
+  padding:16px 18px; border-radius:var(--r-md);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12.5px; line-height:1.6; color:var(--text-2);
+}
+.disclaimer svg{ color:var(--text-3); margin-top:2px; }
+.disclaimer b{ color:var(--text); }
+/* ============================================================
+   CERTIFICADOS - que te llevas de esta ruta
+   Solo se dibuja la constancia propia. La credencial ajena queda como
+   una aclaracion de texto con sus requisitos y el enlace a quien la
+   emite: reproducir el diseno de un certificado de otro es fabricar
+   una credencial que no es mia, y ademas nunca queda bien.
+   ============================================================ */
+/* Una sola tarjeta: sin techo, auto-fit la estiraba a todo el ancho
+   y una constancia de 900px de ancho no parece una constancia. */
+.certs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px; max-width:560px; }
+.cert-card{ display:flex; flex-direction:column; gap:12px; }
+.cert-tag{
+  align-self:flex-start; padding:5px 12px; border-radius:var(--r-pill);
+  font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase;
+  background:var(--accent); color:var(--surface);
+}
+.cert-tag.libre{ background:var(--good); color:var(--surface); }
+.cert-hoja{
+  position:relative; overflow:hidden; padding:26px 24px 22px; text-align:center;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface); box-shadow:var(--shadow-sm);
+}
+.cert-hoja::before{
+  content:""; position:absolute; inset:7px; border-radius:var(--r-sm);
+  border:1px solid var(--divider-soft); pointer-events:none;
+}
+.cert-agua{
+  position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22188%22%20height%3D%22112%22%3E%3Ctext%20x%3D%224%22%20y%3D%2266%22%20transform%3D%22rotate%28-24%2094%2056%29%22%20font-family%3D%22Inter%2CSegoe%20UI%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22800%22%20fill%3D%22%23808080%22%20opacity%3D%220.30%22%3EEJEMPLO%3C%2Ftext%3E%3C%2Fsvg%3E"); background-repeat:repeat;
+}
+.cert-emisor{ position:relative; font-size:13px; font-weight:800; letter-spacing:-.01em; color:var(--accent); }
+.cert-tipo{ position:relative; margin-top:2px; font-size:9.5px; font-weight:800;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+.cert-nombre{ position:relative; margin:16px 0 4px; font-size:21px; font-weight:800;
+  letter-spacing:-.02em; line-height:1.2; word-break:break-word; }
+.cert-linea{ position:relative; font-size:12.5px; color:var(--text-2); line-height:1.55; }
+.cert-linea b{ color:var(--text); }
+.cert-datos{ position:relative; display:flex; flex-wrap:wrap; justify-content:center;
+  gap:7px; margin-top:16px; }
+.cert-pie{ position:relative; margin-top:18px; padding-top:13px;
+  border-top:1px solid var(--divider-soft); font-size:10.5px; color:var(--text-3); line-height:1.5; }
+.cert-nota{ font-size:12px; color:var(--text-3); line-height:1.55; }
+.cert-nota a{ font-weight:700; }
+.cert-datos .chip{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  border-radius:var(--r-sm); background:var(--surface-2);
+  border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-2); white-space:nowrap;
+}
+.cert-datos .chip.free{ background:var(--good-soft); color:var(--good);
+  border-color:color-mix(in srgb, var(--good) 28%, transparent); }
+.cert-datos .chip.paid{ background:var(--warn-soft); color:var(--warn);
+  border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
+
+
+.armar-band{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:22px; align-items:center;
+  padding:24px 26px; border-radius:var(--r-xl);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  border:2px solid var(--accent); box-shadow:var(--shadow-md);
+}
+.armar-band .ico{ display:grid; place-items:center; width:52px; height:52px; flex-shrink:0;
+  border-radius:var(--r-lg); background:var(--accent); color:var(--surface); }
+.armar-band h2{ font-size:20px; }
+.armar-band p{ margin-top:8px; font-size:13.5px; color:var(--text-2); max-width:62ch; }
+@media (max-width:760px){ .armar-band{ grid-template-columns:1fr; } .armar-band .btn-done{ justify-self:start; } }
+
+.lema{ font-size:12.5px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+
+
+.toast{
+  position:fixed; left:50%; bottom:26px; z-index:80;
+  display:flex; align-items:center; gap:10px; padding:13px 18px;
+  border-radius:var(--r-pill); background:var(--surface); border:1px solid var(--accent);
+  box-shadow:var(--shadow-lg); font-size:13.5px; font-weight:700;
+  transform:translate(-50%,26px); opacity:0; pointer-events:none;
+  transition:opacity 200ms ease, transform 200ms ease;
+}
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+.toast svg{ color:var(--accent); }
+
+.field{ display:grid; gap:6px; margin-bottom:14px; }
+.field label{ font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+.field input{
+  width:100%; padding:12px 14px; font-size:15px; font-weight:600;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface-2); color:var(--text);
+}
+.field input:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+.form-err{
+  display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;
+  padding:11px 13px; border-radius:var(--r-md); font-size:13px; font-weight:600;
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid color-mix(in srgb, var(--warn) 32%, transparent);
+}
+/* Piezas que dibuja el panel compartido de path-sync.js */
+.auth-actions .btn-done{ flex:1 1 100%; justify-content:center; }
+.auth-sep{ display:flex; align-items:center; gap:11px; margin:14px 0;
+  font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-3); }
+.auth-sep::before, .auth-sep::after{ content:""; flex:1; height:1px;
+  background:var(--divider-soft, var(--divider)); }
+.check{ display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer; }
+.check input{ width:17px; height:17px; margin:2px 0 0; flex-shrink:0;
+  accent-color:var(--accent); cursor:pointer; }
+.check span{ font-size:12.5px; line-height:1.5; color:var(--text-2); }
+.field .pista{ font-size:11.5px; font-weight:600; color:var(--text-3); }
+.auth-note{ margin-top:14px; font-size:11.5px; line-height:1.55; color:var(--text-3); }
+.auth-actions{ display:flex; flex-wrap:wrap; gap:9px; }
+.acct-stat{
+  display:flex; align-items:center; gap:12px; padding:14px 16px; margin-bottom:14px;
+  border-radius:var(--r-md); background:var(--surface-2); border:1px solid var(--divider-soft);
+}
+.acct-stat .k{ font-size:12.5px; color:var(--text-2); font-weight:600; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+/* Una racha por bloque. Un contador compartido no dice cuál de los dos
+   estás practicando, que es justamente lo que uno quiere ver. */
+/* align-items:start, si no la tarjeta cerrada se estira para igualar
+   a la abierta y queda un rectangulo vacio al lado. */
+.rachas{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:14px; align-items:start; }
+.racha{
+  padding:12px 14px; border-radius:var(--r-lg);
+  background:var(--surface); border:1px solid var(--divider);
+}
+.racha-fila{ display:flex; align-items:center; gap:12px; }
+.racha-cab{
+  display:flex; align-items:center; gap:11px; flex:1; min-width:0;
+  background:none; border:0; padding:0; cursor:pointer; color:inherit; text-align:left;
+}
+.racha-n{ font-size:24px; font-weight:800; letter-spacing:-.03em; line-height:1; min-width:22px; }
+.racha-n.on{ color:var(--warm); }
+.racha-txt{ display:flex; flex-direction:column; gap:1px; min-width:0; }
+.racha-txt b{ font-size:13px; }
+.racha-txt .s{ font-size:11px; color:var(--text-3); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.racha-chev{ flex:none; color:var(--text-3); transition:transform var(--dur) ease; }
+.racha-cab[aria-expanded="true"] .racha-chev{ transform:rotate(180deg); }
+.racha .btn-done{ flex:none; padding:8px 13px; font-size:12.5px; }
+.racha-mas{ margin-top:12px; display:grid; gap:10px; }
+.racha-mas[hidden]{ display:none; }
+.week{ display:flex; gap:5px; }
+.day{
+  flex:1; display:grid; place-items:center; gap:2px; cursor:pointer;
+  padding:6px 0; border-radius:var(--r-sm);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:9.5px; font-weight:800; color:var(--text-3);
+  transition:border-color var(--dur) ease, background var(--dur) ease;
+}
+.day:hover{ border-color:var(--accent); }
+.day .dnum{ font-size:10.5px; color:var(--text-2); }
+.day.on{ background:var(--warm); border-color:var(--warm); color:var(--warm-ink); }
+.day.on .dnum{ color:var(--warm-ink); }
+.day.today{ border-color:var(--accent); }
+.streak-note{ font-size:11px; color:var(--text-3); line-height:1.5; }
+.racha-link{
+  display:flex; align-items:center; gap:9px; padding:10px 12px;
+  border-radius:var(--r-md); border:1px solid var(--divider-soft); background:var(--surface-2);
+  text-decoration:none; color:var(--text); font-size:12.5px;
+}
+.racha-link:hover{ border-color:var(--accent); }
+.racha-link .ico{ display:grid; place-items:center; width:28px; height:28px; flex:none;
+  border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); }
+.racha-link .d{ font-size:11px; color:var(--text-3); }
+/* Sin medidor de avance, algo tiene que empujar los botones. */
+.topbar-sp{ flex:1; }
+/* El pie, en una línea. Antes ocupaba cinco y repetía en cada página
+   una explicación que ya se entiende usando el sitio. */
+.foot{ border-top:1px solid var(--divider-soft); margin-top:48px; padding:18px 0 26px; }
+.foot .foot-in{
+  display:flex; align-items:center; gap:14px 20px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--text-3);
+}
+.foot .foot-marca{ display:flex; align-items:center; gap:8px; color:var(--text-2); font-size:12.5px; padding:0; }
+.foot .foot-marca b{ color:var(--text); }
+.foot .foot-links{ margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.foot .foot-links a{ color:var(--text-3); font-weight:700; text-decoration:none; }
+.foot .foot-links a:hover{ color:var(--accent-strong); }
+@media (max-width:640px){ .foot .foot-links{ margin-left:0; } }
+/* La estrella vive sobre la tarjeta, no dentro del enlace: si no,
+   marcarla como favorita te llevaría a la ruta. */
+.card-wrap{ position:relative; display:flex; }
+.card-wrap > .card{ flex:1; }
+.fav{
+  position:absolute; top:10px; right:10px; z-index:2;
+  display:grid; place-items:center; width:30px; height:30px;
+  border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  color:var(--text-3);
+  transition:color var(--dur) ease, border-color var(--dur) ease, background var(--dur) ease;
+}
+.fav:hover{ color:var(--warm); border-color:var(--warm); }
+.fav.on{ background:var(--warm); border-color:var(--warm); color:var(--warm-ink); }
+.fav.on svg{ fill:currentColor; }
+/* La barra del listado de rutas. Reusa el buscador del armador y los
+   chips del catálogo: es el mismo gesto en las tres pantallas. */
+/* --- Las rutas que estan en tu semana ---------------------------
+   Se eligen aca. Antes el unico camino era volver a cargar el CV,
+   que rehace el analisis entero para cambiar una cosa. */
+.rutas-activas{ margin-top:16px; }
+.rutas-activas[hidden]{ display:none; }
+.ra-t{
+  display:block; margin-bottom:10px;
+  font-size:11px; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--text-3);
+}
+.ra-lista{ display:flex; flex-wrap:wrap; gap:8px; }
+.ra-b{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:7px 13px; border-radius:var(--r-pill); cursor:pointer;
+  font:inherit; font-size:13px; font-weight:700;
+  background:var(--surface); border:1px solid var(--divider);
+  color:var(--text-2);
+  transition:background var(--dur) ease, border-color var(--dur) ease, color var(--dur) ease;
+}
+.ra-b:hover{ border-color:var(--accent); color:var(--text); }
+.ra-b .tic{
+  display:grid; place-items:center; width:15px; height:15px;
+  border-radius:5px; border:1.5px solid var(--divider); flex:none;
+}
+.ra-b .tic svg{ opacity:0; width:9px; height:9px; }
+.ra-b.on{
+  background:var(--accent-soft); border-color:var(--accent);
+  color:var(--accent-strong);
+}
+.ra-b.on .tic{ background:var(--accent); border-color:var(--accent); color:var(--surface); }
+.ra-b.on .tic svg{ opacity:1; }
+.ra-nota{ margin:12px 0 0; font-size:12.5px; color:var(--text-3); }
+
+.rutas-filtros{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; }
+.buscar{ position:relative; flex:1; min-width:200px; max-width:380px; }
+.buscar svg{ position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-3); }
+.buscar input{
+  width:100%; padding:10px 12px 10px 36px; font-size:14px; font-weight:600;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface-2); color:var(--text);
+}
+.buscar input::placeholder{ color:var(--text-3); font-weight:600; }
+.chips-row{ display:flex; flex-wrap:wrap; gap:7px; }
+.sin-rutas{ font-size:13px; color:var(--text-3); padding:18px 2px; }
+/* El planificador. La grilla de la semana colapsa a una columna en
+   pantalla chica: siete columnas de 140px no entran en un teléfono. */
+.plan-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+.plan-form .field{ display:flex; flex-direction:column; gap:7px; }
+.plan-form label{ font-size:12px; font-weight:800; letter-spacing:.02em; color:var(--text-2); }
+.plan-form select{
+  padding:11px 12px; font-size:14px; font-weight:600; border-radius:var(--r-md);
+  border:1px solid var(--divider); background:var(--surface-2); color:var(--text);
+}
+.plan-form .hint{ font-size:11.5px; color:var(--text-3); line-height:1.5; }
+.dias-row{ display:flex; flex-wrap:wrap; gap:6px; }
+.dia-btn{
+  flex:1; min-width:42px; padding:9px 0; border-radius:var(--r-sm); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:11.5px; font-weight:800; color:var(--text-3);
+  transition:border-color var(--dur) ease, background var(--dur) ease, color var(--dur) ease;
+}
+.dia-btn:hover{ border-color:var(--accent); }
+.dia-btn.on{ background:var(--accent); border-color:var(--accent); color:var(--surface); }
+
+.semana{ display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px; align-items:start; }
+@media (max-width:900px){ .semana{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:520px){ .semana{ grid-template-columns:1fr; } }
+.dia{
+  display:flex; flex-direction:column; gap:8px; padding:12px 10px;
+  border-radius:var(--r-lg); background:var(--surface); border:1px solid var(--divider);
+}
+.dia.libre{ background:var(--surface-2); border-style:dashed; }
+.dia.hoy{ border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.dia-nom{ font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3); }
+.dia.hoy .dia-nom{ color:var(--accent-strong); }
+.dia-total{ font-size:10.5px; color:var(--text-3); font-weight:700; }
+.bloque{
+  display:flex; flex-direction:column; gap:3px; padding:9px 10px;
+  border-radius:var(--r-md); border:1px solid var(--divider-soft); background:var(--surface-2);
+  text-decoration:none; color:var(--text);
+}
+a.bloque:hover{ border-color:var(--accent); }
+.bloque .tipo{ font-size:9.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
+.bloque.practica .tipo{ color:var(--warm); }
+.bloque.estudio .tipo{ color:var(--accent-strong); }
+.bloque.repaso .tipo{ color:var(--text-3); }
+.bloque .qué{ font-size:12.5px; font-weight:700; line-height:1.35; }
+.bloque .dur{ font-size:10.5px; color:var(--text-3); font-weight:600; }
+.dia-vacio{ font-size:11.5px; color:var(--text-3); padding:6px 2px; }
+.plan-nota{
+  margin-top:18px; padding:14px 16px; border-radius:var(--r-md);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12.5px; color:var(--text-3); line-height:1.6;
+}
+.franjas{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
+.franja-b{
+  text-align:left; padding:12px 14px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.franja-b:hover{ border-color:var(--accent); }
+.franja-b[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.franja-b b{ display:block; font-size:13.5px; margin-bottom:2px; }
+.franja-b span{ font-size:11.5px; color:var(--text-3); }
+.horas-caja{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.horas-val{
+  font-size:24px; font-weight:800; letter-spacing:-.02em;
+  min-width:112px; font-variant-numeric:tabular-nums;
+}
+.horas-val small{ font-size:12.5px; font-weight:600; color:var(--text-3); }
+#horas{ flex:1 1 180px; accent-color:var(--accent); height:26px; }
+
+/* --- La chinchilla que te guia ---------------------------------- */
+.chin{
+  position:fixed; z-index:70;
+  width:min(340px, calc(100vw - 32px));
+  animation:chin-entra 320ms cubic-bezier(.2,.9,.3,1.2);
+  transition:top 220ms ease, left 220ms ease;
+}
+/* Anclada a lo que hay que tocar, o en la esquina si el paso no
+   apunta a nada. */
+.chin-esquina{ right:20px; bottom:20px; }
+.chin-anclada{ right:auto; bottom:auto; }
+
+/* Lo que hay que tocar, resaltado. El recorte se hace con sombra en
+   vez de un fondo aparte: así el elemento sigue siendo clickeable. */
+.chin-foco{
+  position:relative; z-index:69;
+  border-radius:var(--r-lg);
+  box-shadow:0 0 0 3px var(--accent), 0 0 0 9px color-mix(in srgb, var(--accent) 22%, transparent);
+  animation:chin-late 1.8s ease-in-out infinite;
+}
+@keyframes chin-late{
+  0%, 100%{ box-shadow:0 0 0 3px var(--accent), 0 0 0 9px color-mix(in srgb, var(--accent) 22%, transparent); }
+  50%{ box-shadow:0 0 0 3px var(--accent), 0 0 0 14px color-mix(in srgb, var(--accent) 8%, transparent); }
+}
+.chin[hidden]{ display:none; }
+@keyframes chin-entra{
+  from{ opacity:0; transform:translateY(14px) scale(.96); }
+  to{ opacity:1; transform:none; }
+}
+.chin-globo{
+  position:relative; padding:26px 20px 18px;
+  border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--accent-line);
+  box-shadow:var(--shadow-lg);
+}
+/* La chinchilla asoma por arriba del globo, como escarbando. */
+.chin-fig{
+  position:absolute; top:-30px; left:18px;
+  width:56px; height:56px; border-radius:50%;
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  display:grid; place-items:center; overflow:hidden;
+}
+.chin-svg{ width:42px; height:42px; margin-top:7px; }
+.chin-x{
+  position:absolute; top:9px; right:9px;
+  display:grid; place-items:center; width:26px; height:26px;
+  border-radius:var(--r-pill); cursor:pointer;
+  background:none; border:0; color:var(--text-3);
+}
+.chin-x:hover{ background:var(--surface-2); color:var(--text); }
+.chin-t{ display:block; margin-top:14px; font-size:16px; letter-spacing:-.01em; }
+.chin-p{ margin:6px 0 0; font-size:13.5px; color:var(--text-2); line-height:1.6; }
+.chin-acc{ display:flex; align-items:center; gap:12px; margin-top:16px; }
+.chin-salto{
+  background:none; border:0; padding:4px 2px; cursor:pointer;
+  font:inherit; font-size:12px; color:var(--text-3); text-decoration:underline;
+}
+.chin-salto:hover{ color:var(--text); }
+
+.chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--text-3); }
+.chin-b{ margin-left:auto; padding:10px 16px; }
+.chin-b .dest{ font-size:14px; }
+@media (max-width:560px){
+  .chin{ right:12px; left:12px; bottom:12px; width:auto; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="backlink" href="index.html" title="Volver al inicio" aria-label="Volver al inicio">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+      <span class="back-txt">Inicio</span>
+    </a>
+    <span class="crumb-sep" aria-hidden="true">/</span>
+    <a class="brand" href="#top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg>
+      <span class="marca">DataChinchilla</span> 
+    </a>
+    <span class="topbar-sp"></span>
+    <button class="acct" id="acctBtn" type="button" title="Tu avance en todas las rutas">
+      <span class="avatar" id="avatar"></span>
+      <span class="who" id="acctName">Entrar</span>
+    </button>
+    <button class="icon-btn" id="themeBtn" type="button" title="Cambiar entre tema claro y oscuro" aria-label="Cambiar tema">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="themeIcon">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="lema">Decidir cansa más que estudiar</p>
+    <h1>Tu <span class="grad">semana</span></h1>
+    <p class="hero-lead">Con todas las rutas cargadas, el problema deja de ser el material y pasa a ser saber qué hacer un martes a las siete. Dime cuánto tiempo tienes y a qué apuntas, y te queda la semana escrita: qué día, cuánto rato y qué exactamente.</p>
+  </div>
+</section>
+
+<section class="section" id="config">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Tu tiempo</p>
+      <h2>Cómo es tu semana de verdad</h2>
+      <p>No pongas el tiempo que te gustaría tener. Pon el que vas a tener de verdad, que es lo que hace que un plan se cumpla.</p>
+    </div>
+
+    <div class="plan-form">
+      <div class="field">
+        <label>Qué días</label>
+        <div class="dias-row" id="diasRow"></div>
+        <p class="hint">Con menos de tres días la práctica no llega a fijar nada.</p>
+      </div>
+
+      <div class="field">
+        <label>A qué hora te sale mejor</label>
+        <div class="franjas" id="franjasRow"></div>
+        <p class="hint">El cuándo es la mitad de que un plan se cumpla.</p>
+      </div>
+
+      <div class="field">
+        <label for="horas">Cuánto por semana</label>
+        <div class="horas-caja">
+          <span class="horas-val" id="horasVal"></span>
+          <input type="range" id="horas" min="30" max="1200" step="30">
+        </div>
+        <p class="hint" id="horasNota"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="plan">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Tu semana</p>
+      <h2 id="planTitulo">La semana que te queda</h2>
+      <p id="planSub"></p>
+      <div class="rutas-activas" id="rutasActivas" hidden></div>
+    </div>
+    <div class="semana" id="semana"></div>
+    <p class="plan-nota" id="planNota"></p>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="foot-marca">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg>
+      <span><b>DataChinchilla</b> &middot; No planificar es planificar el fracaso</span>
+    </span>
+    <nav class="foot-links">
+      <a href="#rutas">Todas las rutas</a>
+      <a href="armar.html">Armar la mía</a>
+      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
+      <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog class="sheet" id="account" aria-labelledby="acctTitle">
+  <div class="sheet-in">
+    <div class="sheet-head">
+      <span class="avatar" id="acctBigAvatar" style="width:38px;height:38px;font-size:16px"></span>
+      <div class="head-txt">
+        <div class="node-kicker"><span class="lvl">Tu avance en esta ruta</span></div>
+        <h2 id="acctTitle"></h2>
+      </div>
+      <button class="icon-btn" id="acctClose" type="button" title="Cerrar" aria-label="Cerrar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="acctBody"></div>
+  </div>
+</dialog>
+
+<script src="pasos.js?v=4a4d5fcc"></script>
+<script src="chinchilla.js?v=fda14bb1"></script>
+<script src="path-sync.js?v=7673db81"></script>
+<script src="temas.js?v=a8e81f08"></script>
+<script src="cv.js?v=9243a13a"></script>
+<script src="onboarding.js?v=fb5df1b2"></script>
+<script src="guia.js?v=84529b0e"></script>
+<script src="plan.js?v=35d7e8f9"></script>
+<script>
+(function(){
+"use strict";
+
+var STORAGE = {
+  profiles: "snowpro-path/v1/profiles",
+  session:  "snowpro-path/v1/session",
+  theme:    "snowpro-path/v1/theme",
+  anon:     "de-path/v1/anon"
+};
+
+var CONFIG = {
+  supabaseUrl: "https://sscfykrodjnfnnbmkopp.supabase.co",
+  supabaseKey: "sb_publishable_t8bH_XUtTPUi9XnEPxJrgQ_9qTsK-m6"
+};
+
+function icon(name, size){
+  var s = size || 16;
+  var paths = {
+    brain:  '<path d="M9.5 4a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8V15a3 3 0 0 0 4.5 2.6"/><path d="M14.5 4a3 3 0 0 1 3 3 3 3 0 0 1 1 5.8V15a3 3 0 0 1-4.5 2.6"/><path d="M12 4.5v15"/>',
+    code:   '<path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/>',
+    sql:    '<ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    cloud:  '<path d="M20 17.6A4.4 4.4 0 0 0 17.7 9h-1.2A7 7 0 1 0 5 16.3"/>',
+    flow:   '<rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v6a3 3 0 0 0 3 3H14"/>',
+    build:  '<path d="M14.5 3.5a5 5 0 0 0-6.6 6.1L3 14.5V21h6.5l4.9-4.9a5 5 0 0 0 6.1-6.6l-3.1 3.1-2.9-.6-.6-2.9z"/>',
+    school: '<path d="M12 3L2 8l10 5 10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/>',
+    snow:   '<path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/>',
+    model:  '<rect x="9" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="16.5" width="6" height="5" rx="1"/><rect x="15.5" y="16.5" width="6" height="5" rx="1"/><path d="M12 7.5v4M5.5 16.5v-2.5h13v2.5"/>',
+    aws:    '<path d="M3 15.5c5.5 3.5 12.5 3.5 18 0"/><path d="M18.5 13c1.5-.5 2.5 0 2 1.5"/><path d="M5 10.5l1.7-5 1.8 5"/><path d="M5.6 9h2.6"/><path d="M11 5.5l1.2 5 1.3-3.6 1.3 3.6 1.2-5"/>',
+    boss:   '<path d="M4 18h16"/><path d="M4 18l-1.5-9 5 3.5L12 4l4.5 8.5 5-3.5L20 18"/>',
+    estrella: '<path d="M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/>',
+    check:  '<path d="M20 6L9 17l-5-5"/>',
+    arrow:  '<path d="M5 12h14M13 5l7 7-7 7"/>',
+    clock:  '<circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 1.9"/>',
+    open:   '<path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v5a1.9 1.9 0 0 1-2 2H5a1.9 1.9 0 0 1-2-2V8a1.9 1.9 0 0 1 2-2h5"/>',
+    user:   '<circle cx="12" cy="8" r="3.6"/><path d="M4.6 20a7.4 7.4 0 0 1 14.8 0"/>',
+    warn:   '<path d="M12 3.5L2.8 19.5h18.4z"/><path d="M12 10v4M12 17v.1"/>',
+    lock:   '<rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
+  };
+  return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+         'stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+         (paths[name] || paths.check) + '</svg>';
+}
+
+function esc(t){
+  return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+
+
+
+
+
+/* El id de una ruta es su archivo: no cambia aunque cambie el nombre. */
+
+
+
+
+
+
+
+/* El diálogo de la cuenta. Sin esto showAcct fallaba callado: el panel
+   se llenaba con el formulario y nunca se abría. */
+var acctDlg = document.getElementById("account");
+
+function errBox(msg){
+  return '<p class="form-err">' + icon("warn", 15) + '<span>' + msg + '</span></p>';
+}
+
+function openAccount(){ renderAccount(""); showAcct(); }
+
+function showAcct(){
+  if(typeof acctDlg.showModal === "function"){ if(!acctDlg.open) acctDlg.showModal(); }
+  else acctDlg.setAttribute("open", "");
+}
+
+function hideAcct(){
+  if(typeof acctDlg.close === "function" && acctDlg.open) acctDlg.close();
+  else acctDlg.removeAttribute("open");
+}
+
+function renderAccess(msg){
+  document.getElementById("acctBigAvatar").innerHTML = icon("user", 16);
+  document.getElementById("acctBody").innerHTML = '<div id="authZona"></div>';
+  PathSync.authUI.render(document.getElementById("authZona"), {
+    app: "snowpath",
+    cls: { btn: "btn-done", alt: "btn-quiet" },
+    onTitulo: function(bajada, titulo){
+      document.getElementById("acctTitle").textContent = titulo;
+    },
+    onEntrar: function(){ refreshSes(); renderAccount(""); }
+  });
+  if(msg) PathSync.authUI.mensaje(msg);
+}
+
+function renderAccount(msg){
+  var p = activeProfile();
+  if(!p && cloudOn()) return renderAccess(msg);
+  var ses = PathSync.session();
+  var name = (ses && ses.email) ? ses.email : "Tu avance";
+  document.getElementById("acctBigAvatar").innerHTML = (ses && ses.email)
+    ? esc(ses.email.slice(0, 1).toUpperCase()) : icon("check", 16);
+  document.getElementById("acctTitle").textContent = name;
+
+  var html = msg ? errBox(msg) : "";
+  html += '<div class="acct-stat">' + icon("check", 15) +
+            '<span class="k">El avance de cada ruta se guarda por separado y se ve dentro de cada una.</span>' +
+          '</div>';
+
+  if(!cloudOn()){
+    html += '<p class="auth-note">El avance vive en este navegador y no se pierde al cerrarlo. ' +
+            'Para llevarlo a otra computadora hace falta entrar con mail, que todavía no está configurado.</p>';
+  }else if(ses && ses.email){
+    html += '<h4>Progreso en la nube</h4>' +
+            '<div class="acct-stat">' + icon("check", 15) +
+              '<span class="k">Sincroniza con <b>' + esc(ses.email) + '</b>. Entra con ese mail en otra ' +
+              'computadora y las rutas siguen donde las dejaste.</span></div>' +
+            '<div class="auth-actions">' +
+              '<button class="btn-quiet" type="button" id="cloudOut">' + icon("user", 15) + 'Desconectar este navegador</button>' +
+            '</div>';
+  }else{
+    html += '<h4>Progreso en la nube</h4><div id="authZona"></div>';
+  }
+
+  var body = document.getElementById("acctBody");
+  body.innerHTML = html;
+  body.scrollTop = 0;
+  montarAcceso();
+
+  var out = document.getElementById("cloudOut");
+  if(out) out.addEventListener("click", function(){
+    if(!window.confirm("¿Desconecto este navegador de tu mail? El avance queda igual acá.")) return;
+    PathSync.signOut();
+    refreshSes();
+    renderAccount("");
+    toast("Listo, este navegador ya no sincroniza.");
+  });
+}
+
+function montarAcceso(vista){
+  var z = document.getElementById("authZona");
+  if(!z) return;
+  PathSync.authUI.render(z, {
+    app: "snowpath",
+    vista: vista || "login",
+    cls: { btn: "btn-done", alt: "btn-quiet" },
+    onEntrar: function(){
+      refreshSes();
+      renderAccount("");
+      sincronizarPerfil();
+      PathSync.evento("snowpath", "entro", { ruta: "landing" });
+    }
+  });
+}
+
+function sincronizarPerfil(){
+  if(!PathSync.isOn() || !PathSync.session()) return;
+  var alta = PathSync.tomarAltaPendiente();
+  var datos = { ultima_app: "snowpath", primera_app: "snowpath" };
+  if(alta && alta.nombre) datos.nombre = alta.nombre;
+  PathSync.guardarPerfil(datos).then(function(){
+    if(alta && alta.optin) PathSync.registrarConsentimiento(true, "snowpath");
+  });
+}
+
+function paintAccount(){
+  var ses = PathSync.session();
+  var chip = document.getElementById("acctBtn");
+  if(ses && ses.email){
+    document.getElementById("avatar").textContent = esc(ses.email.slice(0, 1).toUpperCase());
+    document.getElementById("acctName").textContent = ses.email.split("@")[0];
+    chip.setAttribute("title", "Entraste con " + ses.email + ", el mismo mail vale para las dos rutas");
+  }else if(activeProfile() || !cloudOn()){
+    document.getElementById("avatar").innerHTML = icon("check", 14);
+    document.getElementById("acctName").textContent = "Tu avance";
+    chip.setAttribute("title", cloudOn()
+      ? "Tu avance vive en este navegador. Entra con tu mail para llevarlo a otra computadora."
+      : "Tu avance vive en este navegador");
+  }else{
+    document.getElementById("avatar").innerHTML = icon("user", 14);
+    document.getElementById("acctName").textContent = "Entrar";
+    chip.setAttribute("title", "Entra con tu mail y el avance te sigue en las dos rutas");
+  }
+}
+
+function toast(msg){
+  var t = document.getElementById("toast");
+  /* Si la página no trae el elemento, se arma acá y no se pierde el
+     aviso. Antes reventaba y se llevaba puesto lo que siguiera: por
+     eso subir el CV no hacía nada. */
+  if(!t){
+    t = document.createElement("div");
+    t.className = "toast"; t.id = "toast";
+    t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
+    t.innerHTML = '<span id="toastText"></span>';
+    document.body.appendChild(t);
+  }
+  var txt = document.getElementById("toastText");
+  if(txt) txt.textContent = msg;
+  t.classList.add("show");
+  /* El temporizador vive en el elemento y no en una variable suelta,
+     que era otra cosa que faltaba en tres de las cuatro páginas. */
+  window.clearTimeout(t.__timer);
+  t.__timer = window.setTimeout(function(){ t.classList.remove("show"); }, 2600);
+}
+
+
+var DAY_LETTERS = ["D", "L", "M", "M", "J", "V", "S"];
+var DAY_NAMES = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+var MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+              "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   EL PLAN · lo hace plan.js, acá sólo se le pone nombre corto
+   ============================================================ */
+var DIAS       = Plan.DIAS;
+var DIAS_CORTO = Plan.DIAS_CORTO;
+var MIN_PRACTICA = Plan.MIN_PRACTICA;
+var MIN_REPASO   = Plan.MIN_REPASO;
+var plan = Plan.estado;
+
+function cargarPlan(){ return Plan.cargar(); }
+function guardarPlan(){ return Plan.guardar(); }
+function pendientesDe(ruta){ return Plan.pendientesDe(ruta); }
+function armarSemana(){ return Plan.armar(); }
+
+function pintarSemana(){
+  var r = armarSemana(), hoy = (new Date().getDay() + 6) % 7;   /* lunes = 0 */
+  var html = "", d, i;
+
+  for(d=0;d<7;d++){
+    var dia = r.semana[d], mins = 0;
+    for(i=0;i<dia.bloques.length;i++) mins += dia.bloques[i].min;
+    html += '<div class="dia' + (dia.bloques.length ? "" : " libre") + (d === hoy ? " hoy" : "") + '">' +
+              '<span class="dia-nom">' + DIAS_CORTO[d] + (d === hoy ? " · hoy" : "") + '</span>';
+    if(!dia.bloques.length){
+      html += '<p class="dia-vacio">Libre</p>';
+    }else{
+      html += '<span class="dia-total num">' + (mins >= 60 ? Math.floor(mins/60) + " h " + (mins%60 ? (mins%60)+" min" : "") : mins + " min") + '</span>';
+      for(i=0;i<dia.bloques.length;i++){
+        var bl = dia.bloques[i];
+        html += '<a class="bloque ' + bl.tipo + '" href="' + bl.url + '">' +
+                  '<span class="tipo">' + (bl.tipo === "practica" ? "Práctica" : bl.tipo === "repaso" ? "Repaso" : "Estudio") + '</span>' +
+                  '<span class="qué">' + esc(bl.qué) + '</span>' +
+                  '<span class="dur num">' + bl.min + ' min</span>' +
+                '</a>';
+      }
+    }
+    html += '</div>';
+  }
+  document.getElementById("semana").innerHTML = html;
+
+  var pend = pendientesDe(r.ruta).length;
+
+  document.getElementById("planNota").innerHTML =
+    "<b>Por qué está repartido así.</b> Lo que aprendes va en bloque largo y un tema por vez: " +
+    "cambiar de tema mientras armas el modelo mental cuesta caro. Lo que practicas va corto, " +
+    "todos los días y mezclado: veinte ejercicios seguidos del mismo patrón se sienten " +
+    "productivos y no lo son, porque terminas reconociendo el patrón por el contexto y en la " +
+    "entrevista cae suelto.";
+}
+
+
+/* Qué estás estudiando sale del CV: elegirlo acá era preguntar dos
+   veces lo mismo. Si todavía no armaste tu ruta, se dice y se lleva
+   a hacerlo. */
+function pintarQueEstudias(){
+  var n = document.getElementById("planSub");
+  if(!n) return;
+  var r = Plan.armar();
+  if(!r.rutas.length){
+    n.innerHTML = 'Todavía no armaste tu ruta. ' +
+      '<a href="cv.html">Sácala de tu CV</a> y la semana se arma sola.';
+    return;
+  }
+  var nombres = r.rutas.map(function(x){ return x.nombre; });
+  n.textContent = "Estás con " + nombres.join(", ") + ".";
+}
+
+
+/* Las rutas que entran en la semana, elegidas acá.
+
+   Antes el único camino para cambiar una era volver a cv.html, que
+   rehace el análisis del CV entero: para sacar dbt y poner Big Data
+   había que cargar el currículum de nuevo. */
+function pintarRutasActivas(){
+  var caja = document.getElementById("rutasActivas");
+  if(!caja || typeof Onb === "undefined" || typeof PASOS === "undefined") return;
+  Onb.cargar();
+
+  var h = "", i, p, act;
+  for(i=0;i<PASOS.length;i++){
+    p = PASOS[i];
+    act = Onb.activa(p.clave);
+    h += '<button class="ra-b' + (act ? " on" : "") + '" type="button" ' +
+      'data-ruta="' + esc(p.clave) + '" aria-pressed="' + (act ? "true" : "false") + '">' +
+      '<span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+      'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M20 6L9 17l-5-5"/></svg></span>' +
+      esc(p.nombre) + '</button>';
+  }
+
+  var cuantas = Onb.estado.rutas.length;
+  caja.innerHTML =
+    '<span class="ra-t">Qué entra en tu semana</span>' +
+    '<div class="ra-lista">' + h + '</div>' +
+    '<p class="ra-nota">' + (cuantas
+      ? "El tiempo se reparte entre las " + (cuantas === 1 ? "que elegiste" : cuantas + " que elegiste") + "."
+      : "Sin ninguna elegida no hay nada que repartir. Toca las que quieras hacer.") +
+    '</p>';
+  caja.hidden = false;
+
+  var b = caja.querySelectorAll("[data-ruta]"), j;
+  for(j=0;j<b.length;j++){
+    b[j].addEventListener("click", function(){
+      Onb.alternarRuta(this.getAttribute("data-ruta"));
+      /* La semana se rehace: es lo único que cambia al elegir otra. */
+      pintarRutasActivas();
+      pintarQueEstudias();
+      pintarSemana();
+    });
+  }
+}
+
+function pintarFranjas(){
+  var c = document.getElementById("franjasRow");
+  if(!c || typeof Onb === "undefined") return;
+  Onb.cargar();
+  var h = "", i, f;
+  for(i=0;i<Onb.FRANJAS.length;i++){
+    f = Onb.FRANJAS[i];
+    h += '<button class="franja-b" type="button" data-franja="' + f.id + '" ' +
+      'aria-pressed="' + (Onb.estado.franja === f.id) + '">' +
+      '<b>' + f.t + '</b><span>' + f.d + '</span></button>';
+  }
+  c.innerHTML = h;
+  var b = c.querySelectorAll("[data-franja]"), j;
+  for(j=0;j<b.length;j++){
+    b[j].addEventListener("click", function(){
+      Onb.estado.franja = this.getAttribute("data-franja");
+      Onb.estado.semanaLista = true;
+      Onb.guardar();
+      pintarFranjas();
+    });
+  }
+}
+
+/* Las horas, con barra y desde media hora: la lista arrancaba en tres
+   y dejaba afuera a quien tiene una. */
+function pintarHoras(){
+  var r = document.getElementById("horas");
+  if(!r) return;
+  var min = plan.horas * 60;
+  if(typeof Onb !== "undefined" && Onb.estado.minutos) min = Onb.estado.minutos;
+  r.value = min;
+  function pintar(){
+    var m = parseInt(r.value, 10), dias = plan.dias.length || 1;
+    document.getElementById("horasVal").innerHTML =
+      ratoLargo(m) + ' <small>por semana</small>';
+    document.getElementById("horasNota").textContent =
+      "Son " + ratoLargo(Math.round(m / dias)) + " cada día que marcaste. " +
+      (m / dias < 30 ? "Con menos de media hora no rinde: mejor menos días y ratos más largos."
+                     : "Incluye la práctica corta, no solo el estudio.");
+  }
+  /* Mientras arrastrás sólo cambia el número: rearmar la semana en
+     cada píxel la hacía parpadear y no dejaba leer lo que quedaba.
+     La semana se rehace al soltar. */
+  r.addEventListener("input", pintar);
+  r.addEventListener("change", function(){
+    var m = parseInt(r.value, 10);
+    plan.horas = Math.max(1, Math.round(m / 60));
+    if(typeof Onb !== "undefined"){ Onb.estado.minutos = m; Onb.estado.semanaLista = true; Onb.guardar(); }
+    guardarPlan();
+    pintar();
+    pintarSemana();
+  });
+  pintar();
+}
+
+function ratoLargo(min){
+  var h = Math.floor(min / 60), m = min % 60;
+  if(!h) return m + " min";
+  return h + (h === 1 ? " hora" : " horas") + (m ? " y " + m + " min" : "");
+}
+
+function pintarDias(){
+  var html = "", d;
+  for(d=0;d<7;d++){
+    var on = plan.dias.indexOf(d) >= 0;
+    html += '<button class="dia-btn' + (on ? " on" : "") + '" type="button" data-dia="' + d + '" ' +
+            'aria-pressed="' + (on ? "true" : "false") + '">' + DIAS_CORTO[d] + '</button>';
+  }
+  var cont = document.getElementById("diasRow");
+  cont.innerHTML = html;
+  var btns = cont.querySelectorAll("[data-dia]"), i;
+  for(i=0;i<btns.length;i++){
+    btns[i].addEventListener("click", function(){
+      var d = parseInt(this.getAttribute("data-dia"), 10);
+      var j = plan.dias.indexOf(d);
+      if(j >= 0) plan.dias.splice(j, 1); else plan.dias.push(d);
+      guardarPlan();
+      if(typeof Onb !== "undefined"){
+        Onb.estado.dias = plan.dias.slice(0);
+        Onb.estado.semanaLista = true;
+        Onb.guardar();
+      }
+      pintarDias(); pintarSemana(); pintarQueEstudias();
+    });
+  }
+}
+
+/* ============================================================
+   ARRANQUE · esta página lista y deja entrar, nada más
+   ============================================================ */
+var profiles = {}, sessionId = null, cloudSes = null;
+
+function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
+function activeProfile(){ return sessionId && profiles[sessionId] ? profiles[sessionId] : null; }
+function cloudOn(){ return PathSync.isOn(); }
+function refreshSes(){ cloudSes = PathSync.session(); return cloudSes; }
+
+function aplicarTema(t){
+  document.documentElement.setAttribute("data-theme", t);
+  safeSet(STORAGE.theme, t);
+}
+
+
+/* ============================================================
+   LA GUIA · la chinchilla te dice que sigue
+   ============================================================ */
+/* Deja el globo al lado de lo que hay que tocar. Debajo si entra,
+   arriba si no; y si el paso no apunta a nada, en la esquina. */
+function ubicarGuia(caja, sel){
+  var viejo = document.querySelector(".chin-foco");
+  if(viejo) viejo.classList.remove("chin-foco");
+
+  if(!sel){
+    caja.className = "chin chin-esquina";
+    caja.style.top = ""; caja.style.left = "";
+    return;
+  }
+  var e = document.querySelector(sel);
+  if(!e){
+    caja.className = "chin chin-esquina";
+    caja.style.top = ""; caja.style.left = "";
+    return;
+  }
+
+  e.classList.add("chin-foco");
+  e.scrollIntoView({ block: "center", behavior: "smooth" });
+
+  /* Se espera a que el scroll termine: medir antes da la posición
+     vieja y el globo aparece en cualquier lado. */
+  setTimeout(function(){
+    var r = e.getBoundingClientRect();
+    var ancho = Math.min(340, window.innerWidth - 32);
+    var alto = caja.offsetHeight || 220;
+
+    caja.className = "chin chin-anclada";
+    var top = r.bottom + 16;
+    if(top + alto > window.innerHeight - 12) top = Math.max(12, r.top - alto - 16);
+
+    var left = r.left;
+    if(left + ancho > window.innerWidth - 12) left = window.innerWidth - ancho - 12;
+    if(left < 12) left = 12;
+
+    caja.style.top = Math.round(top) + "px";
+    caja.style.left = Math.round(left) + "px";
+  }, 320);
+}
+
+function pintarGuia(){
+  var caja = document.getElementById("chin");
+  if(!caja || typeof Guia === "undefined") return;
+
+  var p = Guia.tocaAca();
+  if(!p){
+    caja.hidden = true;
+    var f = document.querySelector(".chin-foco");
+    if(f) f.classList.remove("chin-foco");
+    return;
+  }
+
+  document.getElementById("chinT").textContent = p.titulo;
+  document.getElementById("chinP").textContent = p.texto;
+  document.getElementById("chinBT").textContent = p.accion;
+  document.getElementById("chinN").textContent =
+    "Paso " + (Guia.estado.paso + 1) + " de " + Guia.PASOS.length;
+  caja.hidden = false;
+  ubicarGuia(caja, p.ancla);
+
+  document.getElementById("chinB").onclick = function(){
+    Guia.avanzar();
+    if(p.lleva){ location.href = p.lleva; return; }
+    pintarGuia();
+  };
+  function cerrarGuia(){
+    Guia.cerrar();
+    caja.hidden = true;
+    var f = document.querySelector(".chin-foco");
+    if(f) f.classList.remove("chin-foco");
+    toast("Listo. La puedes volver a ver desde tu perfil.");
+  }
+  document.getElementById("chinX").onclick = cerrarGuia;
+  var salto = document.getElementById("chinSalto");
+  if(salto) salto.onclick = cerrarGuia;
+}
+
+function init(){
+  PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
+  var guardado = safeGet(STORAGE.theme);
+  if(guardado) document.documentElement.setAttribute("data-theme", guardado);
+
+  profiles = PathSync.store.load();
+  sessionId = PathSync.store.sessionId();
+
+  cargarPlan();
+  pintarDias();
+  pintarFranjas();
+  pintarHoras();
+  pintarSemana();
+  pintarQueEstudias();
+  pintarRutasActivas();
+  paintAccount();
+  pintarGuia();
+
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    var ahora = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    aplicarTema(ahora);
+  });
+  document.getElementById("acctBtn").addEventListener("click", openAccount);
+
+  document.getElementById("horas").addEventListener("change", function(){
+    plan.horas = parseInt(this.value, 10) || 6;
+    guardarPlan(); pintarSemana();
+  });
+
+  var cerrar = document.querySelectorAll("[data-close]"), i;
+  for(i=0;i<cerrar.length;i++){ cerrar[i].addEventListener("click", hideAcct); }
+
+  PathSync.captureHash(function(m){ toast("El link del mail no sirvió: " + m); });
+  refreshSes();
+  if(cloudSes && PathSync.hashType() === "recovery"){
+    openAccount();
+    renderAccess("");
+    PathSync.authUI.irA("recovery");
+  }
+  paintAccount();
+}
+
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded", init);
+}else{ init(); }
+
+})();
+</script>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastText"></span>
+</div>
+
+<div class="chin" id="chin" hidden>
+  <div class="chin-globo">
+    <button class="chin-x" type="button" id="chinX" title="No mostrar más" aria-label="Cerrar la guía">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="chin-fig"><svg class="chin-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg></div>
+    <b class="chin-t" id="chinT"></b>
+    <p class="chin-p" id="chinP"></p>
+    <div class="chin-acc">
+      <span class="chin-n" id="chinN"></span>
+      <button class="chin-salto" type="button" id="chinSalto">Saltear</button>
+      <button class="btn-primary chin-b" type="button" id="chinB">
+        <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

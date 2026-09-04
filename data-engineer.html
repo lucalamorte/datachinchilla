@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruta de Data Engineer · DataChinchilla</title>
+<meta name="description" content="El camino completo para trabajar de data engineer: seis niveles en orden, del SQL de todos los días al proyecto corriendo en la nube. Material gratuito de Snowflake, CS50, freeCodeCamp y DataExpert.">
+<link rel="canonical" href="https://datachinchilla.com/data-engineer.html">
+<meta name="theme-color" content="#0C0818">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%230B1E2E%22%2F%3E%3Cg%20transform%3D%22translate%2812%2012.2%29%20scale%28.88%29%20translate%28-12%20-12.2%29%22%3E%3Cpath%20fill%3D%22%232A8DBB%22%20d%3D%22M%206.47%2017.58%20Q%206.26%2019.36%205.23%2017.77%20Q%204.28%2019.19%204.10%2017.39%20Q%202.68%2018.16%203.32%2016.56%20Q%201.79%2016.60%203.03%2015.53%20Q%201.74%2014.90%203.24%2014.54%20Q%202.44%2013.45%203.85%2013.80%20C%204.4%2010.6%207.6%2010.0%209.4%2011.8%20C%2010.6%2014.2%2010.4%2017.2%209.6%2019.4%20Z%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2210.4%22%20cy%3D%225.3%22%20rx%3D%222.8%22%20ry%3D%223.4%22%20transform%3D%22rotate%28-21%2010.4%205.3%29%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2218.0%22%20cy%3D%225.3%22%20rx%3D%222.8%22%20ry%3D%223.4%22%20transform%3D%22rotate%2821%2018.0%205.3%29%22%2F%3E%3Cellipse%20fill%3D%22%23BAE6FD%22%20cx%3D%2210.6%22%20cy%3D%225.7%22%20rx%3D%221.4%22%20ry%3D%221.8%22%20transform%3D%22rotate%28-21%2010.6%205.7%29%22%2F%3E%3Cellipse%20fill%3D%22%23BAE6FD%22%20cx%3D%2217.8%22%20cy%3D%225.7%22%20rx%3D%221.4%22%20ry%3D%221.8%22%20transform%3D%22rotate%2821%2017.8%205.7%29%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2214.2%22%20cy%3D%2217.2%22%20rx%3D%225.8%22%20ry%3D%225.2%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2214.2%22%20cy%3D%2211.3%22%20r%3D%225.4%22%2F%3E%3Cellipse%20fill%3D%22%230B1E2E%22%20cx%3D%2212.3%22%20cy%3D%2210.8%22%20rx%3D%22.85%22%20ry%3D%221.05%22%2F%3E%3Cellipse%20fill%3D%22%230B1E2E%22%20cx%3D%2216.3%22%20cy%3D%2210.8%22%20rx%3D%22.85%22%20ry%3D%221.05%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2212.6%22%20cy%3D%2210.4%22%20r%3D%22.3%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2216.6%22%20cy%3D%2210.4%22%20r%3D%22.3%22%2F%3E%3Cpath%20fill%3D%22%230B1E2E%22%20d%3D%22M13.6%2012.5h1.4c.26%200%20.41.29.25.5l-.7.92a.31.31%200%200%201-.5%200l-.7-.92a.31.31%200%200%201%20.25-.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<meta name="author" content="Luca Lamorte">
+<meta name="robots" content="index, follow">
+
+<!-- Los neutros, los radios y el ritmo, compartidos por todas las páginas.
+     Cada una define encima solo su acento. Va acá dentro y no a mano en el
+     HTML: esta plantilla reescribe toda la cabecera en cada corrida. -->
+<link rel="stylesheet" href="tema.css?v=75aecb1a">
+<!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
+     lo mismo: si lo escribe otro script en el HTML, la próxima corrida
+     de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
+<link rel="stylesheet" href="chinchilla.css?v=758a1e96">
+
+<!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
+     estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
+<meta property="og:site_name" content="DataChinchilla">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_LA">
+<meta property="og:title" content="El camino completo para trabajar de data engineer">
+<meta property="og:description" content="El camino completo para trabajar de data engineer: seis niveles en orden, del SQL de todos los días al proyecto corriendo en la nube. Material gratuito de Snowflake, CS50, freeCodeCamp y DataExpert.">
+<meta property="og:url" content="https://datachinchilla.com/data-engineer.html">
+<meta property="og:image" content="https://datachinchilla.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El camino completo para trabajar de data engineer">
+<meta name="twitter:description" content="El camino completo para trabajar de data engineer: seis niveles en orden, del SQL de todos los días al proyecto corriendo en la nube. Material gratuito de Snowflake, CS50, freeCodeCamp y DataExpert.">
+<meta name="twitter:image" content="https://datachinchilla.com/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DataChinchilla",
+  "url": "https://datachinchilla.com/",
+  "description": "No planificar es planificar el fracaso. Rutas de estudio gratuitas y ordenadas para trabajar con datos.",
+  "inLanguage": "es",
+  "author": { "@type": "Person", "name": "Luca Lamorte", "url": "https://www.linkedin.com/in/lclamorte/" }
+}
+</script>
+<style>
+/* ============================================================
+   1. TOKENS
+   La estructura es la misma que el path de SnowPro Core, pero el
+   acento es violeta: son dos rutas distintas y tienen que verse
+   distintas de un vistazo.
+   ============================================================ */
+:root{
+  /* Data Engineer */
+  --accent:        #6D28D9;
+  --accent-strong: #5B21B6;
+  --accent-soft:   #EDE9FE;
+  --accent-line:   #D4C9F9;
+}
+:root[data-theme="dark"]{
+  --accent:        #A78BFA;
+  --accent-strong: #C4B5FD;
+  --accent-soft:   #2A1D4D;
+  --accent-line:   #3C2C68;
+}
+:root{ color-scheme: light; }
+:root[data-theme="dark"]{ color-scheme: dark; }
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0;
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{ margin:0; line-height:1.16; letter-spacing:-.02em; font-weight:800; }
+p{ margin:0; }
+a{ color:var(--accent-strong); }
+button{ font:inherit; color:inherit; }
+svg{ flex-shrink:0; }
+.num{ font-variant-numeric: tabular-nums; }
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.eyebrow{ font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:0 0 10px; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+
+/* ============================================================
+   3. BOTONES
+   ============================================================ */
+.btn-primary{
+  display:inline-flex; align-items:center; gap:12px;
+  padding:13px 22px; border:0; border-radius:var(--r-xl); cursor:pointer;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2));
+  color:var(--warm-ink); font-weight:800; text-decoration:none;
+  box-shadow:0 8px 24px var(--warm-shadow);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 30px var(--warm-shadow); }
+.stack{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.18; text-align:left; }
+.btn-primary .verb{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; opacity:.72; }
+.btn-primary .dest{ font-size:15px; }
+.btn-quiet{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:11px 17px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider);
+  color:var(--text-2); font-weight:700; font-size:13.5px; text-decoration:none;
+  transition:color var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease, background var(--dur) ease;
+}
+.btn-quiet:hover{ color:var(--accent-strong); border-color:var(--accent); background:var(--surface-2); transform:translateY(-1px); }
+.btn-quiet .verb{ font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); }
+.btn-quiet .dest{ font-size:13.5px; }
+.btn-quiet[aria-disabled="true"]{
+  background:var(--surface-sunk); color:var(--text-3);
+  border:1px dashed var(--divider); cursor:not-allowed; transform:none;
+}
+.btn-done{
+  display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+  padding:12px 20px; border-radius:var(--r-xl); border:0; font-weight:800; font-size:14px;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2)); color:var(--warm-ink);
+  box-shadow:0 8px 22px var(--warm-shadow); text-decoration:none;
+  transition:transform var(--dur) ease;
+}
+.btn-done:hover{ transform:translateY(-2px); }
+.btn-done.done{ background:var(--good-soft); color:var(--good); border:1px solid color-mix(in srgb, var(--good) 40%, transparent); box-shadow:none; }
+.icon-btn{
+  display:inline-grid; place-items:center; width:36px; height:36px; flex-shrink:0;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface); color:var(--text-2); cursor:pointer;
+  transition:color var(--dur) ease, border-color var(--dur) ease;
+}
+.icon-btn:hover{ color:var(--accent-strong); border-color:var(--accent); }
+
+/* ============================================================
+   4. BARRA
+   ============================================================ */
+.topbar{ position:sticky; top:0; z-index:40; background:var(--bg); border-bottom:1px solid var(--divider); }
+@supports (backdrop-filter: blur(4px)){
+  .topbar{ background:color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter:blur(14px); }
+}
+.topbar-in{ display:flex; align-items:center; gap:16px; height:60px; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.brand{ display:flex; align-items:center; gap:9px; font-weight:800; font-size:14px; white-space:nowrap; text-decoration:none; color:inherit; }
+.brand svg{ color:var(--accent); }
+.brand-sub{ color:var(--text-3); font-weight:600; }
+.marca{ letter-spacing:-.02em; }
+.topbar-meter{ flex:1; display:flex; align-items:center; gap:12px; min-width:0; }
+.meter{
+  position:relative; flex:1; height:8px; min-width:50px;
+  background:var(--surface-sunk); border:1px solid var(--divider-soft);
+  border-radius:var(--r-pill); overflow:hidden;
+}
+.meter-fill{
+  position:absolute; inset:0 auto 0 0; width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-strong));
+  border-radius:var(--r-pill);
+  transition:width 420ms cubic-bezier(.4,0,.2,1);
+}
+.meter-label{ font-size:12px; font-weight:800; color:var(--text-2); white-space:nowrap; flex-shrink:0; }
+.meter-label b{ color:var(--text); }
+.acct{
+  display:inline-flex; align-items:center; gap:8px; flex-shrink:0;
+  height:36px; padding:0 13px 0 5px; cursor:pointer;
+  border-radius:var(--r-pill); border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-weight:700; font-size:12.5px;
+  transition:color var(--dur) ease, border-color var(--dur) ease;
+}
+.acct:hover{ color:var(--accent-strong); border-color:var(--accent); }
+.avatar{
+  display:grid; place-items:center; width:26px; height:26px; flex-shrink:0;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  font-size:12px; font-weight:800; line-height:1;
+}
+@media (max-width:760px){ .brand-sub{ display:none; } .lbl-word{ display:none; } .topbar-in{ gap:10px; } }
+@media (max-width:560px){
+  .topbar-meter{ flex:0 0 auto; }
+  .meter{ display:none; }
+  .acct .who{ display:none; }
+  .acct{ padding:0 4px; }
+}
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero{ padding:56px 0 30px; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.tag{
+  display:inline-flex; align-items:center; gap:6px; padding:5px 11px;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  border:1px solid var(--accent-line); font-size:11px; font-weight:800;
+}
+.tag.free{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 30%, transparent); }
+.tag.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 32%, transparent); }
+.hero h1{ font-size:clamp(32px,5vw,54px); max-width:19ch; }
+.hero h1 .grad{ background:linear-gradient(120deg,var(--accent),var(--accent-strong)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-lead{ margin-top:18px; font-size:17px; color:var(--text-2); max-width:62ch; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.hero-foot{ margin-top:18px; font-size:12.5px; color:var(--text-3); max-width:72ch; }
+.hero-foot a{ color:var(--text-2); }
+
+/* ============================================================
+   6. SECCIONES Y RACHA
+   ============================================================ */
+.section{ padding:48px 0; }
+.section-head{ max-width:64ch; margin-bottom:30px; }
+.section-head h2{ font-size:clamp(24px,3.4vw,34px); }
+.section-head p{ margin-top:12px; color:var(--text-2); font-size:15.5px; }
+
+.daily{
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:24px;
+  padding:26px; border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--divider); box-shadow:var(--shadow-md);
+}
+@media (max-width:820px){ .daily{ grid-template-columns:1fr; padding:22px; } }
+.streak{ background:var(--surface-2); border:1px solid var(--divider-soft); border-radius:var(--r-lg); padding:20px; }
+.streak .big{ font-size:44px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+.streak .big.on{ color:var(--warm); }
+.streak .k{ font-size:12px; color:var(--text-2); font-weight:700; margin-top:4px; }
+.week{ display:flex; gap:6px; margin:18px 0 16px; }
+.day{
+  flex:1; display:grid; place-items:center; gap:2px; cursor:pointer;
+  padding:7px 0; border-radius:var(--r-sm);
+  background:var(--surface); border:1px solid var(--divider-soft);
+  font-size:10px; font-weight:800; color:var(--text-3);
+  transition:border-color var(--dur) ease, background var(--dur) ease, transform var(--dur) ease;
+}
+.day:hover{ border-color:var(--accent); transform:translateY(-1px); }
+.day .dnum{ font-size:11px; color:var(--text-2); }
+.day.on{ background:var(--warm); border-color:var(--warm); color:var(--warm-ink); }
+.day.on .dnum{ color:var(--warm-ink); }
+.day.today{ border-color:var(--accent); border-width:2px; }
+.streak-note{ font-size:11.5px; color:var(--text-3); line-height:1.5; margin-top:12px; }
+.daily-links{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; align-content:start; }
+.daily-card{
+  display:flex; flex-direction:column; gap:8px; padding:18px;
+  border-radius:var(--r-lg); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text);
+  transition:border-color var(--dur) ease, transform var(--dur) ease;
+}
+.daily-card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.daily-card .ico{ display:grid; place-items:center; width:36px; height:36px; border-radius:var(--r-md); background:var(--accent-soft); color:var(--accent-strong); }
+.daily-card h3{ font-size:15px; }
+.daily-card p{ font-size:12.5px; color:var(--text-2); }
+.daily-card .go{ margin-top:auto; padding-top:6px; font-size:11px; font-weight:800; color:var(--accent-strong); display:flex; align-items:center; gap:6px; }
+/* ============================================================
+   7. EL CAMINO · camino serpenteante, tramos y nodos
+   ============================================================ */
+.map{ position:relative; padding-bottom:20px; }
+.track{ position:relative; padding:10px 0 30px; }
+.track-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:visible; }
+.track-line{ fill:none; stroke:var(--accent-line); stroke-width:14; stroke-linecap:round; stroke-linejoin:round; }
+.track-line-dash{ fill:none; stroke:var(--surface); stroke-width:3; stroke-linecap:round; stroke-dasharray:2 16; opacity:.85; }
+.track-line-done{
+  fill:none; stroke:url(#trailGrad); stroke-width:14; stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke-dashoffset 620ms cubic-bezier(.4,0,.2,1);
+}
+
+.act{ position:relative; z-index:2; display:flex; justify-content:center; margin:52px 0 30px; }
+.act:first-child{ margin-top:0; }
+.act-chip{
+  display:flex; align-items:center; gap:14px; max-width:min(560px,100%);
+  padding:12px 22px; border-radius:var(--r-pill);
+  background:var(--surface); border:1px solid var(--divider); box-shadow:var(--shadow-sm);
+}
+.act-chip .n{
+  display:grid; place-items:center; width:26px; height:26px; flex-shrink:0;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  font-size:12px; font-weight:800;
+}
+.act-chip .t{ font-size:14px; font-weight:800; letter-spacing:-.01em; }
+.act-chip .d{ font-size:12px; color:var(--text-3); font-weight:600; }
+@media (max-width:640px){
+  .act-chip{ flex-direction:column; align-items:flex-start; gap:4px; border-radius:var(--r-lg); text-align:left; width:100%; }
+  .act-chip .n{ display:none; }
+}
+
+.node-row{ position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:0 132px; margin:26px 0; }
+.node-row.side-left .node{ grid-column:1; }
+.node-row.side-right .node{ grid-column:2; }
+
+.node{
+  position:relative; width:100%; text-align:left; cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-lg);
+  padding:18px 20px 16px; box-shadow:var(--shadow-sm);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease, border-color var(--dur) ease;
+}
+.node:hover{ transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--accent); }
+/* keep the copy clear of the marker that straddles the inner edge */
+.side-left .node{ padding-right:44px; }
+.side-right .node{ padding-left:44px; }
+.node-marker{
+  position:absolute; top:50%; z-index:3;
+  display:grid; place-items:center; width:46px; height:46px;
+  border-radius:var(--r-pill); background:var(--surface);
+  border:3px solid var(--accent-line); color:var(--text-2);
+  font-size:15px; font-weight:800; box-shadow:var(--shadow-sm);
+  transition:background var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease;
+}
+.side-left .node-marker{ right:0; transform:translate(50%,-50%); }
+.side-right .node-marker{ left:0; transform:translate(-50%,-50%); }
+.node:hover .node-marker{ border-color:var(--accent); }
+.side-left .node:hover .node-marker{ transform:translate(50%,-50%) scale(1.06); }
+.side-right .node:hover .node-marker{ transform:translate(-50%,-50%) scale(1.06); }
+
+.node-kicker{ display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+.lvl{ font-size:9.5px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--text-3); }
+.node h3{ font-size:16.5px; }
+.node p{ margin-top:7px; font-size:13.5px; color:var(--text-2); }
+.node-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:13px; }
+.chip{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  border-radius:var(--r-sm); background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-2); white-space:nowrap;
+}
+.chip.free{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 28%, transparent); }
+.chip.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
+/* qué lo publica el fabricante y qué deja una credencial */
+.chip.official{ background:var(--accent-soft); color:var(--accent-strong); border-color:var(--accent-line); }
+.chip.cert{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
+.res .txt .t .chip{ margin-left:6px; vertical-align:middle; }
+
+/* node states */
+.node.is-done{ border-color:color-mix(in srgb, var(--good) 42%, var(--divider)); }
+.node.is-done .node-marker{ background:var(--good); border-color:var(--good); color:#04120D; }
+.node.is-done h3{ color:var(--text-2); }
+.node.is-current{ border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft), var(--shadow-md); }
+.node.is-current .node-marker{ background:var(--accent); border-color:var(--accent); color:var(--warm-ink); }
+.node.is-current .node-marker::after{
+  content:""; position:absolute; inset:-3px; border-radius:var(--r-pill);
+  border:3px solid var(--accent); animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:.7; }
+  70%{ transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+.node.is-boss{ background:linear-gradient(150deg,var(--surface),var(--surface-2)); border-color:var(--accent-line); }
+.node.is-boss h3{ font-size:19px; }
+.node.is-boss .node-marker{ width:56px; height:56px; border-width:3px; }
+.side-left .is-boss .node-marker{ transform:translate(50%,-50%); }
+.side-right .is-boss .node-marker{ transform:translate(-50%,-50%); }
+.node-check{
+  position:absolute; top:14px; right:14px; width:22px; height:22px;
+  display:grid; place-items:center; border-radius:var(--r-pill);
+  border:1px solid var(--divider); color:transparent; background:var(--surface-2);
+}
+.node.is-done .node-check{ background:var(--good); border-color:var(--good); color:#04120D; }
+
+@media (max-width:820px){
+  .node-row{ grid-template-columns:1fr; gap:0; margin:20px 0; }
+  .node-row.side-left .node, .node-row.side-right .node{ grid-column:1; margin-left:44px; width:auto; padding-left:20px; padding-right:20px; }
+  .side-left .node-marker, .side-right .node-marker{
+    left:0; right:auto; top:26px; transform:translate(calc(-50% - 22px),0);
+  }
+  .side-left .node:hover .node-marker, .side-right .node:hover .node-marker{ transform:translate(calc(-50% - 22px),0) scale(1.06); }
+  .side-left .is-boss .node-marker, .side-right .is-boss .node-marker{ transform:translate(calc(-50% - 17px),0); }
+  .node.is-boss .node-marker{ width:46px; height:46px; }
+  .node-check{ top:12px; right:12px; }
+  .track{ padding-left:0; }
+}
+
+
+/* ============================================================
+   8. FICHA DEL HITO
+   ============================================================ */
+dialog.sheet{
+  width:min(640px,calc(100vw - 32px)); max-height:min(86vh,880px);
+  padding:0; border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); color:var(--text); box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+dialog.sheet::backdrop{ background:rgba(10,6,24,.66); backdrop-filter:blur(3px); }
+dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
+@keyframes sheetIn{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+.sheet-in{ display:flex; flex-direction:column; max-height:inherit; }
+.sheet-head{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:22px 22px 18px; border-bottom:1px solid var(--divider-soft); background:var(--surface-2);
+}
+.sheet-head .head-txt{ flex:1; min-width:0; }
+.sheet-head h2{ font-size:21px; margin-top:6px; }
+.sheet-body{ padding:20px 22px 8px; overflow-y:auto; }
+.sheet-body h4{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:22px 0 10px; }
+.sheet-body h4:first-child{ margin-top:0; }
+.sheet-goal{ font-size:14.5px; color:var(--text-2); }
+.win-list{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.win-list li{ display:flex; gap:10px; font-size:13.5px; color:var(--text-2); }
+.win-list li svg{ color:var(--accent); margin-top:3px; }
+.res-list{ display:grid; gap:9px; }
+.res{
+  display:flex; align-items:center; gap:12px; padding:12px 14px;
+  border-radius:var(--r-md); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text); width:100%; text-align:left; cursor:pointer;
+  transition:border-color var(--dur) ease, transform var(--dur) ease, background var(--dur) ease;
+}
+.res:hover{ border-color:var(--accent); background:var(--surface-2); transform:translateY(-1px); }
+.res .ico{ display:grid; place-items:center; width:34px; height:34px; border-radius:var(--r-sm); background:var(--surface-2); color:var(--accent-strong); border:1px solid var(--divider-soft); }
+.res .txt{ flex:1; min-width:0; }
+.res .txt .t{ font-size:13.5px; font-weight:700; display:block; }
+.res .txt .s{ font-size:11px; color:var(--text-3); font-weight:600; }
+.res .go{ color:var(--text-3); }
+.res:hover .go{ color:var(--accent-strong); }
+.sheet-foot{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:16px 22px; border-top:1px solid var(--divider-soft); background:var(--surface-2);
+}
+.sheet-foot .grow{ flex:1; }
+.self-note{
+  display:flex; gap:10px; margin-top:16px; padding:12px 14px;
+  border-radius:var(--r-md); background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12px; line-height:1.55; color:var(--text-3);
+}
+@media (max-width:560px){
+  dialog.sheet{ width:100vw; max-width:100vw; max-height:92vh; margin:auto auto 0; border-radius:var(--r-xl) var(--r-xl) 0 0; }
+  .sheet-foot{ position:sticky; bottom:0; }
+}
+
+.finish{
+  position:relative; overflow:hidden;
+  border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); box-shadow:var(--shadow-md);
+}
+.finish.unlocked{ border-color:var(--accent); box-shadow:0 0 0 5px var(--accent-soft), var(--shadow-md); }
+.finish-in{ padding:34px; }
+.finish h2{ font-size:clamp(22px,3vw,30px); }
+.finish-lead{ margin-top:12px; color:var(--text-2); font-size:15px; max-width:52ch; }
+.finish-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.lock-note{ margin-top:12px; font-size:12px; color:var(--text-3); display:flex; align-items:center; gap:7px; }
+.support{ background:var(--surface-2); border:1px solid var(--divider-soft); border-radius:var(--r-lg); padding:22px; display:flex; flex-direction:column; gap:10px; }
+.support h3{ font-size:16px; }
+.support p{ font-size:13px; color:var(--text-2); }
+.support .btn-quiet{ margin-top:6px; align-self:flex-start; background:var(--surface); }
+@media (max-width:860px){ .finish-in{ grid-template-columns:1fr; gap:24px; padding:26px 22px; } }
+
+
+/* ============================================================
+   11. CERTIFICATE · watermarked, personal, plainly unofficial
+   ============================================================ */
+.cert{
+  position:relative; overflow:hidden; isolation:isolate;
+  border-radius:var(--r-lg); border:1px solid var(--accent-line);
+  background:linear-gradient(150deg, var(--surface), var(--surface-2) 60%, var(--accent-soft));
+  padding:26px 26px 20px;
+}
+.cert-wm{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.cert-wm text{
+  fill:var(--accent-strong); opacity:.13; font-weight:800; letter-spacing:.18em;
+  font-size:13px; font-family:inherit; text-transform:uppercase;
+}
+.cert-in{ position:relative; z-index:1; }
+.cert-badge{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid color-mix(in srgb, var(--warn) 34%, transparent);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+.cert-eyebrow{ font-size:10px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--text-3); }
+.cert-name{
+  margin:8px 0 6px; font-size:clamp(22px,3.4vw,32px); letter-spacing:-.03em;
+  border-bottom:2px solid var(--accent-line); padding-bottom:10px; display:inline-block;
+}
+.cert-line{ font-size:14px; color:var(--text-2); max-width:46ch; }
+.cert-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.cert-foot{
+  margin-top:18px; padding-top:14px; border-top:1px solid var(--divider-soft);
+  font-size:11px; line-height:1.55; color:var(--text-3);
+}
+.cert.mini{ padding:16px 16px 12px; }
+.cert.mini .cert-name{ font-size:17px; padding-bottom:6px; }
+.cert.mini .cert-line{ font-size:11.5px; }
+.cert.mini .cert-foot{ font-size:9.5px; margin-top:12px; padding-top:10px; }
+.cert.mini .cert-badge{ margin-bottom:10px; font-size:8.5px; padding:3px 8px; }
+.cert.sample{ filter:saturate(.55); }
+
+.preview-row{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,300px); gap:22px;
+  padding:24px 34px 34px; border-top:1px solid var(--divider-soft);
+}
+.preview-row h4{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:0 0 12px; }
+@media (max-width:860px){ .preview-row{ grid-template-columns:1fr; padding:20px 22px 26px; } }
+
+.post-mock{
+  border-radius:var(--r-lg); border:1px solid var(--divider);
+  background:var(--surface); box-shadow:var(--shadow-sm); overflow:hidden;
+}
+.post-head{ display:flex; align-items:center; gap:10px; padding:14px 16px 10px; }
+.post-head .who{ font-size:13.5px; font-weight:800; line-height:1.2; }
+.post-head .sub{ font-size:11px; color:var(--text-3); font-weight:600; }
+.post-body{ padding:0 16px 12px; font-size:13px; color:var(--text-2); }
+.post-thumb{ border-top:1px solid var(--divider-soft); border-bottom:1px solid var(--divider-soft); padding:14px 16px; background:var(--surface-2); }
+.post-link{ padding:10px 16px; font-size:11px; color:var(--text-3); font-weight:700; }
+.post-tag{
+  display:inline-flex; align-items:center; gap:6px; margin:0 16px 12px;
+  font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);
+}
+
+
+/* ============================================================
+   9. CREDITOS Y PIE
+   ============================================================ */
+/* ============================================================
+   PATH PROPIO · las rutas de esta guía se ven de lejos, tanto en el
+   mapa como adentro de la ficha del nivel
+   ============================================================ */
+.node.has-path{
+  border-color:var(--accent); border-width:2px;
+  background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow-md);
+}
+.own-ribbon{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:10px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--surface);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+.res.own{
+  padding:16px 18px; border:2px solid var(--accent);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.res.own:hover{ transform:translateY(-2px); background:linear-gradient(135deg, var(--accent-soft), var(--surface-2)); }
+.res.own .ico{ width:42px; height:42px; background:var(--accent); color:var(--surface); border-color:var(--accent); }
+.res.own .txt .t{ font-size:15px; }
+.res.own .go{ color:var(--accent-strong); }
+.own-tag{
+  display:block; margin-bottom:4px;
+  font-size:9.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--accent-strong);
+}
+
+/* tarjetas de la seccion de paths */
+.grid-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:16px; }
+.card{
+  display:flex; flex-direction:column; gap:9px; padding:20px;
+  background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-lg);
+  box-shadow:var(--shadow-sm); text-decoration:none; color:var(--text);
+  transition:transform var(--dur) ease, border-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+a.card:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:var(--shadow-md); }
+.card .ico{ display:grid; place-items:center; width:38px; height:38px; border-radius:var(--r-md); background:var(--accent-soft); color:var(--accent-strong); }
+.card h3{ font-size:16px; }
+.card p{ font-size:13px; color:var(--text-2); }
+.card .go{ margin-top:auto; padding-top:8px; font-size:11.5px; font-weight:800; color:var(--accent-strong); display:flex; align-items:center; gap:6px; }
+.card-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+/* Una ruta que todavía no existe no está bloqueada: se puede pedir.
+   Por eso no lleva borde punteado ni cursor de prohibido. */
+.paths-top{ padding-top:10px; }
+.card.own{
+  border-color:var(--accent); border-width:2px;
+  background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow-md);
+}
+.card.own .ico{ background:var(--accent); color:var(--surface); }
+.own-ribbon{
+  display:inline-flex; align-items:center; gap:7px; align-self:flex-start;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--surface);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+/* Una ruta que todavía no existe se muestra bloqueada, no se disfraza
+   de link: el pedido para que exista está una sola vez, bajo la grilla. */
+.card.locked{
+  border-style:dashed; box-shadow:none; background:var(--surface-sunk); cursor:not-allowed;
+}
+.card.locked .ico{ background:var(--surface-2); color:var(--text-3); border:1px solid var(--divider); }
+.card.locked h3, .card.locked p{ color:var(--text-3); }
+.card.locked .chip{ opacity:.75; }
+.card.locked .go{ color:var(--text-3); }
+.pedir{
+  display:flex; align-items:center; gap:9px; margin-top:16px;
+  font-size:12.5px; color:var(--text-3);
+}
+.pedir a{ font-weight:700; }
+
+
+/* ============================================================
+   BIBLIOTECA · créditos filtrables
+   ============================================================ */
+
+.lib-bar{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.lib-filter{
+  display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  padding:7px 13px; border-radius:var(--r-pill);
+  border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-size:12px; font-weight:800;
+  transition:border-color var(--dur) ease, color var(--dur) ease, background var(--dur) ease;
+}
+.lib-filter:hover{ border-color:var(--accent); color:var(--accent-strong); }
+.lib-filter.on{ background:var(--accent-strong); border-color:var(--accent-strong); color:var(--surface); }
+.lib-filter .n{ font-variant-numeric:tabular-nums; opacity:.7; }
+.lib-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.lib-card{
+  display:flex; flex-direction:column; gap:8px; padding:18px;
+  border-radius:var(--r-lg); border:1px solid var(--divider); background:var(--surface);
+  box-shadow:var(--shadow-sm); text-decoration:none; color:var(--text);
+  transition:transform var(--dur) ease, border-color var(--dur) ease;
+}
+a.lib-card:hover{ transform:translateY(-2px); border-color:var(--accent); }
+.lib-card .top{ display:flex; align-items:center; gap:10px; }
+.lib-card .ico{ display:grid; place-items:center; width:34px; height:34px; flex-shrink:0; border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-line); }
+.lib-card .t{ font-size:14px; font-weight:800; line-height:1.25; }
+.lib-card .d{ font-size:12.5px; color:var(--text-2); }
+.lib-card .s{ margin-top:auto; padding-top:6px; font-size:11px; color:var(--text-3); font-weight:700; display:flex; align-items:center; gap:6px; }
+.lib-more{ display:flex; justify-content:center; margin-top:20px; }
+.credit-list{ display:grid; gap:12px; }
+.credit{
+  display:flex; align-items:flex-start; gap:14px; padding:16px 18px;
+  border-radius:var(--r-md); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text);
+  transition:border-color var(--dur) ease, background var(--dur) ease;
+}
+a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
+.credit .ico{ display:grid; place-items:center; width:36px; height:36px; flex-shrink:0; border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-line); }
+.credit .t{ display:block; font-size:14px; font-weight:800; }
+.credit .d{ font-size:12.5px; color:var(--text-2); margin-top:3px; }
+.credit .s{ font-size:11px; color:var(--text-3); font-weight:700; margin-top:6px; display:block; }
+
+.suggest{
+  display:grid; grid-template-columns:auto minmax(0,1fr); gap:16px; align-items:start;
+  margin-top:26px; padding:20px 22px; border-radius:var(--r-lg);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  border:1px solid var(--accent-line);
+}
+.suggest .ico{ display:grid; place-items:center; width:42px; height:42px; border-radius:var(--r-md); background:var(--accent); color:var(--surface); }
+.suggest h3{ font-size:16px; }
+.suggest p{ font-size:13px; color:var(--text-2); margin-top:5px; max-width:62ch; }
+.suggest .acciones{ display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+@media (max-width:640px){ .suggest{ grid-template-columns:1fr; } }
+.disclaimer{
+  display:flex; align-items:flex-start; gap:12px; margin-top:26px;
+  padding:16px 18px; border-radius:var(--r-md);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12.5px; line-height:1.6; color:var(--text-2);
+}
+.disclaimer svg{ color:var(--text-3); margin-top:2px; }
+.disclaimer b{ color:var(--text); }
+/* ============================================================
+   CERTIFICADOS - que te llevas de esta ruta
+   Solo se dibuja la constancia propia. La credencial ajena queda como
+   una aclaracion de texto con sus requisitos y el enlace a quien la
+   emite: reproducir el diseno de un certificado de otro es fabricar
+   una credencial que no es mia, y ademas nunca queda bien.
+   ============================================================ */
+/* Una sola tarjeta: sin techo, auto-fit la estiraba a todo el ancho
+   y una constancia de 900px de ancho no parece una constancia. */
+.certs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px; max-width:560px; }
+.cert-card{ display:flex; flex-direction:column; gap:12px; }
+.cert-tag{
+  align-self:flex-start; padding:5px 12px; border-radius:var(--r-pill);
+  font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase;
+  background:var(--accent); color:var(--surface);
+}
+.cert-tag.libre{ background:var(--good); color:var(--surface); }
+.cert-hoja{
+  position:relative; overflow:hidden; padding:26px 24px 22px; text-align:center;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface); box-shadow:var(--shadow-sm);
+}
+.cert-hoja::before{
+  content:""; position:absolute; inset:7px; border-radius:var(--r-sm);
+  border:1px solid var(--divider-soft); pointer-events:none;
+}
+.cert-agua{
+  position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22188%22%20height%3D%22112%22%3E%3Ctext%20x%3D%224%22%20y%3D%2266%22%20transform%3D%22rotate%28-24%2094%2056%29%22%20font-family%3D%22Inter%2CSegoe%20UI%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22800%22%20fill%3D%22%23808080%22%20opacity%3D%220.30%22%3EEJEMPLO%3C%2Ftext%3E%3C%2Fsvg%3E"); background-repeat:repeat;
+}
+.cert-emisor{ position:relative; font-size:13px; font-weight:800; letter-spacing:-.01em; color:var(--accent); }
+.cert-tipo{ position:relative; margin-top:2px; font-size:9.5px; font-weight:800;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+.cert-nombre{ position:relative; margin:16px 0 4px; font-size:21px; font-weight:800;
+  letter-spacing:-.02em; line-height:1.2; word-break:break-word; }
+.cert-linea{ position:relative; font-size:12.5px; color:var(--text-2); line-height:1.55; }
+.cert-linea b{ color:var(--text); }
+.cert-datos{ position:relative; display:flex; flex-wrap:wrap; justify-content:center;
+  gap:7px; margin-top:16px; }
+.cert-pie{ position:relative; margin-top:18px; padding-top:13px;
+  border-top:1px solid var(--divider-soft); font-size:10.5px; color:var(--text-3); line-height:1.5; }
+.cert-nota{ font-size:12px; color:var(--text-3); line-height:1.55; }
+.cert-nota a{ font-weight:700; }
+.cert-datos .chip{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  border-radius:var(--r-sm); background:var(--surface-2);
+  border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-2); white-space:nowrap;
+}
+.cert-datos .chip.free{ background:var(--good-soft); color:var(--good);
+  border-color:color-mix(in srgb, var(--good) 28%, transparent); }
+.cert-datos .chip.paid{ background:var(--warn-soft); color:var(--warn);
+  border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
+
+
+.armar-band{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:22px; align-items:center;
+  padding:24px 26px; border-radius:var(--r-xl);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  border:2px solid var(--accent); box-shadow:var(--shadow-md);
+}
+.armar-band .ico{ display:grid; place-items:center; width:52px; height:52px; flex-shrink:0;
+  border-radius:var(--r-lg); background:var(--accent); color:var(--surface); }
+.armar-band h2{ font-size:20px; }
+.armar-band p{ margin-top:8px; font-size:13.5px; color:var(--text-2); max-width:62ch; }
+@media (max-width:760px){ .armar-band{ grid-template-columns:1fr; } .armar-band .btn-done{ justify-self:start; } }
+
+.lema{ font-size:12.5px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+
+
+.toast{
+  position:fixed; left:50%; bottom:26px; z-index:80;
+  display:flex; align-items:center; gap:10px; padding:13px 18px;
+  border-radius:var(--r-pill); background:var(--surface); border:1px solid var(--accent);
+  box-shadow:var(--shadow-lg); font-size:13.5px; font-weight:700;
+  transform:translate(-50%,26px); opacity:0; pointer-events:none;
+  transition:opacity 200ms ease, transform 200ms ease;
+}
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+.toast svg{ color:var(--accent); }
+
+.field{ display:grid; gap:6px; margin-bottom:14px; }
+.field label{ font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+.field input{
+  width:100%; padding:12px 14px; font-size:15px; font-weight:600;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface-2); color:var(--text);
+}
+.field input:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+.form-err{
+  display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;
+  padding:11px 13px; border-radius:var(--r-md); font-size:13px; font-weight:600;
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid color-mix(in srgb, var(--warn) 32%, transparent);
+}
+/* Piezas que dibuja el panel compartido de path-sync.js */
+.auth-actions .btn-done{ flex:1 1 100%; justify-content:center; }
+.auth-sep{ display:flex; align-items:center; gap:11px; margin:14px 0;
+  font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-3); }
+.auth-sep::before, .auth-sep::after{ content:""; flex:1; height:1px;
+  background:var(--divider-soft, var(--divider)); }
+.check{ display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer; }
+.check input{ width:17px; height:17px; margin:2px 0 0; flex-shrink:0;
+  accent-color:var(--accent); cursor:pointer; }
+.check span{ font-size:12.5px; line-height:1.5; color:var(--text-2); }
+.field .pista{ font-size:11.5px; font-weight:600; color:var(--text-3); }
+.auth-note{ margin-top:14px; font-size:11.5px; line-height:1.55; color:var(--text-3); }
+.auth-actions{ display:flex; flex-wrap:wrap; gap:9px; }
+.acct-stat{
+  display:flex; align-items:center; gap:12px; padding:14px 16px; margin-bottom:14px;
+  border-radius:var(--r-md); background:var(--surface-2); border:1px solid var(--divider-soft);
+}
+.acct-stat .k{ font-size:12.5px; color:var(--text-2); font-weight:600; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+/* La vuelta al listado de rutas. */
+.backlink{
+  display:inline-flex; align-items:center; gap:7px; flex-shrink:0;
+  padding:6px 11px 6px 8px; border-radius:var(--r-pill);
+  border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-size:12.5px; font-weight:700; text-decoration:none;
+  transition:color var(--dur) ease, border-color var(--dur) ease, background var(--dur) ease;
+}
+.backlink:hover{ color:var(--accent-strong); border-color:var(--accent); background:var(--surface-2); }
+.crumb-sep{ color:var(--text-3); font-weight:700; flex-shrink:0; }
+@media (max-width:900px){
+  .back-txt{ display:none; }
+  .backlink{ padding:6px 9px; }
+}
+@media (max-width:620px){
+  .crumb-sep{ display:none; }
+}
+
+/* El pie, en una línea. Antes ocupaba cinco y repetía en cada página
+   una explicación que ya se entiende usando el sitio. */
+.foot{ border-top:1px solid var(--divider-soft); margin-top:48px; padding:18px 0 26px; }
+.foot .foot-in{
+  display:flex; align-items:center; gap:14px 20px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--text-3);
+}
+.foot .foot-marca{ display:flex; align-items:center; gap:8px; color:var(--text-2); font-size:12.5px; padding:0; }
+.foot .foot-marca b{ color:var(--text); }
+.foot .foot-links{ margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.foot .foot-links a{ color:var(--text-3); font-weight:700; text-decoration:none; }
+.foot .foot-links a:hover{ color:var(--accent-strong); }
+@media (max-width:640px){ .foot .foot-links{ margin-left:0; } }
+/* El paso siguiente: de la ruta a la semana. Sin esto, terminabas de
+   mirar tu ruta y no habia a donde ir. */
+.sigue[hidden]{ display:none; }
+.sigue-caja{
+  display:flex; align-items:center; gap:16px;
+  padding:20px 22px; border-radius:var(--r-xl);
+  background:linear-gradient(160deg, var(--accent-soft), var(--surface) 68%);
+  border:1px solid var(--accent-line); text-decoration:none; color:inherit;
+  transition:border-color 160ms ease, transform 160ms ease;
+}
+.sigue-caja:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.sigue-caja .ico{
+  display:grid; place-items:center; width:46px; height:46px; flex:none;
+  border-radius:var(--r-lg); background:var(--surface); color:var(--accent);
+}
+.sigue-caja .txt{ display:flex; flex-direction:column; gap:3px; }
+.sigue-caja .txt b{ font-size:17px; letter-spacing:-.01em; }
+.sigue-caja .txt span{ font-size:13px; color:var(--text-2); line-height:1.55; }
+.sigue-caja .fl{ margin-left:auto; color:var(--accent); flex:none; display:flex;
+  transition:transform 160ms ease; }
+.sigue-caja:hover .fl{ transform:translateX(3px); }
+@media (max-width:560px){ .sigue-caja{ flex-wrap:wrap; } .sigue-caja .fl{ margin-left:0; } }
+
+/* --- La chinchilla que te guia ---------------------------------- */
+.chin{
+  position:fixed; z-index:70;
+  width:min(340px, calc(100vw - 32px));
+  animation:chin-entra 320ms cubic-bezier(.2,.9,.3,1.2);
+  transition:top 220ms ease, left 220ms ease;
+}
+/* Anclada a lo que hay que tocar, o en la esquina si el paso no
+   apunta a nada. */
+.chin-esquina{ right:20px; bottom:20px; }
+.chin-anclada{ right:auto; bottom:auto; }
+
+/* Lo que hay que tocar, resaltado. El recorte se hace con sombra en
+   vez de un fondo aparte: así el elemento sigue siendo clickeable. */
+.chin-foco{
+  position:relative; z-index:69;
+  border-radius:var(--r-lg);
+  box-shadow:0 0 0 3px var(--accent), 0 0 0 9px color-mix(in srgb, var(--accent) 22%, transparent);
+  animation:chin-late 1.8s ease-in-out infinite;
+}
+@keyframes chin-late{
+  0%, 100%{ box-shadow:0 0 0 3px var(--accent), 0 0 0 9px color-mix(in srgb, var(--accent) 22%, transparent); }
+  50%{ box-shadow:0 0 0 3px var(--accent), 0 0 0 14px color-mix(in srgb, var(--accent) 8%, transparent); }
+}
+.chin[hidden]{ display:none; }
+@keyframes chin-entra{
+  from{ opacity:0; transform:translateY(14px) scale(.96); }
+  to{ opacity:1; transform:none; }
+}
+.chin-globo{
+  position:relative; padding:26px 20px 18px;
+  border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--accent-line);
+  box-shadow:var(--shadow-lg);
+}
+/* La chinchilla asoma por arriba del globo, como escarbando. */
+.chin-fig{
+  position:absolute; top:-30px; left:18px;
+  width:56px; height:56px; border-radius:50%;
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  display:grid; place-items:center; overflow:hidden;
+}
+.chin-svg{ width:42px; height:42px; margin-top:7px; }
+.chin-x{
+  position:absolute; top:9px; right:9px;
+  display:grid; place-items:center; width:26px; height:26px;
+  border-radius:var(--r-pill); cursor:pointer;
+  background:none; border:0; color:var(--text-3);
+}
+.chin-x:hover{ background:var(--surface-2); color:var(--text); }
+.chin-t{ display:block; margin-top:14px; font-size:16px; letter-spacing:-.01em; }
+.chin-p{ margin:6px 0 0; font-size:13.5px; color:var(--text-2); line-height:1.6; }
+.chin-2{
+  padding:8px 13px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; font-size:12.5px; font-weight:650; color:var(--text-2);
+}
+.chin-2:hover{ border-color:var(--accent); color:var(--accent); }
+.chin-2[hidden]{ display:none; }
+.chin-acc{ flex-wrap:wrap; }
+
+.chin-acc{ display:flex; align-items:center; gap:12px; margin-top:16px; }
+.chin-salto{
+  background:none; border:0; padding:4px 2px; cursor:pointer;
+  font:inherit; font-size:12px; color:var(--text-3); text-decoration:underline;
+}
+.chin-salto:hover{ color:var(--text); }
+
+.chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--text-3); }
+.chin-b{ margin-left:auto; padding:10px 16px; }
+.chin-b .dest{ font-size:14px; }
+@media (max-width:560px){
+  .chin{ right:12px; left:12px; bottom:12px; width:auto; }
+}
+
+/* --- Sumar o sacar esta ruta de tu semana ------------------------
+   El boton vive en el hero porque es donde se decide: estas leyendo
+   la ruta y resolves si la vas a hacer. Antes habia que volver a la
+   portada y buscarla en la grilla. */
+.btn-mia[hidden]{ display:none; }
+.btn-mia.on{
+  background:var(--accent-soft);
+  border-color:var(--accent);
+  color:var(--accent-strong);
+}
+.btn-mia.on .verb{ color:var(--accent-strong); opacity:.85; }
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="backlink" href="index.html#rutas" title="Volver a todas las rutas" aria-label="Volver a todas las rutas">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+      <span class="back-txt">Todas las rutas</span>
+    </a>
+    <span class="crumb-sep" aria-hidden="true">/</span>
+    <a class="brand" href="#top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg>
+      <span class="marca">DataChinchilla</span> <span class="brand-sub">/ Data Engineer</span>
+    </a>
+    <div class="topbar-meter">
+      <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Avance de la ruta" id="meter">
+        <div class="meter-fill" id="meterFill"></div>
+      </div>
+      <span class="meter-label num"><b id="meterDone">0</b>/<span id="meterTotal">6</span> <span class="lbl-word">niveles</span></span>
+    </div>
+    <button class="acct" id="acctBtn" type="button" title="El perfil se comparte con el path de SnowPro Core">
+      <span class="avatar" id="avatar"></span>
+      <span class="who" id="acctName">Sin perfil</span>
+    </button>
+    <button class="icon-btn" id="themeBtn" type="button" title="Cambiar entre tema claro y oscuro" aria-label="Cambiar tema">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="themeIcon">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="lema">No planificar es planificar el fracaso</p>
+    <h1>El camino completo para trabajar de <span class="grad">data engineer</span></h1>
+    <p class="hero-lead">Seis niveles en orden, del SQL de todos los días a tu proyecto corriendo en la nube. Cada nivel es un escalón entero, no un curso suelto. Toca cualquiera para ver qué vas a poder hacer cuando lo cierres.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" id="startBtn" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-14 9V3z"/></svg>
+        <span class="stack"><span class="verb" id="startVerb">Empezar por</span><span class="dest" id="startDest">Nivel 1</span></span>
+      </button>
+      <button class="btn-quiet btn-mia" id="miaBtn" type="button" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        <span class="stack"><span class="verb" id="miaVerb">Sumar a</span><span class="dest" id="miaDest">mi semana</span></span>
+      </button>
+    </div>
+    <p class="hero-foot">Ruta armada por <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>, Marketing Data Engineer. Ninguno de estos recursos es mío: cada uno pertenece a quien lo hizo y abajo están los créditos completos. Acá solo está el orden y qué esperar de cada uno.</p>
+  </div>
+</section>
+
+<!-- ======================= CERTIFICADOS ======================= -->
+<section class="section map" id="mapa">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">El camino</p>
+      <h2>Seis niveles, en este orden</h2>
+      <p>El orden importa: cada nivel se apoya en el anterior. Cada nodo abre qué vas a poder hacer al terminarlo y adónde estudiarlo, con las opciones gratuitas primero.</p>
+    </div>
+    <div class="track" id="track">
+      <svg class="track-svg" id="trackSvg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="trailGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--accent)"/>
+            <stop offset="100%" stop-color="var(--accent-strong)"/>
+          </linearGradient>
+        </defs>
+        <path class="track-line" id="trackLine" d=""></path>
+        <path class="track-line-dash" id="trackDash" d=""></path>
+        <path class="track-line-done" id="trackDone" d=""></path>
+      </svg>
+      <div id="trackContent"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cierre">
+  <div class="wrap">
+    <div class="finish" id="finishCard">
+      <div class="finish-in">
+        <p class="eyebrow">Cierre del recorrido</p>
+        <h2 id="finishTitle">Cuéntalo cuando termines</h2>
+        <p class="finish-lead" id="finishLead">Cuando los seis niveles queden cerrados, este botón publica tu avance en LinkedIn con el texto listo. Nada se envía solo: se abre el editor y tú decides qué publicar.</p>
+        <div class="finish-actions">
+          <a class="btn-primary" id="shareBtn" href="#" aria-disabled="true" title="Cierra los 6 niveles para desbloquear la publicación">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5V20h16v-8.5"/><path d="M12 3v13"/><path d="M7.5 7.5L12 3l4.5 4.5"/></svg>
+            <span class="stack"><span class="verb" id="shareVerb">Se desbloquea al terminar</span><span class="dest">Publicar en LinkedIn</span></span>
+          </a>
+        </div>
+        <p class="lock-note" id="lockNote">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span id="lockText"></span>
+        </p>
+      </div>
+      <div class="preview-row">
+        <div>
+          <h4>Así se vería tu publicación</h4>
+          <div id="postMock"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section sigue" id="sigue" hidden>
+  <div class="wrap">
+    <a class="sigue-caja" href="semana.html">
+      <span class="ico">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      </span>
+      <span class="txt">
+        <b>Ahora, cuándo</b>
+        <span id="sigueSub">Esta es tu ruta. Falta repartirla en la semana: qué días, a qué hora y cuánto rato.</span>
+      </span>
+      <span class="fl">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="foot-marca">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg>
+      <span><b>DataChinchilla</b> &middot; No planificar es planificar el fracaso</span>
+    </span>
+    <nav class="foot-links">
+      <a href="index.html#rutas">Todas las rutas</a>
+      <a href="armar.html">Armar la mía</a>
+      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
+      <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet-in">
+    <div class="sheet-head">
+      <div class="head-txt">
+        <div class="node-kicker">
+          <span class="lvl" id="sheetLevel"></span>
+          <span class="chip" id="sheetCost"></span>
+        </div>
+        <h2 id="sheetTitle"></h2>
+      </div>
+      <button class="icon-btn" id="sheetClose" type="button" title="Cerrar" aria-label="Cerrar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="sheetBody"></div>
+    <div class="sheet-foot">
+      <button class="btn-done" id="sheetDone" type="button"></button>
+      <span class="grow"></span>
+      <button class="btn-quiet" id="sheetNext" type="button">
+        <span class="stack"><span class="verb">Seguir con</span><span class="dest" id="sheetNextLabel"></span></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="cert" aria-labelledby="certTitle">
+  <div class="sheet-in">
+    <div class="sheet-head">
+      <div class="head-txt">
+        <div class="node-kicker"><span class="lvl">Ruta completa</span></div>
+        <h2 id="certTitle">Tu certificado de la ruta</h2>
+      </div>
+      <button class="icon-btn" id="certClose" type="button" title="Cerrar" aria-label="Cerrar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="certBody"></div>
+    <div class="sheet-foot">
+      <a class="btn-done" id="certShare" href="#" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5V20h16v-8.5"/><path d="M12 3v13"/><path d="M7.5 7.5L12 3l4.5 4.5"/></svg>
+        Publicar en LinkedIn
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="account" aria-labelledby="acctTitle">
+  <div class="sheet-in">
+    <div class="sheet-head">
+      <span class="avatar" id="acctBigAvatar" style="width:38px;height:38px;font-size:16px"></span>
+      <div class="head-txt">
+        <div class="node-kicker"><span class="lvl">Tu avance en esta ruta</span></div>
+        <h2 id="acctTitle"></h2>
+      </div>
+      <button class="icon-btn" id="acctClose" type="button" title="Cerrar" aria-label="Cerrar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="acctBody"></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastText"></span>
+</div>
+
+<script src="pasos.js?v=4a4d5fcc"></script>
+<script src="temas.js?v=a8e81f08"></script>
+<script src="cv.js?v=9243a13a"></script>
+<script src="onboarding.js?v=fb5df1b2"></script>
+<script src="guia.js?v=84529b0e"></script>
+<script src="chinchilla.js?v=fda14bb1"></script>
+<script src="path-sync.js?v=7673db81"></script>
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   CONFIG · comparte perfil con el path de SnowPro Core
+   ============================================================ */
+var STORAGE = {
+  profiles: "snowpro-path/v1/profiles",
+  session:  "snowpro-path/v1/session",
+  theme:    "snowpro-path/v1/theme",
+  anon:     "de-path/v1/anon"
+};
+
+/* Progreso en la nube. Vacíos, la página anda igual con lo local.
+   Tienen que ser los mismos valores que carga index.html: es el mismo
+   proyecto y la misma fila por persona. Los pasos están en
+   SUPABASE_SETUP.md. La service role NUNCA va acá. */
+var CONFIG = {
+  supabaseUrl: "https://sscfykrodjnfnnbmkopp.supabase.co",
+  supabaseKey: "sb_publishable_t8bH_XUtTPUi9XnEPxJrgQ_9qTsK-m6"
+};
+var CLOUD_TABLE = "snowpath_progress";
+
+var CONTACTO = {
+  linkedin:  "https://www.linkedin.com/in/lclamorte/",
+  feedback:  "mailto:luca.lamorte@kcc.com?subject=Link%20ca%C3%ADdo%20en%20la%20ruta",
+  pathUrl:   "",   // URL pública de esta página; cuando exista, entra en la publicación
+  shareText: "¡Terminé la ruta de Data Engineer que arma Luca Lamorte! SQL, Python, modelado, plataformas cloud y el stack completo, en orden 🚀"
+};
+
+function icon(name, size){
+  var s = size || 16;
+  var paths = {
+    brain:  '<path d="M9.5 4a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8V15a3 3 0 0 0 4.5 2.6"/><path d="M14.5 4a3 3 0 0 1 3 3 3 3 0 0 1 1 5.8V15a3 3 0 0 1-4.5 2.6"/><path d="M12 4.5v15"/>',
+    code:   '<path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/>',
+    sql:    '<ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    cloud:  '<path d="M20 17.6A4.4 4.4 0 0 0 17.7 9h-1.2A7 7 0 1 0 5 16.3"/>',
+    flow:   '<rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v6a3 3 0 0 0 3 3H14"/>',
+    build:  '<path d="M14.5 3.5a5 5 0 0 0-6.6 6.1L3 14.5V21h6.5l4.9-4.9a5 5 0 0 0 6.1-6.6l-3.1 3.1-2.9-.6-.6-2.9z"/>',
+    school: '<path d="M12 3L2 8l10 5 10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/>',
+    snow:   '<path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/>',
+    model:  '<rect x="9" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="16.5" width="6" height="5" rx="1"/><rect x="15.5" y="16.5" width="6" height="5" rx="1"/><path d="M12 7.5v4M5.5 16.5v-2.5h13v2.5"/>',
+    aws:    '<path d="M3 15.5c5.5 3.5 12.5 3.5 18 0"/><path d="M18.5 13c1.5-.5 2.5 0 2 1.5"/><path d="M5 10.5l1.7-5 1.8 5"/><path d="M5.6 9h2.6"/><path d="M11 5.5l1.2 5 1.3-3.6 1.3 3.6 1.2-5"/>',
+    boss:   '<path d="M4 18h16"/><path d="M4 18l-1.5-9 5 3.5L12 4l4.5 8.5 5-3.5L20 18"/>',
+    check:  '<path d="M20 6L9 17l-5-5"/>',
+    arrow:  '<path d="M5 12h14M13 5l7 7-7 7"/>',
+    clock:  '<circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 1.9"/>',
+    open:   '<path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v5a1.9 1.9 0 0 1-2 2H5a1.9 1.9 0 0 1-2-2V8a1.9 1.9 0 0 1 2-2h5"/>',
+    user:   '<circle cx="12" cy="8" r="3.6"/><path d="M4.6 20a7.4 7.4 0 0 1 14.8 0"/>',
+    warn:   '<path d="M12 3.5L2.8 19.5h18.4z"/><path d="M12 10v4M12 17v.1"/>',
+    lock:   '<rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
+  };
+  return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+         'stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+         (paths[name] || paths.check) + '</svg>';
+}
+
+/* Oficial = lo publica el fabricante del producto que enseña.
+   El certificado de Udemy lo emite la plataforma, no el fabricante:
+   por eso lleva su nombre y no dice "oficial". */
+function pills(tipo){
+  if(tipo === "oficial") return '<span class="chip official">Oficial</span>';
+  if(tipo === "fcc") return '<span class="chip cert">Certificación gratis</span>';
+  if(tipo === "udemy") return '<span class="chip cert">Certificado de Udemy</span>';
+  return "";
+}
+
+function nodeLeadsToPath(n){
+  for(var i=0;i<n.links.length;i++){ if(n.links[i].internal) return true; }
+  return false;
+}
+
+function nodeHasOfficial(n){
+  for(var i=0;i<n.links.length;i++){ if(n.links[i].b === "oficial") return true; }
+  return false;
+}
+
+function esc(t){
+  return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+/* ============================================================
+   PRÁCTICA DIARIA · el hábito, no un hito
+   ============================================================ */
+
+/* ============================================================
+   EL CAMINO
+   ============================================================ */
+var NODES = [
+  {
+    id: "d01", level: "Nivel 1", time: "6 semanas", cost: "Gratis", i: "sql", hue: "#2563EB",
+    title: "SQL",
+    summary: "La herramienta que vas a usar todos los días de tu carrera, sin excepción.",
+    goal: "Cierras este nivel cuando escribes una consulta con ventanas y subconsultas sin buscar la sintaxis, y entiendes por qué una tarda diez veces más que otra.",
+    wins: ["Agrupar, filtrar agregados y ordenar sin dudar",
+           "Funciones de ventana: ranking, acumulados y comparaciones contra la fila anterior",
+           "Leer un plan de ejecución y saber dónde se va el tiempo",
+           "Resolver una pregunta de entrevista sin pánico"],
+    links: [
+      { t: "CS50 SQL, de Harvard", s: "cs50.harvard.edu · el curso de bases de datos de Harvard, gratis", i: "school", u: "https://cs50.harvard.edu/sql/" },
+      { t: "Relational Database, de freeCodeCamp", s: "freecodecamp.org · curso con proyectos y certificación, gratis", i: "sql", u: "https://www.freecodecamp.org/learn/relational-database/", b: "fcc" },
+      { t: "StrataScratch", s: "stratascratch.com · preguntas de entrevistas reales", i: "sql", u: "https://www.stratascratch.com/" },
+      { t: "Snowflake Quickstarts", s: "quickstarts.snowflake.com · para practicar sobre datos de verdad", i: "cloud", u: "https://quickstarts.snowflake.com/", b: "oficial" }
+    ]
+  },
+  {
+    id: "d02", level: "Nivel 2", time: "6 semanas", cost: "Gratis", i: "code", hue: "#EA7A0C",
+    title: "Python",
+    summary: "El pegamento de todo lo demás: mover datos, llamar APIs y automatizar lo que se repite.",
+    goal: "Cierras este nivel cuando escribes un script que lee de una fuente, transforma y escribe en otra, con sus errores manejados.",
+    wins: ["Listas, diccionarios y comprensiones sin consultar la documentación",
+           "Leer y escribir archivos y consumir una API",
+           "pandas para explorar datos antes de meterlos en una base",
+           "Entender un traceback y arreglarlo solo"],
+    links: [
+      { t: "CS50 Python, de Harvard", s: "cs50.harvard.edu · introducción a programar en Python, gratis", i: "school", u: "https://cs50.harvard.edu/python/" },
+      { t: "CS50x, si arrancas de cero", s: "cs50.harvard.edu · pensar como programador antes de elegir lenguaje", i: "school", u: "https://cs50.harvard.edu/x/" },
+      { t: "Scientific Computing with Python, de freeCodeCamp", s: "freecodecamp.org · de cero a proyectos, con certificación gratis", i: "code", u: "https://www.freecodecamp.org/learn/scientific-computing-with-python/", b: "fcc" },
+      { t: "LeetCode", s: "leetcode.com · empieza por los fáciles de arrays y strings", i: "code", u: "https://leetcode.com/problemset/" },
+      { t: "data-engineer-handbook", s: "github.com/DataExpert-io · ejercicios y proyectos con Python", i: "school", u: "https://github.com/DataExpert-io/data-engineer-handbook" }
+    ]
+  },
+  {
+    id: "d03", level: "Nivel 3", time: "4 semanas", cost: "Gratis", i: "model", hue: "#15803D",
+    title: "Data Modeling",
+    summary: "El nivel que separa a quien mueve datos de quien diseña cómo se guardan. Casi nadie lo enseña gratis.",
+    goal: "Cierras este nivel cuando puedes dibujar el modelo de un negocio con sus hechos y sus dimensiones, y defender por qué lo partiste así.",
+    wins: ["Distinguir tablas de hechos de tablas de dimensiones",
+           "Elegir la granularidad correcta, que es la decisión que después no se puede deshacer",
+           "Manejar dimensiones que cambian con el tiempo",
+           "Saber cuándo normalizar y cuándo repetir datos a propósito"],
+    links: [
+      { t: "Bootcamp comunitario de DataExpert", s: "github.com/DataExpert-io · seis semanas de modelado dimensional, gratis y completo", i: "school", u: "https://github.com/DataExpert-io/data-engineer-handbook" },
+      { t: "Kimball Group", s: "kimballgroup.com · la fuente original del modelado dimensional", i: "model", u: "https://www.kimballgroup.com/" },
+      { t: "Documentación de dbt", s: "docs.getdbt.com · cómo se estructura un proyecto en capas", i: "build", u: "https://docs.getdbt.com/", b: "oficial" }
+    ]
+  },
+  {
+    id: "d04", level: "Nivel 4", time: "según la que elijas", cost: "Gratis", i: "cloud", hue: "#7C3AED",
+    title: "Platform",
+    summary: "Una plataforma de datos hecha en serio. Elige una sola y hazla completa: la segunda después cuesta la mitad.",
+    goal: "Cierras este nivel cuando cargas, transformas y consultas datos en una plataforma, y entiendes qué te cobra y por qué.",
+    wins: ["Dominio real de una plataforma, no haberla tocado un rato",
+           "Entender el modelo de costos, que es lo que te van a preguntar en el trabajo",
+           "Una certificación en el perfil, si vas por Snowflake",
+           "La base para pasar a cualquier otra en semanas"],
+    links: [
+      { t: "Snowflake: el path completo de certificación", s: "la otra ruta de esta guía, gratis, con simulacro y certificado", i: "snow", u: "snowpro.html", internal: true },
+      { t: "Snowflake: The Complete Masterclass", s: "udemy.com · curso pago, si prefieres video largo antes que ir por la certificación", i: "cloud", u: "https://www.udemy.com/courses/search/?q=snowflake+masterclass+nikolai+schuler", b: "udemy", paid: true },
+      { t: "Databricks", s: "databricks.com · cuenta gratis y cursos por rol en la Academy", i: "cloud", u: "https://www.databricks.com/learn/training/home", b: "oficial" },
+      { t: "BigQuery en Google Cloud", s: "cloudskillsboost.google · laboratorios oficiales", i: "cloud", u: "https://www.cloudskillsboost.google/", b: "oficial" }
+    ]
+  },
+  {
+    id: "d05", level: "Nivel 5", time: "40 h", cost: "Pago", i: "flow", hue: "#DC2626",
+    title: "dbt y Airflow",
+    summary: "Las dos herramientas que aparecen en casi toda búsqueda de trabajo: una transforma, la otra orquesta.",
+    goal: "Cierras este nivel cuando tienes un proyecto de dbt con tests corriendo todos los días desde un DAG de Airflow.",
+    wins: ["Versionar transformaciones como se versiona el código, con tests y documentación",
+           "Programar pipelines con dependencias, reintentos y alertas",
+           "Encontrar la tarea que rompió sin adivinar",
+           "Hablar el idioma de cualquier equipo de datos moderno"],
+    links: [
+      { t: "The Complete dbt Bootcamp, de Zoltan C. Toth", s: "udemy.com · curso pago", i: "build", u: "https://www.udemy.com/courses/search/?q=complete+dbt+bootcamp+zoltan+toth", b: "udemy", paid: true },
+      { t: "Apache Airflow: The Hands-On Guide, de Marc Lamberti", s: "udemy.com · curso pago", i: "flow", u: "https://www.udemy.com/courses/search/?q=apache+airflow+marc+lamberti", b: "udemy", paid: true },
+      { t: "Documentación de dbt", s: "docs.getdbt.com · gratis, para arrancar sin gastar", i: "build", u: "https://docs.getdbt.com/", b: "oficial" }
+    ]
+  },
+  {
+    id: "d06", level: "Nivel 6", time: "8 semanas", cost: "Gratis", i: "aws", hue: "#0F766E",
+    title: "Cloud",
+    summary: "Todo lo anterior corre sobre alguna nube. Elige una, entiende sus servicios de datos y arma tu proyecto ahí.",
+    goal: "Cierras este nivel cuando tu pipeline corre solo en la nube y puedes explicar cuánto cuesta por mes.",
+    wins: ["Almacenamiento, cómputo y permisos, que son los tres ladrillos de cualquier nube",
+           "Un proyecto propio corriendo de punta a punta, que vale más que diez certificados",
+           "Saber leer una factura y saber qué apagar",
+           "El repositorio con README que vas a mostrar en la entrevista"],
+    links: [
+      { t: "AWS Skill Builder", s: "skillbuilder.aws · cursos digitales gratuitos", i: "aws", u: "https://skillbuilder.aws/", b: "oficial" },
+      { t: "Microsoft Learn", s: "learn.microsoft.com · rutas gratuitas de Azure a tu ritmo", i: "cloud", u: "https://learn.microsoft.com/en-us/training/", b: "oficial" },
+      { t: "Google Cloud Skills Boost", s: "cloudskillsboost.google · laboratorios con cuentas prestadas", i: "cloud", u: "https://www.cloudskillsboost.google/", b: "oficial" }
+    ]
+  }
+];
+
+/* Rutas dedicadas. Cuando una herramienta da para su propio mapa, sale
+   de acá y se convierte en página, enlazada desde el nivel que le toca. */
+
+
+/* ============================================================
+   ESTADO · el perfil es el mismo del otro path
+   ============================================================ */
+var profiles = {}, sessionId = null;
+var de = { done: {}, days: {} };
+var done = de.done;          // el dibujo del camino lee esto
+
+function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
+
+function activeProfile(){ return sessionId && profiles[sessionId] ? profiles[sessionId] : null; }
+
+function loadState(){
+  profiles = PathSync.store.load();
+  sessionId = PathSync.store.sessionId();
+
+  var p = activeProfile();
+  if(p && p.de && typeof p.de === "object"){
+    de = { done: p.de.done || {}, days: p.de.days || {}, doneAt: p.de.doneAt || "", certName: p.de.certName || "" };
+  }else{
+    var anon = safeGet(STORAGE.anon);
+    try{
+      var parsed = anon ? JSON.parse(anon) : null;
+      de = { done: (parsed && parsed.done) || {}, days: (parsed && parsed.days) || {}, doneAt: (parsed && parsed.doneAt) || "", certName: (parsed && parsed.certName) || "" };
+    }catch(e){ de = { done: {}, days: {} }; }
+  }
+  done = de.done;
+}
+
+function saveState(){
+  var p = activeProfile(), ok;
+  if(p){
+    p.de = de;
+    ok = PathSync.store.save();
+  }else{
+    ok = safeSet(STORAGE.anon, JSON.stringify(de));
+  }
+  schedulePush();
+  return ok;
+}
+
+/* Entrar toma el avance que se haya juntado sin perfil: nadie pierde
+   lo que marcó antes de crearse uno. */
+function enterProfile(id){
+  var suelto = !sessionId && id ? de : null;
+  sessionId = id;
+  PathSync.store.setActive(id);
+  var p = activeProfile();
+  if(p){
+    if(p.de && typeof p.de === "object"){
+      de = { done: p.de.done || {}, days: p.de.days || {}, doneAt: p.de.doneAt || "" };
+    }else{
+      de = { done: {}, days: {} };
+    }
+    if(suelto){
+      de.done = PathSync.union(de.done, suelto.done);
+      de.days = PathSync.union(de.days, suelto.days);
+    }
+    p.de = de;
+    PathSync.store.save();
+  }
+  done = de.done;
+  paintAccount();
+  paintStates();
+}
+
+function doneCount(){
+  var c = 0;
+  for(var i=0;i<NODES.length;i++){ if(done[NODES[i].id]) c++; }
+  return c;
+}
+function currentIndex(){
+  for(var i=0;i<NODES.length;i++){ if(!done[NODES[i].id]) return i; }
+  return -1;
+}
+function nodeById(id){
+  for(var i=0;i<NODES.length;i++){ if(NODES[i].id === id) return NODES[i]; }
+  return null;
+}
+function indexById(id){
+  for(var i=0;i<NODES.length;i++){ if(NODES[i].id === id) return i; }
+  return -1;
+}
+
+/* ============================================================
+   NUBE · la plomería está en path-sync.js. Acá solo se define
+   cómo se mapea esta ruta contra la fila de la base.
+   ============================================================ */
+var cloudSes = null, cloudMsg = "", pushTimer = null;
+
+function cloudOn(){ return PathSync.isOn(); }
+function refreshSes(){ cloudSes = PathSync.session(); return cloudSes; }
+
+/* Los dos mapas se suman: un hito marcado o un día practicado en
+   cualquier computadora es un hecho, y no se pierde por sincronizar. */
+function mergeDe(local, remote){
+  return {
+    done: PathSync.union(local.done, remote && remote.done),
+    days: PathSync.union(local.days, remote && remote.days)
+  };
+}
+
+function cloudSync(){
+  if(!cloudOn() || !PathSync.session()) return Promise.resolve();
+  return PathSync.ready()
+    .then(function(){
+      refreshSes();
+      return PathSync.getRow(CLOUD_TABLE);
+    })
+    .then(function(row){
+      de = mergeDe(de, row && row.de);
+      done = de.done;
+      var p = profileForCloud();
+      p.de = de;
+      p.cloudId = PathSync.session().user_id;
+      saveProfiles();
+      paintAccount();
+      paintStates();
+          if(pendiente){
+        var lvl = pendiente;
+        pendiente = null;
+        toggleDone(lvl);
+        if(openId === lvl) paintSheetFoot();
+      }
+      return PathSync.upsertRow(CLOUD_TABLE, { name: p.name, de: de });
+    })
+    .then(function(){
+      cloudMsg = "";
+      if(acctDlg.open) renderAccount("");
+    })
+    ["catch"](function(e){
+      cloudMsg = e.message || "falló la sincronización";
+      toast("No pude sincronizar: " + cloudMsg);
+      if(acctDlg.open) renderAccount("");
+    });
+}
+
+/* el perfil es el mismo del otro path; si no hay ninguno, se crea */
+function profileForCloud(){
+  var id, ses = PathSync.session();
+  for(id in profiles){
+    if(profiles[id].cloudId === ses.user_id){ sessionId = id; return profiles[id]; }
+  }
+  var p = activeProfile();
+  if(p && !p.cloudId) return p;
+  var nick = (ses.email || "").split("@")[0].slice(0, 16) || "Yo";
+  p = { id: "p" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+        name: nick, salt: "", hash: "", done: {}, quiz: { wrong: {} } };
+  profiles[p.id] = p;
+  sessionId = p.id;
+  safeSet(STORAGE.session, p.id);
+  return p;
+}
+
+function saveProfiles(){ return PathSync.store.save(); }
+
+function schedulePush(){
+  if(!cloudOn() || !PathSync.session()) return;
+  window.clearTimeout(pushTimer);
+  pushTimer = window.setTimeout(function(){
+    var p = activeProfile();
+    if(!p) return;
+    PathSync.ready()
+      .then(function(){ return PathSync.upsertRow(CLOUD_TABLE, { name: p.name, de: de }); })
+      .then(function(){ cloudMsg = ""; })
+      ["catch"](function(e){
+        cloudMsg = e.message || "no se pudo guardar";
+        toast("Guardé en este navegador, pero no en la nube: " + cloudMsg);
+      });
+  }, 1500);
+}
+
+/* ============================================================
+   PANEL DEL PERFIL
+   ============================================================ */
+var acctDlg = document.getElementById("account");
+
+function errBox(msg){
+  return '<p class="form-err">' + icon("warn", 15) + '<span>' + msg + '</span></p>';
+}
+
+function openAccount(){ renderAccount(""); showAcct(); }
+function showAcct(){
+  if(typeof acctDlg.showModal === "function"){ if(!acctDlg.open) acctDlg.showModal(); }
+  else acctDlg.setAttribute("open", "");
+}
+function hideAcct(){
+  if(typeof acctDlg.close === "function" && acctDlg.open) acctDlg.close();
+  else acctDlg.removeAttribute("open");
+}
+
+function renderAccount(msg){
+  var p = activeProfile();
+  if(!p && cloudOn()) return renderAccess(msg);
+  var ses = PathSync.session();
+  var name = (ses && ses.email) ? ses.email : "Tu avance";
+  document.getElementById("acctBigAvatar").innerHTML = (ses && ses.email)
+    ? esc(ses.email.slice(0, 1).toUpperCase()) : icon("check", 16);
+  document.getElementById("acctTitle").textContent = name;
+
+  var c = doneCount(), dias = 0, k;
+  for(k in de.days){ if(de.days[k]) dias++; }
+
+  var html = msg ? errBox(msg) : "";
+  html += '<div class="acct-stat">' + icon("check", 15) +
+            '<span class="k"><b class="num">' + c + ' de ' + NODES.length + '</b> niveles cerrados y ' +
+            '<b class="num">' + dias + '</b> ' + (dias === 1 ? "día" : "días") + ' de práctica anotados.</span>' +
+          '</div>';
+
+  if(!cloudOn()){
+    html += '<p class="auth-note">El avance vive en este navegador y no se pierde al cerrarlo. ' +
+            'Para llevarlo a otra computadora hace falta entrar con mail, que todavía no está configurado.</p>';
+  }else if(cloudSes && cloudSes.email){
+    html += '<h4>Progreso en la nube</h4>' +
+            '<div class="acct-stat">' + icon("check", 15) +
+              '<span class="k">Sincroniza con <b>' + esc(cloudSes.email) + '</b>. Entra con ese mail en otra ' +
+              'computadora y las dos rutas siguen donde las dejaste.</span></div>' +
+            (cloudMsg ? errBox("La última sincronización falló: " + esc(cloudMsg)) : "") +
+            '<div class="auth-actions">' +
+              '<button class="btn-quiet" type="button" id="syncNow">' + icon("check", 15) + 'Sincronizar ahora</button>' +
+              '<button class="btn-quiet" type="button" id="cloudOut">' + icon("user", 15) + 'Desconectar este navegador</button>' +
+            '</div>';
+  }else{
+    /* El formulario vive en path-sync.js, compartido por las cinco
+       páginas. Acá solo se reserva el lugar donde se dibuja. */
+    html += '<h4>Progreso en la nube</h4><div id="authZona"></div>';
+  }
+
+  var body = document.getElementById("acctBody");
+  body.innerHTML = html;
+  body.scrollTop = 0;
+  montarAcceso();
+  wireAccount();
+}
+
+/* Engancha el panel compartido, si esta pantalla lo necesita. */
+function montarAcceso(vista){
+  var z = document.getElementById("authZona");
+  if(!z) return;
+  PathSync.authUI.render(z, {
+    app: "snowpath",
+    vista: vista || "login",
+    cls: { btn: "btn-done", alt: "btn-quiet" },
+    onEntrar: function(){
+      refreshSes();
+      renderAccount("");
+      cloudSync();
+      sincronizarPerfil();
+      PathSync.evento("snowpath", "entro", { ruta: "data_engineer" });
+    }
+  });
+}
+
+/* Sube el perfil y, si venía un alta pendiente del registro, también el
+   nombre y el consentimiento que se eligieron ahí. */
+function sincronizarPerfil(){
+  if(!PathSync.isOn() || !PathSync.session()) return;
+  var alta = PathSync.tomarAltaPendiente();
+  var datos = { ultima_app: "snowpath", primera_app: "snowpath" };
+  if(alta && alta.nombre) datos.nombre = alta.nombre;
+  PathSync.guardarPerfil(datos).then(function(){
+    if(alta && alta.optin) PathSync.registrarConsentimiento(true, "snowpath");
+  });
+}
+
+/* El avance vive en un perfil local que se crea solo: nadie ve perfiles
+   ni PIN. Lo único que se pide es el mail, y solo si hay nube configurada. */
+function ensureLocal(){
+  var p = activeProfile();
+  if(p) return p;
+  p = PathSync.store.create("Tu avance");
+  PathSync.store.save();
+  profiles = PathSync.store.all();
+  enterProfile(p.id);
+  return p;
+}
+
+function renderAccess(msg){
+  document.getElementById("acctBigAvatar").innerHTML = icon("user", 16);
+  document.getElementById("acctBody").innerHTML = '<div id="authZona"></div>';
+  PathSync.authUI.render(document.getElementById("authZona"), {
+    app: "snowpath",
+    cls: { btn: "btn-done", alt: "btn-quiet" },
+    onTitulo: function(bajada, titulo){
+      document.getElementById("acctTitle").textContent = titulo;
+    },
+    onEntrar: function(){
+      refreshSes();
+      renderAccount("");
+      cloudSync();
+      sincronizarPerfil();
+    }
+  });
+  if(msg) PathSync.authUI.mensaje(msg);
+}
+
+function wireAccount(){
+
+  var sn = document.getElementById("syncNow");
+  if(sn) sn.addEventListener("click", function(){ toast("Sincronizando..."); cloudSync(); });
+
+  var out = document.getElementById("cloudOut");
+  if(out) out.addEventListener("click", function(){
+    if(!window.confirm("¿Desconecto este navegador de tu mail? El avance queda igual acá.")) return;
+    PathSync.signOut();
+    refreshSes();
+    renderAccount("");
+    toast("Listo, este navegador ya no sincroniza.");
+  });
+}
+
+/* ============================================================
+   RACHA
+   ============================================================ */
+function dayKey(d){
+  var m = d.getMonth() + 1, day = d.getDate();
+  return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (day < 10 ? "0" : "") + day;
+}
+function streakFrom(days, today){
+  var n = 0, cursor = new Date(today);
+  if(!days[dayKey(cursor)]) cursor.setDate(cursor.getDate() - 1);   // ayer todavía cuenta
+  while(days[dayKey(cursor)]){
+    n++;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+  return n;
+}
+var DAY_LETTERS = ["D", "L", "M", "M", "J", "V", "S"];
+var DAY_NAMES = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+var MONTHS = ["enero","febrero","marzo","abril","mayo","junio",
+              "julio","agosto","septiembre","octubre","noviembre","diciembre"];
+
+
+/* Un día se tilda y se destilda: marcarlo sin querer no puede ser
+   una condena, y olvidarse de marcar tampoco. La ventana es la
+   semana que está a la vista, para que la racha siga significando algo. */
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+
+function renderMap(){
+  var html = "", side = 0;
+  for(var i=0;i<NODES.length;i++){
+    var n = NODES[i];
+    var sideClass = (side % 2 === 0) ? "side-left" : "side-right";
+    side++;
+    html += '<div class="node-row ' + sideClass + '">' +
+              '<button class="node' + (n.boss ? " is-boss" : "") + (nodeLeadsToPath(n) ? " has-path" : "") +
+                '" type="button" data-id="' + n.id + '" id="card-' + n.id + '" aria-haspopup="dialog">' +
+                (nodeLeadsToPath(n) ? '<span class="own-ribbon">' + icon("arrow", 11) + 'Ruta completa aparte</span>' : '') +
+                '<span class="node-marker" data-marker="' + n.id + '" ' +
+                  'style="border-color:' + n.hue + ';color:' + n.hue + '">' +
+                  '<span class="num">' + (i + 1) + '</span>' +
+                '</span>' +
+                '<span class="node-check">' + icon("check", 13) + '</span>' +
+                '<span class="node-kicker"><span class="lvl">' + n.level + '</span></span>' +
+                '<h3>' + n.title + '</h3>' +
+                '<p>' + n.summary + '</p>' +
+                '<span class="node-meta">' +
+                  '<span class="chip">' + icon("clock", 11) + '<span class="num">' + n.time + '</span></span>' +
+                  '<span class="chip ' + (n.cost === "Pago" ? "paid" : "free") + '">' + n.cost + '</span>' +
+                  (nodeHasOfficial(n) ? '<span class="chip official">Material oficial</span>' : '') +
+                '</span>' +
+              '</button>' +
+            '</div>';
+  }
+  document.getElementById("trackContent").innerHTML = html;
+
+  var cards = document.querySelectorAll(".node");
+  for(var c=0;c<cards.length;c++){
+    cards[c].addEventListener("click", function(){ openSheet(this.getAttribute("data-id")); });
+  }
+}
+
+var MAIL_PATH = "luca.lamorte@kcc.com";
+
+
+/* ============================================================
+   BIBLIOTECA · una tarjeta por fuente, con filtros y ver más
+   ============================================================ */
+/* Un solo criterio: quién publica. Mezclarlo con el tipo de recurso
+   dejaba a Harvard en "Comunidad" y a tres personas en "Cursos". */
+
+
+
+/* ============================================================
+   ESTADOS
+   ============================================================ */
+function shortTitle(t){ return t.length > 30 ? t.slice(0, 29).replace(/[ ,]+$/, "") + "…" : t; }
+
+function paintStates(){
+  var cur = currentIndex();
+  for(var i=0;i<NODES.length;i++){
+    var n = NODES[i], el = document.getElementById("card-" + n.id);
+    if(!el) continue;
+    el.classList.toggle("is-done", !!done[n.id]);
+    el.classList.toggle("is-current", i === cur);
+    var mk = el.querySelector(".node-marker");
+    if(mk){
+      mk.style.background = done[n.id] ? n.hue : "";
+      mk.style.color = done[n.id] ? "#FFFFFF" : n.hue;
+      mk.style.borderColor = n.hue;
+    }
+    el.setAttribute("aria-label", n.level + ": " + n.title + (done[n.id] ? ", completado" : ""));
+  }
+  var c = doneCount(), total = NODES.length, pct = Math.round(c / total * 100);
+  paintFinish();
+  document.getElementById("meterFill").style.width = pct + "%";
+  document.getElementById("meterDone").textContent = String(c);
+  document.getElementById("meterTotal").textContent = String(total);
+  document.getElementById("meter").setAttribute("aria-valuenow", String(pct));
+
+  var startBtn = document.getElementById("startBtn");
+  if(cur === -1){
+    document.getElementById("startVerb").textContent = "Ruta completa";
+    document.getElementById("startDest").textContent = "Ir al proyecto final";
+    startBtn.setAttribute("data-target", NODES[NODES.length - 1].id);
+  }else{
+    document.getElementById("startVerb").textContent = c === 0 ? "Empezar por" : "Seguir por";
+    document.getElementById("startDest").textContent = NODES[cur].level + ": " + shortTitle(NODES[cur].title);
+    startBtn.setAttribute("data-target", NODES[cur].id);
+  }
+  drawTrack();
+}
+
+function paintAccount(){
+  var ses = PathSync.session();
+  var chip = document.getElementById("acctBtn");
+  if(ses && ses.email){
+    document.getElementById("avatar").textContent = esc(ses.email.slice(0, 1).toUpperCase());
+    document.getElementById("acctName").textContent = ses.email.split("@")[0];
+    chip.setAttribute("title", "Entraste con " + ses.email + ", el mismo mail vale para las dos rutas");
+  }else if(activeProfile() || !cloudOn()){
+    document.getElementById("avatar").innerHTML = icon("check", 14);
+    document.getElementById("acctName").textContent = "Tu avance";
+    chip.setAttribute("title", cloudOn()
+      ? "Tu avance vive en este navegador. Entra con tu mail para llevarlo a otra computadora."
+      : "Tu avance vive en este navegador");
+  }else{
+    document.getElementById("avatar").innerHTML = icon("user", 14);
+    document.getElementById("acctName").textContent = "Entrar";
+    chip.setAttribute("title", "Entra con tu mail y el avance te sigue en las dos rutas");
+  }
+}
+
+/* ============================================================
+   CIERRE · certificado y publicación
+   ============================================================ */
+var certDlg = document.getElementById("cert");
+var MESES = ["enero","febrero","marzo","abril","mayo","junio",
+             "julio","agosto","septiembre","octubre","noviembre","diciembre"];
+
+function fechaLarga(iso){
+  var d = iso ? new Date(iso) : new Date();
+  if(isNaN(d.getTime())) d = new Date();
+  return d.getDate() + " de " + MESES[d.getMonth()] + " de " + d.getFullYear();
+}
+
+function diasPracticados(){
+  var n = 0, k;
+  for(k in de.days){ if(de.days[k]) n++; }
+  return n;
+}
+
+var certSeq = 0;
+function certHtml(nombre, opts){
+  opts = opts || {};
+  certSeq++;
+  var id = "wmde" + certSeq;
+  var marca = esc((opts.sample ? "MUESTRA" : nombre) + " · NO OFICIAL · RUTA DE ESTUDIO");
+  var dias = diasPracticados();
+  return '' +
+    '<div class="cert' + (opts.mini ? " mini" : "") + (opts.sample ? " sample" : "") + '">' +
+      '<svg class="cert-wm" aria-hidden="true" focusable="false">' +
+        '<defs><pattern id="' + id + '" width="330" height="94" patternUnits="userSpaceOnUse" patternTransform="rotate(-22)">' +
+          '<text x="0" y="28">' + marca + '</text><text x="165" y="76">' + marca + '</text>' +
+        '</pattern></defs>' +
+        '<rect width="100%" height="100%" fill="url(#' + id + ')"></rect>' +
+      '</svg>' +
+      '<div class="cert-in">' +
+        '<span class="cert-badge">' + icon("warn", 12) + 'No es una certificación</span>' +
+        '<p class="cert-eyebrow">Ruta de Data Engineer</p>' +
+        '<h3 class="cert-name">' + esc(nombre) + '</h3>' +
+        '<p class="cert-line">cerró los ' + NODES.length + ' niveles de la ruta que arma y ordena Luca Lamorte: ' +
+          'SQL, Python, modelado de datos, una plataforma cloud, el stack de trabajo y la nube.</p>' +
+        '<div class="cert-meta">' +
+          '<span class="chip official num">' + NODES.length + ' de ' + NODES.length + ' niveles</span>' +
+          (dias ? '<span class="chip num">' + dias + (dias === 1 ? " día" : " días") + ' de práctica</span>' : '') +
+          '<span class="chip num">' + fechaLarga(opts.date) + '</span>' +
+        '</div>' +
+        '<p class="cert-foot">Lo genera esta página sola y no acredita nada ante nadie. No hay institución detrás: ' +
+          'es el registro de un recorrido de estudio. El material es de sus autores, listados en el catálogo de esta misma página.</p>' +
+      '</div>' +
+    '</div>';
+}
+
+function postHtml(nombre, sample){
+  return '' +
+    '<div class="post-mock">' +
+      '<div class="post-head">' +
+        '<span class="avatar">' + esc(nombre.slice(0, 1).toUpperCase()) + '</span>' +
+        '<span><span class="who">' + esc(nombre) + '</span><br><span class="sub">ahora</span></span>' +
+      '</div>' +
+      '<p class="post-body">' + esc(CONTACTO.shareText) + '</p>' +
+      '<div class="post-thumb">' + certHtml(nombre, { mini: true, sample: sample }) + '</div>' +
+      '<p class="post-link"><a href="' + CONTACTO.linkedin + '" target="_blank" rel="noopener">' + esc(CONTACTO.linkedin) + '</a>' +
+        (CONTACTO.pathUrl
+          ? '<br><a href="' + CONTACTO.pathUrl + '" target="_blank" rel="noopener">' + esc(CONTACTO.pathUrl) + '</a>'
+          : '<br><span title="Falta la URL pública de la página">El link a la ruta entra acá cuando la página tenga URL</span>') + '</p>' +
+      '<span class="post-tag">' + icon("warn", 11) + 'Vista previa, no es una publicación real</span>' +
+    '</div>';
+}
+
+
+/* El nombre no se pide al entrar: se pide recién cuando hay algo que
+   emitir a nombre de alguien. Queda guardado para la próxima. */
+function certForm(msg){
+  return (msg ? '<p class="form-err">' + icon("warn", 15) + '<span>' + msg + '</span></p>' : '') +
+    '<p class="sheet-goal">Cerraste el recorrido. Escribe el nombre que quieres que aparezca en el certificado.</p>' +
+    '<form id="nameForm" novalidate style="margin-top:16px">' +
+      '<div class="field"><label for="certName">Tu nombre</label>' +
+      '<input id="certName" type="text" maxlength="40" autocomplete="name" placeholder="Nombre y apellido"></div>' +
+      '<div class="auth-actions"><button class="btn-done" type="submit">' + icon("check", 16) + 'Emitir el certificado</button></div>' +
+    '</form>' +
+    '<p class="auth-note">Queda guardado con tu avance, así no lo escribes de nuevo. Nadie más lo ve: no se envía a ningún lado.</p>';
+}
+
+function nombreParaCert(){
+  var ses = PathSync.session();
+  if(de.certName) return de.certName;
+  if(ses && ses.email) return ses.email.split("@")[0];
+  return "";
+}
+
+function guardarNombre(nombre){
+  if(!activeProfile()) ensureLocal();
+  de.certName = nombre;
+  saveState();
+}
+
+function wireCertName(){
+  var f = document.getElementById("nameForm");
+  if(!f) return;
+  f.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var n = (document.getElementById("certName").value || "").trim();
+    if(n.length < 2){
+      document.getElementById("certBody").innerHTML = certForm("Escribe un nombre de dos letras o más.");
+      return wireCertName();
+    }
+    guardarNombre(n);
+    hideDialog2(certDlg);
+    renderPreview();
+    openCert();
+  });
+  var i = document.getElementById("certName");
+  if(i) i.focus();
+}
+
+function renderPreview(){
+  var completo = doneCount() === NODES.length;
+  var nombre = (completo && nombreParaCert()) ? nombreParaCert() : "Tu nombre";
+  document.getElementById("postMock").innerHTML = postHtml(nombre, !completo);
+}
+
+function shareUrl(){
+  var txt = CONTACTO.shareText + "\n" + CONTACTO.linkedin;
+  if(CONTACTO.pathUrl) txt += "\n\nLa ruta completa, gratis: " + CONTACTO.pathUrl;
+  return "https://www.linkedin.com/feed/?shareActive=true&text=" + encodeURIComponent(txt);
+}
+
+function paintFinish(){
+  var c = doneCount(), faltan = NODES.length - c, abierto = faltan === 0;
+  var card = document.getElementById("finishCard");
+  var share = document.getElementById("shareBtn");
+  var lock = document.getElementById("lockNote");
+
+  card.classList.toggle("unlocked", abierto);
+  if(abierto){
+    share.setAttribute("href", shareUrl());
+    share.setAttribute("target", "_blank");
+    share.setAttribute("rel", "noopener");
+    share.removeAttribute("aria-disabled");
+    share.setAttribute("title", "Abre el editor de LinkedIn con el texto cargado");
+    document.getElementById("shareVerb").textContent = "Abrir el editor de LinkedIn";
+    document.getElementById("finishTitle").textContent = "Ruta completa, ahora cuéntalo";
+    document.getElementById("finishLead").textContent =
+      "Cerraste los seis niveles. El botón abre LinkedIn con el texto escrito; revísalo y publica cuando quieras.";
+    lock.style.display = "none";
+  }else{
+    share.setAttribute("href", "#");
+    share.removeAttribute("target");
+    share.setAttribute("aria-disabled", "true");
+    share.setAttribute("title", "Te " + (faltan === 1 ? "falta 1 nivel" : "faltan " + faltan + " niveles") + " para desbloquear la publicación");
+    document.getElementById("shareVerb").textContent = "Se desbloquea al terminar";
+    lock.style.display = "";
+    document.getElementById("lockText").textContent = faltan === 1
+      ? "Te falta 1 nivel para desbloquear la publicación."
+      : "Te faltan " + faltan + " niveles para desbloquear la publicación.";
+  }
+  renderPreview();
+}
+
+function openCert(){
+  if(doneCount() !== NODES.length) return;
+  var nombre = nombreParaCert();
+  if(!nombre){
+    document.getElementById("certBody").innerHTML = certForm("");
+    document.getElementById("certShare").style.display = "none";
+    showDialog2(certDlg);
+    wireCertName();
+    return;
+  }
+  document.getElementById("certShare").style.display = "";
+  document.getElementById("certBody").innerHTML =
+    certHtml(nombre, { date: de.doneAt }) +
+    '<p class="source-note">Cualquiera puede sacarle una captura, así que el certificado lleva tu nombre y la fecha repetidos en la marca de agua, y dice en la cara que no es oficial. Sirve para mostrar que hiciste el recorrido, no para acreditar nada.</p>' +
+    '<h4>Así se vería publicado</h4>' + postHtml(nombre, false);
+  document.getElementById("certShare").setAttribute("href", shareUrl());
+  showDialog2(certDlg);
+}
+
+function showDialog2(dlg){
+  if(typeof dlg.showModal === "function"){ if(!dlg.open) dlg.showModal(); }
+  else dlg.setAttribute("open", "");
+}
+function hideDialog2(dlg){
+  if(typeof dlg.close === "function" && dlg.open) dlg.close();
+  else dlg.removeAttribute("open");
+}
+
+/* ============================================================
+   FICHA DEL HITO
+   ============================================================ */
+var sheet = document.getElementById("sheet");
+var openId = null;
+
+function openSheet(id){
+  var n = nodeById(id);
+  if(!n) return;
+  openId = id;
+
+  document.getElementById("sheetLevel").textContent = n.level;
+  var cost = document.getElementById("sheetCost");
+  cost.textContent = n.cost;
+  cost.className = "chip " + (n.cost === "Pago" ? "paid" : "free");
+  document.getElementById("sheetTitle").textContent = n.title;
+
+  var html = '<p class="sheet-goal">' + esc(n.goal) + '</p>';
+  html += '<h4>Qué vas a poder hacer</h4><ul class="win-list">';
+  for(var w=0;w<n.wins.length;w++){
+    html += '<li>' + icon("check", 13) + '<span>' + esc(n.wins[w]) + '</span></li>';
+  }
+  html += '</ul>';
+
+  html += '<h4>Dónde estudiarlo · ' + n.time + '</h4><div class="res-list">';
+  for(var l=0;l<n.links.length;l++){
+    var k = n.links[l];
+    html += '<a class="res' + (k.internal ? " own" : "") + '" href="' + k.u + '"' +
+              (k.internal ? "" : ' target="_blank" rel="noopener"') + '>' +
+              '<span class="ico">' + icon(k.i, k.internal ? 20 : 17) + '</span>' +
+              '<span class="txt">' +
+                (k.internal ? '<span class="own-tag">Ruta completa de esta guía</span>' : '') +
+                '<span class="t">' + esc(k.t) +
+                (k.paid ? ' <span class="chip paid">Pago</span>' : "") + pills(k.b) +
+                '</span><span class="s">' + esc(k.s) + '</span></span>' +
+              '<span class="go">' + icon(k.internal ? "arrow" : "open", k.internal ? 18 : 15) + '</span>' +
+            '</a>';
+  }
+  html += '</div>';
+  html += '<p class="self-note">' + icon("warn", 15) +
+          '<span>Este hito lo confirmas tú. Son cursos y plataformas de terceros, así que la página no puede verificar ' +
+          'si lo hiciste: márcalo cuando de verdad puedas hacer lo de arriba.</span></p>';
+
+  document.getElementById("sheetBody").innerHTML = html;
+  document.getElementById("sheetBody").scrollTop = 0;
+
+  paintSheetFoot();
+  if(typeof sheet.showModal === "function"){ if(!sheet.open) sheet.showModal(); }
+  else sheet.setAttribute("open", "");
+}
+
+function paintSheetFoot(){
+  var n = nodeById(openId);
+  if(!n) return;
+  var btn = document.getElementById("sheetDone"), isDone = !!done[n.id];
+  btn.className = "btn-done" + (isDone ? " done" : "");
+  btn.innerHTML = icon("check", 16) + (isDone ? "Hito completado" : "Marcar como completado");
+  btn.setAttribute("title", isDone ? "Toca de nuevo para desmarcarlo" : "Lo confirmas tú, la página no lo verifica");
+
+  var idx = indexById(n.id), next = document.getElementById("sheetNext");
+  if(idx < NODES.length - 1){
+    next.style.display = "";
+    document.getElementById("sheetNextLabel").textContent = shortTitle(NODES[idx + 1].title);
+    next.setAttribute("data-next", NODES[idx + 1].id);
+  }else{
+    next.style.display = "none";
+  }
+}
+
+function closeSheet(){
+  if(typeof sheet.close === "function" && sheet.open) sheet.close();
+  else sheet.removeAttribute("open");
+}
+
+var pendiente = null;   // nivel esperando a que alguien entre
+
+/* Única puerta para marcar: sin perfil, el avance no tendría dónde vivir. */
+function requestMark(id){
+  if(!activeProfile()){
+    if(cloudOn()){
+      // con nube, el nivel se guarda de verdad recién cuando entra con su mail
+      pendiente = id;
+      renderAccount("Entra con tu mail y guardo el nivel apenas vuelvas.");
+      showAcct();
+      return;
+    }
+    ensureLocal();
+  }
+  toggleDone(id);
+}
+
+function toggleDone(id){
+  done[id] = !done[id];
+  if(!done[id]) delete done[id];
+  var saved = saveState();
+  paintStates();
+  paintSheetFoot();
+  if(!saved){
+    toast("El navegador bloqueó el guardado: esto se pierde al recargar.");
+    return;
+  }
+  var c = doneCount();
+  if(c === NODES.length){
+    if(!de.doneAt){ de.doneAt = new Date().toISOString(); saveState(); }
+    if(typeof Chin !== "undefined"){
+      Chin.festejar("cohete", "La terminaste entera",
+        "Ahora falta la parte que no se marca: sostenerla.");
+    }
+    window.setTimeout(function(){
+      document.getElementById("cierre").scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 260);
+  }
+  else if(done[id] && typeof Chin !== "undefined"){
+    if(c % 5 === 0){
+      Chin.festejar("cohete", c + " hitos hechos",
+        "Quedan " + (NODES.length - c) + ". Vas bien.");
+    }else{
+      Chin.festejar("festeja", "Uno menos",
+        "Quedan " + (NODES.length - c) + " en esta ruta.");
+    }
+  }
+}
+
+function goTo(target){
+  var card = document.getElementById("card-" + target);
+  if(!card) return;
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  window.setTimeout(function(){ openSheet(target); }, 420);
+}
+
+/* ============================================================
+   TEMA Y AVISOS
+   ============================================================ */
+function toast(msg){
+  var t = document.getElementById("toast");
+  /* Si la página no trae el elemento, se arma acá y no se pierde el
+     aviso. Antes reventaba y se llevaba puesto lo que siguiera: por
+     eso subir el CV no hacía nada. */
+  if(!t){
+    t = document.createElement("div");
+    t.className = "toast"; t.id = "toast";
+    t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
+    t.innerHTML = '<span id="toastText"></span>';
+    document.body.appendChild(t);
+  }
+  var txt = document.getElementById("toastText");
+  if(txt) txt.textContent = msg;
+  t.classList.add("show");
+  /* El temporizador vive en el elemento y no en una variable suelta,
+     que era otra cosa que faltaba en tres de las cuatro páginas. */
+  window.clearTimeout(t.__timer);
+  t.__timer = window.setTimeout(function(){ t.classList.remove("show"); }, 2600);
+}
+
+function applyTheme(mode){
+  document.documentElement.setAttribute("data-theme", mode);
+  var dark = mode === "dark";
+  document.getElementById("themeIcon").innerHTML = dark
+    ? '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>'
+    : '<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>';
+  document.getElementById("themeBtn").setAttribute("title", dark ? "Cambiar al tema claro" : "Cambiar al tema oscuro");
+  safeSet(STORAGE.theme, mode);
+  window.setTimeout(drawTrack, 60);
+}
+
+/* ============================================================
+   EL DIBUJO DEL CAMINO
+   ============================================================ */
+var svgNS = "http://www.w3.org/2000/svg";
+
+function markerPoints(){
+  var track = document.getElementById("track");
+  var box = track.getBoundingClientRect();
+  var marks = track.querySelectorAll("[data-marker]");
+  var pts = [];
+  for(var i=0;i<marks.length;i++){
+    var r = marks[i].getBoundingClientRect();
+    pts.push({ x: r.left - box.left + r.width / 2, y: r.top - box.top + r.height / 2 });
+  }
+  return { pts: pts, w: box.width, h: box.height };
+}
+
+function buildPath(pts, upto){
+  if(!pts.length) return "";
+  var d = "M " + pts[0].x.toFixed(1) + " " + pts[0].y.toFixed(1);
+  var end = Math.min(upto === undefined ? pts.length - 1 : upto, pts.length - 1);
+  for(var i=1;i<=end;i++){
+    var p0 = pts[i-1], p1 = pts[i], my = (p0.y + p1.y) / 2;
+    d += " C " + p0.x.toFixed(1) + " " + my.toFixed(1) + ", " +
+                 p1.x.toFixed(1) + " " + my.toFixed(1) + ", " +
+                 p1.x.toFixed(1) + " " + p1.y.toFixed(1);
+  }
+  return d;
+}
+
+function pathLength(d){
+  if(!d) return 0;
+  var p = document.createElementNS(svgNS, "path");
+  p.setAttribute("d", d);
+  var svg = document.getElementById("trackSvg");
+  svg.appendChild(p);
+  var len = 0;
+  try{ len = p.getTotalLength(); }catch(e){ len = 0; }
+  svg.removeChild(p);
+  return len;
+}
+
+function drawTrack(){
+  var m = markerPoints();
+  if(m.pts.length < 2) return;
+  var svg = document.getElementById("trackSvg");
+  svg.setAttribute("viewBox", "0 0 " + m.w + " " + m.h);
+  svg.setAttribute("width", m.w);
+  svg.setAttribute("height", m.h);
+
+  var full = buildPath(m.pts);
+  document.getElementById("trackLine").setAttribute("d", full);
+  document.getElementById("trackDash").setAttribute("d", full);
+
+  var lastDone = -1;
+  for(var i=0;i<NODES.length;i++){ if(done[NODES[i].id]) lastDone = i; }
+
+  var trail = document.getElementById("trackDone");
+  var total = pathLength(full);
+  var reached = lastDone > 0 ? pathLength(buildPath(m.pts, lastDone)) : 0;
+  trail.setAttribute("d", full);
+  trail.style.strokeDasharray = total + " " + total;
+  trail.style.strokeDashoffset = String(total - reached);
+  trail.style.opacity = lastDone > 0 ? "1" : "0";
+}
+
+
+/* ============================================================
+   ARRANQUE
+   ============================================================ */
+var MI_CLAVE = "de";
+
+/* El pie sale solo si esta es tu ruta, la que salio del CV. Mirar una
+   ruta del catalogo no es elegirla, asi que ahi no aparece. */
+function pintarSigue(){
+  var caja = document.getElementById("sigue");
+  if(!caja || typeof Onb === "undefined") return;
+  Onb.cargar();
+  var mia = (Onb.estado.rutas || []).indexOf(MI_CLAVE) >= 0;
+  caja.hidden = !mia;
+}
+
+
+/* ============================================================
+   LA GUIA · la chinchilla te dice que sigue
+   ============================================================ */
+/* Deja el globo al lado de lo que hay que tocar. Debajo si entra,
+   arriba si no; y si el paso no apunta a nada, en la esquina. */
+function ubicarGuia(caja, sel){
+  var viejo = document.querySelector(".chin-foco");
+  if(viejo) viejo.classList.remove("chin-foco");
+
+  if(!sel){
+    caja.className = "chin chin-esquina";
+    caja.style.top = ""; caja.style.left = "";
+    return;
+  }
+  var e = document.querySelector(sel);
+  if(!e){
+    caja.className = "chin chin-esquina";
+    caja.style.top = ""; caja.style.left = "";
+    return;
+  }
+
+  e.classList.add("chin-foco");
+  e.scrollIntoView({ block: "center", behavior: "smooth" });
+
+  /* Se espera a que el scroll termine: medir antes da la posición
+     vieja y el globo aparece en cualquier lado. */
+  setTimeout(function(){
+    var r = e.getBoundingClientRect();
+    var ancho = Math.min(340, window.innerWidth - 32);
+    var alto = caja.offsetHeight || 220;
+
+    caja.className = "chin chin-anclada";
+    var top = r.bottom + 16;
+    if(top + alto > window.innerHeight - 12) top = Math.max(12, r.top - alto - 16);
+
+    var left = r.left;
+    if(left + ancho > window.innerWidth - 12) left = window.innerWidth - ancho - 12;
+    if(left < 12) left = 12;
+
+    caja.style.top = Math.round(top) + "px";
+    caja.style.left = Math.round(left) + "px";
+  }, 320);
+}
+
+function pintarGuia(){
+  var caja = document.getElementById("chin");
+  if(!caja || typeof Guia === "undefined") return;
+
+  var p = Guia.tocaAca();
+  if(!p){
+    caja.hidden = true;
+    var f = document.querySelector(".chin-foco");
+    if(f) f.classList.remove("chin-foco");
+    return;
+  }
+
+  document.getElementById("chinT").textContent = p.titulo;
+  document.getElementById("chinP").textContent = p.texto;
+  document.getElementById("chinBT").textContent = p.accion;
+  document.getElementById("chinN").textContent =
+    "Paso " + (Guia.estado.paso + 1) + " de " + Guia.PASOS.length;
+  caja.hidden = false;
+  ubicarGuia(caja, p.ancla);
+
+  /* El último paso ofrece dos formas de empezar, no un "entendido". */
+  var seg = document.getElementById("chinB2");
+  if(p.dobles){
+    document.getElementById("chinBT").textContent = p.accion;
+    seg.hidden = false;
+    seg.textContent = p.accion2;
+    seg.onclick = function(){ Guia.avanzar(); location.href = p.lleva2; };
+  }else if(seg){
+    seg.hidden = true;
+  }
+
+  document.getElementById("chinB").onclick = function(){
+    Guia.avanzar();
+    var dest = p.lleva || (p.dobles ? Guia.proximoCurso() : "");
+    if(dest){ location.href = dest; return; }
+    pintarGuia();
+  };
+  function cerrarGuia(){
+    Guia.cerrar();
+    caja.hidden = true;
+    var f = document.querySelector(".chin-foco");
+    if(f) f.classList.remove("chin-foco");
+    toast("Listo. La puedes volver a ver desde tu perfil.");
+  }
+  document.getElementById("chinX").onclick = cerrarGuia;
+  var salto = document.getElementById("chinSalto");
+  if(salto) salto.onclick = cerrarGuia;
+}
+
+var MI_RUTA = "de";
+
+/* ============================================================
+   ESTA RUTA, EN TU SEMANA
+   ============================================================ */
+/* La decision de hacer una ruta se toma aca adentro, leyendola, no
+   en la grilla de la portada. El estado es el mismo que usa el
+   catalogo y la semana: Onb.estado.rutas. */
+function pintarMia(){
+  var b = document.getElementById("miaBtn");
+  if(!b || typeof Onb === "undefined") return;
+  Onb.cargar();
+  var esMia = Onb.activa(MI_RUTA);
+  b.hidden = false;
+  b.classList.toggle("on", esMia);
+  b.setAttribute("aria-pressed", esMia ? "true" : "false");
+  b.setAttribute("title", esMia
+    ? "Sacarla: deja de ocupar tiempo en tu semana"
+    : "Sumarla: entra en el reparto de tu semana");
+  document.getElementById("miaVerb").textContent = esMia ? "Est\u00e1 en" : "Sumar a";
+  document.getElementById("miaDest").textContent = "tu semana";
+}
+
+function engancharMia(){
+  var b = document.getElementById("miaBtn");
+  if(!b || typeof Onb === "undefined") return;
+  b.addEventListener("click", function(){
+    Onb.alternarRuta(MI_RUTA);
+    pintarMia();
+    if(typeof Chin !== "undefined"){
+      Chin.festejar(Onb.activa(MI_RUTA) ? "festeja" : "busca",
+        Onb.activa(MI_RUTA) ? "Sumada a tu semana" : "Fuera de tu semana",
+        Onb.activa(MI_RUTA)
+          ? "El tiempo que tengas se reparte con las otras que elegiste."
+          : "Sigue ac\u00e1 y tu avance no se toca. Solo deja de ocupar tiempo.");
+    }
+  });
+}
+
+function init(){
+  var nubeLista = PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
+  var stored = safeGet(STORAGE.theme);
+  if(stored !== "dark" && stored !== "light"){
+    var light = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+    stored = light ? "light" : "dark";
+  }
+  applyTheme(stored);
+
+  loadState();
+  renderMap();
+  paintAccount();
+  pintarMia();
+  engancharMia();
+  pintarGuia();
+  pintarSigue();
+  paintStates();
+
+  document.getElementById("startBtn").addEventListener("click", function(){
+    goTo(this.getAttribute("data-target"));
+  });
+  document.getElementById("sheetClose").addEventListener("click", closeSheet);
+  document.getElementById("sheetDone").addEventListener("click", function(){
+    if(openId) requestMark(openId);
+  });
+  document.getElementById("sheetNext").addEventListener("click", function(){
+    var nx = this.getAttribute("data-next");
+    closeSheet();
+    if(nx) window.setTimeout(function(){ goTo(nx); }, 120);
+  });
+  sheet.addEventListener("click", function(ev){ if(ev.target === sheet) closeSheet(); });
+  sheet.addEventListener("close", function(){ openId = null; });
+  document.getElementById("certClose").addEventListener("click", function(){ hideDialog2(certDlg); });
+  certDlg.addEventListener("click", function(ev){ if(ev.target === certDlg) hideDialog2(certDlg); });
+  document.getElementById("shareBtn").addEventListener("click", function(ev){
+    if(this.getAttribute("aria-disabled") === "true"){
+      ev.preventDefault();
+      var faltan = NODES.length - doneCount();
+      toast("Cierra " + (faltan === 1 ? "el nivel que falta" : "los " + faltan + " niveles que faltan") + " para publicar.");
+    }
+  });
+  document.getElementById("acctBtn").addEventListener("click", openAccount);
+  document.getElementById("acctClose").addEventListener("click", hideAcct);
+  acctDlg.addEventListener("click", function(ev){ if(ev.target === acctDlg) hideAcct(); });
+
+  if(nubeLista){
+    var fresh = PathSync.captureHash(function(m){
+      cloudMsg = m;
+      toast("El link del mail no sirvió: " + m);
+    });
+    refreshSes();
+    /* El link de recuperación trae sesión, y aun así hay que pedir la
+       contraseña nueva: si no, la vieja sigue siendo la que vale. */
+    if(cloudSes && PathSync.hashType() === "recovery"){
+      openAccount();
+      renderAccess("");
+      PathSync.authUI.irA("recovery");
+    }else if(cloudSes){
+      window.setTimeout(function(){
+        cloudSync();
+        sincronizarPerfil();
+        PathSync.evento("snowpath", "entro", { ruta: "data_engineer" });
+      }, fresh ? 0 : 400);
+    }
+  }
+
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  });
+
+  var redrawTimer = null;
+  function scheduleRedraw(){
+    window.clearTimeout(redrawTimer);
+    redrawTimer = window.setTimeout(drawTrack, 90);
+  }
+  window.addEventListener("resize", scheduleRedraw);
+  if(window.ResizeObserver){
+    new window.ResizeObserver(scheduleRedraw).observe(document.getElementById("track"));
+  }
+  if(document.fonts && document.fonts.ready && document.fonts.ready.then){
+    document.fonts.ready.then(drawTrack)["catch"](function(){});
+  }
+  window.setTimeout(drawTrack, 220);
+}
+
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded", init);
+}else{
+  init();
+}
+})();
+</script>
+
+<script>
+/* El nombre de los certificados sale del perfil, que es el mismo de todas
+   las rutas. Sin perfil queda el texto de ejemplo. */
+(function(){
+  "use strict";
+  function pinta(){
+    var nombre = "Tu nombre";
+    try{
+      var ses = PathSync.session();
+      if(ses && ses.email){
+        nombre = ses.email.split("@")[0];
+      }else{
+        var p = PathSync.store.active();
+        if(p && p.name && p.name !== "Tu avance") nombre = p.name;
+      }
+    }catch(e){ /* sin perfil se queda el ejemplo */ }
+    var n = document.querySelectorAll("[data-cert-nombre]"), i;
+    for(i=0;i<n.length;i++) n[i].textContent = nombre;
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", function(){ window.setTimeout(pinta, 80); });
+  }else{
+    window.setTimeout(pinta, 80);
+  }
+})();
+</script>
+
+<div class="chin" id="chin" hidden>
+  <div class="chin-globo">
+    <button class="chin-x" type="button" id="chinX" title="No mostrar más" aria-label="Cerrar la guía">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="chin-fig"><svg class="chin-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg></div>
+    <b class="chin-t" id="chinT"></b>
+    <p class="chin-p" id="chinP"></p>
+    <div class="chin-acc">
+      <span class="chin-n" id="chinN"></span>
+      <button class="chin-salto" type="button" id="chinSalto">Saltear</button>
+      <button class="chin-2" type="button" id="chinB2" hidden></button>
+      <button class="btn-primary chin-b" type="button" id="chinB">
+        <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

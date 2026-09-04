@@ -1,0 +1,235 @@
+{
+  "_nota": "Los learning paths de CognitiveClass tal como los publica el sitio, cada uno con su credencial. Sale de los listados que pasó Luca, no de una inferencia por tema. Un mismo proyecto guiado aparece en varios paths a propósito: así está en el catálogo original, y hacerlo una vez cuenta para todos.",
+  "_uso": "Es la fuente de verdad para agrupar ml-ai.html. Un acto del mapa = un learning path = una credencial.",
+
+  "paths": [
+    {
+      "id": "fundamentals-of-ai",
+      "nombre": "Fundamentals of AI",
+      "nivel": "Beginner",
+      "cursos": [
+        "IBMSkillsNetwork+AI0105EN+v1",
+        "IBMSkillsNetwork+AI0109EN+v1",
+        "IBMSkillsNetwork+AI0110EN+v1"
+      ]
+    },
+    {
+      "id": "machine-learning-basics",
+      "nombre": "Machine Learning Basics",
+      "cursos": [
+        "IBMSkillsNetwork+ML0104EN+v1",
+        "IBMSkillsNetwork+ML0105EN+v1",
+        "IBMSkillsNetwork+GPXX0TRPEN+v1",
+        "IBMSkillsNetwork+GPXX0AEIEN+v1",
+        "IBMSkillsNetwork+GPXX0MYYEN+v1"
+      ]
+    },
+    {
+      "id": "data-science-essentials",
+      "nombre": "Data Science Essentials",
+      "nivel": "Beginner",
+      "cursos": [
+        "CognitiveClass+PY0101EN+v3",
+        "CognitiveClass+DA0101EN+v2",
+        "IBMSkillsNetwork+GPXX0HE1EN+v1",
+        "IBMSkillsNetwork+AI0120EN+v1"
+      ]
+    },
+    {
+      "id": "deep-learning",
+      "nombre": "Deep Learning",
+      "cursos": [
+        "DeepLearning.TV+ML0115EN+v2.0",
+        "BigDataUniversity+ML0120EN+v2",
+        "IBMDeveloperSkillsNetwork+ML0122ENv3+v1"
+      ]
+    },
+    {
+      "id": "mastering-pytorch",
+      "nombre": "Mastering PyTorch",
+      "nivel": "Beginner",
+      "cursos": [
+        "IBMSkillsNetwork+AI0111EN+v1",
+        "IBMSkillsNetwork+AI0116EN+v1",
+        "IBMSkillsNetwork+AI0112EN+v1",
+        "IBMSkillsNetwork+AI0114EN+v1",
+        "IBMSkillsNetwork+AI0113EN+v1"
+      ]
+    },
+    {
+      "id": "pytorch-projects",
+      "nombre": "Learn PyTorch Hands-on with 7 Applied Projects",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMDeveloper+GPXX0W98EN+v1",
+        "IBMSkillsNetwork+GPXX0UI5EN+v1",
+        "IBM+GPXX0PTYEN+v1",
+        "IBM+GPXX0D2MEN+v1",
+        "IBMSkillsNetwork+GPXX0DL9EN+v1",
+        "IBMSkillsNetwork+GPXX0CLHEN+v1",
+        "IBM+GPXX0A52EN+v1"
+      ]
+    },
+    {
+      "id": "computer-vision-pytorch",
+      "nombre": "Computer Vision Hands-on with PyTorch",
+      "nivel": "Advanced",
+      "cursos": [
+        "IBM+GPXX0JV6EN+v1",
+        "IBMSkillsNetwork+GPXX0CLHEN+v1",
+        "IBM+GPXX0PTYEN+v1",
+        "IBMSkillsNetwork+GPXX0W5QEN+v1",
+        "IBMDeveloper+GPXX0W98EN+v1",
+        "IBM+GPXX0A52EN+v1",
+        "IBM+GPXX0D2MEN+v1"
+      ]
+    },
+    {
+      "id": "image-processing-generative",
+      "nombre": "Image Processing and Generative Models",
+      "nivel": "Advanced",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX0RR9EN+v1",
+        "IBM+GPXX0WTIEN+v1",
+        "IBM+GPXX0KSEEN+v1",
+        "IBM+GPXX0A52EN+v1"
+      ]
+    },
+    {
+      "id": "unsupervised-ml",
+      "nombre": "Unsupervised Machine Learning",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX05W9EN+v1",
+        "IBMSkillsNetwork+GPXX04YGEN+v1",
+        "IBMSkillsNetwork+GPXX04T2EN+v1",
+        "IBMSkillsNetwork+GPXX0SHHEN+v1",
+        "IBMSkillsNetwork+GPXX0VWBEN+v1",
+        "IBM+GPXX0IT0EN+v1",
+        "IBMSkillsNetwork+GPXX06S4EN+v1"
+      ]
+    },
+    {
+      "id": "recommendation-systems",
+      "nombre": "Build Smarter Recommendation Systems with GenAI and ML",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX0RPXEN+v1",
+        "IBMSkillsNetwork+GPXX0XMEN+v1",
+        "IBMSkillsNetwork+GPXX0M0YEN+v1",
+        "IBM+GPXX0SV2EN+v1",
+        "IBMSkillsNetwork+GPXX0QZ9EN+v1",
+        "IBM+GPXX068IEN+v1",
+        "IBMSkillsNetwork+GPXX04T2EN+v1",
+        "IBM+GPXX0D14EN+v1"
+      ]
+    },
+    {
+      "id": "nlp-sentiment",
+      "nombre": "Natural Language Processing and Sentiment Analysis",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBM+GPXX0AIAEN+v1",
+        "IBMSkillsNetwork+GPXX0PYAEN+v1",
+        "IBM+GPXX0UN5EN+v1",
+        "IBMSkillsNetwork+GPXX0DUXEN+v1"
+      ]
+    },
+    {
+      "id": "embeddable-ai",
+      "nombre": "Enhancing Applications with Embeddable AI",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX0IWWEN+v1",
+        "IBMSkillsNetwork+GPXX01V6EN+v1",
+        "IBM+GPXX0E8TEN+v1",
+        "IBMSkillsNetwork+GPXX0DUXEN+v1"
+      ]
+    },
+    {
+      "id": "reinforcement-learning",
+      "nombre": "Reinforcement Learning and AI Applications",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX0HAUEN+v1",
+        "IBM+GPXX0XENEN+v1",
+        "IBMSkillsNetwork+GPXX0EP1EN+v1",
+        "IBM+GPXX0E8TEN+v1"
+      ]
+    },
+    {
+      "id": "explainable-ai",
+      "nombre": "Master Explainable AI using AIX360",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX0T2WEN+v1",
+        "IBMSkillsNetwork+GPXX0RWFEN+v1",
+        "IBMSkillsNetwork+GPXX014EEN+v1",
+        "IBMSkillsNetwork+GPXX0DH4EN+v1"
+      ]
+    },
+    {
+      "id": "getting-started-llm",
+      "nombre": "Getting Started with Large Language Models",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+AI0117EN+v1",
+        "IBMSkillsNetwork+GPXX0TGVEN+v1",
+        "IBMSkillsNetwork+GPXX04ESEN+v1",
+        "IBMSkillsNetwork+GPXX05SHEN+v1"
+      ]
+    },
+    {
+      "id": "mastering-rag",
+      "nombre": "Mastering RAG: Build Smart, Data-Driven Applications",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX0FVDEN+v1",
+        "IBMSkillsNetwork+GPXX0TQPEN+v1",
+        "IBMSkillsNetwork+GPXX0AOVEN+v1",
+        "IBMSkillsNetwork+GPXX03NIEN+v1",
+        "IBMSkillsNetwork+GPXX0WSJEN+v1",
+        "IBMSkillsNetwork+GPXX06PWEN+v1"
+      ]
+    },
+    {
+      "id": "fundamentals-ai-agents",
+      "nombre": "Fundamentals of AI Agents",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+GPXX01DREN+v1",
+        "IBMSkillsNetwork+GPXX0MJGEN+v1",
+        "IBMSkillsNetwork+GPXX0YQQEN+v1",
+        "IBMSkillsNetwork+GPXX0F6REN+v1",
+        "IBMSkillsNetwork+GPXX0JFVEN+v1",
+        "IBMSkillsNetwork+GPXX0IRMEN+v1",
+        "IBMSkillsNetwork+GPXX0560EN+v1"
+      ]
+    },
+    {
+      "id": "agentic-ai-handson",
+      "nombre": "Agentic AI Hands-on",
+      "nivel": "Intermediate",
+      "cursos": [
+        "IBMSkillsNetwork+AI0146EN+v1",
+        "IBMSkillsNetwork+GPXX03V3EN+v1",
+        "IBMSkillsNetwork+GPXX02Z3EN+v1",
+        "IBMSkillsNetwork+GPXX0MJGEN+v1",
+        "IBMSkillsNetwork+GPXX0YQQEN+v1",
+        "IBMSkillsNetwork+GPXX01DREN+v1",
+        "IBMSkillsNetwork+GPXX0FPGEN+v1",
+        "IBMSkillsNetwork+GPXX0DK1EN+v1",
+        "IBMSkillsNetwork+GPXX0BX5EN+v1",
+        "IBMSkillsNetwork+GPXX026DEN+v1"
+      ]
+    },
+    {
+      "id": "machine-learning-python",
+      "nombre": "Machine Learning with Python",
+      "_nota": "Curso suelto, no learning path. Es el puente entre los fundamentos y todo lo demás.",
+      "cursos": [
+        "BDU+ML0101EN+v4"
+      ]
+    }
+  ]
+}

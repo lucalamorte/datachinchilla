@@ -1,0 +1,315 @@
+/* ============================================================
+   tema.css
+
+   Los tokens que comparten las cinco páginas: neutros, semánticos,
+   sombras, radios y ritmo. Cada página define encima solo su acento,
+   que es lo que le da identidad a cada ruta.
+
+   Existe porque las páginas van a fusionarse. Cinco escalas de gris
+   distintas conviviendo en un mismo sitio se ven como cinco sitios,
+   y el modo claro de DataChinchilla era inusable justamente por acá:
+   el fondo (#EEF4FA) y las tarjetas (#FFFFFF) se diferenciaban en un
+   4% de luminosidad, así que nada se despegaba de nada.
+
+   La regla: los neutros y lo semántico viven acá. Si una página
+   necesita cambiar un gris, se cambia acá para todas.
+   ============================================================ */
+
+:root{
+  color-scheme: light;
+
+  /* ---------------------------------------------------- neutros
+     Un gris real como fondo, no un tinte casi blanco. La diferencia
+     contra la superficie es lo que hace que una tarjeta se lea como
+     tarjeta sin necesitar una sombra pesada. */
+  --bg:            #F1F4F7;
+  --bg-2:          #E7EBF0;
+  --surface:       #FFFFFF;
+  --surface-2:     #F7F9FB;
+  --surface-sunk:  #E9EDF2;
+
+  --text:          #0E1319;
+  --text-2:        #4A5563;   /* 7.9:1 sobre --bg */
+  /* Contra el fondo de verdad (#F1F4F7), no contra blanco: medido
+     contra blanco daba 4.6 y contra el fondo 3.9, abajo del minimo. */
+  --text-3:        #64707F;   /* 4.6:1 sobre --bg */
+  --divider:       #D8DEE6;
+  --divider-soft:  #E8ECF1;
+
+  /* ------------------------------------------------- semánticos
+     Los mismos en las cinco páginas: verde es correcto en todas,
+     rojo es error en todas. Solo el acento cambia por ruta. */
+  --good:          #0E7C55;
+  --good-soft:     #DBF2E8;
+  --bad:           #BE3A2B;
+  --bad-soft:      #FBE7E4;
+  --warn:          #9A5B08;
+  --warn-soft:     #FCF1DB;
+
+  /* El naranja del botón principal, igual en todas las rutas: es la
+     acción de arrancar y conviene que se reconozca entre páginas. */
+  --warm:          #F97316;
+  --warm-2:        #FBBF24;
+  --warm-ink:      #2A1206;
+  --warm-shadow:   rgba(249,115,22,.30);
+
+  /* ---------------------------------------------------- sombras
+     En claro sostienen la elevación; en oscuro casi no se ven y el
+     trabajo lo hace el borde. */
+  --shadow-sm: 0 1px 2px rgba(16,26,40,.05), 0 2px 8px rgba(16,26,40,.05);
+  --shadow-md: 0 4px 14px rgba(16,26,40,.08), 0 14px 34px rgba(16,26,40,.07);
+  --shadow-lg: 0 24px 60px rgba(12,20,32,.18);
+
+  /* ----------------------------------------------------- forma */
+  --r-sm: 8px;  --r-md: 12px;  --r-lg: 16px;  --r-xl: 22px;  --r-pill: 999px;
+  --maxw: 1120px;
+  --dur: 150ms;
+}
+
+:root[data-theme="dark"]{
+  color-scheme: dark;
+
+  --bg:            #0D1117;
+  --bg-2:          #12171F;
+  --surface:       #161B23;
+  --surface-2:     #1D232D;
+  --surface-sunk:  #0F141B;
+
+  --text:          #E9EEF4;
+  --text-2:        #9EA9B7;
+  --text-3:        #737E8D;   /* 4.6:1 sobre --bg */
+  --divider:       #29313C;
+  --divider-soft:  #1E252F;
+
+  --good:          #34D399;
+  --good-soft:     #0B2E23;
+  --bad:           #F87171;
+  --bad-soft:      #341513;
+  --warn:          #FBBF24;
+  --warn-soft:     #33240A;
+
+  --warm:          #FB923C;
+  --warm-2:        #FCD34D;
+  --warm-ink:      #23140A;
+  --warm-shadow:   rgba(251,146,60,.28);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.40);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.42);
+  --shadow-lg: 0 24px 60px rgba(0,0,0,.55);
+}
+
+/* ============================================================
+   PIEZAS COMPARTIDAS
+
+   Lo que las cinco páginas dibujan igual. Cada una puede pisarlo
+   después en su propio <style>, que va más abajo en el documento.
+   ============================================================ */
+
+/* El fondo, igual en las cinco páginas.
+
+   El gradiente tiñe con el acento de cada ruta, así que da carácter sin
+   comerse el contraste. Antes una de las manchas usaba --surface-2, que
+   en claro es casi blanco: cubría el hero entero y ahí las tarjetas
+   blancas dejaban de despegarse del fondo. */
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 680px at 82% -16%,
+      color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%),
+    radial-gradient(900px 520px at -6% 4%,
+      color-mix(in srgb, var(--accent) 7%, transparent), transparent 58%),
+    var(--bg);
+  background-attachment: fixed;
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,
+              Helvetica,Arial,sans-serif;
+  font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* En oscuro el acento sobre el fondo satura demasiado: se baja la mano. */
+:root[data-theme="dark"] body{
+  background:
+    radial-gradient(1200px 680px at 82% -16%,
+      color-mix(in srgb, var(--accent) 9%, transparent), transparent 60%),
+    radial-gradient(900px 520px at -6% 4%,
+      color-mix(in srgb, var(--accent) 5%, transparent), transparent 58%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+/* La barra superior necesita separarse del fondo. En claro, blanca
+   sobre casi blanco desaparecía. */
+.topbar{
+  position:sticky; top:0; z-index:40;
+  background:color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter:saturate(1.6) blur(10px);
+  border-bottom:1px solid var(--divider);
+}
+
+/* Formularios del panel de acceso, dibujados por path-sync.js */
+.field{ display:grid; gap:6px; margin-bottom:14px; }
+.field label{ font-size:10px; font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--text-3); }
+.field input{
+  width:100%; padding:12px 14px; font-size:15px; font-weight:600;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface-2); color:var(--text);
+}
+.field input:focus{ outline:2px solid var(--accent); outline-offset:1px;
+  border-color:var(--accent); }
+.field .pista{ font-size:11.5px; font-weight:600; color:var(--text-3); }
+
+.auth-actions{ display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+.auth-note{ margin-top:12px; font-size:11.5px; line-height:1.55; color:var(--text-3); }
+.form-err{
+  display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;
+  padding:11px 13px; border-radius:var(--r-md); font-size:13px; font-weight:600;
+  background:var(--bad-soft); color:var(--bad);
+  border:1px solid color-mix(in srgb, var(--bad) 30%, transparent);
+}
+.auth-sep{
+  display:flex; align-items:center; gap:11px; margin:14px 0;
+  font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-3);
+}
+.auth-sep::before, .auth-sep::after{ content:""; flex:1; height:1px;
+  background:var(--divider-soft); }
+
+/* El consentimiento se tilda a mano. Nunca viene pretildado. */
+.check{ display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer; }
+.check input{ width:17px; height:17px; margin:2px 0 0; flex-shrink:0;
+  accent-color:var(--accent); cursor:pointer; }
+.check span{ font-size:12.5px; line-height:1.5; color:var(--text-2); }
+
+/* Foco visible en todo lo que se puede tocar con el teclado. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:4px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.01ms !important; animation-iteration-count:1 !important;
+    transition-duration:.01ms !important; scroll-behavior:auto !important;
+  }
+}
+
+
+/* ============================================================
+   Componentes compartidos
+
+   Estaban repetidos en cada pagina y por eso faltaban en las que
+   se compusieron a partir de otra. Acá una vez, para todas. Lo que
+   una pagina redefina despues gana, que es como debe ser.
+   ============================================================ */
+
+.backlink{
+  display:inline-flex; align-items:center; gap:7px; flex-shrink:0;
+  padding:6px 11px 6px 8px; border-radius:var(--r-pill);
+  border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-size:12.5px; font-weight:700; text-decoration:none;
+  transition:color var(--dur) ease, border-color var(--dur) ease, background var(--dur) ease;
+}
+.backlink:hover{ color:var(--text); border-color:var(--accent); }
+.crumb-sep{ color:var(--text-3); font-weight:700; flex-shrink:0; }
+
+.btn-primary{
+  display:inline-flex; align-items:center; gap:12px;
+  padding:13px 22px; border:0; border-radius:var(--r-xl); cursor:pointer;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2));
+  color:var(--warm-ink); font-weight:800; text-decoration:none;
+  font-family:inherit; font-size:inherit;
+  box-shadow:0 8px 24px var(--warm-shadow);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 30px var(--warm-shadow); }
+.btn-primary .verb{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; opacity:.72; }
+.btn-primary .dest{ font-size:15px; }
+
+/* Un botón que se lee como un link, para cuando va dentro de una
+   frase y ponerle caja lo cortaría. */
+.link-btn{
+  padding:0; border:0; background:none; cursor:pointer;
+  font:inherit; color:var(--accent); font-weight:700;
+  text-decoration:underline; text-underline-offset:2px;
+}
+.link-btn:hover{ color:var(--accent-strong); }
+
+@media (max-width:640px){
+  .back-txt{ display:none; }
+  .backlink{ padding:6px 9px; }
+  .crumb-sep{ display:none; }
+}
+
+
+/* La zona para soltar el CV y el recuadro de texto. Los usa la
+   portada en el onboarding y tambien la pagina del CV. */
+.cv-zona{
+  border:1.5px dashed var(--divider); border-radius:var(--r-lg);
+  background:var(--surface-2); padding:20px; text-align:center;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.cv-zona.encima{ border-color:var(--accent); background:var(--accent-soft); }
+.cv-zona p{ font-size:13.5px; color:var(--text-2); margin:0; }
+.cv-o{ margin:14px 0 8px; font-size:12px; color:var(--text-3); text-align:center; }
+#onbTexto, #cvTexto{
+  width:100%; min-height:120px; resize:vertical;
+  padding:12px 13px; border-radius:var(--r-md);
+  background:var(--surface-sunk); border:1px solid var(--divider);
+  font:inherit; font-size:13px; color:var(--text); line-height:1.6;
+}
+#onbTexto:focus, #cvTexto:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+
+
+/* Las tarjetas para elegir puesto. Las usan el onboarding y la
+   pagina del CV: definidas en una sola, en la otra salian sin caja
+   y sin verse como algo que se puede tocar. */
+.puestos{ display:grid; grid-template-columns:repeat(auto-fit,minmax(238px,1fr)); gap:11px; }
+.puesto{
+  display:flex; flex-direction:column; gap:5px;
+  text-align:left; padding:15px 16px; border-radius:var(--r-lg);
+  background:var(--surface-2); border:1.5px solid var(--divider);
+  cursor:pointer; font:inherit; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.puesto:hover{ border-color:var(--accent); }
+.puesto[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.puesto b{ font-size:15px; letter-spacing:-.01em; }
+.puesto span{ font-size:12.5px; color:var(--text-2); line-height:1.5; }
+.puesto .falta{
+  margin-top:5px; font-size:11.5px; font-weight:700; color:var(--warn);
+}
+
+
+/* El atributo hidden pierde contra cualquier display declarado
+   despues (grid, flex). Paso dos veces en este proyecto: un bloque
+   que no se ocultaba y unas tarjetas que seguian a la vista. Esto lo
+   cierra de una vez. */
+[hidden]{ display:none !important; }
+
+/* --- La marca del nav -------------------------------------------
+   El dibujo venia con width="20" puesto en el SVG de las veinte
+   paginas, y a ese tamano la chinchilla no se lee: es una mancha con
+   dos orejas. Es la identidad del sitio y esta en cada pantalla, asi
+   que vale los siete pixeles.
+
+   Va aca y no en cada pagina por eso mismo: son veinte copias del
+   mismo SVG y este archivo las alcanza a todas. La especificidad
+   extra (.topbar) es para ganarle al bloque inline de cada una. */
+.topbar .brand{ font-size:16px; gap:11px; }
+.topbar .brand > svg{ width:32px; height:32px; flex:none; }
+
+/* --- El pie -----------------------------------------------------
+   Estaba escrito en --text-3, que sobre el fondo da 3.6:1. En un
+   texto de 12.5px eso no se lee: los links estaban ahi de adorno.
+   Sube el tamano y el tono hasta donde se leen de verdad. */
+.foot .foot-in{ font-size:13.5px; }
+
+/* La marca del pie es la misma marca del nav: mismo dibujo, mismo
+   nombre, mismo tamano. Estaba a 18px y 13.5, la mitad del nav. */
+.foot .foot-in .foot-marca{ color:var(--text-2); font-size:16px; gap:11px; }
+.foot .foot-in .foot-marca > svg{ width:32px; height:32px; flex:none; }
+.foot .foot-in .foot-marca b{ letter-spacing:-.02em; }
+.foot .foot-links a{ color:var(--text); font-size:13.5px; }
+.foot .foot-links a:hover{ color:var(--accent-strong); }

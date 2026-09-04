@@ -1,0 +1,33 @@
+# Lo que no va al repo.
+#
+# El criterio: entra lo que hace falta para rehacer el sitio desde
+# cero -las paginas, los scripts que las generan, el esquema de la
+# base y la documentacion- y queda afuera lo que se genera solo, lo
+# que es de otro y lo que es personal.
+#
+# OJO con los comentarios: en un .gitignore van SIEMPRE en su propia
+# linea. Puestos al final de un patron pasan a ser parte del patron,
+# que deja de matchear nada. Me acaba de pasar con publicar/ y los
+# cuarenta y un archivos del sitio entraron igual.
+
+# Lo que se genera solo
+publicar/
+__pycache__/
+*.pyc
+
+# Lo que es de otro: un demo descargado, veinticinco megas que no
+# pertenecen a este proyecto
+Snowflake_Demo-main/
+
+# Lo personal, que no tiene por que estar versionado
+Blend.pdf
+Snowflake Training Path.docx
+
+# Basura del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Archivos de una prueba puntual: todo lo que empieza con guion bajo
+# no forma parte del sitio, y publicar.py tambien los saltea
+_*

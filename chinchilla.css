@@ -1,0 +1,446 @@
+/* ============================================================
+   chinchilla.css
+
+   Las poses de la chinchilla y las animaciones del sitio.
+
+   Todo lo que se mueve está acá y todo se apaga junto cuando el
+   sistema pide menos movimiento: una animación que no se puede
+   frenar es un problema de accesibilidad, no un detalle.
+   ============================================================ */
+
+/* --- El bloque donde vive una pose ------------------------------ */
+.chin-vacio{
+  display:flex; flex-direction:column; align-items:center;
+  gap:4px; padding:34px 22px; text-align:center;
+}
+.chin-vacio b{ font-size:16px; letter-spacing:-.01em; }
+.chin-vacio p{
+  margin:2px 0 0; max-width:42ch;
+  font-size:13.5px; color:var(--text-2); line-height:1.6;
+}
+.chin-vacio .btn-primary,
+.chin-vacio .btn-quiet{ margin-top:16px; }
+
+.chin-pose{ width:104px; height:96px; overflow:visible; }
+.chin-pose .c-cuerpo,
+.chin-pose .c-cabeza{ fill:var(--accent); }
+.chin-pose .c-oreja{ fill:var(--accent); }
+.chin-pose .c-oreja-in{ fill:var(--accent-soft); }
+.chin-pose .c-ojo{ fill:var(--surface); }
+.chin-pose .c-brillo{ fill:var(--accent); }
+.chin-pose .c-hocico{ fill:var(--surface); }
+.chin-pose .c-pata{ fill:var(--accent-strong); }
+.chin-pose .c-cola{
+  fill:none; stroke:var(--accent-strong); stroke-width:7; stroke-linecap:round;
+}
+.chin-pose .c-ojo-l{
+  fill:none; stroke:var(--surface); stroke-width:2.4; stroke-linecap:round;
+}
+.chin-pose .c-pozo{ fill:color-mix(in srgb, var(--accent) 26%, transparent); }
+/* Los grumos salen del montículo, así que llevan su tono, un poco
+   más marcado para que se vean en el aire. */
+.chin-pose .c-tierra circle{ fill:color-mix(in srgb, var(--accent) 55%, transparent); }
+.chin-pose .c-lupa-c{
+  fill:color-mix(in srgb, var(--accent) 12%, transparent);
+  stroke:var(--accent-strong); stroke-width:3.4;
+}
+.chin-pose .c-lupa-m{
+  stroke:var(--accent-strong); stroke-width:4; stroke-linecap:round; fill:none;
+}
+.chin-pose .c-z{
+  fill:var(--accent-strong); font-size:13px; font-weight:800;
+  font-family:inherit;
+}
+.chin-pose .c-fiesta rect{ fill:var(--accent-strong); }
+
+/* --- Escarbando ------------------------------------------------- */
+.c-bicho{ animation:cava 1.1s ease-in-out infinite; transform-origin:50px 70px; }
+@keyframes cava{
+  0%, 100%{ transform:translateY(0) rotate(0deg); }
+  30%{ transform:translateY(7px) rotate(-4deg); }
+  60%{ transform:translateY(2px) rotate(3deg); }
+}
+/* El montículo tiembla al ritmo de las patas: un pozo quieto
+   mientras alguien escarba adentro no se entiende. */
+.c-pozo{ animation:pozo 1.1s ease-in-out infinite; transform-origin:50px 82px; }
+@keyframes pozo{
+  0%, 100%{ transform:scaleX(1); }
+  30%{ transform:scaleX(1.05); }
+}
+.c-tierra{ animation:tierra 1.1s ease-out infinite; }
+.c-tierra-2{ animation-delay:.28s; }
+@keyframes tierra{
+  0%{ opacity:0; transform:translate(0,0) scale(.5); }
+  35%{ opacity:1; }
+  100%{ opacity:0; transform:translate(0,-26px) scale(1); }
+}
+
+/* --- Dormida ---------------------------------------------------- */
+.c-duerme{ animation:respira 3.4s ease-in-out infinite; transform-origin:50px 60px; }
+@keyframes respira{
+  0%, 100%{ transform:scale(1); }
+  50%{ transform:scale(1.035); }
+}
+.c-z{ animation:sube 3s ease-out infinite; opacity:0; }
+.c-z2{ animation-delay:.9s; }
+@keyframes sube{
+  0%{ opacity:0; transform:translate(0,4px) scale(.7); }
+  25%{ opacity:1; }
+  100%{ opacity:0; transform:translate(6px,-16px) scale(1.1); }
+}
+
+/* --- Buscando --------------------------------------------------- */
+.c-busca{ animation:mira 2.6s ease-in-out infinite; transform-origin:50px 50px; }
+@keyframes mira{
+  0%, 100%{ transform:rotate(-4deg); }
+  50%{ transform:rotate(4deg); }
+}
+.c-lupa{ animation:lupea 2.6s ease-in-out infinite; transform-origin:76px 58px; }
+@keyframes lupea{
+  0%, 100%{ transform:translate(0,0); }
+  50%{ transform:translate(-7px,-5px); }
+}
+
+/* --- Festejando ------------------------------------------------- */
+.c-salta{ animation:salta 1.1s cubic-bezier(.3,.7,.4,1) infinite; transform-origin:50px 78px; }
+@keyframes salta{
+  0%, 100%{ transform:translateY(0) scaleY(1); }
+  18%{ transform:translateY(2px) scaleY(.94); }
+  50%{ transform:translateY(-11px) scaleY(1.04); }
+}
+.c-fiesta rect{ animation:cae 1.6s linear infinite; }
+.c-fiesta rect:nth-child(2){ animation-delay:.35s; }
+.c-fiesta rect:nth-child(3){ animation-delay:.7s; }
+.c-fiesta rect:nth-child(4){ animation-delay:1s; }
+@keyframes cae{
+  0%{ opacity:0; transform:translateY(-8px) rotate(0deg); }
+  20%{ opacity:1; }
+  100%{ opacity:0; transform:translateY(30px) rotate(180deg); }
+}
+
+/* ============================================================
+   Las animaciones del sitio
+
+   La regla: una animación puede decir de dónde salió algo o que
+   algo cambió. Si no dice nada, sobra.
+   ============================================================ */
+
+/* Las tarjetas del catálogo entran escalonadas, para que se lea que
+   son una lista y no un bloque que apareció de golpe. */
+.grid-cards .card-wrap{ animation:entra-card 420ms cubic-bezier(.2,.8,.3,1) backwards; }
+.grid-cards .card-wrap:nth-child(1){ animation-delay:0ms; }
+.grid-cards .card-wrap:nth-child(2){ animation-delay:45ms; }
+.grid-cards .card-wrap:nth-child(3){ animation-delay:90ms; }
+.grid-cards .card-wrap:nth-child(4){ animation-delay:135ms; }
+.grid-cards .card-wrap:nth-child(5){ animation-delay:180ms; }
+.grid-cards .card-wrap:nth-child(6){ animation-delay:225ms; }
+@keyframes entra-card{
+  from{ opacity:0; transform:translateY(10px); }
+  to{ opacity:1; transform:none; }
+}
+
+/* Las barras de progreso crecen desde cero: así se ve que es una
+   medida y no una raya decorativa. */
+.card-av .b i,
+.barra i{ animation:crece 620ms cubic-bezier(.2,.8,.3,1) backwards; }
+@keyframes crece{ from{ width:0 !important; } }
+
+/* Marcar algo como hecho: un pulso corto, no una fiesta. */
+.tilde .caja,
+.reto-hecho{ transition:transform 160ms cubic-bezier(.2,.9,.3,1.4); }
+li.ok .tilde .caja{ animation:tilde-ok 320ms cubic-bezier(.2,.9,.3,1.4); }
+@keyframes tilde-ok{
+  0%{ transform:scale(.6); }
+  60%{ transform:scale(1.18); }
+  100%{ transform:scale(1); }
+}
+
+/* El número de la racha, cuando sube. */
+.rr.ok b, .reto-c.ok .cuenta{ animation:sube-num 420ms cubic-bezier(.2,.9,.3,1.4); }
+@keyframes sube-num{
+  0%{ transform:translateY(4px); opacity:0; }
+  100%{ transform:none; opacity:1; }
+}
+
+/* Los días de la agenda, uno atrás del otro. */
+.ag-dia{ animation:entra-dia 320ms ease backwards; }
+.ag-dia:nth-child(1){ animation-delay:0ms; }
+.ag-dia:nth-child(2){ animation-delay:35ms; }
+.ag-dia:nth-child(3){ animation-delay:70ms; }
+.ag-dia:nth-child(4){ animation-delay:105ms; }
+.ag-dia:nth-child(5){ animation-delay:140ms; }
+.ag-dia:nth-child(6){ animation-delay:175ms; }
+.ag-dia:nth-child(7){ animation-delay:210ms; }
+@keyframes entra-dia{
+  from{ opacity:0; transform:translateX(-6px); }
+  to{ opacity:1; transform:none; }
+}
+
+/* El día de hoy, con un latido muy suave: está ahí para que lo
+   encuentres sin buscarlo. */
+.ag-dia.hoy .ag-d i{ animation:late 2.6s ease-in-out infinite; }
+@keyframes late{
+  0%, 100%{ opacity:1; }
+  50%{ opacity:.45; }
+}
+
+/* --- Las poses del festejo -------------------------------------- */
+.chin-pose .c-casco{ fill:var(--accent); }
+.chin-pose .c-ala{ fill:var(--accent-strong); }
+/* La ventanilla, del color del fondo: es lo que recorta a la
+   chinchilla contra el casco. */
+.chin-pose .c-buque{
+  fill:var(--surface); stroke:var(--accent-strong); stroke-width:2.4;
+}
+.chin-pose .c-remache{ fill:var(--accent-strong); }
+.chin-pose .c-faja{ fill:var(--accent-strong); }
+/* El brazo del saludo: un trazo grueso con punta redonda, que a este
+   tamano es un brazo. */
+.chin-pose .c-hueso{
+  fill:none; stroke:var(--accent); stroke-width:7.5; stroke-linecap:round;
+}
+/* El fuego no sigue el acento del sitio: es lo unico de estos
+   dibujos que existe en el mundo con un color propio. */
+.chin-pose .c-llama-1{ fill:#F97316; }
+.chin-pose .c-llama-2{ fill:#FCD34D; }
+.chin-pose .c-pocillo{ fill:var(--accent-strong); }
+.chin-pose .c-asa{
+  fill:none; stroke:var(--accent-strong); stroke-width:3.4; stroke-linecap:round;
+}
+.chin-pose .c-vapor{
+  fill:none; stroke:var(--accent); stroke-width:2.6; stroke-linecap:round;
+}
+
+/* El cohete sube y tiembla; las llamas laten mas rapido que el. */
+.c-vuela{ animation:despega 1.5s ease-in-out infinite; transform-origin:50px 60px; }
+@keyframes despega{
+  0%, 100%{ transform:translateY(0) rotate(-1.5deg); }
+  50%{ transform:translateY(-8px) rotate(1.5deg); }
+}
+.c-fuego{ animation:arde .28s ease-in-out infinite alternate; transform-origin:50px 68px; }
+@keyframes arde{
+  from{ transform:scaleY(.82) scaleX(1.05); opacity:.85; }
+  to{ transform:scaleY(1.12) scaleX(.94); opacity:1; }
+}
+
+/* La pata saluda; el resto del cuerpo se queda quieto, que es lo que
+   hace que se lea como un saludo y no como un temblor. */
+.c-brazo{ animation:saluda 1.3s ease-in-out infinite; transform-origin:66px 60px; }
+@keyframes saluda{
+  0%, 100%{ transform:rotate(-16deg); }
+  50%{ transform:rotate(20deg); }
+}
+
+/* El vapor del cafe, lento, que para eso es un cafe. */
+.c-vapor{ animation:vapor 2.8s ease-in-out infinite; opacity:0; }
+.c-vapor-2{ animation-delay:.9s; }
+@keyframes vapor{
+  0%{ opacity:0; transform:translateY(3px) scaleY(.7); }
+  30%{ opacity:.9; }
+  100%{ opacity:0; transform:translateY(-9px) scaleY(1.15); }
+}
+
+/* --- El cartel que festeja ---------------------------------------
+   Abajo a la izquierda: la guia vive a la derecha y taparla seria
+   pisar la unica cosa que te dice que sigue. */
+.chin-fiesta-caja{
+  position:fixed; left:20px; bottom:20px; z-index:75;
+  display:none; align-items:center; gap:14px;
+  max-width:min(330px, calc(100vw - 40px));
+  padding:14px 20px 14px 14px;
+  border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--accent-line);
+  box-shadow:var(--shadow-lg);
+  pointer-events:none;              /* no se interpone con nada */
+}
+.chin-fiesta-caja.va{
+  display:flex;
+  animation:fiesta-entra 420ms cubic-bezier(.2,.9,.3,1.3);
+}
+.chin-fiesta-caja.sale{ animation:fiesta-sale 300ms ease forwards; }
+@keyframes fiesta-entra{
+  from{ opacity:0; transform:translateX(-18px) scale(.94); }
+  to{ opacity:1; transform:none; }
+}
+@keyframes fiesta-sale{
+  to{ opacity:0; transform:translateX(-14px) scale(.96); }
+}
+.chin-fiesta-caja .chin-pose{ width:56px; height:52px; flex:none; }
+.chin-fiesta-txt{ min-width:0; }
+.chin-fiesta-txt b{ display:block; font-size:14.5px; letter-spacing:-.01em; }
+.chin-fiesta-txt span{
+  display:block; margin-top:2px;
+  font-size:12.5px; color:var(--text-2); line-height:1.5;
+}
+@media (max-width:560px){
+  .chin-fiesta-caja{ left:12px; right:12px; bottom:12px; max-width:none; }
+}
+
+
+}
+
+/* El texto de espera, cuando cambia: entra por abajo, corto, para que
+   se lea que es otro mensaje y no un parpadeo. */
+.chin-dice b, .chin-dice p{ animation:chin-dice 300ms ease backwards; }
+.chin-dice p{ animation-delay:40ms; }
+@keyframes chin-dice{
+  from{ opacity:0; transform:translateY(5px); }
+  to{ opacity:1; transform:none; }
+}
+
+
+
+/* --- El globo de la guia ----------------------------------------
+   El dibujo se queda: esta hecho a medida de ese circulo. Lo que le
+   faltaba era moverse, y asomar la cabeza al aparecer es justo lo
+   que hace una chinchilla. Dos veces y para: un saludo permanente
+   deja de ser un saludo. */
+.chin-svg{ animation:asoma 1.4s ease-in-out 2; transform-origin:50% 90%; }
+@keyframes asoma{
+  0%, 100%{ transform:rotate(0deg); }
+  25%{ transform:rotate(-9deg); }
+  60%{ transform:rotate(7deg); }
+}
+
+/* --- El recorrido -----------------------------------------------
+   Lo que pasa mientras se recorre la pagina, atado al scroll.
+
+   Ojo con estas dos clases: `chin-lejos` la pone el JS, nunca el
+   HTML ni el CSS por su cuenta. Si el JS no corre, nada lleva la
+   clase y todo se ve. Al reves (esconder desde el CSS y mostrar
+   desde el JS) una falla del JS deja la pagina en blanco. */
+.chin-lejos{ opacity:0; transform:translateY(14px); }
+.chin-cerca{
+  animation:chin-llega 520ms cubic-bezier(.2,.8,.3,1) both;
+}
+@keyframes chin-llega{
+  from{ opacity:0; transform:translateY(14px); }
+  to{ opacity:1; transform:none; }
+}
+
+/* Las tarjetas de una fila entran una atras de la otra: se lee que
+   son una lista y no un bloque que aparecio de golpe. */
+.grid-cards > *:nth-child(2), .card-wrap:nth-child(2){ animation-delay:60ms; }
+.grid-cards > *:nth-child(3), .card-wrap:nth-child(3){ animation-delay:120ms; }
+.grid-cards > *:nth-child(4), .card-wrap:nth-child(4){ animation-delay:180ms; }
+.grid-cards > *:nth-child(5), .card-wrap:nth-child(5){ animation-delay:240ms; }
+.grid-cards > *:nth-child(6), .card-wrap:nth-child(6){ animation-delay:300ms; }
+
+/* Levantar la tarjeta al pasar por encima: dice que se puede tocar,
+   que en una grilla de quince no es obvio. */
+.card-wrap, .grid-cards > *{
+  transition:transform 180ms cubic-bezier(.2,.8,.3,1);
+}
+.card-wrap:hover, .grid-cards > *:hover{ transform:translateY(-3px); }
+
+/* ============================================================
+   La chinchilla, sin que haya que hacer nada
+
+   Decoracion pura: no dice nada, no se toca, no ocupa lugar en la
+   lectura. Solo esta. Con menos movimiento pedido se queda quieta,
+   pero se queda: sacarla dejaria la pagina mas pobre sin motivo.
+   ============================================================ */
+
+/* --- En el encabezado ------------------------------------------- */
+.hero .wrap{ position:relative; }
+/* Flotando adentro del parrafo: el texto la rodea y el acomodo lo
+   hace el navegador. Con posicion absoluta pisaba las tarjetas si
+   iba abajo, y el titulo si iba arriba. */
+.chin-hero{
+  float:right; margin:-14px 0 4px 26px;
+  pointer-events:none; opacity:.85;
+}
+.chin-hero .chin-pose{ width:110px; height:102px; display:block; }
+/* En pantalla angosta el parrafo se vuelve una columna finita y la
+   chinchilla se come la mitad de cada renglon. */
+@media (max-width:820px){ .chin-hero{ display:none; } }
+
+/* --- Las huellas entre secciones -------------------------------- */
+.chin-paso{
+  display:flex; justify-content:center;
+  padding:6px 0; pointer-events:none;
+}
+.chin-huellas{
+  width:210px; height:42px; overflow:visible;
+}
+.chin-huellas .c-huella{
+  fill:var(--accent);
+  opacity:0;
+  animation:pisa 9s ease-in-out infinite;
+}
+/* Cada pisada entra despues de la anterior: se lee que camino, no
+   que aparecieron todas juntas. */
+.chin-huellas g:nth-child(1) .c-huella{ animation-delay:0s; }
+.chin-huellas g:nth-child(2) .c-huella{ animation-delay:.3s; }
+.chin-huellas g:nth-child(3) .c-huella{ animation-delay:.6s; }
+.chin-huellas g:nth-child(4) .c-huella{ animation-delay:.9s; }
+.chin-huellas g:nth-child(5) .c-huella{ animation-delay:1.2s; }
+.chin-huellas g:nth-child(6) .c-huella{ animation-delay:1.5s; }
+.chin-huellas g:nth-child(7) .c-huella{ animation-delay:1.8s; }
+@keyframes pisa{
+  0%{ opacity:0; }
+  6%{ opacity:.3; }
+  55%{ opacity:.3; }
+  75%{ opacity:0; }
+  100%{ opacity:0; }
+}
+
+/* --- Asomandose por el borde del pie ----------------------------
+   Va adentro del pie, pegada a su borde de arriba, en una ventana de
+   27px que corta lo que sobra: asi sube y se esconde DETRAS del
+   borde. Sin ese recorte se la veia entera bajando, que no es
+   asomarse. */
+.foot{ position:relative; }
+.chin-asoma{
+  position:absolute; top:-27px; right:64px;
+  width:58px; height:27px;
+  overflow:hidden;
+  pointer-events:none;
+}
+.chin-asoma svg{
+  display:block; width:58px; height:27px;
+  animation:espia 7s ease-in-out infinite;
+}
+.chin-asoma .c-cabeza, .chin-asoma .c-oreja{ fill:var(--accent); }
+.chin-asoma .c-oreja-in{ fill:var(--accent-soft); }
+.chin-asoma .c-ojo, .chin-asoma .c-hocico{ fill:var(--surface); }
+.chin-asoma .c-brillo{ fill:var(--accent); }
+/* Sube, mira un rato y se esconde. */
+@keyframes espia{
+  0%, 8%{ transform:translateY(28px); }
+  16%, 42%{ transform:translateY(0); }
+  52%, 100%{ transform:translateY(28px); }
+}
+@media (max-width:560px){
+  .chin-asoma{ right:20px; }
+}
+
+/* --- La huella suelta -------------------------------------------
+   Marca cosas chicas: el rotulo de cada seccion. Va tenue: tiene que
+   verse como una marca de la casa, no como un icono que significa
+   algo. */
+.chin-h1{
+  width:11px; height:15px; vertical-align:-2px; margin-right:7px;
+  fill:var(--accent); opacity:.55;
+}
+.section-head .eyebrow .chin-h1{ margin-right:8px; }
+
+/* Todo lo que se mueve, quieto, si el sistema lo pide. */
+@media (prefers-reduced-motion: reduce){
+  .c-bicho, .c-tierra, .c-pozo, .c-duerme, .c-z, .c-busca, .c-lupa,
+  .c-salta, .c-fiesta rect,
+  .grid-cards .card-wrap, .card-av .b i, .barra i,
+  li.ok .tilde .caja, .rr.ok b, .reto-c.ok .cuenta,
+  .ag-dia, .ag-dia.hoy .ag-d i,
+  .chin-dice b, .chin-dice p,
+  .c-vuela, .c-fuego, .c-brazo, .c-vapor, .chin-svg,
+  .chin-fiesta-caja.va, .chin-fiesta-caja.sale,
+  .chin-cerca, .card-wrap, .grid-cards > *,
+  .chin-huellas .c-huella, .chin-asoma svg{
+    animation:none !important;
+  }
+  /* Estas dos viven de su animacion: sin ella quedarian invisibles
+     o corridas fuera de lugar, asi que se las deja puestas y
+     quietas en su posicion final. */
+  .chin-huellas .c-huella{ opacity:.3; }
+  .chin-asoma svg{ transform:none; }

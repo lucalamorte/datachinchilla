@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 757 >>
+stream
+BT
+/F1 11 Tf
+14 TL
+1 0 0 1 56 780 Tm
+(Data Engineer con 4 anos de experiencia.) Tj T*
+() Tj T*
+(Diseno y mantengo pipelines en Apache Airflow, con DAGs que corren a) Tj T*
+(diario para el area comercial y de producto.) Tj T*
+() Tj T*
+(Modelo el warehouse en dbt sobre Snowflake: capas staging, intermediate) Tj T*
+(y marts, con tests, documentacion y snapshots.) Tj T*
+() Tj T*
+(SQL avanzado: window functions, CTEs recursivas y optimizacion de) Tj T*
+(queries pesadas sobre tablas de miles de millones de filas.) Tj T*
+() Tj T*
+(Python para ETL, con pandas y pyspark.) Tj T*
+() Tj T*
+(AWS a diario: S3, Glue, Lambda y Redshift. Spark para los volumenes) Tj T*
+(que no entran en una maquina.) Tj T*
+() Tj T*
+(Git, CI/CD con GitHub Actions, Docker.) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001049 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1119
+%%EOF

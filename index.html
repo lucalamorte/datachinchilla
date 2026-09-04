@@ -1,0 +1,3266 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataChinchilla · el camino completo para trabajar en tech</title>
+<meta name="description" content="Diez rutas de estudio gratuitas y ordenadas: Snowflake, dbt, Big Data, machine learning, CS50 y más. Todo el material bueno de internet, con el orden que conviene.">
+<link rel="canonical" href="https://datachinchilla.com/index.html">
+<meta name="theme-color" content="#0C0818">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%230B1E2E%22%2F%3E%3Cg%20transform%3D%22translate%2812%2012.2%29%20scale%28.88%29%20translate%28-12%20-12.2%29%22%3E%3Cpath%20fill%3D%22%232A8DBB%22%20d%3D%22M%206.47%2017.58%20Q%206.26%2019.36%205.23%2017.77%20Q%204.28%2019.19%204.10%2017.39%20Q%202.68%2018.16%203.32%2016.56%20Q%201.79%2016.60%203.03%2015.53%20Q%201.74%2014.90%203.24%2014.54%20Q%202.44%2013.45%203.85%2013.80%20C%204.4%2010.6%207.6%2010.0%209.4%2011.8%20C%2010.6%2014.2%2010.4%2017.2%209.6%2019.4%20Z%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2210.4%22%20cy%3D%225.3%22%20rx%3D%222.8%22%20ry%3D%223.4%22%20transform%3D%22rotate%28-21%2010.4%205.3%29%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2218.0%22%20cy%3D%225.3%22%20rx%3D%222.8%22%20ry%3D%223.4%22%20transform%3D%22rotate%2821%2018.0%205.3%29%22%2F%3E%3Cellipse%20fill%3D%22%23BAE6FD%22%20cx%3D%2210.6%22%20cy%3D%225.7%22%20rx%3D%221.4%22%20ry%3D%221.8%22%20transform%3D%22rotate%28-21%2010.6%205.7%29%22%2F%3E%3Cellipse%20fill%3D%22%23BAE6FD%22%20cx%3D%2217.8%22%20cy%3D%225.7%22%20rx%3D%221.4%22%20ry%3D%221.8%22%20transform%3D%22rotate%2821%2017.8%205.7%29%22%2F%3E%3Cellipse%20fill%3D%22%2338BDF8%22%20cx%3D%2214.2%22%20cy%3D%2217.2%22%20rx%3D%225.8%22%20ry%3D%225.2%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2214.2%22%20cy%3D%2211.3%22%20r%3D%225.4%22%2F%3E%3Cellipse%20fill%3D%22%230B1E2E%22%20cx%3D%2212.3%22%20cy%3D%2210.8%22%20rx%3D%22.85%22%20ry%3D%221.05%22%2F%3E%3Cellipse%20fill%3D%22%230B1E2E%22%20cx%3D%2216.3%22%20cy%3D%2210.8%22%20rx%3D%22.85%22%20ry%3D%221.05%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2212.6%22%20cy%3D%2210.4%22%20r%3D%22.3%22%2F%3E%3Ccircle%20fill%3D%22%2338BDF8%22%20cx%3D%2216.6%22%20cy%3D%2210.4%22%20r%3D%22.3%22%2F%3E%3Cpath%20fill%3D%22%230B1E2E%22%20d%3D%22M13.6%2012.5h1.4c.26%200%20.41.29.25.5l-.7.92a.31.31%200%200%201-.5%200l-.7-.92a.31.31%200%200%201%20.25-.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+<meta name="author" content="Luca Lamorte">
+<meta name="robots" content="index, follow">
+
+<!-- Los neutros, los radios y el ritmo, compartidos por todas las páginas.
+     Cada una define encima solo su acento. Va acá dentro y no a mano en el
+     HTML: esta plantilla reescribe toda la cabecera en cada corrida. -->
+<link rel="stylesheet" href="tema.css?v=75aecb1a">
+<!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
+     lo mismo: si lo escribe otro script en el HTML, la próxima corrida
+     de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
+<link rel="stylesheet" href="chinchilla.css?v=758a1e96">
+
+<!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
+     estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
+<meta property="og:site_name" content="DataChinchilla">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_LA">
+<meta property="og:title" content="El camino completo para trabajar en tech">
+<meta property="og:description" content="Diez rutas de estudio gratuitas y ordenadas: Snowflake, dbt, Big Data, machine learning, CS50 y más. Todo el material bueno de internet, con el orden que conviene.">
+<meta property="og:url" content="https://datachinchilla.com/index.html">
+<meta property="og:image" content="https://datachinchilla.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="El camino completo para trabajar en tech">
+<meta name="twitter:description" content="Diez rutas de estudio gratuitas y ordenadas: Snowflake, dbt, Big Data, machine learning, CS50 y más. Todo el material bueno de internet, con el orden que conviene.">
+<meta name="twitter:image" content="https://datachinchilla.com/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DataChinchilla",
+  "url": "https://datachinchilla.com/",
+  "description": "No planificar es planificar el fracaso. Rutas de estudio gratuitas y ordenadas para trabajar con datos.",
+  "inLanguage": "es",
+  "author": { "@type": "Person", "name": "Luca Lamorte", "url": "https://www.linkedin.com/in/lclamorte/" }
+}
+</script>
+<style>
+
+/* ============================================================
+   1. TOKENS
+   La estructura es la misma que el path de SnowPro Core, pero el
+   acento es violeta: son dos rutas distintas y tienen que verse
+   distintas de un vistazo.
+   ============================================================ */
+:root{
+  /* Data Engineer */
+  --accent:        #6D28D9;
+  --accent-strong: #5B21B6;
+  --accent-soft:   #EDE9FE;
+  --accent-line:   #D4C9F9;
+}
+:root[data-theme="dark"]{
+  --accent:        #A78BFA;
+  --accent-strong: #C4B5FD;
+  --accent-soft:   #2A1D4D;
+  --accent-line:   #3C2C68;
+}
+:root{ color-scheme: light; }
+:root[data-theme="dark"]{ color-scheme: dark; }
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+body{
+  margin:0;
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{ margin:0; line-height:1.16; letter-spacing:-.02em; font-weight:800; }
+p{ margin:0; }
+a{ color:var(--accent-strong); }
+button{ font:inherit; color:inherit; }
+svg{ flex-shrink:0; }
+.num{ font-variant-numeric: tabular-nums; }
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.eyebrow{ font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:0 0 10px; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
+
+/* ============================================================
+   3. BOTONES
+   ============================================================ */
+.btn-primary{
+  display:inline-flex; align-items:center; gap:12px;
+  padding:13px 22px; border:0; border-radius:var(--r-xl); cursor:pointer;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2));
+  color:var(--warm-ink); font-weight:800; text-decoration:none;
+  box-shadow:0 8px 24px var(--warm-shadow);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease;
+}
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 30px var(--warm-shadow); }
+.stack{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.18; text-align:left; }
+.btn-primary .verb{ font-size:10px; letter-spacing:.12em; text-transform:uppercase; opacity:.72; }
+.btn-primary .dest{ font-size:15px; }
+.btn-quiet{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:11px 17px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider);
+  color:var(--text-2); font-weight:700; font-size:13.5px; text-decoration:none;
+  transition:color var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease, background var(--dur) ease;
+}
+.btn-quiet:hover{ color:var(--accent-strong); border-color:var(--accent); background:var(--surface-2); transform:translateY(-1px); }
+.btn-quiet .verb{ font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); }
+.btn-quiet .dest{ font-size:13.5px; }
+.btn-quiet[aria-disabled="true"]{
+  background:var(--surface-sunk); color:var(--text-3);
+  border:1px dashed var(--divider); cursor:not-allowed; transform:none;
+}
+.btn-done{
+  display:inline-flex; align-items:center; gap:9px; cursor:pointer;
+  padding:12px 20px; border-radius:var(--r-xl); border:0; font-weight:800; font-size:14px;
+  background:linear-gradient(135deg,var(--warm),var(--warm-2)); color:var(--warm-ink);
+  box-shadow:0 8px 22px var(--warm-shadow); text-decoration:none;
+  transition:transform var(--dur) ease;
+}
+.btn-done:hover{ transform:translateY(-2px); }
+.btn-done.done{ background:var(--good-soft); color:var(--good); border:1px solid color-mix(in srgb, var(--good) 40%, transparent); box-shadow:none; }
+.icon-btn{
+  display:inline-grid; place-items:center; width:36px; height:36px; flex-shrink:0;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface); color:var(--text-2); cursor:pointer;
+  transition:color var(--dur) ease, border-color var(--dur) ease;
+}
+.icon-btn:hover{ color:var(--accent-strong); border-color:var(--accent); }
+
+/* ============================================================
+   4. BARRA
+   ============================================================ */
+.topbar{ position:sticky; top:0; z-index:40; background:var(--bg); border-bottom:1px solid var(--divider); }
+@supports (backdrop-filter: blur(4px)){
+  .topbar{ background:color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter:blur(14px); }
+}
+.topbar-in{ display:flex; align-items:center; gap:16px; height:60px; max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+.brand{ display:flex; align-items:center; gap:9px; font-weight:800; font-size:14px; white-space:nowrap; text-decoration:none; color:inherit; }
+.brand svg{ color:var(--accent); }
+.brand-sub{ color:var(--text-3); font-weight:600; }
+.marca{ letter-spacing:-.02em; }
+.topbar-meter{ flex:1; display:flex; align-items:center; gap:12px; min-width:0; }
+.meter{
+  position:relative; flex:1; height:8px; min-width:50px;
+  background:var(--surface-sunk); border:1px solid var(--divider-soft);
+  border-radius:var(--r-pill); overflow:hidden;
+}
+.meter-fill{
+  position:absolute; inset:0 auto 0 0; width:0%;
+  background:linear-gradient(90deg,var(--accent),var(--accent-strong));
+  border-radius:var(--r-pill);
+  transition:width 420ms cubic-bezier(.4,0,.2,1);
+}
+.meter-label{ font-size:12px; font-weight:800; color:var(--text-2); white-space:nowrap; flex-shrink:0; }
+.meter-label b{ color:var(--text); }
+.acct{
+  display:inline-flex; align-items:center; gap:8px; flex-shrink:0;
+  height:36px; padding:0 13px 0 5px; cursor:pointer;
+  border-radius:var(--r-pill); border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-weight:700; font-size:12.5px;
+  transition:color var(--dur) ease, border-color var(--dur) ease;
+}
+.acct:hover{ color:var(--accent-strong); border-color:var(--accent); }
+.avatar{
+  display:grid; place-items:center; width:26px; height:26px; flex-shrink:0;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  font-size:12px; font-weight:800; line-height:1;
+}
+@media (max-width:760px){ .brand-sub{ display:none; } .lbl-word{ display:none; } .topbar-in{ gap:10px; } }
+@media (max-width:560px){
+  .topbar-meter{ flex:0 0 auto; }
+  .meter{ display:none; }
+  .acct .who{ display:none; }
+  .acct{ padding:0 4px; }
+}
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero{ padding:56px 0 30px; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.tag{
+  display:inline-flex; align-items:center; gap:6px; padding:5px 11px;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  border:1px solid var(--accent-line); font-size:11px; font-weight:800;
+}
+.tag.free{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 30%, transparent); }
+.tag.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 32%, transparent); }
+.hero h1{ font-size:clamp(32px,5vw,54px); max-width:34ch; }
+.hero h1 .grad{ background:linear-gradient(120deg,var(--accent),var(--accent-strong)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.hero-lead{ margin-top:18px; font-size:17px; color:var(--text-2); max-width:82ch; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+.hero-foot{ margin-top:18px; font-size:12.5px; color:var(--text-3); max-width:72ch; }
+.hero-foot a{ color:var(--text-2); }
+
+/* ============================================================
+   6. SECCIONES Y RACHA
+   ============================================================ */
+.section{ padding:48px 0; }
+.section-head{ max-width:64ch; margin-bottom:30px; }
+.section-head h2{ font-size:clamp(24px,3.4vw,34px); }
+.section-head p{ margin-top:12px; color:var(--text-2); font-size:15.5px; }
+
+.daily{
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:24px;
+  padding:26px; border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--divider); box-shadow:var(--shadow-md);
+}
+@media (max-width:820px){ .daily{ grid-template-columns:1fr; padding:22px; } }
+.streak{ background:var(--surface-2); border:1px solid var(--divider-soft); border-radius:var(--r-lg); padding:20px; }
+.streak .big{ font-size:44px; font-weight:800; letter-spacing:-.04em; line-height:1; }
+.streak .big.on{ color:var(--warm); }
+.streak .k{ font-size:12px; color:var(--text-2); font-weight:700; margin-top:4px; }
+.week{ display:flex; gap:6px; margin:18px 0 16px; }
+.day{
+  flex:1; display:grid; place-items:center; gap:2px; cursor:pointer;
+  padding:7px 0; border-radius:var(--r-sm);
+  background:var(--surface); border:1px solid var(--divider-soft);
+  font-size:10px; font-weight:800; color:var(--text-3);
+  transition:border-color var(--dur) ease, background var(--dur) ease, transform var(--dur) ease;
+}
+.day:hover{ border-color:var(--accent); transform:translateY(-1px); }
+.day.today{ border-color:var(--accent); border-width:2px; }
+/* ============================================================
+   7. EL CAMINO · camino serpenteante, tramos y nodos
+   ============================================================ */
+@media (max-width:640px){
+  .act-chip{ flex-direction:column; align-items:flex-start; gap:4px; border-radius:var(--r-lg); text-align:left; width:100%; }
+  .act-chip .n{ display:none; }
+}
+
+/* keep the copy clear of the marker that straddles the inner edge */
+/* qué lo publica el fabricante y qué deja una credencial */
+/* node states */
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:.7; }
+  70%{ transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+@media (max-width:820px){
+  .node-row{ grid-template-columns:1fr; gap:0; margin:20px 0; }
+  .node-row.side-left .node, .node-row.side-right .node{ grid-column:1; margin-left:44px; width:auto; padding-left:20px; padding-right:20px; }
+  .side-left .node-marker, .side-right .node-marker{
+    left:0; right:auto; top:26px; transform:translate(calc(-50% - 22px),0);
+  }
+  .side-left .node:hover .node-marker, .side-right .node:hover .node-marker{ transform:translate(calc(-50% - 22px),0) scale(1.06); }
+  .side-left .is-boss .node-marker, .side-right .is-boss .node-marker{ transform:translate(calc(-50% - 17px),0); }
+  .node.is-boss .node-marker{ width:46px; height:46px; }
+  .node-check{ top:12px; right:12px; }
+  .track{ padding-left:0; }
+}
+
+
+/* ============================================================
+   8. FICHA DEL HITO
+   ============================================================ */
+dialog.sheet{
+  width:min(640px,calc(100vw - 32px)); max-height:min(86vh,880px);
+  padding:0; border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); color:var(--text); box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+dialog.sheet::backdrop{ background:rgba(10,6,24,.66); backdrop-filter:blur(3px); }
+dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
+@keyframes sheetIn{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+@media (max-width:560px){
+  dialog.sheet{ width:100vw; max-width:100vw; max-height:92vh; margin:auto auto 0; border-radius:var(--r-xl) var(--r-xl) 0 0; }
+  .sheet-foot{ position:sticky; bottom:0; }
+}
+
+@media (max-width:860px){ .finish-in{ grid-template-columns:1fr; gap:24px; padding:26px 22px; } }
+
+
+/* ============================================================
+   11. CERTIFICATE · watermarked, personal, plainly unofficial
+   ============================================================ */
+@media (max-width:860px){ .preview-row{ grid-template-columns:1fr; padding:20px 22px 26px; } }
+
+/* ============================================================
+   9. CREDITOS Y PIE
+   ============================================================ */
+/* ============================================================
+   PATH PROPIO · las rutas de esta guía se ven de lejos, tanto en el
+   mapa como adentro de la ficha del nivel
+   ============================================================ */
+/* tarjetas de la seccion de paths */
+a.card:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:var(--shadow-md); }
+/* Una ruta que todavía no existe no está bloqueada: se puede pedir.
+   Por eso no lleva borde punteado ni cursor de prohibido. */
+/* Una ruta que todavía no existe se muestra bloqueada, no se disfraza
+   de link: el pedido para que exista está una sola vez, bajo la grilla. */
+/* ============================================================
+   BIBLIOTECA · créditos filtrables
+   ============================================================ */
+
+a.lib-card:hover{ transform:translateY(-2px); border-color:var(--accent); }
+a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
+@media (max-width:640px){ .suggest{ grid-template-columns:1fr; } }
+/* ============================================================
+   CERTIFICADOS - que te llevas de esta ruta
+   Solo se dibuja la constancia propia. La credencial ajena queda como
+   una aclaracion de texto con sus requisitos y el enlace a quien la
+   emite: reproducir el diseno de un certificado de otro es fabricar
+   una credencial que no es mia, y ademas nunca queda bien.
+   ============================================================ */
+/* Una sola tarjeta: sin techo, auto-fit la estiraba a todo el ancho
+   y una constancia de 900px de ancho no parece una constancia. */
+@media (max-width:760px){ .armar-band{ grid-template-columns:1fr; } .armar-band .btn-done{ justify-self:start; } }
+
+/* Piezas que dibuja el panel compartido de path-sync.js */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+/* Una racha por bloque. Un contador compartido no dice cuál de los dos
+   estás practicando, que es justamente lo que uno quiere ver.
+   Va en una fila: marcar el día es un gesto de un segundo y no
+   justifica una tarjeta por bloque. */
+.racha-tira{ display:none; }
+
+/* Los dias, dentro de la misma pastilla y hacia el costado. Estaban
+   abajo, en un bloque aparte, y para marcar un dia habia que abrir
+   otra cosa. */
+.tick{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 13px 6px 9px; border-radius:var(--r-pill);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font:inherit; font-size:13px; font-weight:650; color:var(--text);
+  cursor:pointer; transition:border-color 160ms ease, background 160ms ease;
+}
+.tick .v{ display:flex; color:var(--text-3); transition:transform 160ms ease; }
+.tick[aria-expanded="true"] .v{ transform:rotate(180deg); color:var(--accent); }
+.tick.hecho .n{ background:var(--warm); color:var(--warm-ink); }
+
+/* Lo que se abre al costado: los siete dias y el proximo problema. */
+.tick-mas{
+  display:none; align-items:center; gap:12px; flex-wrap:nowrap;
+  padding:0 4px 0 10px; margin-left:-4px; white-space:nowrap;
+}
+.tick-mas.on{ display:inline-flex; }
+.week{ display:flex; gap:4px; }
+.day{
+  display:grid; place-items:center; gap:0; cursor:pointer;
+  width:25px; padding:2px 0; border-radius:var(--r-sm); line-height:1.15;
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:9px; font-weight:800; color:var(--text-3);
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.day .dnum{ font-size:10px; color:var(--text-2); }
+.prox-prob{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:5px 12px; border-radius:var(--r-pill);
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  font-size:12.5px; font-weight:650; color:var(--accent-strong);
+  text-decoration:none; max-width:280px;
+}
+.prox-prob span{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.prox-prob:hover{ border-color:var(--accent); }
+.tick-cuenta{ font-size:11.5px; color:var(--text-3); white-space:nowrap; }
+/* ============================================================
+   7. EL CAMINO · camino serpenteante, tramos y nodos
+   ============================================================ */
+@media (max-width:640px){
+  .act-chip{ flex-direction:column; align-items:flex-start; gap:4px; border-radius:var(--r-lg); text-align:left; width:100%; }
+  .act-chip .n{ display:none; }
+}
+
+/* keep the copy clear of the marker that straddles the inner edge */
+/* qué lo publica el fabricante y qué deja una credencial */
+/* node states */
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:.7; }
+  70%{ transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+@media (max-width:820px){
+  .node-row{ grid-template-columns:1fr; gap:0; margin:20px 0; }
+  .node-row.side-left .node, .node-row.side-right .node{ grid-column:1; margin-left:44px; width:auto; padding-left:20px; padding-right:20px; }
+  .side-left .node-marker, .side-right .node-marker{
+    left:0; right:auto; top:26px; transform:translate(calc(-50% - 22px),0);
+  }
+  .side-left .node:hover .node-marker, .side-right .node:hover .node-marker{ transform:translate(calc(-50% - 22px),0) scale(1.06); }
+  .side-left .is-boss .node-marker, .side-right .is-boss .node-marker{ transform:translate(calc(-50% - 17px),0); }
+  .node.is-boss .node-marker{ width:46px; height:46px; }
+  .node-check{ top:12px; right:12px; }
+  .track{ padding-left:0; }
+}
+
+
+/* ============================================================
+   8. FICHA DEL HITO
+   ============================================================ */
+dialog.sheet{
+  width:min(640px,calc(100vw - 32px)); max-height:min(86vh,880px);
+  padding:0; border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); color:var(--text); box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+dialog.sheet::backdrop{ background:rgba(10,6,24,.66); backdrop-filter:blur(3px); }
+dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
+@keyframes sheetIn{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+@media (max-width:560px){
+  dialog.sheet{ width:100vw; max-width:100vw; max-height:92vh; margin:auto auto 0; border-radius:var(--r-xl) var(--r-xl) 0 0; }
+  .sheet-foot{ position:sticky; bottom:0; }
+}
+
+@media (max-width:860px){ .finish-in{ grid-template-columns:1fr; gap:24px; padding:26px 22px; } }
+
+
+/* ============================================================
+   11. CERTIFICATE · watermarked, personal, plainly unofficial
+   ============================================================ */
+@media (max-width:860px){ .preview-row{ grid-template-columns:1fr; padding:20px 22px 26px; } }
+
+/* ============================================================
+   9. CREDITOS Y PIE
+   ============================================================ */
+/* ============================================================
+   PATH PROPIO · las rutas de esta guía se ven de lejos, tanto en el
+   mapa como adentro de la ficha del nivel
+   ============================================================ */
+/* tarjetas de la seccion de paths */
+a.card:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:var(--shadow-md); }
+/* Una ruta que todavía no existe no está bloqueada: se puede pedir.
+   Por eso no lleva borde punteado ni cursor de prohibido. */
+/* Una ruta que todavía no existe se muestra bloqueada, no se disfraza
+   de link: el pedido para que exista está una sola vez, bajo la grilla. */
+/* ============================================================
+   BIBLIOTECA · créditos filtrables
+   ============================================================ */
+
+a.lib-card:hover{ transform:translateY(-2px); border-color:var(--accent); }
+a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
+@media (max-width:640px){ .suggest{ grid-template-columns:1fr; } }
+/* ============================================================
+   CERTIFICADOS - que te llevas de esta ruta
+   Solo se dibuja la constancia propia. La credencial ajena queda como
+   una aclaracion de texto con sus requisitos y el enlace a quien la
+   emite: reproducir el diseno de un certificado de otro es fabricar
+   una credencial que no es mia, y ademas nunca queda bien.
+   ============================================================ */
+/* Una sola tarjeta: sin techo, auto-fit la estiraba a todo el ancho
+   y una constancia de 900px de ancho no parece una constancia. */
+@media (max-width:760px){ .armar-band{ grid-template-columns:1fr; } .armar-band .btn-done{ justify-self:start; } }
+
+/* Piezas que dibuja el panel compartido de path-sync.js */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+/* Una racha por bloque. Un contador compartido no dice cuál de los dos
+   estás practicando, que es justamente lo que uno quiere ver.
+   Va en una fila: marcar el día es un gesto de un segundo y no
+   justifica una tarjeta por bloque. */
+.racha-tira{ padding:13px 2px 2px; }
+.week{ display:flex; gap:6px; }
+.day{
+  flex:1; min-width:0; display:grid; justify-items:center; gap:1px;
+  padding:6px 0 5px; border-radius:var(--r-sm);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+}
+.day .dlet{ font-size:9.5px; font-weight:800; color:var(--text-3); }
+.day .dnum{ font-size:11px; color:var(--text-2); }
+@media (max-width:430px){
+  .day .dnum{ font-size:10px; }
+}
+.streak-note{ font-size:11.5px; color:var(--text-3); line-height:1.5; margin-top:12px; }
+.daily-links{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; align-content:start; }
+.daily-card{
+  display:flex; flex-direction:column; gap:8px; padding:18px;
+  border-radius:var(--r-lg); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text);
+  transition:border-color var(--dur) ease, transform var(--dur) ease;
+}
+.daily-card:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.daily-card .ico{ display:grid; place-items:center; width:36px; height:36px; border-radius:var(--r-md); background:var(--accent-soft); color:var(--accent-strong); }
+.daily-card h3{ font-size:15px; }
+.daily-card p{ font-size:12.5px; color:var(--text-2); }
+.daily-card .go{ margin-top:auto; padding-top:6px; font-size:11px; font-weight:800; color:var(--accent-strong); display:flex; align-items:center; gap:6px; }
+/* ============================================================
+   7. EL CAMINO · camino serpenteante, tramos y nodos
+   ============================================================ */
+.map{ position:relative; padding-bottom:20px; }
+.track{ position:relative; padding:10px 0 30px; }
+.track-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; overflow:visible; }
+.track-line{ fill:none; stroke:var(--accent-line); stroke-width:14; stroke-linecap:round; stroke-linejoin:round; }
+.track-line-dash{ fill:none; stroke:var(--surface); stroke-width:3; stroke-linecap:round; stroke-dasharray:2 16; opacity:.85; }
+.track-line-done{
+  fill:none; stroke:url(#trailGrad); stroke-width:14; stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke-dashoffset 620ms cubic-bezier(.4,0,.2,1);
+}
+
+.act{ position:relative; z-index:2; display:flex; justify-content:center; margin:52px 0 30px; }
+.act:first-child{ margin-top:0; }
+.act-chip{
+  display:flex; align-items:center; gap:14px; max-width:min(560px,100%);
+  padding:12px 22px; border-radius:var(--r-pill);
+  background:var(--surface); border:1px solid var(--divider); box-shadow:var(--shadow-sm);
+}
+.act-chip .n{
+  display:grid; place-items:center; width:26px; height:26px; flex-shrink:0;
+  border-radius:var(--r-pill); background:var(--accent-soft); color:var(--accent-strong);
+  font-size:12px; font-weight:800;
+}
+.act-chip .t{ font-size:14px; font-weight:800; letter-spacing:-.01em; }
+.act-chip .d{ font-size:12px; color:var(--text-3); font-weight:600; }
+@media (max-width:640px){
+  .act-chip{ flex-direction:column; align-items:flex-start; gap:4px; border-radius:var(--r-lg); text-align:left; width:100%; }
+  .act-chip .n{ display:none; }
+}
+
+.node-row{ position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:0 132px; margin:26px 0; }
+.node-row.side-left .node{ grid-column:1; }
+.node-row.side-right .node{ grid-column:2; }
+
+.node{
+  position:relative; width:100%; text-align:left; cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-lg);
+  padding:18px 20px 16px; box-shadow:var(--shadow-sm);
+  transition:transform var(--dur) ease, box-shadow var(--dur) ease, border-color var(--dur) ease;
+}
+.node:hover{ transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--accent); }
+/* keep the copy clear of the marker that straddles the inner edge */
+.side-left .node{ padding-right:44px; }
+.side-right .node{ padding-left:44px; }
+.node-marker{
+  position:absolute; top:50%; z-index:3;
+  display:grid; place-items:center; width:46px; height:46px;
+  border-radius:var(--r-pill); background:var(--surface);
+  border:3px solid var(--accent-line); color:var(--text-2);
+  font-size:15px; font-weight:800; box-shadow:var(--shadow-sm);
+  transition:background var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease, transform var(--dur) ease;
+}
+.side-left .node-marker{ right:0; transform:translate(50%,-50%); }
+.side-right .node-marker{ left:0; transform:translate(-50%,-50%); }
+.node:hover .node-marker{ border-color:var(--accent); }
+.side-left .node:hover .node-marker{ transform:translate(50%,-50%) scale(1.06); }
+.side-right .node:hover .node-marker{ transform:translate(-50%,-50%) scale(1.06); }
+
+.node-kicker{ display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+.lvl{ font-size:9.5px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; color:var(--text-3); }
+.node h3{ font-size:16.5px; }
+.node p{ margin-top:7px; font-size:13.5px; color:var(--text-2); }
+.node-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:13px; }
+.chip{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  border-radius:var(--r-sm); background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-2); white-space:nowrap;
+}
+.chip.free{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 28%, transparent); }
+.chip.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
+/* qué lo publica el fabricante y qué deja una credencial */
+.chip.official{ background:var(--accent-soft); color:var(--accent-strong); border-color:var(--accent-line); }
+.chip.cert{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
+.res .txt .t .chip{ margin-left:6px; vertical-align:middle; }
+
+/* node states */
+.node.is-done{ border-color:color-mix(in srgb, var(--good) 42%, var(--divider)); }
+.node.is-done .node-marker{ background:var(--good); border-color:var(--good); color:#04120D; }
+.node.is-done h3{ color:var(--text-2); }
+.node.is-current{ border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft), var(--shadow-md); }
+.node.is-current .node-marker{ background:var(--accent); border-color:var(--accent); color:var(--warm-ink); }
+.node.is-current .node-marker::after{
+  content:""; position:absolute; inset:-3px; border-radius:var(--r-pill);
+  border:3px solid var(--accent); animation:pulse 2.4s ease-out infinite;
+}
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:.7; }
+  70%{ transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+.node.is-boss{ background:linear-gradient(150deg,var(--surface),var(--surface-2)); border-color:var(--accent-line); }
+.node.is-boss h3{ font-size:19px; }
+.node.is-boss .node-marker{ width:56px; height:56px; border-width:3px; }
+.side-left .is-boss .node-marker{ transform:translate(50%,-50%); }
+.side-right .is-boss .node-marker{ transform:translate(-50%,-50%); }
+.node-check{
+  position:absolute; top:14px; right:14px; width:22px; height:22px;
+  display:grid; place-items:center; border-radius:var(--r-pill);
+  border:1px solid var(--divider); color:transparent; background:var(--surface-2);
+}
+.node.is-done .node-check{ background:var(--good); border-color:var(--good); color:#04120D; }
+
+@media (max-width:820px){
+  .node-row{ grid-template-columns:1fr; gap:0; margin:20px 0; }
+  .node-row.side-left .node, .node-row.side-right .node{ grid-column:1; margin-left:44px; width:auto; padding-left:20px; padding-right:20px; }
+  .side-left .node-marker, .side-right .node-marker{
+    left:0; right:auto; top:26px; transform:translate(calc(-50% - 22px),0);
+  }
+  .side-left .node:hover .node-marker, .side-right .node:hover .node-marker{ transform:translate(calc(-50% - 22px),0) scale(1.06); }
+  .side-left .is-boss .node-marker, .side-right .is-boss .node-marker{ transform:translate(calc(-50% - 17px),0); }
+  .node.is-boss .node-marker{ width:46px; height:46px; }
+  .node-check{ top:12px; right:12px; }
+  .track{ padding-left:0; }
+}
+
+
+/* ============================================================
+   8. FICHA DEL HITO
+   ============================================================ */
+dialog.sheet{
+  width:min(640px,calc(100vw - 32px)); max-height:min(86vh,880px);
+  padding:0; border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); color:var(--text); box-shadow:var(--shadow-lg);
+  overflow:hidden;
+}
+dialog.sheet::backdrop{ background:rgba(10,6,24,.66); backdrop-filter:blur(3px); }
+dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
+@keyframes sheetIn{ from{ opacity:0; transform:translateY(10px) scale(.98); } to{ opacity:1; transform:none; } }
+.sheet-in{ display:flex; flex-direction:column; max-height:inherit; }
+.sheet-head{
+  display:flex; align-items:flex-start; gap:14px;
+  padding:22px 22px 18px; border-bottom:1px solid var(--divider-soft); background:var(--surface-2);
+}
+.sheet-head .head-txt{ flex:1; min-width:0; }
+.sheet-head h2{ font-size:21px; margin-top:6px; }
+.sheet-body{ padding:20px 22px 8px; overflow-y:auto; }
+.sheet-body h4{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:22px 0 10px; }
+.sheet-body h4:first-child{ margin-top:0; }
+.sheet-goal{ font-size:14.5px; color:var(--text-2); }
+.win-list{ list-style:none; margin:0; padding:0; display:grid; gap:9px; }
+.win-list li{ display:flex; gap:10px; font-size:13.5px; color:var(--text-2); }
+.win-list li svg{ color:var(--accent); margin-top:3px; }
+.res-list{ display:grid; gap:9px; }
+.res{
+  display:flex; align-items:center; gap:12px; padding:12px 14px;
+  border-radius:var(--r-md); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text); width:100%; text-align:left; cursor:pointer;
+  transition:border-color var(--dur) ease, transform var(--dur) ease, background var(--dur) ease;
+}
+.res:hover{ border-color:var(--accent); background:var(--surface-2); transform:translateY(-1px); }
+.res .ico{ display:grid; place-items:center; width:34px; height:34px; border-radius:var(--r-sm); background:var(--surface-2); color:var(--accent-strong); border:1px solid var(--divider-soft); }
+.res .txt{ flex:1; min-width:0; }
+.res .txt .t{ font-size:13.5px; font-weight:700; display:block; }
+.res .txt .s{ font-size:11px; color:var(--text-3); font-weight:600; }
+.res .go{ color:var(--text-3); }
+.res:hover .go{ color:var(--accent-strong); }
+.sheet-foot{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  padding:16px 22px; border-top:1px solid var(--divider-soft); background:var(--surface-2);
+}
+.sheet-foot .grow{ flex:1; }
+.self-note{
+  display:flex; gap:10px; margin-top:16px; padding:12px 14px;
+  border-radius:var(--r-md); background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12px; line-height:1.55; color:var(--text-3);
+}
+@media (max-width:560px){
+  dialog.sheet{ width:100vw; max-width:100vw; max-height:92vh; margin:auto auto 0; border-radius:var(--r-xl) var(--r-xl) 0 0; }
+  .sheet-foot{ position:sticky; bottom:0; }
+}
+
+.finish{
+  position:relative; overflow:hidden;
+  border:1px solid var(--divider); border-radius:var(--r-xl);
+  background:var(--surface); box-shadow:var(--shadow-md);
+}
+.finish.unlocked{ border-color:var(--accent); box-shadow:0 0 0 5px var(--accent-soft), var(--shadow-md); }
+.finish-in{ padding:34px; }
+.finish h2{ font-size:clamp(22px,3vw,30px); }
+.finish-lead{ margin-top:12px; color:var(--text-2); font-size:15px; max-width:52ch; }
+.finish-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.lock-note{ margin-top:12px; font-size:12px; color:var(--text-3); display:flex; align-items:center; gap:7px; }
+.support{ background:var(--surface-2); border:1px solid var(--divider-soft); border-radius:var(--r-lg); padding:22px; display:flex; flex-direction:column; gap:10px; }
+.support h3{ font-size:16px; }
+.support p{ font-size:13px; color:var(--text-2); }
+.support .btn-quiet{ margin-top:6px; align-self:flex-start; background:var(--surface); }
+@media (max-width:860px){ .finish-in{ grid-template-columns:1fr; gap:24px; padding:26px 22px; } }
+
+
+/* ============================================================
+   11. CERTIFICATE · watermarked, personal, plainly unofficial
+   ============================================================ */
+.cert{
+  position:relative; overflow:hidden; isolation:isolate;
+  border-radius:var(--r-lg); border:1px solid var(--accent-line);
+  background:linear-gradient(150deg, var(--surface), var(--surface-2) 60%, var(--accent-soft));
+  padding:26px 26px 20px;
+}
+.cert-wm{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.cert-wm text{
+  fill:var(--accent-strong); opacity:.13; font-weight:800; letter-spacing:.18em;
+  font-size:13px; font-family:inherit; text-transform:uppercase;
+}
+.cert-in{ position:relative; z-index:1; }
+.cert-badge{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid color-mix(in srgb, var(--warn) 34%, transparent);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+.cert-eyebrow{ font-size:10px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--text-3); }
+.cert-name{
+  margin:8px 0 6px; font-size:clamp(22px,3.4vw,32px); letter-spacing:-.03em;
+  border-bottom:2px solid var(--accent-line); padding-bottom:10px; display:inline-block;
+}
+.cert-line{ font-size:14px; color:var(--text-2); max-width:46ch; }
+.cert-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.cert-foot{
+  margin-top:18px; padding-top:14px; border-top:1px solid var(--divider-soft);
+  font-size:11px; line-height:1.55; color:var(--text-3);
+}
+.cert.mini{ padding:16px 16px 12px; }
+.cert.mini .cert-name{ font-size:17px; padding-bottom:6px; }
+.cert.mini .cert-line{ font-size:11.5px; }
+.cert.mini .cert-foot{ font-size:9.5px; margin-top:12px; padding-top:10px; }
+.cert.mini .cert-badge{ margin-bottom:10px; font-size:8.5px; padding:3px 8px; }
+.cert.sample{ filter:saturate(.55); }
+
+.preview-row{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,300px); gap:22px;
+  padding:24px 34px 34px; border-top:1px solid var(--divider-soft);
+}
+.preview-row h4{ font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); margin:0 0 12px; }
+@media (max-width:860px){ .preview-row{ grid-template-columns:1fr; padding:20px 22px 26px; } }
+
+.post-mock{
+  border-radius:var(--r-lg); border:1px solid var(--divider);
+  background:var(--surface); box-shadow:var(--shadow-sm); overflow:hidden;
+}
+.post-head{ display:flex; align-items:center; gap:10px; padding:14px 16px 10px; }
+.post-head .who{ font-size:13.5px; font-weight:800; line-height:1.2; }
+.post-head .sub{ font-size:11px; color:var(--text-3); font-weight:600; }
+.post-body{ padding:0 16px 12px; font-size:13px; color:var(--text-2); }
+.post-thumb{ border-top:1px solid var(--divider-soft); border-bottom:1px solid var(--divider-soft); padding:14px 16px; background:var(--surface-2); }
+.post-link{ padding:10px 16px; font-size:11px; color:var(--text-3); font-weight:700; }
+.post-tag{
+  display:inline-flex; align-items:center; gap:6px; margin:0 16px 12px;
+  font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);
+}
+
+
+/* ============================================================
+   9. CREDITOS Y PIE
+   ============================================================ */
+/* ============================================================
+   PATH PROPIO · las rutas de esta guía se ven de lejos, tanto en el
+   mapa como adentro de la ficha del nivel
+   ============================================================ */
+.node.has-path{
+  border-color:var(--accent); border-width:2px;
+  background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow-md);
+}
+.own-ribbon{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:10px;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--surface);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+.res.own{
+  padding:16px 18px; border:2px solid var(--accent);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.res.own:hover{ transform:translateY(-2px); background:linear-gradient(135deg, var(--accent-soft), var(--surface-2)); }
+.res.own .ico{ width:42px; height:42px; background:var(--accent); color:var(--surface); border-color:var(--accent); }
+.res.own .txt .t{ font-size:15px; }
+.res.own .go{ color:var(--accent-strong); }
+.own-tag{
+  display:block; margin-bottom:4px;
+  font-size:9.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--accent-strong);
+}
+
+/* tarjetas de la seccion de paths */
+.grid-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:16px; }
+.card{
+  display:flex; flex-direction:column; gap:9px; padding:20px;
+  background:var(--surface); border:1px solid var(--divider); border-radius:var(--r-lg);
+  box-shadow:var(--shadow-sm); text-decoration:none; color:var(--text);
+  transition:transform var(--dur) ease, border-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+a.card:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow:var(--shadow-md); }
+.card .ico{ display:grid; place-items:center; width:38px; height:38px; border-radius:var(--r-md); background:var(--accent-soft); color:var(--accent-strong); }
+.card h3{ font-size:16px; }
+.card p{ font-size:13px; color:var(--text-2); }
+.card .go{ margin-top:auto; padding-top:8px; font-size:11.5px; font-weight:800; color:var(--accent-strong); display:flex; align-items:center; gap:6px; }
+.card-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+/* Una ruta que todavía no existe no está bloqueada: se puede pedir.
+   Por eso no lleva borde punteado ni cursor de prohibido. */
+.paths-top{ padding-top:10px; }
+.card.own{
+  border-color:var(--accent); border-width:2px;
+  background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
+  box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent), var(--shadow-md);
+}
+.card.own .ico{ background:var(--accent); color:var(--surface); }
+.own-ribbon{
+  display:inline-flex; align-items:center; gap:7px; align-self:flex-start;
+  padding:5px 11px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--surface);
+  font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+}
+/* Una ruta que todavía no existe se muestra bloqueada, no se disfraza
+   de link: el pedido para que exista está una sola vez, bajo la grilla. */
+.card.locked{
+  border-style:dashed; box-shadow:none; background:var(--surface-sunk); cursor:not-allowed;
+}
+.card.locked .ico{ background:var(--surface-2); color:var(--text-3); border:1px solid var(--divider); }
+.card.locked h3, .card.locked p{ color:var(--text-3); }
+.card.locked .chip{ opacity:.75; }
+.card.locked .go{ color:var(--text-3); }
+.pedir{
+  display:flex; align-items:center; gap:9px; margin-top:16px;
+  font-size:12.5px; color:var(--text-3);
+}
+.pedir a{ font-weight:700; }
+
+
+/* ============================================================
+   BIBLIOTECA · créditos filtrables
+   ============================================================ */
+
+.lib-bar{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+.lib-filter{
+  display:inline-flex; align-items:center; gap:7px; cursor:pointer;
+  padding:7px 13px; border-radius:var(--r-pill);
+  border:1px solid var(--divider); background:var(--surface);
+  color:var(--text-2); font-size:12px; font-weight:800;
+  transition:border-color var(--dur) ease, color var(--dur) ease, background var(--dur) ease;
+}
+.lib-filter:hover{ border-color:var(--accent); color:var(--accent-strong); }
+.lib-filter.on{ background:var(--accent-strong); border-color:var(--accent-strong); color:var(--surface); }
+.lib-filter .n{ font-variant-numeric:tabular-nums; opacity:.7; }
+.lib-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.lib-card{
+  display:flex; flex-direction:column; gap:8px; padding:18px;
+  border-radius:var(--r-lg); border:1px solid var(--divider); background:var(--surface);
+  box-shadow:var(--shadow-sm); text-decoration:none; color:var(--text);
+  transition:transform var(--dur) ease, border-color var(--dur) ease;
+}
+a.lib-card:hover{ transform:translateY(-2px); border-color:var(--accent); }
+.lib-card .top{ display:flex; align-items:center; gap:10px; }
+.lib-card .ico{ display:grid; place-items:center; width:34px; height:34px; flex-shrink:0; border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-line); }
+.lib-card .t{ font-size:14px; font-weight:800; line-height:1.25; }
+.lib-card .d{ font-size:12.5px; color:var(--text-2); }
+.lib-card .s{ margin-top:auto; padding-top:6px; font-size:11px; color:var(--text-3); font-weight:700; display:flex; align-items:center; gap:6px; }
+.lib-more{ display:flex; justify-content:center; margin-top:20px; }
+.credit-list{ display:grid; gap:12px; }
+.credit{
+  display:flex; align-items:flex-start; gap:14px; padding:16px 18px;
+  border-radius:var(--r-md); border:1px solid var(--divider); background:var(--surface);
+  text-decoration:none; color:var(--text);
+  transition:border-color var(--dur) ease, background var(--dur) ease;
+}
+a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
+.credit .ico{ display:grid; place-items:center; width:36px; height:36px; flex-shrink:0; border-radius:var(--r-sm); background:var(--accent-soft); color:var(--accent-strong); border:1px solid var(--accent-line); }
+.credit .t{ display:block; font-size:14px; font-weight:800; }
+.credit .d{ font-size:12.5px; color:var(--text-2); margin-top:3px; }
+.credit .s{ font-size:11px; color:var(--text-3); font-weight:700; margin-top:6px; display:block; }
+
+.suggest{
+  display:grid; grid-template-columns:auto minmax(0,1fr); gap:16px; align-items:start;
+  margin-top:26px; padding:20px 22px; border-radius:var(--r-lg);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  border:1px solid var(--accent-line);
+}
+.suggest .ico{ display:grid; place-items:center; width:42px; height:42px; border-radius:var(--r-md); background:var(--accent); color:var(--surface); }
+.suggest h3{ font-size:16px; }
+.suggest p{ font-size:13px; color:var(--text-2); margin-top:5px; max-width:62ch; }
+.suggest .acciones{ display:flex; flex-wrap:wrap; gap:9px; margin-top:14px; }
+@media (max-width:640px){ .suggest{ grid-template-columns:1fr; } }
+.disclaimer{
+  display:flex; align-items:flex-start; gap:12px; margin-top:26px;
+  padding:16px 18px; border-radius:var(--r-md);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:12.5px; line-height:1.6; color:var(--text-2);
+}
+.disclaimer svg{ color:var(--text-3); margin-top:2px; }
+.disclaimer b{ color:var(--text); }
+/* ============================================================
+   CERTIFICADOS - que te llevas de esta ruta
+   Solo se dibuja la constancia propia. La credencial ajena queda como
+   una aclaracion de texto con sus requisitos y el enlace a quien la
+   emite: reproducir el diseno de un certificado de otro es fabricar
+   una credencial que no es mia, y ademas nunca queda bien.
+   ============================================================ */
+/* Una sola tarjeta: sin techo, auto-fit la estiraba a todo el ancho
+   y una constancia de 900px de ancho no parece una constancia. */
+.certs{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:20px; max-width:560px; }
+.cert-card{ display:flex; flex-direction:column; gap:12px; }
+.cert-tag{
+  align-self:flex-start; padding:5px 12px; border-radius:var(--r-pill);
+  font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase;
+  background:var(--accent); color:var(--surface);
+}
+.cert-tag.libre{ background:var(--good); color:var(--surface); }
+.cert-hoja{
+  position:relative; overflow:hidden; padding:26px 24px 22px; text-align:center;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface); box-shadow:var(--shadow-sm);
+}
+.cert-hoja::before{
+  content:""; position:absolute; inset:7px; border-radius:var(--r-sm);
+  border:1px solid var(--divider-soft); pointer-events:none;
+}
+.cert-agua{
+  position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22188%22%20height%3D%22112%22%3E%3Ctext%20x%3D%224%22%20y%3D%2266%22%20transform%3D%22rotate%28-24%2094%2056%29%22%20font-family%3D%22Inter%2CSegoe%20UI%2Csans-serif%22%20font-size%3D%2215%22%20font-weight%3D%22800%22%20fill%3D%22%23808080%22%20opacity%3D%220.30%22%3EEJEMPLO%3C%2Ftext%3E%3C%2Fsvg%3E"); background-repeat:repeat;
+}
+.cert-emisor{ position:relative; font-size:13px; font-weight:800; letter-spacing:-.01em; color:var(--accent); }
+.cert-tipo{ position:relative; margin-top:2px; font-size:9.5px; font-weight:800;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+.cert-nombre{ position:relative; margin:16px 0 4px; font-size:21px; font-weight:800;
+  letter-spacing:-.02em; line-height:1.2; word-break:break-word; }
+.cert-linea{ position:relative; font-size:12.5px; color:var(--text-2); line-height:1.55; }
+.cert-linea b{ color:var(--text); }
+.cert-datos{ position:relative; display:flex; flex-wrap:wrap; justify-content:center;
+  gap:7px; margin-top:16px; }
+.cert-pie{ position:relative; margin-top:18px; padding-top:13px;
+  border-top:1px solid var(--divider-soft); font-size:10.5px; color:var(--text-3); line-height:1.5; }
+.cert-nota{ font-size:12px; color:var(--text-3); line-height:1.55; }
+.cert-nota a{ font-weight:700; }
+.cert-datos .chip{
+  display:inline-flex; align-items:center; gap:5px; padding:4px 9px;
+  border-radius:var(--r-sm); background:var(--surface-2);
+  border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-2); white-space:nowrap;
+}
+.cert-datos .chip.free{ background:var(--good-soft); color:var(--good);
+  border-color:color-mix(in srgb, var(--good) 28%, transparent); }
+.cert-datos .chip.paid{ background:var(--warn-soft); color:var(--warn);
+  border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
+
+
+.armar-band{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:22px; align-items:center;
+  padding:24px 26px; border-radius:var(--r-xl);
+  background:linear-gradient(135deg, var(--accent-soft), var(--surface));
+  border:2px solid var(--accent); box-shadow:var(--shadow-md);
+}
+.armar-band .ico{ display:grid; place-items:center; width:52px; height:52px; flex-shrink:0;
+  border-radius:var(--r-lg); background:var(--accent); color:var(--surface); }
+.armar-band h2{ font-size:20px; }
+.armar-band p{ margin-top:8px; font-size:13.5px; color:var(--text-2); max-width:62ch; }
+@media (max-width:760px){ .armar-band{ grid-template-columns:1fr; } .armar-band .btn-done{ justify-self:start; } }
+
+.lema{ font-size:12.5px; font-weight:700; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:14px; }
+
+
+.toast{
+  position:fixed; left:50%; bottom:26px; z-index:80;
+  display:flex; align-items:center; gap:10px; padding:13px 18px;
+  border-radius:var(--r-pill); background:var(--surface); border:1px solid var(--accent);
+  box-shadow:var(--shadow-lg); font-size:13.5px; font-weight:700;
+  transform:translate(-50%,26px); opacity:0; pointer-events:none;
+  transition:opacity 200ms ease, transform 200ms ease;
+}
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+.toast svg{ color:var(--accent); }
+
+.field{ display:grid; gap:6px; margin-bottom:14px; }
+.field label{ font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--text-3); }
+.field input{
+  width:100%; padding:12px 14px; font-size:15px; font-weight:600;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface-2); color:var(--text);
+}
+.field input:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent); }
+.form-err{
+  display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;
+  padding:11px 13px; border-radius:var(--r-md); font-size:13px; font-weight:600;
+  background:var(--warn-soft); color:var(--warn);
+  border:1px solid color-mix(in srgb, var(--warn) 32%, transparent);
+}
+/* Piezas que dibuja el panel compartido de path-sync.js */
+.auth-actions .btn-done{ flex:1 1 100%; justify-content:center; }
+.auth-sep{ display:flex; align-items:center; gap:11px; margin:14px 0;
+  font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--text-3); }
+.auth-sep::before, .auth-sep::after{ content:""; flex:1; height:1px;
+  background:var(--divider-soft, var(--divider)); }
+.check{ display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer; }
+.check input{ width:17px; height:17px; margin:2px 0 0; flex-shrink:0;
+  accent-color:var(--accent); cursor:pointer; }
+.check span{ font-size:12.5px; line-height:1.5; color:var(--text-2); }
+.field .pista{ font-size:11.5px; font-weight:600; color:var(--text-3); }
+.auth-note{ margin-top:14px; font-size:11.5px; line-height:1.55; color:var(--text-3); }
+.auth-actions{ display:flex; flex-wrap:wrap; gap:9px; }
+.acct-stat{
+  display:flex; align-items:center; gap:12px; padding:14px 16px; margin-bottom:14px;
+  border-radius:var(--r-md); background:var(--surface-2); border:1px solid var(--divider-soft);
+}
+.acct-stat .k{ font-size:12.5px; color:var(--text-2); font-weight:600; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+/* Una racha por bloque. Un contador compartido no dice cuál de los dos
+   estás practicando, que es justamente lo que uno quiere ver.
+   Va en una fila: marcar el día es un gesto de un segundo y no
+   justifica una tarjeta por bloque. */
+/* El estado, la agenda y el catálogo van seguidos: son una sola
+   lectura, no tres capítulos. Con el aire de sección quedaba media
+   pantalla vacía entre cada uno. */
+#estado{ padding-bottom:10px; }
+#hoy{ padding-top:0; padding-bottom:14px; }
+.rachas{
+  display:flex; align-items:center; gap:10px;
+  /* Sin wrap y con alto propio: abrir una pastilla no puede empujar
+     media página hacia abajo, que era lo que pasaba. Lo que no entra
+     se esconde mientras hay una abierta. */
+  flex-wrap:nowrap; min-height:38px; overflow:hidden;
+  padding:9px 10px 9px 14px; border-radius:var(--r-pill);
+  background:var(--surface); border:1px solid var(--divider);
+}
+.rachas.abierta .tick.otro,
+.rachas.abierta .racha-abrir{ display:none; }
+.tick{ flex:none; }
+.tick-mas{ min-width:0; }
+.racha-et{
+  font-size:11px; font-weight:800; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--text-3); margin-right:2px;
+}
+.tick{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 13px 6px 9px; border-radius:var(--r-pill);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font:inherit; font-size:13px; font-weight:650; color:var(--text);
+  cursor:pointer; transition:border-color var(--dur) ease, background var(--dur) ease;
+}
+.tick:hover{ border-color:var(--accent); }
+.tick .n{
+  display:grid; place-items:center; min-width:22px; height:22px; padding:0 5px;
+  border-radius:var(--r-pill); background:var(--surface-sunk);
+  font-size:12px; font-weight:800; font-variant-numeric:tabular-nums;
+  color:var(--text-3);
+}
+.tick .n.on{ background:var(--warm); color:var(--warm-ink); }
+.tick .v{ display:flex; color:var(--text-3); }
+.tick.hecho{ background:var(--accent-soft); border-color:var(--accent-line); }
+.tick.hecho .v{ color:var(--accent); }
+.racha-abrir{
+  margin-left:auto; background:none; border:0; padding:6px 8px;
+  font:inherit; font-size:12px; color:var(--text-3);
+  cursor:pointer; border-radius:var(--r-sm);
+}
+.racha-abrir:hover{ color:var(--accent); }
+.racha-tira{ display:flex; gap:22px; flex-wrap:wrap; padding:12px 4px 2px; }
+.racha-tira[hidden]{ display:none; }
+.racha-tira > div{ flex:1 1 260px; }
+.racha-tira .et{
+  display:block; margin-bottom:6px;
+  font-size:10.5px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--text-3);
+}
+.week{ display:flex; gap:5px; }
+.day{
+  flex:1; display:grid; place-items:center; gap:2px; cursor:pointer;
+  padding:5px 0; border-radius:var(--r-sm);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  font-size:9.5px; font-weight:800; color:var(--text-3);
+  transition:border-color var(--dur) ease, background var(--dur) ease;
+}
+.day:hover{ border-color:var(--accent); }
+.day .dnum{ font-size:10.5px; color:var(--text-2); }
+.day.on{ background:var(--warm); border-color:var(--warm); color:var(--warm-ink); }
+.day.on .dnum{ color:var(--warm-ink); }
+.day.today{ border-color:var(--accent); }
+.streak-note{ font-size:11px; color:var(--text-3); line-height:1.5; margin-top:8px; }
+@media (max-width:520px){
+  .rachas{ border-radius:var(--r-lg); }
+  .racha-abrir{ margin-left:0; flex:1 1 100%; text-align:left; }
+}
+/* Sin medidor de avance, algo tiene que empujar los botones. */
+.topbar-sp{ flex:1; }
+/* El pie, en una línea. Antes ocupaba cinco y repetía en cada página
+   una explicación que ya se entiende usando el sitio. */
+.foot{ border-top:1px solid var(--divider-soft); margin-top:48px; padding:18px 0 26px; }
+.foot .foot-in{
+  display:flex; align-items:center; gap:14px 20px; flex-wrap:wrap;
+  font-size:12.5px; color:var(--text-3);
+}
+.foot .foot-marca{ display:flex; align-items:center; gap:8px; color:var(--text-2); font-size:12.5px; padding:0; }
+.foot .foot-marca b{ color:var(--text); }
+.foot .foot-links{ margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.foot .foot-links a{ color:var(--text-3); font-weight:700; text-decoration:none; }
+.foot .foot-links a:hover{ color:var(--accent-strong); }
+@media (max-width:640px){ .foot .foot-links{ margin-left:0; } }
+/* La estrella vive sobre la tarjeta, no dentro del enlace: si no,
+   marcarla como favorita te llevaría a la ruta. */
+.card-wrap{ position:relative; display:flex; }
+.card-wrap > .card{ flex:1; }
+.fav{
+  position:absolute; top:10px; right:10px; z-index:2;
+  display:grid; place-items:center; width:30px; height:30px;
+  border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  color:var(--text-3);
+  transition:color var(--dur) ease, border-color var(--dur) ease, background var(--dur) ease;
+}
+.fav:hover{ color:var(--warm); border-color:var(--warm); }
+.fav.on{ background:var(--warm); border-color:var(--warm); color:var(--warm-ink); }
+.fav.on svg{ fill:currentColor; }
+/* La barra del listado de rutas. Reusa el buscador del armador y los
+   chips del catálogo: es el mismo gesto en las tres pantallas. */
+.rutas-filtros{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; }
+.buscar{ position:relative; flex:1; min-width:200px; max-width:380px; }
+.buscar svg{ position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--text-3); }
+.buscar input{
+  width:100%; padding:10px 12px 10px 36px; font-size:14px; font-weight:600;
+  border-radius:var(--r-md); border:1px solid var(--divider);
+  background:var(--surface-2); color:var(--text);
+}
+.buscar input::placeholder{ color:var(--text-3); font-weight:600; }
+.chips-row{ display:flex; flex-wrap:wrap; gap:7px; }
+.sin-rutas{ font-size:13px; color:var(--text-3); padding:18px 2px; }
+/* Los caminos del paso 4, y la ruta que ya existe. */
+.caminos{ display:grid; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); gap:12px; }
+.camino{
+  display:flex; flex-direction:column; gap:8px; text-align:left;
+  padding:17px 18px; border-radius:var(--r-lg); cursor:pointer;
+  background:var(--surface-2); border:1.5px solid var(--divider);
+  font:inherit; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.camino:hover{ border-color:var(--accent); }
+.camino[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.camino.recomendada{ border-color:var(--accent); background:var(--accent-soft); }
+.c-cab{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+.c-cab b{ font-size:16px; letter-spacing:-.01em; }
+.c-dato{ margin-left:auto; font-size:12px; color:var(--text-3);
+  font-variant-numeric:tabular-nums; white-space:nowrap; }
+.c-sub{ font-size:12.5px; color:var(--text-2); line-height:1.5; }
+.c-lista{ list-style:none; margin:4px 0 0; padding:0; display:grid; gap:7px; }
+.c-lista li{ display:flex; flex-direction:column; gap:1px;
+  padding-left:13px; position:relative; }
+.c-lista li:before{
+  content:""; position:absolute; left:0; top:7px;
+  width:5px; height:5px; border-radius:50%; background:var(--accent);
+}
+.c-lista b{ font-size:13.5px; font-weight:650; }
+.c-lista span{ font-size:11.5px; color:var(--text-3); }
+.c-sello{
+  align-self:flex-start; padding:3px 10px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--warm-ink);
+  font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+}
+
+/* La invitación a armar tu ruta: una puerta, no un asistente. */
+.invita{
+  display:flex; align-items:center; gap:18px;
+  padding:24px 24px; border-radius:var(--r-xl);
+  background:linear-gradient(160deg, var(--accent-soft), var(--surface) 68%);
+  border:1px solid var(--accent-line); text-decoration:none; color:inherit;
+  transition:border-color 160ms ease, transform 160ms ease;
+}
+.invita:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.invita .ico{
+  display:grid; place-items:center; width:52px; height:52px; flex:none;
+  border-radius:var(--r-lg); background:var(--surface); color:var(--accent);
+}
+.invita .txt{ display:flex; flex-direction:column; gap:5px; }
+.invita .txt b{ font-size:19px; letter-spacing:-.01em; }
+.invita .txt span{ font-size:13.5px; color:var(--text-2); line-height:1.6; }
+.invita .fl{ margin-left:auto; color:var(--accent); flex:none; display:flex;
+  transition:transform 160ms ease; }
+.invita:hover .fl{ transform:translateX(4px); }
+@media (max-width:560px){ .invita{ flex-wrap:wrap; gap:12px; } .invita .fl{ margin-left:0; } }
+
+/* --- El onboarding: la única entrada ---------------------------- */
+.onb-caja{
+  background:var(--surface); border:1px solid var(--divider);
+  border-radius:var(--r-xl); box-shadow:var(--shadow-md);
+  overflow:hidden; margin-top:26px;
+}
+.onb-top{
+  display:flex; align-items:center; gap:14px;
+  padding:15px 22px; border-bottom:1px solid var(--divider-soft);
+  background:var(--surface-sunk);
+}
+.onb-pasos{ display:flex; gap:7px; flex:1; }
+.onb-pip{
+  flex:1; height:4px; border-radius:2px; background:var(--divider);
+  transition:background 160ms ease;
+}
+.onb-pip.on{ background:var(--accent); }
+.onb-nro{
+  font-size:11.5px; font-weight:800; color:var(--text-3);
+  letter-spacing:.06em; text-transform:uppercase; white-space:nowrap;
+}
+.onb-cuerpo{ padding:26px 22px 22px; }
+.onb-h{ font-size:clamp(21px,3vw,27px); margin:0 0 7px; letter-spacing:-.02em; }
+.onb-sub{ font-size:14.5px; color:var(--text-2); margin:0 0 20px; line-height:1.6; }
+.onb-pie{
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:15px 22px; border-top:1px solid var(--divider-soft);
+  background:var(--surface-sunk);
+}
+.onb-pie .der{ margin-left:auto; display:flex; gap:10px; align-items:center; }
+.onb-atras{
+  background:none; border:0; padding:8px 4px; cursor:pointer;
+  font:inherit; font-size:13px; color:var(--text-3);
+}
+.onb-atras:hover{ color:var(--text); }
+.onb-atras[hidden]{ display:none; }
+.onb-salida{ font-size:12.5px; color:var(--text-3); text-decoration:none; }
+.onb-salida:hover{ color:var(--accent); text-decoration:underline; }
+.onb-salida[hidden]{ display:none; }
+
+/* Las dos formas de contar dónde estás */
+.onb-vias{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+.via{
+  display:block; text-align:left; padding:17px 18px;
+  border-radius:var(--r-lg); cursor:pointer;
+  background:var(--surface-2); border:1.5px solid var(--divider);
+  font:inherit; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.via:hover{ border-color:var(--accent-line); }
+.via[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.via b{ display:block; font-size:15px; margin-bottom:4px; }
+.via span{ display:block; font-size:12.5px; color:var(--text-2); line-height:1.5; }
+
+.via.listo{ border-color:var(--accent); background:var(--accent-soft); }
+.via-ok{
+  display:inline-flex; align-items:center; gap:5px; margin-top:9px;
+  padding:3px 10px; border-radius:var(--r-pill);
+  background:var(--accent); color:var(--warm-ink);
+  font-size:10.5px; font-weight:800; letter-spacing:.03em;
+}
+a.via{ text-decoration:none; }
+
+/* Las preguntas, de a una */
+.preg-caja{ max-width:560px; }
+.preg-nav{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.preg-flecha{
+  display:grid; place-items:center; width:30px; height:30px;
+  border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider); color:var(--text-2);
+}
+.preg-flecha:hover:not(:disabled){ border-color:var(--accent); color:var(--accent); }
+.preg-flecha:disabled{ opacity:.35; cursor:default; }
+.preg-cuenta{
+  font-size:11.5px; font-weight:800; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--text-3);
+}
+.preg-t{ display:block; font-size:19px; letter-spacing:-.01em; margin-bottom:4px; }
+.preg-a{
+  display:block; font-style:normal; font-size:13px;
+  color:var(--text-3); margin-bottom:14px;
+}
+.preg-ops{ display:grid; gap:8px; }
+.preg-op{
+  text-align:left; padding:13px 15px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; font-size:14px; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.preg-op:hover{ border-color:var(--accent); }
+.preg-op[aria-pressed="true"]{
+  border-color:var(--accent); background:var(--accent-soft);
+  color:var(--accent-strong); font-weight:650;
+}
+.preg-pips{ display:flex; gap:6px; margin-top:18px; }
+.preg-pip{ width:22px; height:3px; border-radius:2px; background:var(--divider); }
+.preg-pip.lista{ background:var(--accent-line); }
+.preg-pip.aqui{ background:var(--accent); }
+
+/* Cuánto tiempo: días, franja y horas */
+.campo{ margin-bottom:24px; }
+.campo > label{
+  display:block; font-size:11.5px; font-weight:800;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);
+  margin-bottom:10px;
+}
+.dias-fila{ display:flex; gap:7px; flex-wrap:wrap; }
+.dia-b{
+  flex:1 1 0; min-width:44px; padding:11px 4px; border-radius:var(--r-md);
+  background:var(--surface-2); border:1px solid var(--divider); cursor:pointer;
+  font:inherit; font-size:12.5px; font-weight:700; color:var(--text-2);
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.dia-b[aria-pressed="true"]{
+  background:var(--accent-soft); border-color:var(--accent); color:var(--accent-strong);
+}
+.franjas{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
+.franja-b{
+  text-align:left; padding:12px 14px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.franja-b[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.franja-b b{ display:block; font-size:13.5px; margin-bottom:2px; }
+.franja-b span{ font-size:11.5px; color:var(--text-3); }
+
+/* Las horas van con barra y no con lista: media hora es una opción
+   válida y una lista que empieza en tres deja afuera a quien tiene una. */
+.horas-caja{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.horas-val{
+  font-size:26px; font-weight:800; letter-spacing:-.02em;
+  min-width:118px; font-variant-numeric:tabular-nums;
+}
+.horas-val small{ font-size:13px; font-weight:600; color:var(--text-3); }
+#onbHoras{ flex:1 1 220px; accent-color:var(--accent); height:26px; }
+.horas-nota{ flex:1 1 100%; font-size:12.5px; color:var(--text-3); line-height:1.55; }
+
+/* El ajuste fino de rutas, detrás del link del paso 4 */
+.rutas-on{ display:grid; gap:8px; }
+.ruta-on{
+  display:flex; align-items:center; gap:12px; text-align:left;
+  padding:12px 14px; border-radius:var(--r-md); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; color:inherit;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.ruta-on[aria-pressed="true"]{ border-color:var(--accent); background:var(--accent-soft); }
+.ruta-on .tick-caja{
+  width:19px; height:19px; flex:none; border-radius:5px;
+  border:1.5px solid var(--divider); display:grid; place-items:center;
+  color:transparent;
+}
+.ruta-on[aria-pressed="true"] .tick-caja{
+  background:var(--accent); border-color:var(--accent); color:var(--warm-ink);
+}
+.ruta-on .n{ flex:1; font-size:14px; font-weight:650; }
+.ruta-on .c{ font-size:12px; color:var(--text-3); }
+
+/* --- Tu estado: a dónde vas y las dos puertas ------------------- */
+.estado-cab{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.estado-cab h2{ font-size:clamp(22px,3vw,30px); margin:0; letter-spacing:-.02em; }
+.estado-acc{ margin-left:auto; display:flex; gap:7px; align-items:center; }
+.acc{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:7px 13px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface); border:1px solid var(--divider);
+  font:inherit; font-size:12.5px; font-weight:650; color:var(--text-2);
+  transition:border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+.acc:hover{ border-color:var(--accent); color:var(--accent); }
+.acc svg{ flex:none; opacity:.75; }
+.acc:hover svg{ opacity:1; }
+.acc.solo-icono{ padding:7px 9px; }
+/* Borrar no se anuncia en rojo: se pone rojo cuando vas a tocarlo.
+   Un destructivo gritando al lado de dos botones normales hace que
+   uno lea el bloque entero como peligroso. */
+.acc.peligro{ color:var(--text-3); }
+.acc.peligro:hover{ border-color:var(--bad); color:var(--bad); background:var(--bad-soft); }
+@media (max-width:560px){
+  .estado-acc{ margin-left:0; margin-top:10px; }
+  .acc{ font-size:12px; padding:6px 11px; }
+}
+.estado-sub{ font-size:14.5px; color:var(--text-2); margin:6px 0 16px; }
+
+/* Las dos puertas: la ruta y la práctica, con el mismo peso. */
+.puertas-dos{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px;
+}
+.ir-ruta{
+  display:flex; align-items:center; gap:14px;
+  padding:16px 18px; border-radius:var(--r-lg);
+  background:linear-gradient(160deg, var(--accent-soft), var(--surface) 65%);
+  border:1px solid var(--accent-line); text-decoration:none; color:inherit;
+  transition:border-color 160ms ease, transform 160ms ease;
+}
+.ir-ruta:hover{ border-color:var(--accent); transform:translateY(-1px); }
+.ir-ruta .ico{
+  display:grid; place-items:center; width:40px; height:40px; flex:none;
+  border-radius:var(--r-md); background:var(--surface); color:var(--accent);
+}
+.ir-ruta .txt{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.ir-ruta .txt b{ font-size:16px; letter-spacing:-.01em; }
+.ir-ruta .txt span{ font-size:13px; color:var(--text-2); }
+.ir-ruta .fl{ margin-left:auto; color:var(--accent); display:flex; flex:none;
+  transition:transform 160ms ease; }
+.ir-ruta:hover .fl{ transform:translateX(3px); }
+.ir-ruta.practicar{
+  background:linear-gradient(160deg, var(--surface-2), var(--surface) 65%);
+  border-color:var(--divider);
+}
+.ir-ruta.practicar .ico{ color:var(--text-2); }
+.ir-ruta.practicar .fl{ color:var(--text-3); }
+.ir-ruta.practicar:hover{ border-color:var(--accent); }
+.ir-ruta.practicar:hover .fl{ color:var(--accent); }
+
+/* La portada tiene dos caras y muestra una sola: el onboarding
+   mientras falta, tu estado cuando ya está. */
+.onb{ display:none; }
+.onb.on{ display:block; }
+.estado{ display:none; }
+.estado.on{ display:block; }
+
+/* --- El problema del dia ---------------------------------------- */
+#reto{ padding-top:6px; padding-bottom:18px; }
+.reto-cab{ display:flex; align-items:baseline; gap:12px; margin-bottom:12px; }
+.reto-cab h3{ font-size:16px; margin:0; letter-spacing:-.01em; }
+/* El acceso a la lista completa: es de lo más usado del sitio y era
+   un link chiquito al lado de un título. */
+.reto-mas{
+  margin-left:auto; display:inline-flex; align-items:center; gap:8px;
+  padding:8px 15px; border-radius:var(--r-pill);
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  font-size:13px; font-weight:650; color:var(--accent-strong);
+  text-decoration:none;
+  transition:border-color 160ms ease, background 160ms ease;
+}
+.reto-mas:hover{ border-color:var(--accent); background:var(--surface); }
+.reto-mas b{ font-variant-numeric:tabular-nums; }
+.retos{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px; }
+.reto-c{
+  display:flex; flex-direction:column; gap:10px;
+  padding:15px 17px; border-radius:var(--r-lg);
+  background:var(--surface); border:1px solid var(--divider);
+}
+.reto-c.ok{ border-color:var(--accent); background:var(--accent-soft); }
+.reto-top{ display:flex; align-items:baseline; gap:10px; }
+.reto-top .lang{
+  padding:2px 9px; border-radius:var(--r-pill);
+  background:var(--surface-sunk); border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:800; letter-spacing:.05em;
+  text-transform:uppercase; color:var(--text-3);
+}
+.reto-c.ok .reto-top .lang{ background:var(--accent); border-color:var(--accent);
+  color:var(--warm-ink); }
+.reto-top .cuenta{ margin-left:auto; font-size:11.5px; color:var(--text-3);
+  font-variant-numeric:tabular-nums; }
+.reto-p{ display:flex; align-items:center; gap:10px; min-width:0;
+  text-decoration:none; color:inherit; }
+.reto-p .t{ flex:1; font-size:14.5px; font-weight:650; min-width:0;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.reto-p:hover .t{ color:var(--accent); }
+.reto-p .d{ flex:none; padding:2px 8px; border-radius:var(--r-pill);
+  font-size:10px; font-weight:800; text-transform:uppercase; }
+.reto-p .d.facil{ background:var(--good-soft); color:var(--good); }
+.reto-p .d.medio{ background:var(--warn-soft); color:var(--warn); }
+.reto-p .d.dificil{ background:var(--bad-soft); color:var(--bad); }
+.reto-p .ir{ flex:none; color:var(--text-3); display:flex; }
+.reto-p:hover .ir{ color:var(--accent); }
+.reto-fin{ margin:0; font-size:13px; color:var(--text-3); }
+.reto-pie{ display:flex; align-items:center; gap:10px; }
+.reto-hecho{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:6px 12px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; font-size:12px; font-weight:650; color:var(--text-2);
+}
+.reto-hecho:hover:not(:disabled){ border-color:var(--accent); color:var(--accent); }
+.reto-hecho:disabled{ opacity:.4; cursor:default; }
+.reto-av{ margin-left:auto; font-size:11.5px; color:var(--text-3);
+  font-variant-numeric:tabular-nums; }
+
+/* --- Tu agenda: los siete días de un vistazo -------------------- */
+.hoy{ display:none; }
+.hoy.on{ display:block; }
+.hoy-card{
+  background:var(--surface); border:1px solid var(--divider);
+  border-radius:var(--r-lg); overflow:hidden;
+}
+.ag-cab{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  padding:14px 18px 12px; border-bottom:1px solid var(--divider-soft);
+}
+.ag-cab h3{ font-size:16px; margin:0; letter-spacing:-.01em; }
+.ag-sub{ font-size:12.5px; color:var(--text-3); }
+.ag-mas{ margin-left:auto; font-size:12.5px; color:var(--accent);
+  text-decoration:none; font-weight:650; }
+.ag-mas:hover{ text-decoration:underline; }
+
+.ag{ list-style:none; margin:0; padding:0; }
+.ag-dia{
+  display:flex; align-items:center; gap:12px;
+  padding:9px 18px; border-top:1px solid var(--divider-soft);
+}
+.ag-dia:first-child{ border-top:0; }
+.ag-dia.hoy{ background:var(--accent-soft); }
+.ag-dia.libre{ opacity:.5; }
+.ag-d{
+  flex:none; width:52px; font-size:11px; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--text-3);
+}
+.ag-dia.hoy .ag-d{ color:var(--accent); }
+.ag-d i{
+  display:block; font-style:normal; font-size:9px; letter-spacing:.08em;
+  color:var(--accent);
+}
+.ag-b{ flex:1; display:flex; align-items:center; gap:8px; flex-wrap:wrap; min-width:0; }
+.ag-x{
+  display:inline-flex; align-items:baseline; gap:8px; max-width:100%;
+  padding:4px 11px; border-radius:var(--r-pill);
+  background:var(--surface-2); border:1px solid var(--divider-soft);
+  text-decoration:none; color:inherit; font-size:13px;
+}
+.ag-x:hover{ border-color:var(--accent); }
+.ag-x .q{ font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ag-x .m{ font-size:11px; color:var(--text-3); font-variant-numeric:tabular-nums; }
+.ag-x.practica{ background:var(--accent-soft); border-color:var(--accent-line); }
+.ag-x.repaso{ background:var(--warn-soft); border-color:var(--warn); }
+/* El dia libre, con ella durmiendo al lado. Chica: acompana la
+   palabra, no la reemplaza. */
+.ag-nada{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:12.5px; color:var(--text-3);
+}
+.ag-nada .chin-pose{ width:26px; height:24px; opacity:.7; }
+
+/* Con lo de hoy hecho, al lado de las rachas. */
+.rr-cafe{ display:inline-flex; align-items:center; margin-left:2px; }
+.rr-cafe .chin-pose{ width:30px; height:28px; }
+.ag-t{ flex:none; font-size:11.5px; color:var(--text-3);
+  font-variant-numeric:tabular-nums; min-width:52px; text-align:right; }
+
+/* La racha, al lado de la práctica de hoy. */
+.rachitas{ display:inline-flex; gap:6px; }
+.rr{
+  display:inline-flex; align-items:center; gap:5px;
+  padding:2px 8px; border-radius:var(--r-pill);
+  background:var(--surface-sunk); border:1px solid var(--divider-soft);
+  font-size:10.5px; font-weight:700; color:var(--text-3);
+}
+.rr b{ font-variant-numeric:tabular-nums; color:var(--text-2); }
+.rr i{
+  font-style:normal; display:grid; place-items:center;
+  min-width:15px; height:15px; padding:0 3px; border-radius:var(--r-pill);
+  background:var(--warm); color:var(--warm-ink); font-size:9.5px; font-weight:800;
+}
+.rr.ok{ border-color:var(--accent); color:var(--accent); }
+@media (max-width:620px){
+  .rachitas{ display:none; }
+  .ag-t{ display:none; }
+  .ag-x .q{ max-width:180px; }
+}
+
+/* Las tres puertas del hero. Del mismo tamaño a propósito: el
+   catálogo no vale más que armar tu semana o sacar tu ruta del CV,
+   y antes era el único que se veía. */
+.puertas{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:13px; margin-top:26px;
+}
+.puerta{
+  display:flex; flex-direction:column; gap:11px;
+  padding:18px 19px 16px; border-radius:var(--r-lg);
+  background:var(--surface); border:1px solid var(--divider);
+  text-decoration:none; color:inherit;
+  transition:border-color var(--dur) ease, transform var(--dur) ease;
+}
+.puerta:hover{ border-color:var(--accent); transform:translateY(-2px); }
+.puerta.destacada{
+  border-color:var(--accent-line);
+  background:linear-gradient(160deg, var(--accent-soft), var(--surface) 62%);
+}
+.p-ico{
+  display:grid; place-items:center; width:38px; height:38px;
+  border-radius:var(--r-md); background:var(--accent-soft);
+  color:var(--accent-strong);
+}
+.puerta.destacada .p-ico{ background:var(--surface); }
+.p-txt{ display:flex; flex-direction:column; gap:5px; }
+.p-txt b{ font-size:16px; letter-spacing:-.01em; }
+.p-txt span{ font-size:13px; color:var(--text-2); line-height:1.55; }
+.p-ir{
+  display:inline-flex; align-items:center; gap:6px; margin-top:auto;
+  font-size:12.5px; font-weight:700; color:var(--accent);
+}
+.puerta:hover .p-ir{ gap:9px; }
+
+/* El avance de la ruta, en su tarjeta. */
+.card-av{ display:flex; align-items:center; gap:9px; margin:9px 0 3px; }
+.card-av .b{ flex:1; height:4px; border-radius:2px;
+  background:var(--surface-sunk); overflow:hidden; }
+.card-av .b i{ display:block; height:100%; background:var(--accent); }
+.card-av .n{ font-size:11px; color:var(--text-3); font-variant-numeric:tabular-nums; }
+
+/* Tu ruta, destacada: es la única del catálogo que se armó para vos. */
+.card-wrap.tuya .card{
+  border-color:var(--accent);
+  background:linear-gradient(165deg, var(--accent-soft), var(--surface) 60%);
+}
+
+/* La marca de "esta ruta es tuya". El onboarding te arma un camino y
+   el catálogo tiene que mostrarlo, o el camino no existe.
+
+   El botón va abajo y no arriba: arriba caía justo encima de la cinta
+   y quedaban las dos etiquetas ilegibles, una sobre la otra. */
+.card-wrap.es-mia .card{ border-color:var(--accent); }
+.own-ribbon.mia-ribbon{ background:var(--accent); color:var(--warm-ink); }
+.mia{
+  position:absolute; z-index:3; left:15px; bottom:14px;
+  display:inline-flex; align-items:center; gap:6px;
+  padding:5px 11px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface-sunk); border:1px solid var(--divider);
+  font:inherit; font-size:11px; font-weight:750; color:var(--text-3);
+}
+.mia:hover{ border-color:var(--accent); color:var(--accent); }
+.mia.on{ background:var(--accent-soft); border-color:var(--accent-line);
+  color:var(--accent-strong); }
+.mia svg{ width:11px; height:11px; }
+/* Lugar para el botón, para que no se coma el texto de la tarjeta. */
+.card-wrap .card{ padding-bottom:54px; }
+.card-wrap .card .go{ margin-bottom:30px; }
+
+#qLib{
+  order:-1; flex:0 1 220px; min-width:150px; padding:7px 13px;
+  border-radius:var(--r-pill); background:var(--surface-sunk);
+  border:1px solid var(--divider); font:inherit; font-size:12.5px; color:var(--text);
+}
+#qLib:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+
+/* El pie de la grilla, igual que el de la biblioteca. */
+.mas-pie{ display:flex; justify-content:center; margin-top:18px; }
+.mas-pie button[hidden]{ display:none; }
+/* --- La chinchilla que te guia ---------------------------------- */
+.chin{
+  position:fixed; z-index:70;
+  width:min(340px, calc(100vw - 32px));
+  animation:chin-entra 320ms cubic-bezier(.2,.9,.3,1.2);
+  transition:top 220ms ease, left 220ms ease;
+}
+/* Anclada a lo que hay que tocar, o en la esquina si el paso no
+   apunta a nada. */
+.chin-esquina{ right:20px; bottom:20px; }
+.chin-anclada{ right:auto; bottom:auto; }
+
+/* Lo que hay que tocar, resaltado. El recorte se hace con sombra en
+   vez de un fondo aparte: así el elemento sigue siendo clickeable. */
+.chin-foco{
+  position:relative; z-index:69;
+  border-radius:var(--r-lg);
+  box-shadow:0 0 0 3px var(--accent), 0 0 0 9px color-mix(in srgb, var(--accent) 22%, transparent);
+  animation:chin-late 1.8s ease-in-out infinite;
+}
+@keyframes chin-late{
+  0%, 100%{ box-shadow:0 0 0 3px var(--accent), 0 0 0 9px color-mix(in srgb, var(--accent) 22%, transparent); }
+  50%{ box-shadow:0 0 0 3px var(--accent), 0 0 0 14px color-mix(in srgb, var(--accent) 8%, transparent); }
+}
+.chin[hidden]{ display:none; }
+@keyframes chin-entra{
+  from{ opacity:0; transform:translateY(14px) scale(.96); }
+  to{ opacity:1; transform:none; }
+}
+.chin-globo{
+  position:relative; padding:26px 20px 18px;
+  border-radius:var(--r-xl);
+  background:var(--surface); border:1px solid var(--accent-line);
+  box-shadow:var(--shadow-lg);
+}
+/* La chinchilla asoma por arriba del globo, como escarbando. */
+.chin-fig{
+  position:absolute; top:-30px; left:18px;
+  width:56px; height:56px; border-radius:50%;
+  background:var(--accent-soft); border:1px solid var(--accent-line);
+  display:grid; place-items:center; overflow:hidden;
+}
+.chin-svg{ width:42px; height:42px; margin-top:7px; }
+.chin-x{
+  position:absolute; top:9px; right:9px;
+  display:grid; place-items:center; width:26px; height:26px;
+  border-radius:var(--r-pill); cursor:pointer;
+  background:none; border:0; color:var(--text-3);
+}
+.chin-x:hover{ background:var(--surface-2); color:var(--text); }
+.chin-t{ display:block; margin-top:14px; font-size:16px; letter-spacing:-.01em; }
+.chin-p{ margin:6px 0 0; font-size:13.5px; color:var(--text-2); line-height:1.6; }
+.chin-2{
+  padding:8px 13px; border-radius:var(--r-pill); cursor:pointer;
+  background:var(--surface-2); border:1px solid var(--divider);
+  font:inherit; font-size:12.5px; font-weight:650; color:var(--text-2);
+}
+.chin-2:hover{ border-color:var(--accent); color:var(--accent); }
+.chin-2[hidden]{ display:none; }
+.chin-acc{ flex-wrap:wrap; }
+
+.chin-acc{ display:flex; align-items:center; gap:12px; margin-top:16px; }
+.chin-salto{
+  background:none; border:0; padding:4px 2px; cursor:pointer;
+  font:inherit; font-size:12px; color:var(--text-3); text-decoration:underline;
+}
+.chin-salto:hover{ color:var(--text); }
+
+.chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--text-3); }
+.chin-b{ margin-left:auto; padding:10px 16px; }
+.chin-b .dest{ font-size:14px; }
+@media (max-width:560px){
+  .chin{ right:12px; left:12px; bottom:12px; width:auto; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg>
+      <span class="marca">DataChinchilla</span> 
+    </a>
+    <span class="topbar-sp"></span>
+    <button class="acct" id="acctBtn" type="button" title="Tu avance en todas las rutas">
+      <span class="avatar" id="avatar"></span>
+      <span class="who" id="acctName">Entrar</span>
+    </button>
+    <button class="icon-btn" id="themeBtn" type="button" title="Cambiar entre tema claro y oscuro" aria-label="Cambiar tema">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="themeIcon">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="lema">Gratis, ordenado y sin vueltas</p>
+    <h1>El camino completo para <span class="grad">trabajar en tech</span></h1>
+    <p class="hero-lead">Cursos gratuitos de universidades y de las empresas que hacen las herramientas, puestos en el orden que conviene, con cuánto lleva cada paso y qué credencial te deja.</p>
+    <div class="puertas" id="puertas" hidden></div>
+  </div>
+</section>
+
+<section class="section onb" id="onb">
+  <div class="wrap">
+    <a class="invita" href="cv.html">
+      <span class="ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/></svg>
+      </span>
+      <span class="txt">
+        <b id="invitaT">Empecemos por tu CV</b>
+        <span id="invitaP">Eliges a qué puesto apuntas y te armo la ruta con lo que te falta, en orden. Si no tienes el CV a mano, cuatro preguntas alcanzan.</span>
+      </span>
+      <span class="fl">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<section class="section estado" id="estado">
+  <div class="wrap">
+    <div class="estado-cab">
+      <h2 id="estadoTitulo"></h2>
+      <span class="estado-acc">
+        <button class="acc" type="button" id="onbEditar" title="Volver al onboarding con todo cargado">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          Cambiar mis datos
+        </button>
+        <button class="acc" type="button" id="onbOtroCv" title="Empezar de nuevo con otro CV, guardando puesto y horarios">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>
+          Otro CV
+        </button>
+        <button class="acc solo-icono peligro" type="button" id="onbBorrar" title="Borrar mi ruta" aria-label="Borrar mi ruta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg>
+        </button>
+      </span>
+    </div>
+    <p id="estadoSub" class="estado-sub"></p>
+
+
+    <div class="puertas-dos">
+    <a class="ir-ruta" href="mi-ruta.html" id="irRuta">
+      <span class="ico">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 20l-5.5 2.5V6L9 3.5m0 16.5l6-3m-6 3V3.5m6 13.5l5.5 2.5V3l-5.5 2.5m0 11.5V5.5m-6-2l6 2"/></svg>
+      </span>
+      <span class="txt">
+        <b>Abrir tu ruta</b>
+        <span id="irRutaDato"></span>
+      </span>
+      <span class="fl">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+
+    <a class="ir-ruta practicar" href="practica.html">
+      <span class="ico">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+      </span>
+      <span class="txt">
+        <b>Practicar</b>
+        <span id="practDato">Blind 75 y consultas de entrevistas</span>
+      </span>
+      <span class="fl">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </span>
+    </a>
+    </div>
+  </div>
+</section>
+
+<section class="section hoy" id="hoy">
+  <div class="wrap">
+    <div class="hoy-card" id="hoyCard"></div>
+  </div>
+</section>
+
+
+
+<section class="section reto" id="reto">
+  <div class="wrap">
+    <div class="reto-cab">
+      <h3>Práctica diaria</h3>
+      <a class="reto-mas" href="practica.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Los <b id="cuantosProb">139</b> problemas, con tu avance
+      </a>
+    </div>
+    <div class="retos" id="retos"></div>
+  </div>
+</section>
+
+<section class="section" id="rutas">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Las rutas</p>
+      <h2>Por dónde empezar</h2>
+      <p>Cada ruta tiene su mapa y su avance. Un curso que aparece en dos rutas cuenta en las dos.</p>
+    </div>
+    <div class="rutas-filtros">
+      <div class="buscar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+        <input id="qRutas" type="search" placeholder="Buscar: dbt, Snowflake, machine learning..." aria-label="Buscar entre las rutas">
+      </div>
+      <div class="chips-row" id="filtroRutas"></div>
+    </div>
+    <div class="grid-cards" id="pathList"></div>
+    <div class="sin-rutas" id="sinRutas" hidden></div>
+    <p class="mas-pie"><button class="btn-quiet" id="masRutas" type="button" hidden></button></p>
+    <p class="pedir">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg>
+      <span>Las bloqueadas todavía no existen. <a href="mailto:luca.lamorte@kcc.com?subject=Qu%C3%A9%20ruta%20armar%20primero">Escríbeme cuál te sirve</a> y armo esa primero.</span>
+    </p>
+  </div>
+</section>
+
+<section class="section" id="armar">
+  <div class="wrap">
+    <div class="armar-band">
+      <span class="ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h7M4 12h11M4 18h6"/><path d="M18 9v10M14.5 15.5L18 19l3.5-3.5"/>
+        </svg>
+      </span>
+      <div>
+        <h2>¿Ya sabes la mitad de esto?</h2>
+        <p>El armador abre todas las rutas en piezas sueltas: eliges, ordenas y te queda tu camino, con su avance y un link para compartirlo.</p>
+      </div>
+      <a class="btn-done" href="armar.html">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        Armar la mía
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="creditos">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Catálogo</p>
+      <h2>De quién es cada cosa</h2>
+      <p>Cada recurso lleva a su fuente, con el crédito de quien lo hizo. Lo pago se avisa antes del clic.</p>
+    </div>
+    <div class="lib-bar" id="libBar"></div>
+    <div class="lib-grid" id="creditList"></div>
+    <div class="lib-more" id="libMore"></div>
+    <div class="suggest">
+      <span class="ico">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 17h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 1 3.7 10.7c-.5.4-.7 1-.7 1.3H9c0-.3-.2-.9-.7-1.3A6 6 0 0 1 12 3z"/></svg>
+      </span>
+      <div>
+        <h3>¿Conoces algo gratis que debería estar acá?</h3>
+        <p>Escríbeme y lo miro: un curso, un canal, un dataset o un apunte tuyo, mientras sea gratis y se pueda enlazar. También si encontraste un link caído.</p>
+        <div class="acciones">
+          <a class="btn-quiet" href="mailto:luca.lamorte@kcc.com?subject=Recomendaci%C3%B3n%20para%20el%20path">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg>
+            <span class="stack"><span class="verb">Escribir un mail</span><span class="dest">Recomendar contenido</span></span>
+          </a>
+          <a class="btn-quiet" href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5V20M4.5 5.2v.1"/><path d="M10 20v-6a3 3 0 0 1 6 0v6"/><path d="M10 9.5V20"/></svg>
+            <span class="stack"><span class="verb">Escribir por</span><span class="dest">LinkedIn</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v5.5M12 7.5v.1"/></svg>
+      <span><b>Guía independiente, sin patrocinio.</b> Los enlaces van directo a la fuente y el crédito es de quien hizo cada cosa. Si eres dueño de algo enlazado y quieres otro crédito, escríbeme.</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span class="foot-marca">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg>
+      <span><b>DataChinchilla</b> &middot; No planificar es planificar el fracaso</span>
+    </span>
+    <nav class="foot-links">
+      <a href="#rutas">Todas las rutas</a>
+      <a href="armar.html">Armar la mía</a>
+      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
+      <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog class="sheet" id="account" aria-labelledby="acctTitle">
+  <div class="sheet-in">
+    <div class="sheet-head">
+      <span class="avatar" id="acctBigAvatar" style="width:38px;height:38px;font-size:16px"></span>
+      <div class="head-txt">
+        <div class="node-kicker"><span class="lvl">Tu avance en esta ruta</span></div>
+        <h2 id="acctTitle"></h2>
+      </div>
+      <button class="icon-btn" id="acctClose" type="button" title="Cerrar" aria-label="Cerrar">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="sheet-body" id="acctBody"></div>
+  </div>
+</dialog>
+
+<script src="pasos.js?v=4a4d5fcc"></script>
+<script src="chinchilla.js?v=fda14bb1"></script>
+<script src="path-sync.js?v=7673db81"></script>
+<script src="temas.js?v=a8e81f08"></script>
+<script src="cv.js?v=9243a13a"></script>
+<script src="onboarding.js?v=fb5df1b2"></script>
+<script src="guia.js?v=84529b0e"></script>
+<script src="plan.js?v=35d7e8f9"></script>
+<script src="problemas.js?v=cab859ac"></script>
+<script src="practica.js?v=2dcdb092"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function(){
+"use strict";
+
+var STORAGE = {
+  profiles: "snowpro-path/v1/profiles",
+  session:  "snowpro-path/v1/session",
+  theme:    "snowpro-path/v1/theme",
+  anon:     "de-path/v1/anon"
+};
+
+var CONFIG = {
+  supabaseUrl: "https://sscfykrodjnfnnbmkopp.supabase.co",
+  supabaseKey: "sb_publishable_t8bH_XUtTPUi9XnEPxJrgQ_9qTsK-m6"
+};
+
+function icon(name, size){
+  var s = size || 16;
+  var paths = {
+    brain:  '<path d="M9.5 4a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8V15a3 3 0 0 0 4.5 2.6"/><path d="M14.5 4a3 3 0 0 1 3 3 3 3 0 0 1 1 5.8V15a3 3 0 0 1-4.5 2.6"/><path d="M12 4.5v15"/>',
+    code:   '<path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/>',
+    sql:    '<ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    cloud:  '<path d="M20 17.6A4.4 4.4 0 0 0 17.7 9h-1.2A7 7 0 1 0 5 16.3"/>',
+    flow:   '<rect x="3" y="3" width="7" height="6" rx="1.5"/><rect x="14" y="15" width="7" height="6" rx="1.5"/><path d="M6.5 9v6a3 3 0 0 0 3 3H14"/>',
+    build:  '<path d="M14.5 3.5a5 5 0 0 0-6.6 6.1L3 14.5V21h6.5l4.9-4.9a5 5 0 0 0 6.1-6.6l-3.1 3.1-2.9-.6-.6-2.9z"/>',
+    school: '<path d="M12 3L2 8l10 5 10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/>',
+    snow:   '<path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1"/>',
+    model:  '<rect x="9" y="2.5" width="6" height="5" rx="1"/><rect x="2.5" y="16.5" width="6" height="5" rx="1"/><rect x="15.5" y="16.5" width="6" height="5" rx="1"/><path d="M12 7.5v4M5.5 16.5v-2.5h13v2.5"/>',
+    aws:    '<path d="M3 15.5c5.5 3.5 12.5 3.5 18 0"/><path d="M18.5 13c1.5-.5 2.5 0 2 1.5"/><path d="M5 10.5l1.7-5 1.8 5"/><path d="M5.6 9h2.6"/><path d="M11 5.5l1.2 5 1.3-3.6 1.3 3.6 1.2-5"/>',
+    boss:   '<path d="M4 18h16"/><path d="M4 18l-1.5-9 5 3.5L12 4l4.5 8.5 5-3.5L20 18"/>',
+    estrella: '<path d="M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/>',
+    check:  '<path d="M20 6L9 17l-5-5"/>',
+    arrow:  '<path d="M5 12h14M13 5l7 7-7 7"/>',
+    clock:  '<circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 1.9"/>',
+    open:   '<path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v5a1.9 1.9 0 0 1-2 2H5a1.9 1.9 0 0 1-2-2V8a1.9 1.9 0 0 1 2-2h5"/>',
+    user:   '<circle cx="12" cy="8" r="3.6"/><path d="M4.6 20a7.4 7.4 0 0 1 14.8 0"/>',
+    warn:   '<path d="M12 3.5L2.8 19.5h18.4z"/><path d="M12 10v4M12 17v.1"/>',
+    lock:   '<rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
+  };
+  return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+         'stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+         (paths[name] || paths.check) + '</svg>';
+}
+
+function esc(t){
+  return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+var PATHS = [
+  {
+    t: "SQL y Python para entrevistas", nivel: "Desde cero", i: "sql", u: "sql-python.html", listo: true,
+    d: "Los dos caminos gratuitos de StrataScratch: doce módulos de SQL y pandas armados con preguntas de entrevistas reales, con más de trescientos ejercicios al lado.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Data Engineer", nivel: "Desde cero", i: "flow", u: "data-engineer.html", listo: true,
+    d: "Seis niveles en orden, del SQL de todos los días al proyecto corriendo en la nube. Es la ruta que ordena a varias de las otras: SnowPro es su nivel 4 y dbt su nivel 5.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "SnowPro Core", nivel: "Con SQL sabido", i: "snow", u: "snowpro.html", listo: true,
+    d: "Dieciséis hitos hasta la certificación oficial de Snowflake, con simulacro de 263 preguntas, controles por tema y certificado del recorrido.",
+    s: "abrir el path"
+  },
+  {
+    t: "CS50, de Harvard", nivel: "Desde cero", i: "school", u: "cs50.html", listo: true,
+    d: "Los once cursos abiertos de Harvard, ordenados en su propio mapa. Los de SQL y Python son parte de esta ruta; el resto va de Scratch a inteligencia artificial.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "dbt", nivel: "Con SQL sabido", i: "build", u: "dbt.html", listo: true,
+    d: "Quince pasos gratuitos en orden, del primer modelo a un proyecto con tests y documentación. Todo el material para preparar la certificación de dbt Labs, sin pagar un curso.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Big Data", nivel: "Con Python sabido", i: "build", u: "bigdata.html", listo: true,
+    d: "Diecisiete cursos gratuitos de CognitiveClass en orden: del vocabulario de Big Data a Hadoop, Spark, MLlib y Scala, hasta operar el clúster. Badge de Credly en cada tramo.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Data Science", nivel: "Desde cero", i: "school", u: "data-science.html", listo: true,
+    d: "Diez cursos en orden: qué hace alguien de data science, y después el oficio con Python, con R y con los primeros modelos.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Contenedores y sistemas distribuidos", nivel: "Con experiencia", i: "cloud", u: "arquitectura.html", listo: true,
+    d: "Nueve cursos gratuitos: contenedores, Kubernetes e Istio, y los seis de arquitectura reactiva, del manifiesto a CQRS.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Web3 y blockchain", nivel: "Desde cero", i: "cloud", u: "web3.html", listo: true,
+    d: "Los seis cursos gratuitos de Alchemy University, ordenados por el prerrequisito que declara cada uno. Es la única ruta del sitio que no es de datos.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Subir de nivel", nivel: "Con experiencia", i: "build", u: "subir-nivel.html", listo: true,
+    d: "Catorce cursos para quien ya tiene el puesto: dbt con proyecto de verdad, Airflow, Spark, Terraform y Kafka. Casi todos salen de otras rutas, así que el avance se comparte.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Deep learning y PyTorch", nivel: "Con Python sabido", i: "brain", u: "deep-learning.html", listo: true,
+    d: "Veintiséis pasos en cinco credenciales: deep learning, PyTorch de cero a redes convolucionales, y visión por computadora.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "LLMs y agentes", nivel: "Con Python sabido", i: "flow", u: "llm-agentes.html", listo: true,
+    d: "Veintisiete pasos en cuatro credenciales: prompt engineering, RAG sobre tus propios datos, y agentes con LangGraph, CrewAI y AutoGen.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Machine learning aplicado", nivel: "Con Python sabido", i: "search", u: "ml-aplicado.html", listo: true,
+    d: "Treinta y un proyectos guiados en seis credenciales: agrupamiento, recomendadores, NLP, AI embebida, refuerzo y modelos explicables.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "AI: fundamentos", nivel: "Desde cero", i: "brain", u: "ai-fundamentos.html", listo: true,
+    d: "Nueve cursos en tres credenciales de CognitiveClass. Cada tramo del mapa es un learning path entero: al cerrarlo te dan el badge, no queda a mitad de camino.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Trabajar con Claude", nivel: "Con Python sabido", i: "brain", u: "claude.html", listo: true,
+    d: "Dieciséis cursos de Anthropic, de usar la herramienta a tener tu propio servidor MCP en producción. Todos dejan insignia.",
+    s: "abrir la ruta"
+  },
+  {
+    t: "Airflow", nivel: "Con Python sabido", i: "flow", listo: false,
+    d: "Orquestación de punta a punta: DAGs, dependencias, reintentos y alertas. Por ahora vive como un curso pago dentro del nivel 5.",
+    pide: "Airflow"
+  }
+];
+
+var CREDITS = [
+  { t: "Apache Airflow", tipo: "comunidad", d: "El proyecto que mantiene Airflow. Sus tutoriales oficiales son la fuente de la que después salen los cursos: cinco, para hacer con Airflow corriendo al lado.", s: "airflow.apache.org", u: "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/index.html", i: "flow" },
+  { t: "Astronomer", tipo: "fabricante", d: "La empresa que sostiene Airflow. Su academia es gratuita y da insignia: Airflow 101 y el camino de preparación de la certificación.", s: "academy.astronomer.io", u: "https://academy.astronomer.io/", i: "flow" },
+  { t: "HashiCorp", tipo: "fabricante", d: "El tutorial oficial de Terraform sobre AWS, que es el que prepara la Terraform Associate.", s: "developer.hashicorp.com", u: "https://developer.hashicorp.com/terraform/tutorials", i: "cloud" },
+  { t: "CS50, de Harvard", tipo: "escuela", d: "Once cursos abiertos y gratuitos, con clases, problemas y correcciones. Los de SQL y Python están en el mapa; el catálogo además tiene inteligencia artificial, R, web, ciberseguridad, negocios, derecho, videojuegos y Scratch.", s: "el mapa de los once, en esta guía", u: "cs50.html", i: "school" },
+  { t: "freeCodeCamp", tipo: "escuela", d: "Los cursos de bases relacionales y de Python, con proyectos y certificación, gratis y sin cuenta paga. Es una organización sin fines de lucro y se sostiene con donaciones.", s: "freecodecamp.org", u: "https://www.freecodecamp.org/learn/", i: "school" },
+  { t: "LeetCode", tipo: "plataforma", d: "El banco de ejercicios de SQL y de estructuras de datos, con corrección automática y las listas de estudio por tema.", s: "leetcode.com", u: "https://leetcode.com/problemset/", i: "code" },
+  { t: "Full Stack Open", tipo: "escuela", d: "El curso de desarrollo web de la Universidad de Helsinki, con React, Node y GraphQL. Gratuito, abierto y con créditos universitarios para quien los pida.", s: "fullstackopen.com", u: "https://fullstackopen.com/en/", i: "web" },
+  { t: "StrataScratch", tipo: "plataforma", d: "Los ejercicios de SQL y Python tomados de entrevistas reales, agrupados por la empresa que los tomó.", s: "stratascratch.com", u: "https://www.stratascratch.com/", i: "sql" },
+  { t: "Snowflake Inc.", tipo: "fabricante", d: "Los Quickstarts y Snowflake University, con todo su material de laboratorio.", s: "snowflake.com", u: "https://quickstarts.snowflake.com/", i: "cloud" },
+  { t: "Google Cloud Skills Boost", tipo: "fabricante", d: "La plataforma de formación de Google Cloud: los laboratorios de BigQuery y las rutas de datos, con entorno real incluido.", s: "cloudskillsboost.google", u: "https://www.cloudskillsboost.google/", i: "cloud" },
+  { t: "Databricks", tipo: "fabricante", d: "La cuenta gratuita para practicar y los cursos de la Academy.", s: "databricks.com", u: "https://www.databricks.com/learn/training/home", i: "cloud" },
+  { t: "Marc Lamberti", tipo: "autor", d: "El curso de Apache Airflow, la referencia práctica para orquestación.", s: "curso pago en Udemy", u: "https://www.udemy.com/courses/search/?q=apache+airflow+marc+lamberti", i: "flow" },
+  { t: "Zoltan C. Toth", tipo: "autor", d: "El bootcamp completo de dbt con preparación para la certificación.", s: "curso pago en Udemy", u: "https://www.udemy.com/courses/search/?q=complete+dbt+bootcamp+zoltan+toth", i: "build" },
+  { t: "Nikolai Schuler", tipo: "autor", d: "La masterclass completa de Snowflake.", s: "curso pago en Udemy", u: "https://www.udemy.com/courses/search/?q=snowflake+masterclass+nikolai+schuler", i: "cloud" },
+  { t: "DataExpert.io", tipo: "comunidad", d: "El bootcamp comunitario gratuito publicado en GitHub y la academia con clases en vivo.", s: "dataexpert.io", u: "https://github.com/DataExpert-io/data-engineer-handbook", i: "school" },
+  { t: "Amazon Web Services", tipo: "fabricante", d: "Los cursos digitales gratuitos de Skill Builder.", s: "skillbuilder.aws", u: "https://skillbuilder.aws/", i: "aws" },
+  { t: "Microsoft", tipo: "fabricante", d: "Las rutas gratuitas de Azure en Microsoft Learn.", s: "learn.microsoft.com", u: "https://learn.microsoft.com/en-us/training/", i: "cloud" },
+  { t: "Kimball Group", tipo: "comunidad", d: "Los artículos sobre modelado dimensional, que siguen siendo la referencia del tema.", s: "kimballgroup.com", u: "https://www.kimballgroup.com/", i: "model" },
+  { t: "Alchemy University", tipo: "fabricante", d: "Los seis cursos gratuitos de Web3 de Alchemy: blockchain, JavaScript, Solidity y el bootcamp de Ethereum, que deja un certificado NFT al entregar el proyecto final.", s: "alchemy.com/university", u: "https://www.alchemy.com/university", i: "cloud" },
+  { t: "Claude Academy", tipo: "fabricante", d: "Los cursos de Anthropic sobre cómo trabajar con un modelo de lenguaje: el marco de las cuatro D, qué puede y qué no, y cómo llevarlo a una organización. Dejan insignia de finalización.", s: "academy.claude.com", u: "https://academy.claude.com/courses", i: "brain" },
+  { t: "CognitiveClass", tipo: "fabricante", d: "La plataforma abierta de IBM Skills Network: los cursos que sostienen las rutas de Big Data, Data Science, arquitectura y machine learning, con badge de Credly al cerrar cada una.", s: "cognitiveclass.ai", u: "https://cognitiveclass.ai/", i: "brain" },
+  { t: "Lightbend", tipo: "fabricante", d: "Los cursos de Scala y los seis de arquitectura reactiva, del manifiesto a CQRS, publicados dentro de CognitiveClass.", s: "lightbend.com", u: "https://www.lightbend.com/", i: "flow" },
+  { t: "DataTalksClub", tipo: "comunidad", d: "El zoomcamp de ingeniería de datos, gratuito y con cohortes en vivo. De ahí sale el módulo de analytics engineering de la ruta de dbt.", s: "github.com/DataTalksClub", u: "https://github.com/DataTalksClub/data-engineering-zoomcamp", i: "school" },
+  { t: "dbt Labs", tipo: "fabricante", d: "La documentación de dbt, con la guía de cómo estructurar un proyecto en capas.", s: "docs.getdbt.com", u: "https://docs.getdbt.com/", i: "build" },
+  { t: "Data Engineering Simplified", tipo: "autor", d: "Los videos y playlists de SnowSQL, Snowsight, Information Schema, resource monitors, micro-partitions, SQL scripting, features diferenciales y los simulacros en YouTube.", s: "playlist en YouTube", u: "https://www.youtube.com/playlist?list=PLba2xJ7yxHB73xHFsyu0YViu3Hi6Ckxzj", i: "video" },
+  { t: "Data-2-Dollars", tipo: "autor", d: "Las guías por dominio del COF-C03, de Domain 1 a Domain 5, y el SnowPro Ultimate Guide con sus reglas para descartar opciones. Los archivos de la sección de descargas son suyos.", s: "material de estudio", u: "", i: "school" },
+  { t: "Analyst Launch", tipo: "autor", d: "Doscientas treinta y cinco de las preguntas del simulacro, con su clave de respuestas. El material es suyo; acá solo está ordenado y corregido en pantalla.", s: "material de práctica", u: "", i: "check" },
+  { t: "seaborn", tipo: "comunidad", d: "titanic, taxis y healthexp son datasets públicos que se distribuyen con la librería seaborn y se usan solo para practicar cargas.", s: "github.com/mwaskom/seaborn-data", u: "https://github.com/mwaskom/seaborn-data", i: "data" },
+  { t: "Luca Lamorte", tipo: "mio", d: "El orden de esta ruta, los resúmenes de cada hito y el path de SnowPro Core que se enlaza acá.", s: "linkedin.com/in/lclamorte", u: "https://www.linkedin.com/in/lclamorte/", i: "user" }
+];
+
+
+/* ============================================================
+   FAVORITAS · piden sesión, porque el punto es encontrarlas
+   desde cualquier computadora
+   ============================================================ */
+function favoritas(){
+  var pf = activeProfile();
+  if(!pf || Object.prototype.toString.call(pf.favoritas) !== "[object Array]") return [];
+  return pf.favoritas;
+}
+
+function esFavorita(id){ return favoritas().indexOf(id) >= 0; }
+
+function alternarFavorita(id){
+  /* Hace falta perfil, como para el avance de cada ruta. Sin eso la
+     marca no tendria donde vivir. */
+  var pf = activeProfile();
+  if(!pf){
+    openAccount();
+    toast("Entra para guardar tus favoritas.");
+    return;
+  }
+  var lista = favoritas().slice(0), i = lista.indexOf(id);
+  if(i >= 0) lista.splice(i, 1); else lista.push(id);
+  pf.favoritas = lista;
+  PathSync.store.save();
+  renderPaths();
+  toast(i >= 0 ? "Sacada de tus favoritas." : "Guardada en tus favoritas.");
+}
+
+/* El id de una ruta es su archivo: no cambia aunque cambie el nombre. */
+function idRuta(p){ return p.u || ("bloqueada-" + p.t); }
+
+
+/* ============================================================
+   FILTRO DEL LISTADO · por lo que hace falta saber antes
+   ============================================================ */
+var filtroRuta = "todo";
+var buscaRuta = "";
+
+function pasaFiltro(p){
+  if(filtroRuta === "favoritas" && !esFavorita(idRuta(p))) return false;
+  if(filtroRuta !== "todo" && filtroRuta !== "favoritas" && p.nivel !== filtroRuta) return false;
+  if(!buscaRuta) return true;
+  var texto = (p.t + " " + p.d + " " + p.nivel).toLowerCase();
+  return texto.indexOf(buscaRuta) >= 0;
+}
+
+function renderFiltroRutas(){
+  var cuenta = {}, i, n, favs = 0;
+  for(i=0;i<PATHS.length;i++){
+    n = PATHS[i].nivel || "Sin definir";
+    cuenta[n] = (cuenta[n] || 0) + 1;
+    if(esFavorita(idRuta(PATHS[i]))) favs++;
+  }
+
+  var html = '<button class="lib-filter' + (filtroRuta === "todo" ? " on" : "") + '" type="button" data-fr="todo">' +
+             'Todo <span class="n">' + PATHS.length + '</span></button>';
+
+  /* Orden fijo: de menos a más pedido previo. */
+  var ORDEN = ["Desde cero", "Con SQL sabido", "Con Python sabido", "Con experiencia"];
+  for(i=0;i<ORDEN.length;i++){
+    if(!cuenta[ORDEN[i]]) continue;
+    html += '<button class="lib-filter' + (filtroRuta === ORDEN[i] ? " on" : "") + '" type="button" ' +
+            'data-fr="' + ORDEN[i] + '">' + ORDEN[i] + ' <span class="n">' + cuenta[ORDEN[i]] + '</span></button>';
+  }
+  if(favs){
+    html += '<button class="lib-filter' + (filtroRuta === "favoritas" ? " on" : "") + '" type="button" data-fr="favoritas">' +
+            'Favoritas <span class="n">' + favs + '</span></button>';
+  }
+
+  var barra = document.getElementById("filtroRutas");
+  barra.innerHTML = html;
+  var b, chips = barra.querySelectorAll("[data-fr]");
+  for(b=0;b<chips.length;b++){
+    chips[b].addEventListener("click", function(){
+      filtroRuta = this.getAttribute("data-fr");
+      renderPaths();
+    });
+  }
+}
+
+/* Cuántas rutas se ven antes de "ver más". Seis entra en dos filas
+   en pantalla ancha y en una tarjeta y media en el teléfono. */
+var TOPE_RUTAS = 6;
+var verTodas = false;
+
+/* La clave con la que el onboarding conoce a cada ruta. Las tarjetas
+   del catálogo se identifican por su archivo, así que hay que cruzar
+   por ahí. */
+function claveDe(p){
+  var rs = (typeof PASOS !== "undefined") ? PASOS : [], i;
+  for(i=0;i<rs.length;i++){ if(rs[i].archivo === p.u) return rs[i].clave; }
+  return "";
+}
+
+function renderPaths(){
+  var html = "", i;
+
+  /* Las favoritas primero, y dentro de cada grupo el orden de siempre. */
+  /* Primero las tuyas, después las favoritas, después el resto: si
+     el onboarding te armó un camino, ese camino se ve arriba. */
+  var mias = [], favs = [], resto = [];
+  var hayOnb = (typeof Onb !== "undefined") && Onb.hecho();
+  for(i=0;i<PATHS.length;i++){
+    if(!pasaFiltro(PATHS[i])) continue;
+    if(hayOnb && Onb.activa(claveDe(PATHS[i]))) mias.push(PATHS[i]);
+    else if(esFavorita(idRuta(PATHS[i]))) favs.push(PATHS[i]);
+    else resto.push(PATHS[i]);
+  }
+  var lista = mias.concat(favs, resto);
+
+  /* Tu ruta, primera y aparte: es la única armada para vos. */
+  var tuya = "";
+  if(hayOnb && !buscaRuta && filtroRuta === "todo" && typeof CV !== "undefined"){
+    var nCursos, hs = 0, z, titulo, sub;
+    if(Onb.estado.deRuta && typeof Plan !== "undefined"){
+      /* Es una ruta del sitio: la tarjeta dice cuál, no "tu ruta". */
+      var ro = Plan.rutaDe(Onb.estado.deRuta);
+      if(ro){
+        var pe = Plan.pendientesDe(ro);
+        for(z=0;z<pe.length;z++) hs += pe[z].min;
+        nCursos = pe.length;
+        titulo = ro.nombre;
+        sub = "La ruta del sitio que mejor te calza: cubre casi todo lo que te falta y empieza donde estás.";
+      }
+    }
+    if(nCursos === undefined){
+      var rr = CV.armar(Onb.estado.puesto, Onb.estado.temas, 60);
+      for(z=0;z<rr.pasos.length;z++) hs += rr.pasos[z].min;
+      nCursos = rr.pasos.length;
+      titulo = "Tu ruta a " + CV.puestoDe(Onb.estado.puesto).nombre;
+      sub = "Los tramos son lo que te falta para el puesto que elegiste. Los cursos salen del catálogo entero, en orden.";
+    }
+    tuya = '<div class="card-wrap tuya">' +
+      '<a class="card own" href="mi-ruta.html">' +
+        '<span class="own-ribbon">' + icon("arrow", 11) + 'Armada para vos</span>' +
+        '<span class="ico">' + icon("map", 19) + '</span>' +
+        '<h3>' + esc(titulo) + '</h3>' +
+        '<div class="card-tags"><span class="chip">' + nCursos + ' cursos</span>' +
+          '<span class="chip official">' + Math.round(hs / 60) + ' horas</span></div>' +
+        '<p>' + esc(sub) + '</p>' +
+        '<span class="go">Abrirla ' + icon("arrow", 12) + '</span></a></div>';
+  }
+
+  /* Con filtro o búsqueda no se esconde nada: ahí la lista ya la
+     acotó el usuario y ocultarle resultados sería pelearle. */
+  var acotando = !!buscaRuta || filtroRuta !== "todo";
+  /* La tuya ocupa un lugar de la grilla, así que cuenta para el tope:
+     si no, quedaban siete tarjetas y una sola en la última fila. */
+  var propia = hayOnb && !buscaRuta && filtroRuta === "todo";
+  var cupo = TOPE_RUTAS - (propia ? 1 : 0);
+  var muestro = (verTodas || acotando) ? lista : lista.slice(0, cupo);
+  var quedan = lista.length - muestro.length;
+
+  for(i=0;i<muestro.length;i++){
+    var p = muestro[i];
+    var fid = idRuta(p), marcada = esFavorita(fid);
+    var estrella = '<button class="fav' + (marcada ? " on" : "") + '" type="button" ' +
+      'data-fav="' + esc(fid) + '" aria-pressed="' + (marcada ? "true" : "false") + '" ' +
+      'title="' + (marcada ? "Sacar de tus favoritas" : "Guardar en tus favoritas") + '" ' +
+      'aria-label="' + (marcada ? "Sacar" : "Guardar") + ' ' + esc(p.t) + ' de favoritas">' +
+      icon("estrella", 14) + '</button>';
+    var clave = claveDe(p);
+
+    /* El avance de esta ruta. El dato estaba en el perfil desde
+       siempre; faltaba mostrarlo donde uno lo busca. */
+    var av = "";
+    if(clave && typeof Plan !== "undefined"){
+      var ro = Plan.rutaDe(clave);
+      if(ro){
+        var tot = ro.pasos.length;
+        var hec = tot - Plan.pendientesDe(ro).length;
+        if(hec > 0){
+          av = '<span class="card-av">' +
+                 '<span class="b"><i style="width:' + Math.round(100 * hec / tot) + '%"></i></span>' +
+                 '<span class="n">' + hec + " de " + tot + '</span></span>';
+        }
+      }
+    }
+
+    var cuerpo = '<span class="ico">' + icon(p.i, 19) + '</span>' +
+                 '<h3>' + p.t + '</h3>' +
+                 '<div class="card-tags"><span class="chip">' + p.nivel + '</span>' +
+                   (p.listo ? '<span class="chip official">Path completo</span>'
+                            : '<span class="chip">En camino</span>') + '</div>' +
+                 av +
+                 '<p>' + p.d + '</p>';
+    /* Sin hayOnb: elegir una ruta a mano no necesita que hayas
+       cargado el CV. Son dos cosas distintas, y atarlas dejaba el
+       catálogo de solo lectura para quien entra por primera vez. */
+    var puedeElegir = (typeof Onb !== "undefined") && clave;
+    var mia = puedeElegir && Onb.activa(clave);
+    var marca = puedeElegir
+      ? '<button class="mia' + (mia ? " on" : "") + '" type="button" data-mia="' + esc(clave) + '" ' +
+        'aria-pressed="' + (mia ? "true" : "false") + '" ' +
+        'title="' + (mia ? "Sacar de tu semana" : "Sumar a tu semana") + '">' +
+        icon("check", 12) + (mia ? "En tu semana" : "Sumar a mi semana") + '</button>'
+      : "";
+    /* Una sola cinta arriba: si la ruta es tuya lo dice, y si no,
+       dice que está lista. Antes había dos etiquetas encimadas. */
+    var cinta = mia
+      ? '<span class="own-ribbon mia-ribbon">' + icon("check", 11) + 'En tu semana</span>'
+      : '<span class="own-ribbon">' + icon("arrow", 11) + 'Lista para hacer</span>';
+
+    html += '<div class="card-wrap' + (mia ? " es-mia" : "") + '">' + estrella + marca + (p.listo
+      ? '<a class="card own" href="' + p.u + '">' + cinta + cuerpo +
+          '<span class="go">' + p.s + ' ' + icon("arrow", 12) + '</span></a>'
+      : '<div class="card locked" title="Todavía no existe como página propia">' + cuerpo +
+          '<span class="go">' + icon("lock", 12) + ' Todavía no existe</span></div>') + '</div>';
+  }
+  document.getElementById("pathList").innerHTML = tuya + html;
+  var vacio = document.getElementById("sinRutas");
+  vacio.hidden = lista.length > 0;
+  if(!lista.length && typeof Chin !== "undefined"){
+    Chin.pinta(vacio, "busca", "Acá no hay nada",
+      "Ninguna ruta coincide con eso. Prueba con otra palabra, o mira todas.");
+  }
+
+  var mas = document.getElementById("masRutas");
+  if(quedan > 0){
+    mas.hidden = false;
+    mas.textContent = "Ver las otras " + quedan +
+      (quedan === 1 ? " ruta" : " rutas");
+  }else if(verTodas && !acotando && lista.length > TOPE_RUTAS){
+    mas.hidden = false;
+    mas.textContent = "Ver menos";
+  }else{
+    mas.hidden = true;
+  }
+  renderFiltroRutas();
+
+  var m = document.querySelectorAll("[data-mia]"), z;
+  for(z=0;z<m.length;z++){
+    m[z].addEventListener("click", function(ev){
+      ev.preventDefault();
+      Onb.alternarRuta(this.getAttribute("data-mia"));
+      renderPaths();
+      renderHoy();
+      pintarEstado();
+    });
+  }
+
+  var botones = document.querySelectorAll("[data-fav]"), b;
+  for(b=0;b<botones.length;b++){
+    botones[b].addEventListener("click", function(ev){
+      ev.preventDefault();
+      alternarFavorita(this.getAttribute("data-fav"));
+    });
+  }
+}
+
+var LIB_ETIQUETAS = {
+  fabricante: "Fabricante",
+  escuela:    "Escuela",
+  comunidad:  "Comunidad",
+  plataforma: "Plataforma",
+  autor:      "Autor",
+  mio:        "Mío"
+};
+
+var libFiltro = "todo";
+var libAbierta = false;
+var LIB_VISIBLES = 6;
+
+var libBusca = "";
+
+function libFiltrados(){
+  var out = [], i, c;
+  for(i=0;i<CREDITS.length;i++){
+    c = CREDITS[i];
+    if(libFiltro !== "todo" && c.tipo !== libFiltro) continue;
+    if(libBusca){
+      /* Se busca en el nombre y en la descripción: uno se acuerda de
+         "el de Airflow" más seguido que del nombre de la empresa. */
+      var s = (c.t + " " + c.d + " " + (c.s || "")).toLowerCase();
+      if(s.indexOf(libBusca) < 0) continue;
+    }
+    out.push(c);
+  }
+  return out;
+}
+
+function renderCredits(){
+  var cont = document.getElementById("creditList");
+  var barra = document.getElementById("libBar");
+  var pie = document.getElementById("libMore");
+
+  /* los filtros salen de lo que hay, con su cuenta al lado */
+  var cuenta = {}, i, t;
+  for(i=0;i<CREDITS.length;i++){
+    t = CREDITS[i].tipo || "comunidad";
+    cuenta[t] = (cuenta[t] || 0) + 1;
+  }
+  var chips = '<button class="lib-filter' + (libFiltro === "todo" ? " on" : "") + '" type="button" data-f="todo">' +
+              'Todo <span class="n">' + CREDITS.length + '</span></button>';
+  for(t in LIB_ETIQUETAS){
+    if(!cuenta[t]) continue;
+    chips += '<button class="lib-filter' + (libFiltro === t ? " on" : "") + '" type="button" data-f="' + t + '">' +
+             LIB_ETIQUETAS[t] + ' <span class="n">' + cuenta[t] + '</span></button>';
+  }
+  /* El buscador primero: con casi treinta fuentes uno llega
+     buscando una, no filtrando por tipo. */
+  barra.innerHTML =
+    '<input type="search" id="qLib" placeholder="Buscar una fuente" value="' +
+    esc(libBusca) + '">' + chips;
+
+  var q = document.getElementById("qLib");
+  q.addEventListener("input", function(){
+    libBusca = this.value.trim().toLowerCase();
+    libAbierta = !!libBusca;   /* buscando se muestran todos los que dan */
+    renderCredits();
+    var n = document.getElementById("qLib");
+    if(n){ n.focus(); n.setSelectionRange(n.value.length, n.value.length); }
+  });
+
+  var lista = libFiltrados();
+  var muestro = libAbierta ? lista.length : Math.min(LIB_VISIBLES, lista.length);
+  var html = "";
+  for(i=0;i<muestro;i++){
+    var c = lista[i];
+    var cuerpo = '<span class="top"><span class="ico">' + icon(c.i, 17) + '</span>' +
+                 '<span class="t">' + c.t + '</span></span>' +
+                 '<span class="d">' + c.d + '</span>' +
+                 '<span class="s">' + c.s + (c.u ? " " + icon("open", 11) : "") + '</span>';
+    html += c.u
+      ? '<a class="lib-card" href="' + c.u + '" target="_blank" rel="noopener">' + cuerpo + '</a>'
+      : '<div class="lib-card">' + cuerpo + '</div>';
+  }
+  cont.innerHTML = html;
+
+  var faltan = lista.length - muestro;
+  pie.innerHTML = faltan > 0
+    ? '<button class="btn-quiet" type="button" id="libToggle">Ver las otras ' + faltan + '</button>'
+    : (libAbierta && lista.length > LIB_VISIBLES
+        ? '<button class="btn-quiet" type="button" id="libToggle">Mostrar menos</button>' : "");
+
+  var chipsEl = barra.querySelectorAll("[data-f]");
+  for(i=0;i<chipsEl.length;i++){
+    chipsEl[i].addEventListener("click", function(){
+      libFiltro = this.getAttribute("data-f");
+      libAbierta = false;
+      renderCredits();
+    });
+  }
+  var tog = document.getElementById("libToggle");
+  if(tog) tog.addEventListener("click", function(){ libAbierta = !libAbierta; renderCredits(); });
+}
+
+/* El diálogo de la cuenta. Sin esto showAcct fallaba callado: el panel
+   se llenaba con el formulario y nunca se abría. */
+var acctDlg = document.getElementById("account");
+
+function errBox(msg){
+  return '<p class="form-err">' + icon("warn", 15) + '<span>' + msg + '</span></p>';
+}
+
+function openAccount(){ renderAccount(""); showAcct(); }
+
+function showAcct(){
+  if(typeof acctDlg.showModal === "function"){ if(!acctDlg.open) acctDlg.showModal(); }
+  else acctDlg.setAttribute("open", "");
+}
+
+function hideAcct(){
+  if(typeof acctDlg.close === "function" && acctDlg.open) acctDlg.close();
+  else acctDlg.removeAttribute("open");
+}
+
+function renderAccess(msg){
+  document.getElementById("acctBigAvatar").innerHTML = icon("user", 16);
+  document.getElementById("acctBody").innerHTML = '<div id="authZona"></div>';
+  PathSync.authUI.render(document.getElementById("authZona"), {
+    app: "snowpath",
+    cls: { btn: "btn-done", alt: "btn-quiet" },
+    onTitulo: function(bajada, titulo){
+      document.getElementById("acctTitle").textContent = titulo;
+    },
+    onEntrar: function(){ refreshSes(); renderAccount(""); }
+  });
+  if(msg) PathSync.authUI.mensaje(msg);
+}
+
+function renderAccount(msg){
+  var p = activeProfile();
+  if(!p && cloudOn()) return renderAccess(msg);
+  var ses = PathSync.session();
+  var name = (ses && ses.email) ? ses.email : "Tu avance";
+  document.getElementById("acctBigAvatar").innerHTML = (ses && ses.email)
+    ? esc(ses.email.slice(0, 1).toUpperCase()) : icon("check", 16);
+  document.getElementById("acctTitle").textContent = name;
+
+  var html = msg ? errBox(msg) : "";
+  html += '<div class="acct-stat">' + icon("check", 15) +
+            '<span class="k">El avance de cada ruta se guarda por separado y se ve dentro de cada una.</span>' +
+          '</div>';
+
+  if(!cloudOn()){
+    html += '<p class="auth-note">El avance vive en este navegador y no se pierde al cerrarlo. ' +
+            'Para llevarlo a otra computadora hace falta entrar con mail, que todavía no está configurado.</p>';
+  }else if(ses && ses.email){
+    html += '<h4>Progreso en la nube</h4>' +
+            '<div class="acct-stat">' + icon("check", 15) +
+              '<span class="k">Sincroniza con <b>' + esc(ses.email) + '</b>. Entra con ese mail en otra ' +
+              'computadora y las rutas siguen donde las dejaste.</span></div>' +
+            '<div class="auth-actions">' +
+              '<button class="btn-quiet" type="button" id="cloudOut">' + icon("user", 15) + 'Desconectar este navegador</button>' +
+            '</div>';
+  }else{
+    html += '<h4>Progreso en la nube</h4><div id="authZona"></div>';
+  }
+
+  var body = document.getElementById("acctBody");
+  body.innerHTML = html;
+  body.scrollTop = 0;
+  montarAcceso();
+
+  var vg = document.getElementById("verGuia");
+  if(vg) vg.addEventListener("click", function(){
+    Guia.reabrir();
+    hideAcct();
+    pintarGuia();
+  });
+
+  var out = document.getElementById("cloudOut");
+  if(out) out.addEventListener("click", function(){
+    if(!window.confirm("¿Desconecto este navegador de tu mail? El avance queda igual acá.")) return;
+    PathSync.signOut();
+    refreshSes();
+    renderAccount("");
+    toast("Listo, este navegador ya no sincroniza.");
+  });
+}
+
+function montarAcceso(vista){
+  var z = document.getElementById("authZona");
+  if(!z) return;
+  PathSync.authUI.render(z, {
+    app: "snowpath",
+    vista: vista || "login",
+    cls: { btn: "btn-done", alt: "btn-quiet" },
+    onEntrar: function(){
+      refreshSes();
+      renderAccount("");
+      sincronizarPerfil();
+      PathSync.evento("snowpath", "entro", { ruta: "landing" });
+    }
+  });
+}
+
+function sincronizarPerfil(){
+  if(!PathSync.isOn() || !PathSync.session()) return;
+  var alta = PathSync.tomarAltaPendiente();
+  var datos = { ultima_app: "snowpath", primera_app: "snowpath" };
+  if(alta && alta.nombre) datos.nombre = alta.nombre;
+  PathSync.guardarPerfil(datos).then(function(){
+    if(alta && alta.optin) PathSync.registrarConsentimiento(true, "snowpath");
+  });
+}
+
+function paintAccount(){
+  var ses = PathSync.session();
+  var chip = document.getElementById("acctBtn");
+  if(ses && ses.email){
+    document.getElementById("avatar").textContent = esc(ses.email.slice(0, 1).toUpperCase());
+    document.getElementById("acctName").textContent = ses.email.split("@")[0];
+    chip.setAttribute("title", "Entraste con " + ses.email + ", el mismo mail vale para las dos rutas");
+  }else if(activeProfile() || !cloudOn()){
+    document.getElementById("avatar").innerHTML = icon("check", 14);
+    document.getElementById("acctName").textContent = "Tu avance";
+    chip.setAttribute("title", cloudOn()
+      ? "Tu avance vive en este navegador. Entra con tu mail para llevarlo a otra computadora."
+      : "Tu avance vive en este navegador");
+  }else{
+    document.getElementById("avatar").innerHTML = icon("user", 14);
+    document.getElementById("acctName").textContent = "Entrar";
+    chip.setAttribute("title", "Entra con tu mail y el avance te sigue en las dos rutas");
+  }
+}
+
+function toast(msg){
+  var t = document.getElementById("toast");
+  /* Si la página no trae el elemento, se arma acá y no se pierde el
+     aviso. Antes reventaba y se llevaba puesto lo que siguiera: por
+     eso subir el CV no hacía nada. */
+  if(!t){
+    t = document.createElement("div");
+    t.className = "toast"; t.id = "toast";
+    t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite");
+    t.innerHTML = '<span id="toastText"></span>';
+    document.body.appendChild(t);
+  }
+  var txt = document.getElementById("toastText");
+  if(txt) txt.textContent = msg;
+  t.classList.add("show");
+  /* El temporizador vive en el elemento y no en una variable suelta,
+     que era otra cosa que faltaba en tres de las cuatro páginas. */
+  window.clearTimeout(t.__timer);
+  t.__timer = window.setTimeout(function(){ t.classList.remove("show"); }, 2600);
+}
+
+
+/* ============================================================
+   LA RACHA · una por bloque
+   ============================================================ */
+var DIAS_K = "datachinchilla/v1/dias";
+var DAY_LETTERS = ["D", "L", "M", "M", "J", "V", "S"];
+var DAY_NAMES = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+var MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+              "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+
+var BLOQUES = [
+  {
+    id: "sql", t: "SQL", i: "sql",
+    lema: "Una o dos consultas por día",
+    link: "https://www.stratascratch.com/", fuente: "StrataScratch",
+    d: "Preguntas tomadas de entrevistas reales. Con una o dos por día las ventanas y los joins dejan de asustar."
+  },
+  {
+    id: "py", t: "Python", i: "code",
+    lema: "Un ejercicio por día",
+    link: "https://leetcode.com/problemset/", fuente: "LeetCode",
+    d: "Algoritmos para soltar la mano. Empieza por los fáciles de arrays y strings, sin saltar a los difíciles."
+  }
+];
+
+var dias = {};
+
+function dayKey(d){
+  var m = d.getMonth() + 1, day = d.getDate();
+  return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (day < 10 ? "0" : "") + day;
+}
+function streakFrom(mapa, today){
+  var n = 0, cursor = new Date(today);
+  if(!mapa[dayKey(cursor)]) cursor.setDate(cursor.getDate() - 1);   /* ayer todavía cuenta */
+  while(mapa[dayKey(cursor)]){ n++; cursor.setDate(cursor.getDate() - 1); }
+  return n;
+}
+function delBloque(id){
+  if(!dias[id] || typeof dias[id] !== "object") dias[id] = {};
+  return dias[id];
+}
+
+function cargarDias(){
+  var pf = activeProfile(), crudo = null, i, k;
+  if(pf && pf.dias) crudo = pf.dias;
+  else { try{ crudo = JSON.parse(safeGet(DIAS_K) || "null"); }catch(e){ crudo = null; } }
+  dias = (crudo && typeof crudo === "object") ? crudo : {};
+
+  /* El formato viejo era un mapa plano de fechas, con un botón que no
+     distinguía qué practicaste. Se copia a los dos bloques: elegir uno
+     inventaría un dato que nadie dio. */
+  var plano = {}, hayPlano = false;
+  for(k in dias){
+    if(/^\d{4}-\d{2}-\d{2}$/.test(k) && dias[k]){ plano[k] = true; hayPlano = true; }
+  }
+  if(hayPlano){
+    for(i=0;i<BLOQUES.length;i++){
+      var dest = delBloque(BLOQUES[i].id);
+      for(k in plano){ dest[k] = true; }
+    }
+    for(k in plano){ delete dias[k]; }
+  }
+
+  /* Lo anotado cuando la racha vivía dentro de la ruta de Data Engineer. */
+  if(pf && pf.de && pf.de.days){
+    var hubo = false;
+    for(k in pf.de.days){
+      if(!pf.de.days[k]) continue;
+      for(i=0;i<BLOQUES.length;i++){
+        var m = delBloque(BLOQUES[i].id);
+        if(!m[k]){ m[k] = true; hubo = true; }
+      }
+    }
+    if(hubo) guardarDias();
+  }
+  if(hayPlano) guardarDias();
+}
+
+function guardarDias(){
+  var pf = activeProfile();
+  if(pf){ pf.dias = dias; return PathSync.store.save(); }
+  return safeSet(DIAS_K, JSON.stringify(dias));
+}
+
+function toggleDay(bloque, key){
+  var m = delBloque(bloque);
+  if(m[key]) delete m[key]; else m[key] = true;
+  guardarDias();
+}
+
+/* Los siete días de un bloque, para meter dentro de su pastilla. */
+function semanaHtml(bloque){
+  var today = new Date(), m = delBloque(bloque), html = "", i;
+  for(i=6;i>=0;i--){
+    var d = new Date(today);
+    d.setDate(d.getDate() - i);
+    var k = dayKey(d), on = !!m[k];
+    var cuando = i === 0 ? "hoy" : (i === 1 ? "ayer"
+      : "el " + DAY_NAMES[d.getDay()] + " " + d.getDate());
+    html += '<button class="day' + (on ? " on" : "") + (i === 0 ? " today" : "") + '" ' +
+      'type="button" data-b="' + bloque + '" data-day="' + k + '" ' +
+      'aria-pressed="' + on + '" ' +
+      'title="' + (on ? "Practicaste " + cuando + ". Toca para desmarcarlo."
+                      : "Marcar que practicaste " + cuando + ".") + '">' +
+      '<span>' + DAY_LETTERS[d.getDay()] + '</span>' +
+      '<span class="dnum num">' + d.getDate() + '</span></button>';
+  }
+  return html;
+}
+
+
+/* De bloque de racha a banco de problemas. */
+var BANCO_DE = { sql: "strata", py: "blind75" };
+
+
+/* ============================================================
+   ARRANQUE · esta página lista y deja entrar, nada más
+   ============================================================ */
+var profiles = {}, sessionId = null, cloudSes = null;
+
+function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
+function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
+function activeProfile(){ return sessionId && profiles[sessionId] ? profiles[sessionId] : null; }
+function cloudOn(){ return PathSync.isOn(); }
+function refreshSes(){ cloudSes = PathSync.session(); return cloudSes; }
+
+function aplicarTema(t){
+  document.documentElement.setAttribute("data-theme", t);
+  safeSet(STORAGE.theme, t);
+}
+
+
+/* ============================================================
+   TU AGENDA · los siete días, con hoy marcado
+   ============================================================ */
+var HOY_TIPO = { practica: "Práctica", estudio: "Estudio", repaso: "Repaso" };
+var DIAS_AG  = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+
+function ratoLargo(min){
+  var h = Math.floor(min / 60), m = min % 60;
+  if(!h) return m + " min";
+  return h + " h" + (m ? " " + m : "");
+}
+
+/* La racha, chiquita, al lado de la práctica del día. */
+function rachaInline(){
+  if(typeof Practica === "undefined" || typeof BLOQUES === "undefined") return "";
+  var hoy = new Date(), out = "", i, listos = 0;
+  for(i=0;i<BLOQUES.length;i++){
+    var b = BLOQUES[i], banco = BANCO_DE[b.id];
+    if(!banco) continue;
+    var lleva = Practica.hoyCuantos(banco);
+    if(lleva >= Practica.POR_DIA) listos++;
+    var n = streakFrom(delBloque(b.id), hoy);
+    out += '<span class="rr' + (lleva >= Practica.POR_DIA ? " ok" : "") + '" ' +
+      'title="' + b.t + ": hoy " + lleva + " de " + Practica.POR_DIA +
+      (n ? ", " + n + (n === 1 ? " día seguido" : " días seguidos") : "") + '">' +
+      b.t + ' <b>' + lleva + "/" + Practica.POR_DIA + '</b>' +
+      (n ? '<i>' + n + '</i>' : "") + '</span>';
+  }
+  /* Con todo lo de hoy hecho, la única pose que dice "está bien
+     parar". Las otras empujan a seguir, y una rutina que solo empuja
+     termina cansando. */
+  if(out && listos === BLOQUES.length && typeof Chin !== "undefined"){
+    out += '<span class="rr-cafe" title="Lo de hoy está hecho">' +
+      Chin.svg("cafe") + '</span>';
+  }
+  return out ? '<span class="rachitas">' + out + '</span>' : "";
+}
+
+/* Hay plan si hay rutas activas o si quedó uno guardado, venga del
+   flujo que venga. Antes esto miraba si el onboarding figuraba como
+   terminado, y al cambiar el flujo la gente con plan armado dejó de
+   ver su semana. */
+function hayPlan(){
+  if(typeof Onb !== "undefined"){
+    Onb.cargar();
+    if(Onb.estado.rutas && Onb.estado.rutas.length) return true;
+    if(Onb.hecho()) return true;
+    /* Con la semana configurada alcanza: la agenda muestra la
+       práctica aunque todavía no haya ruta. Pero tiene que ser una
+       configuración de verdad, no los valores por defecto. */
+    if(Onb.estado.semanaLista) return true;
+  }
+  var pf = PathSync.store.active();
+  if(pf && pf.plan) return true;
+  return !!safeGet("datachinchilla/v1/plan");
+}
+
+/* El problema del dia, de cada banco. Es lo unico que se hace todos
+   los dias, asi que va a la vista y con el enunciado a un clic. */
+/* Las puertas del hero. Al que ya configuró todo no le sirve volver
+   a configurar: le sirve seguir donde quedó y hacer la práctica. */
+function pintarPuertas(){
+  var caja = document.getElementById("puertas");
+  if(!caja) return;
+  Onb.cargar();
+  var listo = (Onb.estado.rutas || []).length > 0;
+
+  if(!listo){
+    /* Primera visita: las tres formas de empezar. */
+    caja.innerHTML =
+      '<a class="puerta destacada" href="cv.html">' +
+        '<span class="p-ico">' + icon("user", 19) + '</span>' +
+        '<span class="p-txt"><b>Saca tu ruta del CV</b>' +
+          '<span>La ruta exacta para el puesto que quieres, sacada de tu experiencia.</span></span>' +
+        '<span class="p-ir">Empezar por acá ' + icon("arrow", 12) + '</span></a>' +
+      '<a class="puerta" href="armar.html">' +
+        '<span class="p-ico">' + icon("build", 19) + '</span>' +
+        '<span class="p-txt"><b>Ármala a mano</b>' +
+          '<span>Eliges los niveles que quieras de cualquier ruta y los ordenas vos.</span></span>' +
+        '<span class="p-ir">Al armador ' + icon("arrow", 12) + '</span></a>' +
+      '<a class="puerta" href="#rutas">' +
+        '<span class="p-ico">' + icon("boss", 19) + '</span>' +
+        '<span class="p-txt"><b>O mira <span id="cuantasRutas">las rutas</span></b>' +
+          '<span>Dieciséis recorridos cerrados, cada uno con su mapa y su credencial.</span></span>' +
+        '<span class="p-ir">Ver el catálogo ' + icon("arrow", 12) + '</span></a>';
+    caja.hidden = false;
+    var n = document.getElementById("cuantasRutas");
+    if(n) n.textContent = "las " + PATHS.length + " rutas";
+    return;
+  }
+
+  /* El curso que sigue: el primer paso sin hacer de tus rutas. */
+  var sigue = null, act = (typeof Plan !== "undefined") ? Plan.activas() : [], i;
+  for(i=0;i<act.length && !sigue;i++){
+    var pend = Plan.pendientesDe(act[i]);
+    if(pend.length) sigue = { ruta: act[i], paso: pend[0] };
+  }
+
+  var pract = null;
+  if(typeof Practica !== "undefined"){
+    var banco = Practica.bancoDeHoy();
+    var s = Practica.siguiente(banco);
+    if(s) pract = { banco: banco, p: s, lleva: Practica.hoyCuantos(banco) };
+  }
+
+  var h = "";
+  if(sigue){
+    h += '<a class="puerta destacada" href="' + esc(sigue.ruta.archivo) + '#' + esc(sigue.paso.id) + '">' +
+      '<span class="p-ico">' + icon("arrow", 19) + '</span>' +
+      '<span class="p-txt"><b>Retoma donde quedaste</b>' +
+        '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span>' +
+      '<span class="p-ir">Seguir ' + icon("arrow", 12) + '</span></a>';
+  }
+  if(pract){
+    h += '<a class="puerta" href="practica.html">' +
+      '<span class="p-ico">' + icon("code", 19) + '</span>' +
+      '<span class="p-txt"><b>Práctica de hoy</b>' +
+        '<span>' + esc((pract.p.n ? pract.p.n + ". " : "") + pract.p.t) +
+        ' · llevas ' + pract.lleva + ' de ' + Practica.POR_DIA + '</span></span>' +
+      '<span class="p-ir">Practicar ' + icon("arrow", 12) + '</span></a>';
+  }
+  h += '<a class="puerta" href="semana.html">' +
+    '<span class="p-ico">' + icon("clock", 19) + '</span>' +
+    '<span class="p-txt"><b>Tu semana</b>' +
+      '<span>Cambia los días, la franja o cuánto rato le dedicas.</span></span>' +
+    '<span class="p-ir">Ver la semana ' + icon("arrow", 12) + '</span></a>';
+
+  caja.innerHTML = h;
+  caja.hidden = false;
+}
+
+function renderRetos(){
+  var cont = document.getElementById("retos");
+  if(!cont || typeof Practica === "undefined") return;
+
+  var bs = Practica.bancos(), h = "", i;
+  for(i=0;i<bs.length;i++){
+    var b = bs[i], s = Practica.siguiente(b.id);
+    var lleva = Practica.hoyCuantos(b.id), listo = lleva >= Practica.POR_DIA;
+    var av = Practica.avance(b.id);
+
+    h += '<div class="reto-c' + (listo ? " ok" : "") + '">' +
+      '<div class="reto-top">' +
+        '<span class="lang">' + esc(b.lang || b.nombre) + '</span>' +
+        '<span class="cuenta">' + lleva + " de " + Practica.POR_DIA +
+        (listo ? " · hecho" : " hoy") + '</span>' +
+      '</div>' +
+      (s
+        ? '<a class="reto-p" href="' + esc(s.u) + '" target="_blank" rel="noopener">' +
+            '<span class="t">' + (s.n ? s.n + ". " : "") + esc(s.t) + '</span>' +
+            '<span class="d ' + s.d + '">' + s.d + '</span>' +
+            '<span class="ir">' + icon("open", 13) + '</span></a>'
+        : '<p class="reto-fin">Los hiciste todos.</p>') +
+      '<div class="reto-pie">' +
+        '<button class="reto-hecho" type="button" data-hecho="' + b.id + '"' +
+          (s ? "" : " disabled") + '>' + icon("check", 12) + 'Lo resolvi</button>' +
+        '<span class="reto-av">' + av.hechos + " de " + av.total + '</span>' +
+      '</div></div>';
+  }
+  cont.innerHTML = h;
+
+  var tot = 0, z;
+  for(z=0;z<bs.length;z++) tot += bs[z].items.length;
+  var n = document.getElementById("cuantosProb");
+  if(n) n.textContent = tot;
+
+  var bt = cont.querySelectorAll("[data-hecho]"), j;
+  for(j=0;j<bt.length;j++){
+    bt[j].addEventListener("click", function(){
+      var id = this.getAttribute("data-hecho");
+      var s = Practica.siguiente(id);
+      if(!s) return;
+      var r = Practica.marcar(id, s, true);
+      if(r.cerroElDia && typeof Chin !== "undefined"){
+        var d = Practica.racha(id);
+        Chin.festejar("cohete", "El día está cerrado",
+          d > 1 ? d + " días seguidos. Eso es lo que se nota."
+                : "Los dos de hoy, hechos. Mañana empieza la racha.");
+      }else{
+        toast("Marcado. Uno más y el día cuenta.");
+      }
+      renderRetos();
+      renderHoy();
+    });
+  }
+}
+
+function renderHoy(){
+  var caja = document.getElementById("hoy");
+  if(!caja || typeof Plan === "undefined" || !hayPlan()) return;
+
+  Plan.cargar();
+  var r = Plan.armar(), hoy = Plan.hoy(), d, i, b;
+
+  var html = "";
+  for(d=0;d<7;d++){
+    var bloques = r.semana[d].bloques;
+    var esHoy = d === hoy;
+    var total = 0;
+    for(i=0;i<bloques.length;i++) total += bloques[i].min;
+
+    html += '<li class="ag-dia' + (esHoy ? " hoy" : "") +
+            (bloques.length ? "" : " libre") + '">' +
+      '<span class="ag-d">' + DIAS_AG[d] +
+        (esHoy ? '<i>hoy</i>' : "") + '</span>' +
+      '<span class="ag-b">';
+
+    if(!bloques.length){
+      /* Durmiendo, no un renglón gris: un día sin nada no es un día
+         al que le falta algo, es un día que está bien así. */
+      html += '<span class="ag-nada">' +
+        (typeof Chin !== "undefined" ? Chin.svg("duerme") : "") +
+        'Libre</span>';
+    }else{
+      for(i=0;i<bloques.length;i++){
+        b = bloques[i];
+        html += '<a class="ag-x ' + b.tipo + '" href="' + esc(b.url) + '" ' +
+          'title="' + esc(HOY_TIPO[b.tipo] || b.tipo) + '">' +
+          '<span class="q">' + esc(b["qué"]) + '</span>' +
+          '<span class="m">' + ratoLargo(b.min) + '</span></a>';
+        if(b.tipo === "practica" && esHoy) html += rachaInline();
+      }
+    }
+    html += '</span>' +
+      '<span class="ag-t">' + (total ? ratoLargo(total) : "") + '</span></li>';
+  }
+
+  document.getElementById("hoyCard").innerHTML =
+    '<div class="ag-cab"><h3>Tu agenda</h3>' +
+      '<span class="ag-sub">' + esc(r.rutas.length ? r.rutas.map(function(x){
+        return x.nombre; }).join(", ") : "") + '</span>' +
+      '<a class="ag-mas" href="semana.html">Cambiar la semana</a></div>' +
+    '<ul class="ag">' + html + '</ul>';
+  caja.classList.add("on");
+}
+
+
+/* La portada tiene dos caras: si todavía no armaste tu ruta, la
+   invitación a hacerlo; si ya está, tu estado. El flujo entero vive
+   en cv.html, que es donde se carga. */
+function onbRato(min){
+  var h = Math.floor(min / 60), m = min % 60;
+  if(!h) return m + " min";
+  return h + (h === 1 ? " hora" : " horas") + (m ? " y " + m + " min" : "");
+}
+
+function pintarOnb(){
+  var caja = document.getElementById("onb");
+  var est  = document.getElementById("estado");
+  if(!caja) return;
+  Onb.cargar();
+  /* Con rutas activas alcanza: si armaste tu plan alguna vez, la
+     portada muestra tu estado y no la invitación. */
+  if(Onb.hecho() || (Onb.estado.rutas && Onb.estado.rutas.length)){
+    caja.classList.remove("on");
+    est.classList.add("on");
+    pintarEstado();
+  }else{
+    est.classList.remove("on");
+    caja.classList.add("on");
+    /* Si el CV ya está leído y lo que falta es cerrar la ruta, la
+       invitación lo dice: seguir diciendo "empecemos" a alguien que
+       ya empezó es no estar mirando. */
+    var leido = Object.keys(Onb.estado.temas || {}).length;
+    var tn = document.getElementById("invitaT");
+    var tp = document.getElementById("invitaP");
+    if(leido && tn){
+      tn.textContent = "Te falta un paso";
+      tp.textContent = "Ya leí tu experiencia y reconocí " + leido +
+        (leido === 1 ? " tema" : " temas") + ". Falta elegir el puesto y quedarte con tu ruta.";
+    }
+  }
+}
+
+function onbInit(){
+  document.getElementById("onbEditar").addEventListener("click", function(){
+    location.href = "cv.html";
+  });
+  document.getElementById("onbOtroCv").addEventListener("click", function(){
+    Onb.estado.cv = "";
+    Onb.estado.temas = {};
+    Onb.estado.respuestas = {};
+    Onb.estado.rutas = [];
+    Onb.estado.deRuta = "";
+    Onb.guardar();
+    location.href = "cv.html";
+  });
+  document.getElementById("onbBorrar").addEventListener("click", function(){
+    if(!window.confirm("Se borra tu ruta y todo lo que contaste. " +
+       "Lo que marcaste como hecho en cada ruta no se toca. ¿Seguro?")) return;
+    var k;
+    for(k in Onb.estado){
+      if(k === "dias") Onb.estado[k] = [0,1,2,3,4];
+      else if(k === "minutos") Onb.estado[k] = 360;
+      else if(k === "franja") Onb.estado[k] = "noche";
+      else if(k === "respuestas" || k === "temas") Onb.estado[k] = {};
+      else if(k === "rutas") Onb.estado[k] = [];
+      else if(k === "paso") Onb.estado[k] = 0;
+      else if(k === "hecho") Onb.estado[k] = false;
+      else Onb.estado[k] = "";
+    }
+    Onb.guardar();
+    document.getElementById("puertas").hidden = true;
+    pintarOnb();
+    toast("Listo, borrada.");
+  });
+  pintarOnb();
+}
+
+/* Tu estado: a dónde vas y las dos puertas. La ruta vive en su
+   propia página, con sus tramos y sus cursos, como cualquier otra:
+   una lista de títulos en la portada no es una ruta. */
+function pintarEstado(){
+  var puesto = CV.puestoDe(Onb.estado.puesto);
+  document.getElementById("estadoTitulo").textContent = "Tu ruta a " + puesto.nombre;
+
+  var dias = Onb.estado.dias.length, fr = "", i;
+  for(i=0;i<Onb.FRANJAS.length;i++){
+    if(Onb.FRANJAS[i].id === Onb.estado.franja) fr = Onb.FRANJAS[i].t.toLowerCase();
+  }
+  document.getElementById("estadoSub").textContent =
+    onbRato(Onb.estado.minutos) + " por semana, " + dias +
+    (dias === 1 ? " día " : " días ") + fr + ".";
+
+  /* Si tu ruta es una del sitio, el botón tiene que decir el tamaño
+     de esa y no el de la mezcla: es a donde te lleva. */
+  var cursos, horas, nombre = "";
+  if(Onb.estado.deRuta && typeof Plan !== "undefined"){
+    var rr = Plan.rutaDe(Onb.estado.deRuta), min2 = 0, j;
+    if(rr){
+      var pend = Plan.pendientesDe(rr);
+      for(j=0;j<pend.length;j++) min2 += pend[j].min;
+      cursos = pend.length; horas = Math.round(min2 / 60);
+      nombre = rr.nombre;
+    }
+  }
+  if(cursos === undefined){
+    var r = CV.armar(Onb.estado.puesto, Onb.estado.temas, 60), min = 0;
+    for(i=0;i<r.pasos.length;i++) min += r.pasos[i].min;
+    cursos = r.pasos.length; horas = Math.round(min / 60);
+  }
+  document.getElementById("irRutaDato").textContent =
+    (nombre ? nombre + " · " : "") +
+    cursos + (cursos === 1 ? " curso · " : " cursos · ") + horas + " horas";
+
+  if(typeof Practica !== "undefined"){
+    var ab = Practica.avance("blind75"), as = Practica.avance("strata");
+    document.getElementById("practDato").textContent =
+      (ab.hechos + as.hechos) + " de " + (ab.total + as.total) +
+      " problemas, con tu avance";
+  }
+}
+
+
+/* ============================================================
+   LA GUIA · la chinchilla te dice que sigue
+   ============================================================ */
+/* Deja el globo al lado de lo que hay que tocar. Debajo si entra,
+   arriba si no; y si el paso no apunta a nada, en la esquina. */
+function ubicarGuia(caja, sel){
+  var viejo = document.querySelector(".chin-foco");
+  if(viejo) viejo.classList.remove("chin-foco");
+
+  if(!sel){
+    caja.className = "chin chin-esquina";
+    caja.style.top = ""; caja.style.left = "";
+    return;
+  }
+  var e = document.querySelector(sel);
+  if(!e){
+    caja.className = "chin chin-esquina";
+    caja.style.top = ""; caja.style.left = "";
+    return;
+  }
+
+  e.classList.add("chin-foco");
+  e.scrollIntoView({ block: "center", behavior: "smooth" });
+
+  /* Se espera a que el scroll termine: medir antes da la posición
+     vieja y el globo aparece en cualquier lado. */
+  setTimeout(function(){
+    var r = e.getBoundingClientRect();
+    var ancho = Math.min(340, window.innerWidth - 32);
+    var alto = caja.offsetHeight || 220;
+
+    caja.className = "chin chin-anclada";
+    var top = r.bottom + 16;
+    if(top + alto > window.innerHeight - 12) top = Math.max(12, r.top - alto - 16);
+
+    var left = r.left;
+    if(left + ancho > window.innerWidth - 12) left = window.innerWidth - ancho - 12;
+    if(left < 12) left = 12;
+
+    caja.style.top = Math.round(top) + "px";
+    caja.style.left = Math.round(left) + "px";
+  }, 320);
+}
+
+function pintarGuia(){
+  var caja = document.getElementById("chin");
+  if(!caja || typeof Guia === "undefined") return;
+
+  var p = Guia.tocaAca();
+  if(!p){
+    caja.hidden = true;
+    var f = document.querySelector(".chin-foco");
+    if(f) f.classList.remove("chin-foco");
+    return;
+  }
+
+  document.getElementById("chinT").textContent = p.titulo;
+  document.getElementById("chinP").textContent = p.texto;
+  document.getElementById("chinBT").textContent = p.accion;
+  document.getElementById("chinN").textContent =
+    "Paso " + (Guia.estado.paso + 1) + " de " + Guia.PASOS.length;
+  caja.hidden = false;
+  ubicarGuia(caja, p.ancla);
+
+  /* El último paso ofrece dos formas de empezar, no un "entendido". */
+  var seg = document.getElementById("chinB2");
+  if(p.dobles){
+    document.getElementById("chinBT").textContent = p.accion;
+    seg.hidden = false;
+    seg.textContent = p.accion2;
+    seg.onclick = function(){ Guia.avanzar(); location.href = p.lleva2; };
+  }else if(seg){
+    seg.hidden = true;
+  }
+
+  document.getElementById("chinB").onclick = function(){
+    Guia.avanzar();
+    var dest = p.lleva || (p.dobles ? Guia.proximoCurso() : "");
+    if(dest){ location.href = dest; return; }
+    pintarGuia();
+  };
+  function cerrarGuia(){
+    Guia.cerrar();
+    caja.hidden = true;
+    var f = document.querySelector(".chin-foco");
+    if(f) f.classList.remove("chin-foco");
+    toast("Listo. La puedes volver a ver desde tu perfil.");
+  }
+  document.getElementById("chinX").onclick = cerrarGuia;
+  var salto = document.getElementById("chinSalto");
+  if(salto) salto.onclick = cerrarGuia;
+}
+
+function init(){
+  PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
+  var guardado = safeGet(STORAGE.theme);
+  if(guardado) document.documentElement.setAttribute("data-theme", guardado);
+
+  profiles = PathSync.store.load();
+  sessionId = PathSync.store.sessionId();
+
+  cargarDias();
+  onbInit();
+  pintarPuertas();
+  renderHoy();
+  renderRetos();
+  pintarPuertas();
+  renderPaths();
+
+  renderCredits();
+  paintAccount();
+  pintarGuia();
+
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    var ahora = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    aplicarTema(ahora);
+  });
+  document.getElementById("acctBtn").addEventListener("click", openAccount);
+  document.getElementById("masRutas").addEventListener("click", function(){
+    verTodas = !verTodas;
+    renderPaths();
+    if(!verTodas) document.getElementById("rutas").scrollIntoView({ block: "start" });
+  });
+
+  var q = document.getElementById("qRutas");
+  q.addEventListener("input", function(){
+    buscaRuta = this.value.trim().toLowerCase();
+    renderPaths();
+  });
+
+  var cerrar = document.querySelectorAll("[data-close]"), i;
+  for(i=0;i<cerrar.length;i++){ cerrar[i].addEventListener("click", hideAcct); }
+
+  PathSync.captureHash(function(m){ toast("El link del mail no sirvió: " + m); });
+  refreshSes();
+  if(cloudSes && PathSync.hashType() === "recovery"){
+    openAccount();
+    renderAccess("");
+    PathSync.authUI.irA("recovery");
+  }
+  paintAccount();
+}
+
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded", init);
+}else{ init(); }
+
+})();
+</script>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="toastText"></span>
+</div>
+
+<div class="chin" id="chin" hidden>
+  <div class="chin-globo">
+    <button class="chin-x" type="button" id="chinX" title="No mostrar más" aria-label="Cerrar la guía">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="chin-fig"><svg class="chin-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="color-mix(in srgb, var(--accent) 70%, var(--surface))" d="M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 C 10.6 14.2 10.4 17.2 9.6 19.4 Z"/><ellipse fill="var(--accent)" cx="10.4" cy="5.3" rx="2.8" ry="3.4" transform="rotate(-21 10.4 5.3)"/><ellipse fill="var(--accent)" cx="18.0" cy="5.3" rx="2.8" ry="3.4" transform="rotate(21 18.0 5.3)"/><ellipse fill="var(--accent-soft)" cx="10.6" cy="5.7" rx="1.4" ry="1.8" transform="rotate(-21 10.6 5.7)"/><ellipse fill="var(--accent-soft)" cx="17.8" cy="5.7" rx="1.4" ry="1.8" transform="rotate(21 17.8 5.7)"/><ellipse fill="var(--accent)" cx="14.2" cy="17.2" rx="5.8" ry="5.2"/><circle fill="var(--accent)" cx="14.2" cy="11.3" r="5.4"/><ellipse fill="var(--surface)" cx="12.3" cy="10.8" rx=".85" ry="1.05"/><ellipse fill="var(--surface)" cx="16.3" cy="10.8" rx=".85" ry="1.05"/><circle fill="var(--accent)" cx="12.6" cy="10.4" r=".3"/><circle fill="var(--accent)" cx="16.6" cy="10.4" r=".3"/><path fill="var(--surface)" d="M13.6 12.5h1.4c.26 0 .41.29.25.5l-.7.92a.31.31 0 0 1-.5 0l-.7-.92a.31.31 0 0 1 .25-.5Z"/></svg></div>
+    <b class="chin-t" id="chinT"></b>
+    <p class="chin-p" id="chinP"></p>
+    <div class="chin-acc">
+      <span class="chin-n" id="chinN"></span>
+      <button class="chin-salto" type="button" id="chinSalto">Saltear</button>
+      <button class="chin-2" type="button" id="chinB2" hidden></button>
+      <button class="btn-primary chin-b" type="button" id="chinB">
+        <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
