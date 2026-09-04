@@ -259,6 +259,23 @@ var Guia = (function(){
     guardar();
   }
 
+  /* Volver a un paso que ya pasaste. alDia() solo empuja para
+     adelante, a proposito: no queremos que la guia te repita lo que
+     ya hiciste. Pero cuando cambias de ruta, lo que sigue hay que
+     hacerlo otra vez, y para entonces la guia ya se habia dado por
+     terminada.
+
+     No reabre lo cerrado: si la cerraste a mano, cerrada esta. */
+  function retomar(id){
+    cargar();
+    if(estado.cerrada) return false;
+    var i = indiceDe(id);
+    if(estado.paso <= i) return false;
+    estado.paso = i;
+    guardar();
+    return true;
+  }
+
   function reabrir(){
     estado.cerrada = false;
     estado.paso = 0;
@@ -269,6 +286,6 @@ var Guia = (function(){
     PASOS: PASOS, estado: estado,
     cargar: cargar, guardar: guardar,
     actual: actual, tocaAca: tocaAca, donde: donde, proximoCurso: proximoCurso,
-    avanzar: avanzar, cerrar: cerrar, reabrir: reabrir
+    avanzar: avanzar, cerrar: cerrar, reabrir: reabrir, retomar: retomar
   };
 })();

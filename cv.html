@@ -1236,8 +1236,8 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 <script src="path-sync.js?v=6fc1b3ae"></script>
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
-<script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=be22ee9c"></script>
+<script src="onboarding.js?v=13d6f98d"></script>
+<script src="guia.js?v=04bc0664"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
@@ -1798,6 +1798,11 @@ function guardarComoRuta(){
   }
   Onb.estado.puesto = puestoElegido;
   Onb.terminar();
+
+  /* Y la guia retoma en el paso de la semana: acabas de cambiar la
+     ruta, asi que lo que sigue es repartirla. Si ya venias desde el
+     principio esto no hace nada, porque solo va para atras. */
+  if(typeof Guia !== "undefined") Guia.retomar("semana");
 
   /* A la ruta, que es lo que acabás de armar: volver a la portada te
      deja donde estabas antes de empezar. */

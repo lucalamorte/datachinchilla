@@ -374,6 +374,11 @@ var Onb = (function(){
       for(i=0;i<s.length && i<3;i++) estado.rutas.push(s[i].clave);
     }
     estado.hecho = true;
+    /* La semana que hubiera era para la ruta anterior: al cambiar de
+       ruta queda sin acomodar. Dejar el true puesto hacia que la guia
+       se saltara ese paso y desapareciera de todas las paginas menos
+       la portada. */
+    estado.semanaLista = false;
     /* La semana la marca la semana: darla por configurada acá hacía
        que la guía se salteara ese paso sin que nadie lo hiciera. */
     if(typeof Plan !== "undefined"){
