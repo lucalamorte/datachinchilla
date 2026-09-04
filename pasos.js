@@ -983,7 +983,7 @@ var PASOS = [
     "wins": [
      "El método para partir SQL viejo sin cambiar el resultado",
      "Comparar la salida vieja y la nueva, que es lo que da confianza",
-     "Una consulta y un dataset de práctica para hacerlo vos"
+     "Una consulta y un dataset de práctica para hacerlo tú"
     ]
    },
    {
@@ -1673,7 +1673,7 @@ var PASOS = [
     "act": 2,
     "time": "10 horas",
     "sum": "Mostrar el resultado de manera que se entienda sin que estés al lado explicándolo.",
-    "goal": "Terminas este curso cuando eliges el gráfico por el dato que tenes, y no por el que sabes hacer.",
+    "goal": "Terminas este curso cuando eliges el gráfico por el dato que tienes, y no por el que sabes hacer.",
     "cert": "",
     "i": "",
     "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DV0101EN+v2",
@@ -3487,7 +3487,7 @@ var PASOS = [
     "boss": false,
     "wins": [
      "Del modelo aislado al modelo con manos",
-     "Decidir vos cuándo se ejecuta cada llamada"
+     "Decidir tú cuándo se ejecuta cada llamada"
     ]
    },
    {
@@ -3923,7 +3923,7 @@ var PASOS = [
     "min": 25,
     "act": 2,
     "time": "25 min",
-    "sum": "Recomendar por lo que hizo gente parecida a vos, sin mirar el contenido.",
+    "sum": "Recomendar por lo que hizo gente parecida a ti, sin mirar el contenido.",
     "goal": "Terminas este proyecto cuando entiendes la diferencia entre usuario a usuario y elemento a elemento.",
     "cert": "",
     "i": "",

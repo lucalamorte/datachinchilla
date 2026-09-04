@@ -31,3 +31,7 @@ desktop.ini
 # Archivos de una prueba puntual: todo lo que empieza con guion bajo
 # no forma parte del sitio, y publicar.py tambien los saltea
 _*
+
+# Documentos de trabajo: informes, capturas, cosas que me pasan.
+# No son el sitio y no se publican.
+notas/

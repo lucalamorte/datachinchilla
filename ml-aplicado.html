@@ -650,7 +650,8 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 .foot .foot-marca{ display:flex; align-items:center; gap:8px; color:var(--text-2); font-size:12.5px; padding:0; }
 .foot .foot-marca b{ color:var(--text); }
 .foot .foot-links{ margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-.foot .foot-links a{ color:var(--text-3); font-weight:700; text-decoration:none; }
+/* el color lo pone tema.css: aca ganaba --text-3 y quedaba al filo de AA */
+.foot .foot-links a{ font-weight:700; text-decoration:none; }
 .foot .foot-links a:hover{ color:var(--accent-strong); }
 @media (max-width:640px){ .foot .foot-links{ margin-left:0; } }
 /* El paso siguiente: de la ruta a la semana. Sin esto, terminabas de
@@ -981,13 +982,13 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
   <span id="toastText"></span>
 </div>
 
-<script src="pasos.js?v=4a4d5fcc"></script>
+<script src="pasos.js?v=9acdd004"></script>
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=218a0f52"></script>
-<script src="chinchilla.js?v=fda14bb1"></script>
-<script src="path-sync.js?v=7673db81"></script>
+<script src="guia.js?v=be22ee9c"></script>
+<script src="chinchilla.js?v=72bcff8d"></script>
+<script src="path-sync.js?v=6fc1b3ae"></script>
 <script>
 (function(){
 "use strict";
@@ -1139,7 +1140,7 @@ var NODES = [
   {
     id: "a10", act: 2, time: "25 min", i: "user",
     title: "Filtrado colaborativo",
-    summary: "Recomendar por lo que hizo gente parecida a vos, sin mirar el contenido.",
+    summary: "Recomendar por lo que hizo gente parecida a ti, sin mirar el contenido.",
     goal: "Terminas este proyecto cuando entiendes la diferencia entre usuario a usuario y elemento a elemento.",
     wins: ["Las dos formas de filtrado colaborativo",
            "Por qué funciona sin saber qué es cada cosa"],

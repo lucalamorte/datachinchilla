@@ -48,7 +48,7 @@ var Guia = (function(){
     {
       id: "cv",
       donde: "index",
-      titulo: "Primero, cuéntame de vos",
+      titulo: "Primero, cuéntame de ti",
       texto: "Con tu CV encuentro exactamente lo que te falta para el puesto que " +
              "quieres, y te lo dejo en orden. Se lee acá en tu navegador.",
       accion: "Cargar mi CV",
@@ -216,10 +216,15 @@ var Guia = (function(){
 
   /* En qué página estamos, en los términos de la guía. */
   function donde(){
-    var f = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-    if(f === "" || f === "index.html") return "index";
-    if(f === "cv.html") return "cv";
-    if(f === "semana.html") return "semana";
+    var f = (location.pathname.split("/").pop() || "index").toLowerCase();
+    /* En produccion las URLs son limpias: /cv, no /cv.html. Comparar
+       contra el nombre de archivo hacia que ningun paso de cv ni de
+       semana encontrara su pagina, y el recorrido se cortaba en el
+       paso 2. Local andaba, porque ahi si se abre cv.html. */
+    f = f.replace(/\.html$/, "");
+    if(f === "" || f === "index") return "index";
+    if(f === "cv") return "cv";
+    if(f === "semana") return "semana";
     return "ruta";
   }
 

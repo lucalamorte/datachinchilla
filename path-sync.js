@@ -666,10 +666,46 @@ var PathSync = (function(){
         for(i=0;i<l.length;i++){ if(l[i].name.toLowerCase() === name.toLowerCase()) return true; }
         return false;
       }
+      /* Lo que se guardo antes de que existiera este perfil.
+         clave plana -> campo del perfil. Cada modulo lee su campo
+         cuando hay perfil y su clave cuando no, asi que sin esto un
+         perfil recien creado empieza en blanco y tapa lo anterior.
+         'visto' no esta a proposito: el saludo del dia es de este
+         navegador, no de quien lo usa. */
+      var LOCALES = [
+        ["datachinchilla/v1/onboarding", "onb"],
+        ["datachinchilla/v1/plan",       "plan"],
+        ["datachinchilla/v1/practica",   "practica"],
+        ["datachinchilla/v1/dias",       "dias"],
+        ["datachinchilla/v1/cursos",     "cursos"],
+        ["datachinchilla/v1/guia",       "guia"]
+      ];
+
+      /* Se copia primero, se guarda, y recien ahi se borra el
+         original: si el guardado falla -cuota llena- el dato sigue
+         donde estaba y no se perdio nada. */
+      function reclamarLocal(p){
+        var tomadas = [], i, raw, dato;
+        for(i=0;i<LOCALES.length;i++){
+          if(p[LOCALES[i][1]] !== undefined) continue;
+          raw = get(LOCALES[i][0]);
+          if(!raw) continue;
+          try{ dato = JSON.parse(raw); }catch(e){ continue; }
+          if(!dato || typeof dato !== "object") continue;
+          p[LOCALES[i][1]] = dato;
+          tomadas.push(LOCALES[i][0]);
+        }
+        if(!tomadas.length) return 0;
+        if(!save()) return 0;
+        for(i=0;i<tomadas.length;i++) del(tomadas[i]);
+        return tomadas.length;
+      }
+
       function create(name){
         var sl = salt();
         var p = { id: id(), name: name, salt: sl, hash: "", done: {}, quiz: { wrong: {} } };
         all()[p.id] = p;
+        reclamarLocal(p);
         return p;
       }
       function setPin(p, pin){ p.salt = salt(); p.hash = hash(pin, p.salt); }
@@ -693,7 +729,7 @@ var PathSync = (function(){
         load: load, all: all, save: save, list: list,
         active: active, sessionId: sessionId, setActive: setActive,
         nameTaken: nameTaken, create: create, setPin: setPin, checkPin: checkPin,
-        newId: id, claimLegacy: claimLegacy
+        newId: id, claimLegacy: claimLegacy, reclamarLocal: reclamarLocal
       };
     })(),
 

@@ -26,6 +26,10 @@ EXT = (".html", ".js", ".css", ".svg", ".png", ".jpg", ".webp",
 # Lo que nunca va, aunque tenga una extension de las de arriba.
 FUERA = ("cv_prueba.pdf", "_poses.html", "_cv_real.pdf")
 
+# Paginas del sitio que NO cargan tema.css y aun asi se publican.
+# og.html es la plantilla con la que se genera og.png.
+SUELTAS = ("og.html",)
+
 
 def archivos_del_sitio():
     """Los que se copian: por extension, menos los excluidos."""
@@ -38,6 +42,18 @@ def archivos_del_sitio():
         if n.lower().endswith(EXT):
             out.append(n)
     return out
+
+
+def html_del_sitio(nombre):
+    """Una pagina del sitio carga tema.css. Lo demas no es el sitio.
+
+       Sin esto entra cualquier .html que quede en la carpeta: hoy se
+       colo un informe de auditoria de 290 kB, que se habria publicado
+       en internet sin que nadie lo notara.
+    """
+    if nombre in SUELTAS:
+        return True
+    return "tema.css" in io.open(os.path.join(D, nombre), encoding="utf-8").read()
 
 
 def referencias(html):
@@ -68,6 +84,15 @@ def main():
     os.makedirs(SALE)
 
     copiados = archivos_del_sitio()
+
+    ajenas = [n for n in copiados if n.endswith(".html") and not html_del_sitio(n)]
+    if ajenas:
+        print(u"Estos .html no son del sitio y estaban por publicarse:")
+        for n in ajenas:
+            print(u"   %s" % n)
+        print(u"\nSacalos de la carpeta o agregalos a SUELTAS si de verdad van.")
+        sys.exit(1)
+
     for n in copiados:
         shutil.copy2(os.path.join(D, n), os.path.join(SALE, n))
 

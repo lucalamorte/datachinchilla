@@ -357,7 +357,10 @@ var Chin = (function(){
         q[i].classList.add("chin-cerca");
       }
     }
-    if(q.length <= 1) soltar();
+    /* Se suelta cuando no queda NADA escondido, y preguntando de
+       nuevo: q es la lista de antes del bucle. Con "<= 1" el ultimo
+       elemento se quedaba sin nadie que lo revelara. */
+    if(!document.querySelectorAll(".chin-lejos").length) soltar();
   }
 
   /* Directo, con un límite por tiempo, y sin rAF de por medio: lo

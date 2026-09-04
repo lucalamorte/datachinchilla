@@ -69,6 +69,35 @@ for r in rutas:
             print(u"  %-20s %-16s dice %s, tiene %d (%s)" %
                   (r["archivo"], nombre, m.group(1), n, PALABRA.get(n, n)))
 
+# --- y el catalogo de la portada, que anuncia el tamano de cada ruta
+#
+# La descripcion de cada tarjeta suele abrir con la cantidad
+# ("Veintitres pasos gratuitos en orden..."). Se compara contra la
+# misma cuenta de pasos.js. Las que no abren con un numero se saltean:
+# hay varias que describen sin contar, y esta bien.
+idx = io.open("index.html", encoding="utf-8").read()
+b = idx[idx.index("var PATHS"):]
+b = b[:b.index("\n];")]
+por_archivo = dict((r["archivo"], len(r["pasos"])) for r in rutas)
+
+for ent in b.split("\n  {")[1:]:
+    mu = re.search(r'u:\s*"([^"]+)"', ent)
+    md = re.search(r'd:\s*"([^"]+)"', ent)
+    if not mu or not md:
+        continue
+    n = por_archivo.get(mu.group(1))
+    if n is None:
+        continue
+    mn = re.match(r"(%s)\s+(%s)\b" % (TODAS, SUST), md.group(1), re.I)
+    if not mn:
+        continue
+    dice = NUMERO.get(mn.group(1).lower())
+    if dice is None or dice == n:
+        continue
+    mal += 1
+    print(u"  %-20s %-16s dice %s, tiene %d (%s)" %
+          ("index.html", u"el catálogo", mn.group(1), n, PALABRA.get(n, n)))
+
 print()
 print(u"los numeros coinciden" if not mal else
       u"%d desajustes: el texto dice una cantidad y el mapa tiene otra" % mal)

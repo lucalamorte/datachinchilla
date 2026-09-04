@@ -1093,7 +1093,8 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 .foot .foot-marca{ display:flex; align-items:center; gap:8px; color:var(--text-2); font-size:12.5px; padding:0; }
 .foot .foot-marca b{ color:var(--text); }
 .foot .foot-links{ margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-.foot .foot-links a{ color:var(--text-3); font-weight:700; text-decoration:none; }
+/* el color lo pone tema.css: aca ganaba --text-3 y quedaba al filo de AA */
+.foot .foot-links a{ font-weight:700; text-decoration:none; }
 .foot .foot-links a:hover{ color:var(--accent-strong); }
 @media (max-width:640px){ .foot .foot-links{ margin-left:0; } }
 /* La estrella vive sobre la tarjeta, no dentro del enlace: si no,
@@ -1890,13 +1891,13 @@ a.via{ text-decoration:none; }
   </div>
 </dialog>
 
-<script src="pasos.js?v=4a4d5fcc"></script>
-<script src="chinchilla.js?v=fda14bb1"></script>
-<script src="path-sync.js?v=7673db81"></script>
+<script src="pasos.js?v=9acdd004"></script>
+<script src="chinchilla.js?v=72bcff8d"></script>
+<script src="path-sync.js?v=6fc1b3ae"></script>
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=218a0f52"></script>
+<script src="guia.js?v=be22ee9c"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="problemas.js?v=cab859ac"></script>
 <script src="practica.js?v=2dcdb092"></script>
@@ -1973,7 +1974,7 @@ var PATHS = [
   },
   {
     t: "dbt", nivel: "Con SQL sabido", i: "build", u: "dbt.html", listo: true,
-    d: "Quince pasos gratuitos en orden, del primer modelo a un proyecto con tests y documentación. Todo el material para preparar la certificación de dbt Labs, sin pagar un curso.",
+    d: "Veintitrés pasos gratuitos en orden, del primer modelo a un proyecto con tests y documentación. Todo el material para preparar la certificación de dbt Labs, sin pagar un curso.",
     s: "abrir la ruta"
   },
   {
@@ -1983,12 +1984,12 @@ var PATHS = [
   },
   {
     t: "Data Science", nivel: "Desde cero", i: "school", u: "data-science.html", listo: true,
-    d: "Diez cursos en orden: qué hace alguien de data science, y después el oficio con Python, con R y con los primeros modelos.",
+    d: "Doce cursos en orden: qué hace alguien de data science, y después el oficio con Python, con R y con los primeros modelos.",
     s: "abrir la ruta"
   },
   {
     t: "Contenedores y sistemas distribuidos", nivel: "Con experiencia", i: "cloud", u: "arquitectura.html", listo: true,
-    d: "Nueve cursos gratuitos: contenedores, Kubernetes e Istio, y los seis de arquitectura reactiva, del manifiesto a CQRS.",
+    d: "Diez cursos gratuitos: contenedores, Kubernetes e Istio, y los seis de arquitectura reactiva, del manifiesto a CQRS.",
     s: "abrir la ruta"
   },
   {
@@ -1998,7 +1999,7 @@ var PATHS = [
   },
   {
     t: "Subir de nivel", nivel: "Con experiencia", i: "build", u: "subir-nivel.html", listo: true,
-    d: "Catorce cursos para quien ya tiene el puesto: dbt con proyecto de verdad, Airflow, Spark, Terraform y Kafka. Casi todos salen de otras rutas, así que el avance se comparte.",
+    d: "Diecisiete cursos para quien ya tiene el puesto: dbt con proyecto de verdad, Airflow, Spark, Terraform y Kafka. Casi todos salen de otras rutas, así que el avance se comparte.",
     s: "abrir la ruta"
   },
   {
@@ -2008,7 +2009,7 @@ var PATHS = [
   },
   {
     t: "LLMs y agentes", nivel: "Con Python sabido", i: "flow", u: "llm-agentes.html", listo: true,
-    d: "Veintisiete pasos en cuatro credenciales: prompt engineering, RAG sobre tus propios datos, y agentes con LangGraph, CrewAI y AutoGen.",
+    d: "Veintiocho pasos en cuatro credenciales: prompt engineering, RAG sobre tus propios datos, y agentes con LangGraph, CrewAI y AutoGen.",
     s: "abrir la ruta"
   },
   {
@@ -2201,7 +2202,7 @@ function renderPaths(){
     }
     tuya = '<div class="card-wrap tuya">' +
       '<a class="card own" href="mi-ruta.html">' +
-        '<span class="own-ribbon">' + icon("arrow", 11) + 'Armada para vos</span>' +
+        '<span class="own-ribbon">' + icon("arrow", 11) + 'Armada para ti</span>' +
         '<span class="ico">' + icon("map", 19) + '</span>' +
         '<h3>' + esc(titulo) + '</h3>' +
         '<div class="card-tags"><span class="chip">' + nCursos + ' cursos</span>' +
@@ -2791,16 +2792,25 @@ function pintarPuertas(){
       '<a class="puerta" href="armar.html">' +
         '<span class="p-ico">' + icon("build", 19) + '</span>' +
         '<span class="p-txt"><b>Ármala a mano</b>' +
-          '<span>Eliges los niveles que quieras de cualquier ruta y los ordenas vos.</span></span>' +
+          '<span>Eliges los niveles que quieras de cualquier ruta y los ordenas tú.</span></span>' +
         '<span class="p-ir">Al armador ' + icon("arrow", 12) + '</span></a>' +
       '<a class="puerta" href="#rutas">' +
         '<span class="p-ico">' + icon("boss", 19) + '</span>' +
         '<span class="p-txt"><b>O mira <span id="cuantasRutas">las rutas</span></b>' +
-          '<span>Dieciséis recorridos cerrados, cada uno con su mapa y su credencial.</span></span>' +
+          '<span id="comoSon"></span></span>' +
         '<span class="p-ir">Ver el catálogo ' + icon("arrow", 12) + '</span></a>';
     caja.hidden = false;
+    /* Se cuentan las que se pueden hacer, no las tarjetas. El
+       catalogo muestra una anunciada -sin pagina y fuera de tu
+       semana- y contarla dejaba el numero peleado con el de
+       "Que entra en tu semana", que siempre dijo quince. */
+    var hechas = 0, enCamino = 0, z;
+    for(z=0;z<PATHS.length;z++){ if(PATHS[z].listo) hechas++; else enCamino++; }
     var n = document.getElementById("cuantasRutas");
-    if(n) n.textContent = "las " + PATHS.length + " rutas";
+    if(n) n.textContent = "las " + hechas + " rutas";
+    var cs = document.getElementById("comoSon");
+    if(cs) cs.textContent = "Cada una con su mapa y su credencial" +
+      (enCamino ? ", y " + (enCamino === 1 ? "una más en camino." : enCamino + " más en camino.") : ".");
     return;
   }
 

@@ -823,7 +823,8 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 .foot .foot-marca{ display:flex; align-items:center; gap:8px; color:var(--text-2); font-size:12.5px; padding:0; }
 .foot .foot-marca b{ color:var(--text); }
 .foot .foot-links{ margin-left:auto; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
-.foot .foot-links a{ color:var(--text-3); font-weight:700; text-decoration:none; }
+/* el color lo pone tema.css: aca ganaba --text-3 y quedaba al filo de AA */
+.foot .foot-links a{ font-weight:700; text-decoration:none; }
 .foot .foot-links a:hover{ color:var(--accent-strong); }
 @media (max-width:640px){ .foot .foot-links{ margin-left:0; } }
 /* La estrella vive sobre la tarjeta, no dentro del enlace: si no,
@@ -1230,13 +1231,13 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   </div>
 </dialog>
 
-<script src="pasos.js?v=4a4d5fcc"></script>
-<script src="chinchilla.js?v=fda14bb1"></script>
-<script src="path-sync.js?v=7673db81"></script>
+<script src="pasos.js?v=9acdd004"></script>
+<script src="chinchilla.js?v=72bcff8d"></script>
+<script src="path-sync.js?v=6fc1b3ae"></script>
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=218a0f52"></script>
+<script src="guia.js?v=be22ee9c"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
@@ -1672,6 +1673,7 @@ function pintar(texto){
   var listaHtml = l ||
     '<li><span class="qué">Nada. Para este puesto tu CV ya cubre todo lo que tenemos.</span></li>';
   document.getElementById("rutaLista").innerHTML = listaHtml;
+  document.getElementById("rutaLista").hidden = false;
 
   if(yaHay){
     /* Una ruta del sitio te calza: esa es la respuesta. Está ordenada
@@ -1682,9 +1684,12 @@ function pintar(texto){
       "Cubre el " + Math.round(yaHay.cubre * 100) + "% de lo que te falta para " +
       r.puesto.nombre + " y empieza donde estás. Son " + yaHay.pasos +
       " cursos, en el orden en que conviene hacerlos.";
-    document.getElementById("rutaLista").innerHTML =
-      '<li class="cv-esa"><span class="qué"><a href="' + esc(yaHay.archivo) + '">' +
-      esc(yaHay.nombre) + ' <span class="ver">abrir la ruta →</span></a></span></li>';
+    /* Sin lista y sin link: el titulo ya dice cual es la ruta, y el
+       unico camino de aca para adelante es el boton de guardar. Un
+       link al lado era el mismo destino dos veces, y encima salteaba
+       el guardado. */
+    document.getElementById("rutaLista").innerHTML = "";
+    document.getElementById("rutaLista").hidden = true;
   }else{
     document.getElementById("rutaTitulo").textContent = r.pasos.length
       ? "Tu ruta son " + r.pasos.length + " cursos"
