@@ -53,7 +53,9 @@ var Guia = (function(){
              "quieres, y te lo dejo en orden. Se lee acá en tu navegador.",
       accion: "Cargar mi CV",
       lleva: "cv.html",
-      ancla: ".invita"
+      /* La tarjeta del CV, que es la unica puerta que queda: el
+         banner que pedia lo mismo abajo se fue. */
+      ancla: ".puerta.destacada"
     },
     {
       id: "rol",

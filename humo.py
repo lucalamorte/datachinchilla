@@ -65,7 +65,7 @@ def servir(puerto):
 # Que tiene que haber en el DOM de cada pagina despues de que corra
 # su init. Si init muere a mitad, esto queda vacio.
 MARCAS = {
-    "index.html":  [("onb", "el onboarding"), ("pathList", "el catalogo")],
+    "index.html":  [("pathList", "el catalogo")],
     "cv.html":     [("puestos", "las tarjetas de puesto")],
     "semana.html": [("semana", "la grilla de la semana")],
     "practica.html": [("probs", "la lista de problemas"), ("bancos", "los bancos")],

@@ -1103,7 +1103,7 @@ li.ok .prob .t{ color:var(--text-3); }
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=2160a0d2"></script>
+<script src="guia.js?v=218a0f52"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="problemas.js?v=cab859ac"></script>
 <script src="practica.js?v=2dcdb092"></script>
@@ -1671,6 +1671,14 @@ function init(){
     aplicarTema(ahora);
   });
   document.getElementById("acctBtn").addEventListener("click", openAccount);
+  /* Cerrar el panel: la cruz y el clic afuera. Estaban sin enganchar
+     en esta página y en tres más, así que el modal se abría y no se
+     podía salir sin recargar. hideAcct ya existía. */
+  document.getElementById("acctClose").addEventListener("click", hideAcct);
+  acctDlg.addEventListener("click", function(ev){
+    /* Sólo si el clic cae en el fondo y no adentro del recuadro. */
+    if(ev.target === acctDlg) hideAcct();
+  });
 
 
   var cerrar = document.querySelectorAll("[data-close]"), i;

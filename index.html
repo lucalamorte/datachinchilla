@@ -1156,26 +1156,6 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   font-size:10.5px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
 }
 
-/* La invitación a armar tu ruta: una puerta, no un asistente. */
-.invita{
-  display:flex; align-items:center; gap:18px;
-  padding:24px 24px; border-radius:var(--r-xl);
-  background:linear-gradient(160deg, var(--accent-soft), var(--surface) 68%);
-  border:1px solid var(--accent-line); text-decoration:none; color:inherit;
-  transition:border-color 160ms ease, transform 160ms ease;
-}
-.invita:hover{ border-color:var(--accent); transform:translateY(-2px); }
-.invita .ico{
-  display:grid; place-items:center; width:52px; height:52px; flex:none;
-  border-radius:var(--r-lg); background:var(--surface); color:var(--accent);
-}
-.invita .txt{ display:flex; flex-direction:column; gap:5px; }
-.invita .txt b{ font-size:19px; letter-spacing:-.01em; }
-.invita .txt span{ font-size:13.5px; color:var(--text-2); line-height:1.6; }
-.invita .fl{ margin-left:auto; color:var(--accent); flex:none; display:flex;
-  transition:transform 160ms ease; }
-.invita:hover .fl{ transform:translateX(4px); }
-@media (max-width:560px){ .invita{ flex-wrap:wrap; gap:12px; } .invita .fl{ margin-left:0; } }
 
 /* --- El onboarding: la única entrada ---------------------------- */
 .onb-caja{
@@ -1727,23 +1707,6 @@ a.via{ text-decoration:none; }
   </div>
 </section>
 
-<section class="section onb" id="onb">
-  <div class="wrap">
-    <a class="invita" href="cv.html">
-      <span class="ico">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/></svg>
-      </span>
-      <span class="txt">
-        <b id="invitaT">Empecemos por tu CV</b>
-        <span id="invitaP">Eliges a qué puesto apuntas y te armo la ruta con lo que te falta, en orden. Si no tienes el CV a mano, cuatro preguntas alcanzan.</span>
-      </span>
-      <span class="fl">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-  </div>
-</section>
-
 <section class="section estado" id="estado">
   <div class="wrap">
     <div class="estado-cab">
@@ -1933,7 +1896,7 @@ a.via{ text-decoration:none; }
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=2160a0d2"></script>
+<script src="guia.js?v=218a0f52"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="problemas.js?v=cab859ac"></script>
 <script src="practica.js?v=2dcdb092"></script>
@@ -2803,13 +2766,28 @@ function pintarPuertas(){
   var listo = (Onb.estado.rutas || []).length > 0;
 
   if(!listo){
+    /* Qué dice la tarjeta del CV. El caso del medio -ya leí tu
+       experiencia pero todavía no cerraste la ruta- lo sabía el
+       banner que estaba abajo y la tarjeta no. El banner se fue por
+       repetir el mismo pedido dos veces; este aviso se queda. */
+    var leido = Object.keys(Onb.estado.temas || {}).length;
+    var cvT  = "Empecemos por tu CV";
+    var cvP  = "Eliges a qué puesto apuntas y te armo la ruta con lo que te falta, en orden. Si no tienes el CV a mano, cuatro preguntas alcanzan.";
+    var cvIr = "Empezar por acá";
+    if(leido){
+      cvT  = "Te falta un paso";
+      cvP  = "Ya leí tu experiencia y reconocí " + leido +
+             (leido === 1 ? " tema" : " temas") + ". Falta elegir el puesto y quedarte con tu ruta.";
+      cvIr = "Seguir";
+    }
+
     /* Primera visita: las tres formas de empezar. */
     caja.innerHTML =
       '<a class="puerta destacada" href="cv.html">' +
         '<span class="p-ico">' + icon("user", 19) + '</span>' +
-        '<span class="p-txt"><b>Saca tu ruta del CV</b>' +
-          '<span>La ruta exacta para el puesto que quieres, sacada de tu experiencia.</span></span>' +
-        '<span class="p-ir">Empezar por acá ' + icon("arrow", 12) + '</span></a>' +
+        '<span class="p-txt"><b>' + esc(cvT) + '</b>' +
+          '<span>' + esc(cvP) + '</span></span>' +
+        '<span class="p-ir">' + esc(cvIr) + ' ' + icon("arrow", 12) + '</span></a>' +
       '<a class="puerta" href="armar.html">' +
         '<span class="p-ico">' + icon("build", 19) + '</span>' +
         '<span class="p-txt"><b>Ármala a mano</b>' +
@@ -2982,30 +2960,24 @@ function onbRato(min){
 }
 
 function pintarOnb(){
-  var caja = document.getElementById("onb");
-  var est  = document.getElementById("estado");
-  if(!caja) return;
+  /* Sólo decide si se ve el bloque "Tu ruta".
+
+     Antes también pintaba un banner que pedía el CV por segunda vez,
+     abajo de las tarjetas. Ese se fue: decía lo mismo que la tarjeta
+     de arriba y llevaba al mismo lado. Con él se fue el
+     `if(!caja) return`, que si no dejaba esta función sin hacer nada.
+
+     El texto de la tarjeta del CV lo maneja pintarPuertas. */
+  var est = document.getElementById("estado");
+  if(!est) return;
   Onb.cargar();
   /* Con rutas activas alcanza: si armaste tu plan alguna vez, la
-     portada muestra tu estado y no la invitación. */
+     portada muestra tu estado. */
   if(Onb.hecho() || (Onb.estado.rutas && Onb.estado.rutas.length)){
-    caja.classList.remove("on");
     est.classList.add("on");
     pintarEstado();
   }else{
     est.classList.remove("on");
-    caja.classList.add("on");
-    /* Si el CV ya está leído y lo que falta es cerrar la ruta, la
-       invitación lo dice: seguir diciendo "empecemos" a alguien que
-       ya empezó es no estar mirando. */
-    var leido = Object.keys(Onb.estado.temas || {}).length;
-    var tn = document.getElementById("invitaT");
-    var tp = document.getElementById("invitaP");
-    if(leido && tn){
-      tn.textContent = "Te falta un paso";
-      tp.textContent = "Ya leí tu experiencia y reconocí " + leido +
-        (leido === 1 ? " tema" : " temas") + ". Falta elegir el puesto y quedarte con tu ruta.";
-    }
   }
 }
 
@@ -3211,6 +3183,14 @@ function init(){
     aplicarTema(ahora);
   });
   document.getElementById("acctBtn").addEventListener("click", openAccount);
+  /* Cerrar el panel: la cruz y el clic afuera. Estaban sin enganchar
+     en esta página y en tres más, así que el modal se abría y no se
+     podía salir sin recargar. hideAcct ya existía. */
+  document.getElementById("acctClose").addEventListener("click", hideAcct);
+  acctDlg.addEventListener("click", function(ev){
+    /* Sólo si el clic cae en el fondo y no adentro del recuadro. */
+    if(ev.target === acctDlg) hideAcct();
+  });
   document.getElementById("masRutas").addEventListener("click", function(){
     verTodas = !verTodas;
     renderPaths();
