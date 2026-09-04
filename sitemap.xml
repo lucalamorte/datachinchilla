@@ -6,107 +6,102 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/index.html</loc>
+    <loc>https://datachinchilla.com/snowpro</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/snowpro.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://datachinchilla.com/data-engineer.html</loc>
+    <loc>https://datachinchilla.com/data-engineer</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/cv.html</loc>
+    <loc>https://datachinchilla.com/cv</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/mi-ruta.html</loc>
+    <loc>https://datachinchilla.com/mi-ruta</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/practica.html</loc>
+    <loc>https://datachinchilla.com/practica</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/semana.html</loc>
+    <loc>https://datachinchilla.com/semana</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/armar.html</loc>
+    <loc>https://datachinchilla.com/armar</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/cs50.html</loc>
+    <loc>https://datachinchilla.com/cs50</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/deep-learning.html</loc>
+    <loc>https://datachinchilla.com/deep-learning</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/llm-agentes.html</loc>
+    <loc>https://datachinchilla.com/llm-agentes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/ml-aplicado.html</loc>
+    <loc>https://datachinchilla.com/ml-aplicado</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/sql-python.html</loc>
+    <loc>https://datachinchilla.com/sql-python</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/ai-fundamentos.html</loc>
+    <loc>https://datachinchilla.com/ai-fundamentos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/claude.html</loc>
+    <loc>https://datachinchilla.com/claude</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/web3.html</loc>
+    <loc>https://datachinchilla.com/web3</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/subir-nivel.html</loc>
+    <loc>https://datachinchilla.com/subir-nivel</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/bigdata.html</loc>
+    <loc>https://datachinchilla.com/bigdata</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/data-science.html</loc>
+    <loc>https://datachinchilla.com/data-science</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/arquitectura.html</loc>
+    <loc>https://datachinchilla.com/arquitectura</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://datachinchilla.com/dbt.html</loc>
+    <loc>https://datachinchilla.com/dbt</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

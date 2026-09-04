@@ -1,0 +1,17 @@
+# Finales de linea, fijados.
+#
+# Los scripts de build escriben con newline="" (o sea LF) y Git en
+# Windows, por defecto, convierte a CRLF al sacar los archivos. Esa
+# ida y vuelta hace que un cambio de una linea aparezca como el
+# archivo entero cambiado, y ahi los diffs dejan de servir para leer
+# que paso.
+#
+# Con esto el repo guarda LF siempre, que es lo que los scripts
+# producen, y no hay conversion en el medio.
+* text=auto eol=lf
+
+# Binarios: que Git ni los mire.
+*.png binary
+*.pdf binary
+*.woff binary
+*.woff2 binary

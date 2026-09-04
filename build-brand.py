@@ -152,8 +152,20 @@ PAGINAS = {
     },
 }
 
+def sin_html(archivo):
+    """La direccion de verdad de una pagina.
+
+       Cloudflare Pages redirige /cv.html a /cv y no deja apagarlo, asi
+       que la canonica y el sitemap tienen que decir /cv. Si dicen otra
+       cosa, cada URL que le damos a Google le devuelve un redirect.
+    """
+    if archivo == "index.html":
+        return u""                      # la portada es la raiz
+    return archivo[:-5] if archivo.endswith(".html") else archivo
+
+
 def cabeza(archivo, d):
-    url = SITIO + u"/" + archivo
+    url = SITIO + u"/" + sin_html(archivo)
     return u"""<title>%(TIT)s</title>
 <meta name="description" content="%(DESC)s">
 <link rel="canonical" href="%(URL)s">
@@ -227,7 +239,9 @@ urls = u"".join([u"""  <url>
     <changefreq>monthly</changefreq>
     <priority>%s</priority>
   </url>
-""" % (SITIO, a, "1.0" if a == "data-engineer.html" else ("0.9" if a == "armar.html" else "0.8")) for a in PAGINAS])
+""" % (SITIO, sin_html(a),
+       "1.0" if a == "data-engineer.html" else ("0.9" if a == "armar.html" else "0.8"))
+   for a in PAGINAS if a != "index.html"])
 
 io.open(AQUI + "sitemap.xml", "w", encoding="utf-8").write(
 u"""<?xml version="1.0" encoding="UTF-8"?>
