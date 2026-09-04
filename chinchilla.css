@@ -363,6 +363,24 @@ li.ok .tilde .caja{ animation:tilde-ok 320ms cubic-bezier(.2,.9,.3,1.4); }
    chinchilla se come la mitad de cada renglon. */
 @media (max-width:820px){ .chin-hero{ display:none; } }
 
+/* --- La red: nada decorativo deja contenido invisible ------------
+
+   Las animaciones de entrada de aca arriba usan fill `backwards`
+   para escalonarse, y eso las deja en el fotograma inicial -opacity
+   0, o ancho 0- mientras no arrancan. El reloj de animaciones avanza
+   solo cuando la pagina se pinta; en una pestana que nunca se pinto
+   no arrancan nunca y el contenido no aparece.
+
+   chinchilla.js pone esta clase a los dos segundos. Con animation
+   none el elemento vale por su estilo normal, que es verse. */
+.chin-sin-entrada .grid-cards .card-wrap,
+.chin-sin-entrada .card-av .b i,
+.chin-sin-entrada .barra i,
+.chin-sin-entrada .ag-dia,
+.chin-sin-entrada .chin-dice b,
+.chin-sin-entrada .chin-dice p,
+.chin-sin-entrada .chin-cerca{ animation:none; }
+
 /* --- Las huellas entre secciones -------------------------------- */
 .chin-paso{
   display:flex; justify-content:center;

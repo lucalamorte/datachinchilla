@@ -659,6 +659,14 @@ var Chin = (function(){
        que están escritos en el HTML. */
     window.addEventListener("load", recorrido);
     setTimeout(recorrido, 400);
+    /* Y la red: a los dos segundos se apagan las animaciones de
+       entrada. Si el reloj de animaciones nunca arranco -pestana que
+       no se pinto, vuelta desde el cache- lo que quedo en el primer
+       fotograma aparece. Los timers corren igual, que es por lo que
+       esto sirve. */
+    setTimeout(function(){
+      document.documentElement.classList.add("chin-sin-entrada");
+    }, 2000);
   }
 
   return { svg: svg, pinta: pinta, cavando: cavando, espera: espera,
