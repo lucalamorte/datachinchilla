@@ -351,8 +351,14 @@ var Chin = (function(){
     for(var i=0;i<q.length;i++){
       var c = q[i].getBoundingClientRect();
       /* Un poco antes de que llegue al borde, para que la animación
-         termine cuando el elemento está a la vista y no después. */
-      if(c.top < window.innerHeight * 0.92 && c.bottom > 0){
+         termine cuando el elemento está a la vista y no después.
+
+         Sin pedir que siga a la vista: con un envión del dedo la
+         página salta más de una pantalla entre dos revisiones, y un
+         elemento pasa de estar abajo a estar arriba sin haber estado
+         nunca en el medio. Pidiéndolo, ése quedaba escondido para
+         siempre, ocupando su lugar en blanco. */
+      if(c.top < window.innerHeight * 0.92){
         q[i].classList.remove("chin-lejos");
         q[i].classList.add("chin-cerca");
       }
