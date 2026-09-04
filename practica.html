@@ -1103,7 +1103,7 @@ li.ok .prob .t{ color:var(--text-3); }
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=84529b0e"></script>
+<script src="guia.js?v=2160a0d2"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="problemas.js?v=cab859ac"></script>
 <script src="practica.js?v=2dcdb092"></script>
@@ -1584,7 +1584,11 @@ function ubicarGuia(caja, sel){
     return;
   }
   var e = document.querySelector(sel);
-  if(!e){
+  /* Un nodo escondido devuelve un rectángulo de ceros y el globo
+     terminaba pegado a la esquina de arriba a la izquierda, sin nada
+     que señalar. Se trata igual que si no existiera. */
+  var seVe = e && (e.offsetWidth || e.offsetHeight || e.getClientRects().length);
+  if(!seVe){
     caja.className = "chin chin-esquina";
     caja.style.top = ""; caja.style.left = "";
     return;

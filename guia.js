@@ -8,13 +8,20 @@
    de verdad, y la chinchilla te va diciendo qué hacer desde una
    esquina, sin taparte nada.
 
-   Cuatro pasos, y cada uno se completa solo cuando de verdad hiciste
-   la cosa, no cuando cerraste el globo:
+   El recorrido, y cada paso se completa cuando de verdad hiciste la
+   cosa, no cuando cerraste el globo:
 
-     1. Estás en la portada. Se cuenta qué es esto.
-     2. Cargar el CV.        Se completa cuando hay ruta.
-     3. Armar la semana.     Se completa cuando hay días y horas.
-     4. Listo.               Queda tu agenda y la práctica del día.
+     portada   se cuenta qué es esto, y se invita a cargar el CV
+     cv        el puesto, la experiencia, lo que ya sabes, y guardar
+     ruta      la ruta guardada, y de ahí a la semana
+     semana    los días y el rato
+     portada   la agenda armada y la práctica del día
+
+   Los pasos del CV se saltean si ya lo cargaste, y el de la semana si
+   ya la configuraste. Se pregunta por eso mismo y no por algo
+   parecido: mirar si había rutas activas daba por hecho el CV, y
+   desde que una ruta se puede activar de a un botón, eso dejó de ser
+   cierto y la guía desaparecía en cv.html.
 
    Se puede cerrar en cualquier momento y no vuelve a aparecer.
 
@@ -67,6 +74,30 @@ var Guia = (function(){
       accion: "Ya está, seguir",
       lleva: "",
       ancla: "#cvZona"
+    },
+    {
+      id: "leido",
+      donde: "cv",
+      titulo: "Esto ya lo sabes",
+      texto: "Lo que reconocí en lo que contaste, y que por eso no te voy a " +
+             "ofrecer. Si alguno no corresponde, sácalo con su cruz y rehago la " +
+             "ruta sin él.",
+      accion: "Está bien así",
+      lleva: "",
+      ancla: "#sabe"
+    },
+    {
+      id: "guardar",
+      donde: "cv",
+      titulo: "Y esto es lo que falta",
+      texto: "Los cursos que te faltan para ese puesto, en el orden que conviene " +
+             "hacerlos. Guárdala y queda como tu ruta.",
+      /* No promete guardar: el botón del globo avanza la guía, el que
+         guarda es el de la página. Prometerlo dejaba a alguien
+         creyendo que ya lo había hecho. */
+      accion: "Listo, la guardé",
+      lleva: "",
+      ancla: "#guardarRuta"
     },
     {
       id: "semana",
@@ -136,15 +167,35 @@ var Guia = (function(){
   function alDia(){
     if(typeof Onb === "undefined") return;
     Onb.cargar();
-    var hayRuta = (Onb.estado.rutas || []).length > 0;
+
+    /* Cada paso pregunta por lo que el paso hace, y no por un
+       parecido.
+
+       Antes esto miraba si había rutas activas para dar por hecho el
+       CV. Dejó de valer cuando el catálogo y las páginas de ruta
+       pudieron activarlas solas: con tocar un botón, la guía saltaba
+       al paso de la semana, que sólo se pinta en una página de ruta,
+       y en cv.html el globo desaparecía para siempre. */
+    var hayCV = !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
+                Object.keys(Onb.estado.respuestas || {}).length >= 2;
+
     /* La marca explícita: los días y los minutos vienen con valor
        por defecto y siempre daban que sí. */
-    var haySemana = hayRuta && !!Onb.estado.semanaLista;
-    /* Los pasos se saltean solos cuando ya hiciste la cosa: si venías
-       con tu ruta armada, la guía no te la vuelve a pedir. */
+    var haySemana = !!Onb.estado.semanaLista;
+
+    /* La ruta guardada: la marca terminar(), que corre el botón de
+       guardar del CV. Es la señal exacta de "ya cerré ese paso", a
+       diferencia de tener rutas activas, que se llenan de mil formas
+       y no dicen nada sobre el CV. */
+    var hayRutaPropia = !!Onb.estado.hecho;
+
+    /* Cada señal adelanta hasta el paso que ESA cosa completa, ni uno
+       más. Antes el CV saltaba directo a la semana y se comía los dos
+       pasos que explican el resultado. */
     var i = indiceDe;
     if(haySemana && estado.paso < i("listo")) estado.paso = i("listo");
-    else if(hayRuta && estado.paso < i("semana")) estado.paso = i("semana");
+    else if(hayRutaPropia && estado.paso < i("semana")) estado.paso = i("semana");
+    else if(hayCV && estado.paso < i("leido")) estado.paso = i("leido");
   }
 
   function indiceDe(id){

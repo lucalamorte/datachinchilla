@@ -1236,7 +1236,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 <script src="temas.js?v=a8e81f08"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=fb5df1b2"></script>
-<script src="guia.js?v=84529b0e"></script>
+<script src="guia.js?v=2160a0d2"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
@@ -1837,7 +1837,11 @@ function ubicarGuia(caja, sel){
     return;
   }
   var e = document.querySelector(sel);
-  if(!e){
+  /* Un nodo escondido devuelve un rectángulo de ceros y el globo
+     terminaba pegado a la esquina de arriba a la izquierda, sin nada
+     que señalar. Se trata igual que si no existiera. */
+  var seVe = e && (e.offsetWidth || e.offsetHeight || e.getClientRects().length);
+  if(!seVe){
     caja.className = "chin chin-esquina";
     caja.style.top = ""; caja.style.left = "";
     return;
@@ -1931,6 +1935,19 @@ function init(){
   }
 
   engancharZona();
+
+  /* El CV que ya habías cargado. Vive en Onb.estado.cv, pero hasta
+     ahora la página abría en blanco: había que volver a subirlo para
+     ver lo mismo que ya se había leído, y el botón de guardar decía
+     que no había ruta porque nada se había analizado.
+
+     Va sin la chinchilla escarbando: ese cartel es para cuando se
+     está leyendo algo nuevo, y acá sólo se vuelve a pintar. */
+  if(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30){
+    document.getElementById("cvTexto").value = Onb.estado.cv;
+    yaCavo = true;
+    pintar(Onb.estado.cv);
+  }
 
   var zona = document.getElementById("cvZona");
   ["dragenter", "dragover"].forEach(function(e){
