@@ -2993,10 +2993,10 @@ function pintarOnb(){
 
 function onbInit(){
   document.getElementById("onbEditar").addEventListener("click", function(){
-    /* Esto es volver al onboarding, asi que la guia vuelve con vos.
-       Sin esto llegabas al CV sin globo: la guia ya se habia dado por
-       terminada en su ultimo paso, que vive en la portada. */
-    if(typeof Guia !== "undefined") Guia.retomar("rol");
+    /* Aca no se toca la guia. Volves con todo cargado a retocar: la
+       ruta sigue siendo la tuya y la semana sigue acomodada, asi que
+       alDia() deshace cualquier retomar en la misma lectura. El globo
+       vuelve al guardar, que es cuando de verdad cambio algo. */
     location.href = "cv.html";
   });
   document.getElementById("onbOtroCv").addEventListener("click", function(){
@@ -3006,8 +3006,12 @@ function onbInit(){
     Onb.estado.rutas = [];
     Onb.estado.deRuta = "";
     /* Empezas el CV de cero, asi que la semana que habia deja de
-       estar acomodada: era para la ruta que acabas de descartar. */
+       estar acomodada -era para la ruta que acabas de descartar- y
+       tampoco tenes ruta hecha. Con `hecho` en true, alDia() creia
+       que si y adelantaba la guia hasta el paso de la semana, que
+       vive en otra pagina: llegabas al CV en blanco y sin globo. */
     Onb.estado.semanaLista = false;
+    Onb.estado.hecho = false;
     Onb.guardar();
     if(typeof Guia !== "undefined") Guia.retomar("rol");
     location.href = "cv.html";
