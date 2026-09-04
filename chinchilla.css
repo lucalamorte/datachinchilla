@@ -311,7 +311,15 @@ li.ok .tilde .caja{ animation:tilde-ok 320ms cubic-bezier(.2,.9,.3,1.4); }
    desde el JS) una falla del JS deja la pagina en blanco. */
 .chin-lejos{ opacity:0; transform:translateY(14px); }
 .chin-cerca{
-  animation:chin-llega 520ms cubic-bezier(.2,.8,.3,1) both;
+  /* Sin fill, a proposito. Con `both` el elemento se queda en el
+     fotograma inicial -opacity 0- mientras la animacion no avanza, y
+     si el reloj no corre no se ve nunca. Asi vale su estilo normal y
+     la animacion es solo el adorno. */
+  animation:chin-llega 520ms cubic-bezier(.2,.8,.3,1);
+  /* La escalera de .ag-dia y .grid-cards es para su propia entrada:
+     aplicada aca dejaba el elemento visible y despues lo apagaba de
+     golpe para volver a encenderlo. */
+  animation-delay:0s;
 }
 @keyframes chin-llega{
   from{ opacity:0; transform:translateY(14px); }
