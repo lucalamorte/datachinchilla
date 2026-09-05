@@ -233,6 +233,20 @@ var Onb = (function(){
     }
     if(!pesoTotal) return [];
 
+    /* Los temas que son el oficio: los que el puesto pide en 3 y
+       todavía te faltan. Una ruta que no toca ninguno puede servirte
+       después, pero no es TU ruta.
+
+       Sin esta regla, a un desarrollador de React apuntando a Full
+       Stack le salía SnowPro Core: dieciséis pasos de nube y SQL, que
+       también le hacen falta un poco, sumaban más que las quince
+       partes que cubren justo lo que el puesto es. Todos los temas
+       pesaban igual en la cuenta. */
+    var puesto = (typeof CV !== "undefined") ? CV.puestoDe(estado.puesto) : null;
+    var pide = (puesto && puesto.temas) ? puesto.temas : {};
+    var centrales = [], kk;
+    for(kk in falta){ if(pide[kk] >= 3) centrales.push(kk); }
+
     var rs = (typeof PASOS !== "undefined") ? PASOS : [], out = [], j, k;
     var nivel = miNivel();
     for(j=0;j<rs.length;j++){
@@ -248,6 +262,13 @@ var Onb = (function(){
         if(falta[k]){ cubre += falta[k]; pasosUtiles += temas[k]; }
       }
       if(!pasosTotal) continue;
+
+      var tocaCentral = 0, c;
+      for(c=0;c<centrales.length;c++){ if(temas[centrales[c]]) tocaCentral++; }
+      /* Si el puesto tiene oficio declarado y esta ruta no toca nada
+         de él, queda afuera de la recomendación. */
+      if(centrales.length && !tocaCentral) continue;
+
       out.push({
         clave: clave,
         nombre: rs[j].nombre,
@@ -257,11 +278,16 @@ var Onb = (function(){
         /* Cuánto de la ruta te sirve: si la mitad ya la sabes, no
            es tu ruta aunque cubra los temas. */
         aprovecha: pasosUtiles / pasosTotal,
+        /* Cuántos de los temas centrales del puesto toca. Desempata:
+           entre dos rutas parecidas, la que va más al centro. */
+        central: centrales.length ? tocaCentral / centrales.length : 0,
         pasos: rs[j].pasos.length
       });
     }
     out.sort(function(a, b){
-      return (b.cubre * b.aprovecha) - (a.cubre * a.aprovecha);
+      var pa = a.cubre * a.aprovecha * (1 + a.central);
+      var pb = b.cubre * b.aprovecha * (1 + b.central);
+      return pb - pa;
     });
     return out;
   }
