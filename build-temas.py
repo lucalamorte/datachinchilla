@@ -119,16 +119,20 @@ TEMAS = [
    "css", "frontend", "front-end", "front end", "next.js", "nextjs", "tailwind",
    "jquery", "redux", "sass", "webpack", "vite", "spa", "responsive",
    "react native", "flutter", "bootstrap"],
-  ["react", "javascript", "typescript", "frontend", "componente", "hook",
-   "next.js", "interfaz", "pantalla", "app web", "react native", "estado que"]),
+  # Sin reglas de titulo, a proposito: el matcheo es por subcadena y
+  # "react" agarraba "sistemas reactivos" y "un agente ReAct desde
+  # cero". La ruta de web declara su tema por tramo en POR_TRAMO, que
+  # es explicito; aca estas reglas solo podian ensuciar otras rutas.
+  []),
 
  ("backend", u"Backend y APIs",
   ["api", "rest", "restful", "graphql", "node", "nodejs", "node.js", "express",
    "backend", "back-end", "back end", "endpoint", "spring", "spring boot",
    ".net", "laravel", "rails", "nestjs", "jwt", "oauth", "autenticacion",
    "microservicios", "http"],
-  ["servidor", "express", "node", "api", "graphql", "backend", "endpoint",
-   "autenticacion", "usuarios", "rest"]),
+  # Idem: "api" agarraba "Building with the Claude API" y "servidor"
+  # agarraba "Desplegar vision sin servidor".
+  []),
 
  ("web3", u"Blockchain y Web3",
   ["blockchain", "solidity", "ethereum", "web3", "smart contract",
@@ -194,22 +198,6 @@ POR_RUTA = {
 # Cuanto pide cada puesto de cada tema: 3 es el dia a dia, 2 se usa
 # seguido, 1 se toca. Lo que no figura, no se pide.
 PUESTOS = [
- # --- fuera de datos -------------------------------------------------
- # El sitio dice "para trabajar en tech" y hasta aca solo sabia leer
- # curriculums de datos. Estos tres son los primeros que no lo son.
- {"id": "fullstack", "nombre": u"Desarrollador Full Stack",
-  "resumen": u"Construir la aplicación entera: la pantalla, el servidor que la alimenta y lo que hace falta para publicarla.",
-  "temas": {"web": 3, "backend": 3, "prog": 2, "calidad": 2, "sql": 2,
-            "cloud": 2}},
-
- {"id": "frontend", "nombre": u"Desarrollador Frontend",
-  "resumen": u"La parte que la gente toca: que se entienda, que responda y que funcione en cualquier pantalla.",
-  "temas": {"web": 3, "prog": 2, "calidad": 2, "backend": 1}},
-
- {"id": "backend_dev", "nombre": u"Desarrollador Backend",
-  "resumen": u"Lo que hay detrás de la pantalla: las APIs, los datos y que aguante cuando entra gente de verdad.",
-  "temas": {"backend": 3, "prog": 2, "sql": 2, "calidad": 2, "cloud": 2}},
-
  {"id": "data_engineer", "nombre": u"Data Engineer",
   "resumen": u"Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
   "temas": {"sql": 3, "python": 3, "modelado": 3, "pipelines": 3, "cloud": 2,
@@ -234,6 +222,22 @@ PUESTOS = [
   "resumen": u"Aplicaciones sobre modelos de lenguaje: recuperación, agentes y sus límites.",
   "temas": {"llm": 3, "python": 3, "prog": 2, "cloud": 2, "ml": 1, "deep": 1,
             "mlops": 1}},
+
+ # --- fuera de datos -------------------------------------------------
+ # El sitio dice "para trabajar en tech" y hasta aca solo sabia leer
+ # curriculums de datos. Estos tres son los primeros que no lo son.
+ {"id": "fullstack", "nombre": u"Desarrollador Full Stack",
+  "resumen": u"Construir la aplicación entera: la pantalla, el servidor que la alimenta y lo que hace falta para publicarla.",
+  "temas": {"web": 3, "backend": 3, "prog": 2, "calidad": 2, "sql": 2,
+            "cloud": 2}},
+
+ {"id": "frontend", "nombre": u"Desarrollador Frontend",
+  "resumen": u"La parte que la gente toca: que se entienda, que responda y que funcione en cualquier pantalla.",
+  "temas": {"web": 3, "prog": 2, "calidad": 2, "backend": 1}},
+
+ {"id": "backend_dev", "nombre": u"Desarrollador Backend",
+  "resumen": u"Lo que hay detrás de la pantalla: las APIs, los datos y que aguante cuando entra gente de verdad.",
+  "temas": {"backend": 3, "prog": 2, "sql": 2, "calidad": 2, "cloud": 2}},
 ]
 
 
