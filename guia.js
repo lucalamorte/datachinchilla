@@ -148,9 +148,16 @@ var Guia = (function(){
   function set(k, v){ try{ localStorage.setItem(k, v); return true; }catch(e){ return false; } }
 
   function cargar(){
+    /* Primero la clave suelta y despues el perfil, al reves que el
+       resto del sitio y a proposito: un recorrido guiado es de este
+       navegador, no de quien lo usa. Guardandolo en el perfil, si el
+       perfil no estaba activo todavia al cargar la pagina no se
+       encontraba nada y la guia volvia a aparecer entera despues de
+       haberla cerrado. El perfil se sigue leyendo para el que ya
+       tenga su estado ahi. */
     var pf = perfil(), crudo = null;
-    if(pf && pf.guia) crudo = pf.guia;
-    else { try{ crudo = JSON.parse(get(K) || "null"); }catch(e){ crudo = null; } }
+    try{ crudo = JSON.parse(get(K) || "null"); }catch(e){ crudo = null; }
+    if(!crudo && pf && pf.guia) crudo = pf.guia;
     if(crudo && typeof crudo === "object"){
       if(typeof crudo.paso === "number") estado.paso = crudo.paso;
       estado.cerrada = !!crudo.cerrada;
@@ -159,8 +166,7 @@ var Guia = (function(){
   }
 
   function guardar(){
-    var pf = perfil();
-    if(pf){ pf.guia = estado; return PathSync.store.save(); }
+    /* Siempre en la clave suelta, por lo mismo que cargar(). */
     return set(K, JSON.stringify(estado));
   }
 
@@ -178,6 +184,7 @@ var Guia = (function(){
        pudieron activarlas solas: con tocar un botón, la guía saltaba
        al paso de la semana, que sólo se pinta en una página de ruta,
        y en cv.html el globo desaparecía para siempre. */
+    var hayPuesto = !!Onb.estado.puesto;
     var hayCV = !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
                 Object.keys(Onb.estado.respuestas || {}).length >= 2;
 
@@ -198,6 +205,10 @@ var Guia = (function(){
     if(haySemana && estado.paso < i("listo")) estado.paso = i("listo");
     else if(hayRutaPropia && estado.paso < i("semana")) estado.paso = i("semana");
     else if(hayCV && estado.paso < i("leido")) estado.paso = i("leido");
+    /* Elegir el puesto ya es haber hecho el paso del puesto: pedir
+       ademas que confirme que lo eligio es preguntarle algo que
+       acaba de contestar. */
+    else if(hayPuesto && estado.paso < i("cargar")) estado.paso = i("cargar");
   }
 
   function indiceDe(id){

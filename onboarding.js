@@ -110,9 +110,18 @@ var Onb = (function(){
   }
 
   function guardar(){
-    var pf = perfil();
-    if(pf){ pf.onb = estado; return PathSync.store.save(); }
-    return set(K, JSON.stringify(estado));
+    var pf = perfil(), ok;
+    if(pf){ pf.onb = estado; ok = PathSync.store.save(); }
+    else ok = set(K, JSON.stringify(estado));
+    /* La guia mira este estado para saber por que paso vas. Sin este
+       aviso solo se enteraba al recargar, y por eso habia que
+       confirmarle a mano lo que acababas de hacer. */
+    try{
+      if(typeof document !== "undefined" && document.dispatchEvent){
+        document.dispatchEvent(new CustomEvent("onb:cambio"));
+      }
+    }catch(e){}
+    return ok;
   }
 
   function hecho(){ return !!estado.hecho; }

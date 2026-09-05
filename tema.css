@@ -33,7 +33,9 @@
   /* Contra el fondo de verdad (#F1F4F7), no contra blanco: medido
      contra blanco daba 4.6 y contra el fondo 3.9, abajo del minimo. */
   --text-3:        #64707F;   /* 4.6:1 sobre --bg */
-  --divider:       #D8DEE6;
+  /* 1.53:1 sobre blanco. Estaba en #D8DEE6, que daba 1.35 y dejaba
+     las tarjetas sin contorno visible. */
+  --divider:       #C8D2DE;
   --divider-soft:  #E8ECF1;
 
   /* ------------------------------------------------- semánticos
@@ -113,11 +115,14 @@
    blancas dejaban de despegarse del fondo. */
 body{
   margin:0;
+  /* En claro el acento es mas oscuro que el fondo, asi que un 14% se
+     pierde; en oscuro es mas claro y con 9% ya se nota. Por eso los
+     dos temas no llevan el mismo numero. */
   background:
     radial-gradient(1200px 680px at 82% -16%,
-      color-mix(in srgb, var(--accent) 14%, transparent), transparent 60%),
+      color-mix(in srgb, var(--accent) 26%, transparent), transparent 60%),
     radial-gradient(900px 520px at -6% 4%,
-      color-mix(in srgb, var(--accent) 7%, transparent), transparent 58%),
+      color-mix(in srgb, var(--accent) 14%, transparent), transparent 58%),
     var(--bg);
   background-attachment: fixed;
   color:var(--text);
@@ -313,3 +318,29 @@ body{
 .foot .foot-in .foot-marca b{ letter-spacing:-.02em; }
 .foot .foot-links a{ color:var(--text); font-size:13.5px; }
 .foot .foot-links a:hover{ color:var(--accent-strong); }
+
+/* --- Profundidad en el tema claro ---------------------------------
+
+   En oscuro la separacion la hace el borde: es mas claro que el fondo
+   y el ojo lo lee solo. En claro un borde palido sobre casi blanco no
+   alcanza, y la profundidad la tiene que hacer la sombra, que es como
+   funcionan las interfaces claras.
+
+   Estas cuatro estaban con box-shadow: none, asi que las tarjetas
+   quedaban dibujadas con una linea y la pagina se veia plana al lado
+   del tema oscuro.
+
+   Va solo en claro: en oscuro las sombras casi no se ven y el trabajo
+   ya lo hace el borde. */
+:root:not([data-theme="dark"]) .puerta,
+:root:not([data-theme="dark"]) .ir-ruta,
+:root:not([data-theme="dark"]) .reto-c,
+:root:not([data-theme="dark"]) .ra-card,
+:root:not([data-theme="dark"]) .grid-cards .card-wrap > .card,
+:root:not([data-theme="dark"]) .cv-paso{
+  box-shadow: var(--shadow-sm);
+}
+:root:not([data-theme="dark"]) .puerta:hover,
+:root:not([data-theme="dark"]) .ir-ruta:hover{
+  box-shadow: var(--shadow-md);
+}
