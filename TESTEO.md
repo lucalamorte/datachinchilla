@@ -184,7 +184,13 @@ Al marcar el segundo tiene que aparecer un cartel con la chinchilla en
 un cohete: "El día está cerrado".
 
 Volvé a la portada: en la fila de hoy de la agenda tiene que verse
-"2/2" y una chinchilla con un café al lado.
+"2/2".
+
+La chinchilla con el café aparece con **los dos bancos** cerrados, no
+con uno: son 2 de Python y 2 de SQL. Con uno solo no tiene que estar.
+Y la fila de hoy solo muestra el contador si hoy es un día que
+marcaste en tu semana; si hoy te toca libre, dice "Libre" y está
+bien.
 
 **Probá también los vacíos:** escribí algo sin sentido en el buscador
 ("zzzz"). Tiene que aparecer la chinchilla con una lupa y un texto que
@@ -197,9 +203,16 @@ diga qué hacer, no un renglón gris.
 No hay que hacer nada para que aparezcan. En cualquier página:
 
 - Una **escarbando** al lado del texto de entrada, arriba
-- **Huellas** entre sección y sección
+- **Huellas** entre sección y sección, donde haya al menos tres
+  secciones a la vista. En `/practica` hay una sola, así que ahí no
+  van, y en `/cv` los pasos que todavía no se abrieron no cuentan.
 - Una que se **asoma** por el borde de arriba del pie, cada 7 segundos
-- Una **huella chiquita** al lado del rótulo de cada bloque
+- Una **huella chiquita** al lado del rótulo de cada bloque. En `/cv`
+  los rótulos llevan número de paso en vez de huella.
+
+Si tenés activado "reducir movimiento" en el sistema, la que se asoma
+en el pie se queda quieta y visible en vez de aparecer cada 7
+segundos. Es a propósito: sin su animación quedaría fuera de cuadro.
 
 En el pie tiene que haber **una sola** chinchilla (la de la marca).
 Si ves tres en el mismo renglón, es un fallo.
@@ -209,6 +222,10 @@ Si ves tres en el mismo renglón, es un fallo.
 ## 10. Los números coinciden
 
 Entrá a estas rutas y comparen el título con el contador de arriba:
+
+El catálogo dice "las 15 rutas" y el filtro "Todo 15": son las que se
+pueden hacer. La grilla muestra 16 tarjetas porque hay una anunciada,
+sin página.
 
 | Ruta | Tiene que decir |
 |---|---|

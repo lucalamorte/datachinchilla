@@ -854,27 +854,48 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   font-size:11px; font-weight:800; letter-spacing:.06em;
   text-transform:uppercase; color:var(--text-3);
 }
-.ra-lista{ display:flex; flex-wrap:wrap; gap:8px; }
-.ra-b{
-  display:inline-flex; align-items:center; gap:7px;
-  padding:7px 13px; border-radius:var(--r-pill); cursor:pointer;
-  font:inherit; font-size:13px; font-weight:700;
-  background:var(--surface); border:1px solid var(--divider);
-  color:var(--text-2);
-  transition:background var(--dur) ease, border-color var(--dur) ease, color var(--dur) ease;
+/* Las rutas que estan adentro, una por renglon. Antes eran quince
+   casillas con todo el catalogo: esta pagina tiene que mostrarte lo
+   que tenes, no el inventario. */
+.ra-lista{ display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none; }
+.ra-card{
+  display:flex; align-items:center; gap:14px;
+  padding:13px 14px; border:1px solid var(--line); border-radius:12px;
+  background:var(--surface);
 }
-.ra-b:hover{ border-color:var(--accent); color:var(--text); }
-.ra-b .tic{
-  display:grid; place-items:center; width:15px; height:15px;
-  border-radius:5px; border:1.5px solid var(--divider); flex:none;
+.ra-card + .ra-card{ margin-top:0; }
+.ra-ico{
+  width:34px; height:34px; flex:none; border-radius:9px;
+  display:grid; place-items:center;
+  background:var(--accent-soft); color:var(--accent-strong);
 }
-.ra-b .tic svg{ opacity:0; width:9px; height:9px; }
-.ra-b.on{
-  background:var(--accent-soft); border-color:var(--accent);
-  color:var(--accent-strong);
+.ra-txt{ min-width:0; flex:1; }
+.ra-nom{
+  display:block; font-weight:800; font-size:15px; color:var(--text);
+  text-decoration:none; letter-spacing:-.01em;
 }
-.ra-b.on .tic{ background:var(--accent); border-color:var(--accent); color:var(--surface); }
-.ra-b.on .tic svg{ opacity:1; }
+.ra-nom:hover{ color:var(--accent-strong); }
+.ra-meta{ display:block; margin-top:2px; font-size:12.5px; color:var(--text-3); }
+.ra-sacar{
+  flex:none; border:1px solid var(--line); background:none; cursor:pointer;
+  color:var(--text-3); font:inherit; font-size:12.5px; font-weight:700;
+  padding:7px 11px; border-radius:9px;
+}
+.ra-sacar:hover{ border-color:var(--mal); color:var(--mal); }
+.ra-vacio{
+  margin:0; padding:16px 14px; border:1px dashed var(--line);
+  border-radius:12px; font-size:13.5px; color:var(--text-2);
+}
+.ra-mas{
+  display:inline-flex; align-items:center; gap:7px; margin-top:12px;
+  font-size:13.5px; font-weight:800; color:var(--accent-strong);
+  text-decoration:none;
+}
+.ra-mas:hover{ text-decoration:underline; }
+@media (max-width:520px){
+  .ra-card{ gap:10px; padding:11px 12px; }
+  .ra-ico{ display:none; }
+}
 .ra-nota{ margin:12px 0 0; font-size:12.5px; color:var(--text-3); }
 
 .rutas-filtros{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:20px; }
@@ -1442,36 +1463,60 @@ function pintarQueEstudias(){
    había que cargar el currículum de nuevo. */
 function pintarRutasActivas(){
   var caja = document.getElementById("rutasActivas");
-  if(!caja || typeof Onb === "undefined" || typeof PASOS === "undefined") return;
+  if(!caja || typeof Onb === "undefined" || typeof Plan === "undefined") return;
   Onb.cargar();
 
-  var h = "", i, p, act;
-  for(i=0;i<PASOS.length;i++){
-    p = PASOS[i];
-    act = Onb.activa(p.clave);
-    h += '<button class="ra-b' + (act ? " on" : "") + '" type="button" ' +
-      'data-ruta="' + esc(p.clave) + '" aria-pressed="' + (act ? "true" : "false") + '">' +
-      '<span class="tic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
-      'stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<path d="M20 6L9 17l-5-5"/></svg></span>' +
-      esc(p.nombre) + '</button>';
+  var act = Plan.activas(), h = "", i;
+  for(i=0;i<act.length;i++){
+    var r = act[i];
+    var pend = Plan.pendientesDe(r);
+    var min = 0, k;
+    for(k=0;k<pend.length;k++) min += (pend[k].min || 0);
+
+    /* Lo que importa de una ruta que ya elegiste no es su nombre
+       solo: es cuanto te queda y cuanto tiempo pide. */
+    var falta = pend.length
+      ? pend.length + " sin hacer de " + r.pasos.length + " · " + ratoLargo(min)
+      : "Terminada: los " + r.pasos.length + " pasos";
+
+    h += '<li class="ra-card">' +
+      '<span class="ra-ico" aria-hidden="true">' +
+        '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M4 19V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h7"/></svg>' +
+      '</span>' +
+      '<span class="ra-txt">' +
+        '<a class="ra-nom" href="' + esc(r.archivo) + '">' + esc(r.nombre) + '</a>' +
+        '<span class="ra-meta">' + falta + '</span>' +
+      '</span>' +
+      '<button class="ra-sacar" type="button" data-ruta="' + esc(r.clave) + '" ' +
+      'title="Deja de ocupar tiempo en tu semana. Lo que marcaste no se toca.">Sacar</button>' +
+    '</li>';
   }
 
-  var cuantas = Onb.estado.rutas.length;
+  var mas = '<a class="ra-mas" href="index.html#rutas">' +
+    (act.length ? "Sumar otra ruta" : "Ver el catálogo") +
+    ' <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M5 12h14M13 6l6 6-6 6"/></svg></a>';
+
   caja.innerHTML =
     '<span class="ra-t">Qué entra en tu semana</span>' +
-    '<div class="ra-lista">' + h + '</div>' +
-    '<p class="ra-nota">' + (cuantas
-      ? "El tiempo se reparte entre las " + (cuantas === 1 ? "que elegiste" : cuantas + " que elegiste") + "."
-      : "Sin ninguna elegida no hay nada que repartir. Toca las que quieras hacer.") +
-    '</p>';
+    (act.length
+      ? '<ul class="ra-lista">' + h + '</ul>'
+      : '<p class="ra-vacio">Todavía no elegiste ninguna. Cada ruta tiene un botón ' +
+        'para sumarla, y el catálogo también: el tiempo se reparte entre las que sumes.</p>') +
+    mas +
+    (act.length > 1
+      ? '<p class="ra-nota">El tiempo se reparte entre las ' + act.length + ' que elegiste.</p>'
+      : "");
   caja.hidden = false;
 
   var b = caja.querySelectorAll("[data-ruta]"), j;
   for(j=0;j<b.length;j++){
     b[j].addEventListener("click", function(){
       Onb.alternarRuta(this.getAttribute("data-ruta"));
-      /* La semana se rehace: es lo único que cambia al elegir otra. */
+      /* La semana se rehace: es lo unico que cambia al sacar una. */
       pintarRutasActivas();
       pintarQueEstudias();
       pintarSemana();

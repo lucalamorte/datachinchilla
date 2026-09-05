@@ -895,6 +895,36 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   background:var(--accent-soft); border-color:var(--accent); color:var(--accent-strong);
 }
 .filtro .c{ opacity:.6; margin-left:5px; font-variant-numeric:tabular-nums; }
+
+/* Los dos desplegables. Antes eran veintitres pastillas siempre a la
+   vista; el boton dice por que estas filtrando, que era justo lo que
+   habia que ir a buscar entre las pastillas prendidas. */
+.sel{
+  display:inline-flex; align-items:center; gap:7px;
+  border:1px solid var(--line); border-radius:999px;
+  padding:0 12px 0 14px; background:var(--surface);
+  font-size:13px; font-weight:700; color:var(--text-3);
+}
+.sel:hover{ border-color:var(--accent); }
+.sel:focus-within{ border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+.sel.on{ border-color:var(--accent); color:var(--accent-strong); }
+.sel > span{ flex:none; }
+.sel select{
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  border:0; background:transparent; color:var(--text);
+  font:inherit; font-weight:800; cursor:pointer;
+  padding:9px 20px 9px 0; max-width:190px;
+  text-overflow:ellipsis;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat; background-position:right 2px center;
+}
+.sel select:focus{ outline:none; }
+/* El desplegable abierto lo pinta el sistema: sin esto, en oscuro
+   quedaba texto claro sobre fondo claro en varios navegadores. */
+.sel select option{ background:var(--surface); color:var(--text); }
+@media (max-width:520px){
+  .sel select{ max-width:130px; }
+}
 #qProb{
   flex:1 1 180px; min-width:150px; padding:8px 13px;
   border-radius:var(--r-pill); background:var(--surface-sunk);
@@ -1391,57 +1421,68 @@ function pintarFiltros(){
   var mapa = { todo: b.items.length, facil: 0, medio: 0, dificil: 0 };
   for(i=0;i<b.items.length;i++) mapa[b.items[i].d]++;
 
-  var DIF = [["todo", "Todos"], ["facil", "Fáciles"],
+  /* --- dificultad, en un desplegable */
+  var DIF = [["todo", "Toda dificultad"], ["facil", "Fáciles"],
              ["medio", "Medios"], ["dificil", "Difíciles"]];
-  var h = "", k;
+  var od = "", k;
   for(k=0;k<DIF.length;k++){
-    h += '<button class="filtro" type="button" data-dif="' + DIF[k][0] + '" ' +
-      'aria-pressed="' + (fDif === DIF[k][0]) + '">' + DIF[k][1] +
-      '<span class="c">' + mapa[DIF[k][0]] + '</span></button>';
+    od += '<option value="' + DIF[k][0] + '"' + (fDif === DIF[k][0] ? " selected" : "") +
+          '>' + DIF[k][1] + " (" + mapa[DIF[k][0]] + ")</option>";
   }
-  h += '<button class="filtro" type="button" data-est="pendientes" ' +
-       'aria-pressed="' + (fEstado === "pendientes") + '">Por hacer</button>';
-  h += '<button class="filtro" type="button" data-est="todo" ' +
-       'aria-pressed="' + (fEstado === "todo") + '">Todos</button>';
-  h += '<input type="search" id="qProb" placeholder="Buscar" value="' + esc(busca) + '">';
-  document.getElementById("filtros").innerHTML = h;
 
-  /* Los patrones solo tienen sentido en el banco de algoritmos: el
-     de SQL es todo el mismo patron. */
+  /* --- patrones, solo donde significan algo: el banco de SQL es
+     todo el mismo patron, asi que ahi el desplegable no aparece. */
   var pats = {}, orden = [];
   for(i=0;i<b.items.length;i++){
     var p = b.items[i].p;
     if(!pats[p]){ pats[p] = 0; orden.push(p); }
     pats[p]++;
   }
-  var ph = "";
+  orden.sort();
+  var selPat = "";
   if(orden.length > 1){
-    ph = '<button class="filtro" type="button" data-pat="todo" ' +
-         'aria-pressed="' + (fPat === "todo") + '">Todo patrón</button>';
+    var op = '<option value="todo"' + (fPat === "todo" ? " selected" : "") +
+             '>Todo patrón (' + b.items.length + ')</option>';
     for(i=0;i<orden.length;i++){
-      ph += '<button class="filtro" type="button" data-pat="' + esc(orden[i]) + '" ' +
-        'aria-pressed="' + (fPat === orden[i]) + '">' + esc(orden[i]) +
-        '<span class="c">' + pats[orden[i]] + '</span></button>';
+      op += '<option value="' + esc(orden[i]) + '"' + (fPat === orden[i] ? " selected" : "") +
+            '>' + esc(orden[i]) + " (" + pats[orden[i]] + ")</option>";
     }
+    selPat = '<label class="sel' + (fPat !== "todo" ? " on" : "") + '">' +
+      '<span>Patrón</span><select id="selPat">' + op + '</select></label>';
   }
-  document.getElementById("patrones").innerHTML = ph;
+
+  var h =
+    '<input type="search" id="qProb" placeholder="Buscar" value="' + esc(busca) + '">' +
+    '<label class="sel' + (fDif !== "todo" ? " on" : "") + '">' +
+      '<span>Dificultad</span><select id="selDif">' + od + '</select></label>' +
+    selPat +
+    '<button class="filtro" type="button" data-est="pendientes" ' +
+      'aria-pressed="' + (fEstado === "pendientes") + '">Por hacer</button>' +
+    '<button class="filtro" type="button" data-est="todo" ' +
+      'aria-pressed="' + (fEstado === "todo") + '">Todos</button>';
+
+  document.getElementById("filtros").innerHTML = h;
+
+  /* El renglon de patrones ya no existe: quedo adentro del de arriba. */
+  var pr = document.getElementById("patrones");
+  if(pr){ pr.innerHTML = ""; pr.hidden = true; }
 
   engancharFiltros();
 }
 
 function engancharFiltros(){
   var i, b;
-  b = document.querySelectorAll("[data-dif]");
-  for(i=0;i<b.length;i++) b[i].addEventListener("click", function(){
-    fDif = this.getAttribute("data-dif"); pintarTodo();
+  var sd = document.getElementById("selDif");
+  if(sd) sd.addEventListener("change", function(){
+    fDif = this.value; pintarTodo();
   });
   b = document.querySelectorAll("[data-est]");
   for(i=0;i<b.length;i++) b[i].addEventListener("click", function(){
     fEstado = this.getAttribute("data-est"); pintarTodo();
   });
-  b = document.querySelectorAll("[data-pat]");
-  for(i=0;i<b.length;i++) b[i].addEventListener("click", function(){
-    fPat = this.getAttribute("data-pat"); pintarTodo();
+  var sp = document.getElementById("selPat");
+  if(sp) sp.addEventListener("change", function(){
+    fPat = this.value; pintarTodo();
   });
   var q = document.getElementById("qProb");
   if(q) q.addEventListener("input", function(){

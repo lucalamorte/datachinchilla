@@ -2123,7 +2123,11 @@ function renderFiltroRutas(){
   }
 
   var html = '<button class="lib-filter' + (filtroRuta === "todo" ? " on" : "") + '" type="button" data-fr="todo">' +
-             'Todo <span class="n">' + PATHS.length + '</span></button>';
+             /* Solo las que se pueden hacer: la anunciada no tiene
+                pagina ni entra en tu semana, y contarla dejaba este
+                numero peleado con el del titulo. */
+             'Todo <span class="n">' + PATHS.filter(function(p){ return p.listo; }).length +
+             '</span></button>';
 
   /* Orden fijo: de menos a más pedido previo. */
   var ORDEN = ["Desde cero", "Con SQL sabido", "Con Python sabido", "Con experiencia"];
