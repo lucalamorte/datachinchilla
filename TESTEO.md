@@ -282,6 +282,42 @@ lista de cursos sueltos, es un fallo.
 
 ---
 
+## 12b. El CV que no es de datos
+
+El sitio dice "para trabajar en tech", así que tiene que servir a
+alguien que no viene de datos. **Desde cero**, en `/cv`, elegí el
+puesto **Desarrollador Full Stack** y probá estos dos.
+
+**Alguien que empieza.** Pegá:
+
+```
+Estudiante de sistemas. Hice algo de programacion en la facultad, con
+Java y un poco de algoritmos y estructura de datos. Manejo Git basico.
+Arme dos paginas con HTML y CSS para practicar. Nunca trabaje de esto
+y quiero dedicarme al desarrollo web.
+```
+
+Tiene que recomendar **"Full Stack Open"**, 15 cursos.
+
+**Alguien que ya trabaja de esto.** Pegá:
+
+```
+Desarrollador con 3 anos de experiencia. Hago interfaces en React con
+JavaScript y algo de TypeScript. Consumo APIs REST y armo formularios y
+tablas. Uso HTML y CSS a diario, y Git para todo. Toque Node con
+Express para un par de endpoints simples. No hice tests nunca.
+```
+
+Acá **no** tiene que recomendar una ruta entera: ya sabe React y Node,
+así que la respuesta correcta es una lista corta a medida con lo que
+le falta. Debería decir "Tu ruta son N cursos".
+
+**Falla si** en cualquiera de los dos aparece una ruta de datos
+—SnowPro Core, dbt, Big Data— como recomendación principal. Pasaba: a
+un desarrollador de React le salía la certificación de Snowflake.
+
+---
+
 ## 13. En el teléfono
 
 Abrí el sitio en un teléfono, o achicá la ventana a 375px de ancho.
