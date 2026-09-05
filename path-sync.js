@@ -677,9 +677,12 @@ var PathSync = (function(){
         ["datachinchilla/v1/plan",       "plan"],
         ["datachinchilla/v1/practica",   "practica"],
         ["datachinchilla/v1/dias",       "dias"],
-        ["datachinchilla/v1/cursos",     "cursos"],
-        ["datachinchilla/v1/guia",       "guia"]
+        ["datachinchilla/v1/cursos",     "cursos"]
       ];
+      /* 'guia' no esta y no tiene que estar: el recorrido guiado es
+         de este navegador, igual que 'visto'. Reclamarlo borraba la
+         clave suelta, y en la carga siguiente en la que el perfil no
+         estuviera activo todavia la guia volvia a empezar de cero. */
 
       /* Se copia primero, se guarda, y recien ahi se borra el
          original: si el guardado falla -cuota llena- el dato sigue
