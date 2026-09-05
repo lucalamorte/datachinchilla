@@ -4417,5 +4417,291 @@ var PASOS = [
   ],
   "nivel": "Desde cero",
   "nivelN": 0
+ },
+ {
+  "archivo": "fullstack.html",
+  "clave": "fullstack",
+  "nombre": "Full Stack Open",
+  "actos": [
+   "La base de la web",
+   "El servidor y las pruebas",
+   "La aplicación completa",
+   "Lo que pide el mercado",
+   "Llevarlo a producción"
+  ],
+  "pasos": [
+   {
+    "id": "f00",
+    "t": "Parte 0 &middot; Cómo funciona una app web",
+    "min": 1020,
+    "act": 1,
+    "time": "17 horas",
+    "sum": "Qué pasa de verdad entre que escribes una dirección y ves algo: pedidos, respuestas, y por qué las páginas dejaron de recargarse enteras.",
+    "goal": "Terminas esta parte cuando puedes dibujar, sin ayuda, todo lo que ocurre al apretar un botón en una página.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part0",
+    "boss": false,
+    "wins": [
+     "El ida y vuelta entre el navegador y el servidor, mirado con las herramientas del navegador",
+     "Por qué existen las aplicaciones de una sola página y qué problema vinieron a resolver",
+     "El vocabulario que el resto del curso da por sabido"
+    ]
+   },
+   {
+    "id": "f01",
+    "t": "Parte 1 &middot; Introducción a React",
+    "min": 1020,
+    "act": 1,
+    "time": "17 horas",
+    "sum": "Componentes, propiedades y estado: las tres ideas sobre las que se apoya todo lo demás.",
+    "goal": "Terminas esta parte cuando armas una interfaz que reacciona a lo que hace quien la usa, sin tocar el DOM a mano.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part1",
+    "boss": false,
+    "wins": [
+     "Componentes que reciben datos y devuelven interfaz",
+     "Estado: qué cambia, cuándo, y por qué la pantalla se redibuja sola",
+     "Manejar eventos sin ensuciar el componente"
+    ]
+   },
+   {
+    "id": "f02",
+    "t": "Parte 2 &middot; Hablar con el servidor",
+    "min": 1020,
+    "act": 1,
+    "time": "17 horas",
+    "sum": "Listas, formularios y el primer contacto con una API de verdad: traer datos, mandarlos y contar lo que salió mal.",
+    "goal": "Terminas esta parte cuando tu aplicación lee y escribe contra un servidor y avisa bien cuando algo falla.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part2",
+    "boss": true,
+    "wins": [
+     "Renderizar colecciones sin que React se queje de las claves",
+     "Formularios controlados, que es como React quiere que se haga",
+     "Pedidos al servidor y qué hacer con el error, que es la mitad del trabajo"
+    ]
+   },
+   {
+    "id": "f03",
+    "t": "Parte 3 &middot; Un servidor con Node y Express",
+    "min": 1020,
+    "act": 2,
+    "time": "17 horas",
+    "sum": "Del otro lado del cable: tu propio servidor, con rutas, validación y una base de datos, puesto a andar en internet.",
+    "goal": "Terminas esta parte cuando tu backend está desplegado y tu frontend le habla a él y no a un simulador.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part3",
+    "boss": false,
+    "wins": [
+     "Express de cero: rutas, middleware y el manejo de errores",
+     "Guardar de verdad, con validación antes de escribir",
+     "Desplegarlo, que es donde aparecen los problemas que en tu máquina no existían"
+    ]
+   },
+   {
+    "id": "f04",
+    "t": "Parte 4 &middot; Probar el servidor y manejar usuarios",
+    "min": 1020,
+    "act": 2,
+    "time": "17 horas",
+    "sum": "Pruebas del backend, y después lo que todo producto termina necesitando: cuentas, contraseñas y quién puede hacer qué.",
+    "goal": "Terminas esta parte cuando tienes pruebas que corren solas y un inicio de sesión que no guarda contraseñas en claro.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part4",
+    "boss": false,
+    "wins": [
+     "Pruebas de integración contra una base de prueba",
+     "Usuarios y contraseñas guardadas como corresponde",
+     "Autenticación con tokens, y por qué no alcanza con confiar en el frontend"
+    ]
+   },
+   {
+    "id": "f05",
+    "t": "Parte 5 &middot; Probar el frontend y varias pantallas",
+    "min": 1020,
+    "act": 2,
+    "time": "17 horas",
+    "sum": "Pruebas de la interfaz y navegación entre pantallas. Con esta parte cierras el curso base: cinco créditos y el certificado.",
+    "goal": "Terminas esta parte cuando tu aplicación tiene varias pantallas, pruebas que las cubren, y puedes bajar el certificado.",
+    "cert": "Certificado de la Universidad de Helsinki",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part5",
+    "boss": true,
+    "wins": [
+     "Probar componentes como los usa una persona, no como los escribiste",
+     "Varias pantallas con React Router, sin recargar nada",
+     "El certificado de Helsinki: se baja al llegar, sin examen ni inscripción"
+    ]
+   },
+   {
+    "id": "f06",
+    "t": "Parte 6 &middot; Estado que aguanta una app grande",
+    "min": 1020,
+    "act": 3,
+    "time": "17 horas",
+    "sum": "Cuando pasar datos de componente en componente deja de alcanzar: manejo de estado global y datos que vienen del servidor.",
+    "goal": "Terminas esta parte cuando el estado de tu aplicación vive en un lugar y no repartido en diez componentes.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part6",
+    "boss": false,
+    "wins": [
+     "Estado global, y cuándo de verdad hace falta",
+     "Separar los datos del servidor del estado de la interfaz",
+     "Reducers: cambios de estado que se pueden leer y probar"
+    ]
+   },
+   {
+    "id": "f07",
+    "t": "Parte 7 &middot; Tus propias herramientas",
+    "min": 1020,
+    "act": 3,
+    "time": "17 horas",
+    "sum": "Hooks propios para no repetirte, y cómo se empaqueta todo esto para que llegue al navegador.",
+    "goal": "Terminas esta parte cuando sacas lógica repetida a un hook tuyo y entiendes qué hace el empaquetador.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part7",
+    "boss": true,
+    "wins": [
+     "Hooks propios: la forma de reusar lógica en React",
+     "Qué hace un empaquetador y por qué tu código no llega tal cual lo escribiste",
+     "Estilos, que hasta acá el curso había dejado de lado a propósito"
+    ]
+   },
+   {
+    "id": "f08",
+    "t": "Parte 8 &middot; GraphQL",
+    "min": 1020,
+    "act": 4,
+    "time": "17 horas",
+    "sum": "La otra forma de pedirle datos a un servidor: el cliente dice exactamente qué quiere, en un solo pedido.",
+    "goal": "Terminas esta parte cuando tienes un servidor GraphQL propio y un frontend que le consulta.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part8",
+    "boss": false,
+    "wins": [
+     "Consultas y mutaciones, y en qué se diferencian de REST",
+     "Un servidor GraphQL con Apollo",
+     "Cuándo GraphQL ayuda de verdad y cuándo es complejidad de más"
+    ]
+   },
+   {
+    "id": "f09",
+    "t": "Parte 9 &middot; TypeScript",
+    "min": 1020,
+    "act": 4,
+    "time": "17 horas",
+    "sum": "Tipos sobre JavaScript. Es lo que más aparece en las búsquedas de trabajo de los últimos años.",
+    "goal": "Terminas esta parte cuando escribes frontend y backend tipados y el editor te avisa del error antes de correr nada.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part9",
+    "boss": false,
+    "wins": [
+     "Los tipos que hacen falta de verdad, sin pelear con el compilador",
+     "Tipar un backend de Express y un frontend de React",
+     "Por qué el error atajado al escribir sale mucho más barato"
+    ]
+   },
+   {
+    "id": "f10",
+    "t": "Parte 10 &middot; React Native",
+    "min": 1020,
+    "act": 4,
+    "time": "17 horas",
+    "sum": "Lo que ya sabes de React, aplicado a una app de teléfono de verdad.",
+    "goal": "Terminas esta parte cuando corres tu aplicación en un teléfono y entiendes qué se comparte y qué no con la web.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part10",
+    "boss": true,
+    "wins": [
+     "React Native con Expo, sin pelear con la instalación",
+     "Qué cambia respecto de la web: navegación, estilos y formularios",
+     "Una app móvil que consume tu propia API"
+    ]
+   },
+   {
+    "id": "f11",
+    "t": "Parte 11 &middot; Integración y despliegue continuos",
+    "min": 1020,
+    "act": 5,
+    "time": "17 horas",
+    "sum": "Que cada cambio se pruebe y se publique solo. Es la parte que separa un proyecto personal de un trabajo en equipo.",
+    "goal": "Terminas esta parte cuando un cambio tuyo pasa las pruebas y llega a producción sin que toques nada a mano.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part11",
+    "boss": false,
+    "wins": [
+     "Un flujo que prueba, construye y despliega en cada cambio",
+     "Por qué romper producción se vuelve difícil cuando esto está bien puesto",
+     "Versionado y control de calidad automático"
+    ]
+   },
+   {
+    "id": "f12",
+    "t": "Parte 12 &middot; Contenedores",
+    "min": 1020,
+    "act": 5,
+    "time": "17 horas",
+    "sum": "Empaquetar tu aplicación con todo lo que necesita, para que corra igual en tu máquina y en el servidor.",
+    "goal": "Terminas esta parte cuando levantas tu aplicación entera, con su base, con un solo comando.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part12",
+    "boss": false,
+    "wins": [
+     "Imágenes y contenedores, sin mitología",
+     "Varios servicios levantados juntos y hablándose",
+     "Contenedores para desarrollar, que es el uso que más se subestima"
+    ]
+   },
+   {
+    "id": "f13",
+    "t": "Parte 13 &middot; Bases de datos relacionales",
+    "min": 1020,
+    "act": 5,
+    "time": "17 horas",
+    "sum": "El curso base usa una base de documentos. Acá vas a la relacional, que es la que vas a encontrar en la mayoría de los trabajos.",
+    "goal": "Terminas esta parte cuando tu backend habla con Postgres y las migraciones están versionadas.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part13",
+    "boss": false,
+    "wins": [
+     "Postgres desde Node, con y sin capa intermedia",
+     "Relaciones entre tablas y consultas que las cruzan",
+     "Migraciones: cambiar el esquema sin romper lo que ya hay"
+    ]
+   },
+   {
+    "id": "f14",
+    "t": "Parte 14 &middot; Next.js",
+    "min": 1020,
+    "act": 5,
+    "time": "17 horas",
+    "sum": "El marco de trabajo sobre React que hoy usan muchas empresas: renderizado en el servidor y rutas por archivos.",
+    "goal": "Terminas esta parte cuando entiendes qué resuelve Next.js que React solo no resuelve, y lo usas.",
+    "cert": "",
+    "i": "",
+    "u": "https://fullstackopen.com/en/part14",
+    "boss": true,
+    "wins": [
+     "Renderizado en el servidor y por qué volvió a importar",
+     "Rutas por estructura de archivos",
+     "Cuándo conviene un marco encima de React y cuándo estorba"
+    ]
+   }
+  ],
+  "nivel": "Con programación sabida",
+  "nivelN": 2
  }
 ];

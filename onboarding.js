@@ -191,7 +191,13 @@ var Onb = (function(){
     /* Experiencia es haber hecho algo con esto, no haberlo leído:
        pipelines o modelado en serio, o nube que se administra. */
     if(n("pipelines") >= 2 || n("modelado") >= 2 || n("cloud") >= 3) return 3;
-    if(n("python") >= 2) return 2;
+    /* Saber programar es saber programar, en el lenguaje que sea.
+       Esta escalera era solo de datos, así que alguien con diez años
+       de React daba cero y quedaba afuera de su propia ruta: las
+       rutas que piden saber programar se le escondían por
+       "arranca más arriba de donde estás". */
+    if(n("python") >= 2 || n("web") >= 2 || n("backend") >= 2 ||
+       n("prog") >= 2) return 2;
     if(n("sql") >= 2) return 1;
     return 0;
   }

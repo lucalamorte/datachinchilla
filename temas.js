@@ -243,6 +243,65 @@ var TEMAS = {
    ]
   },
   {
+   "id": "web",
+   "nombre": "Desarrollo web",
+   "senales": [
+    "javascript",
+    "typescript",
+    "react",
+    "angular",
+    "vue",
+    "svelte",
+    "html",
+    "css",
+    "frontend",
+    "front-end",
+    "front end",
+    "next.js",
+    "nextjs",
+    "tailwind",
+    "jquery",
+    "redux",
+    "sass",
+    "webpack",
+    "vite",
+    "spa",
+    "responsive",
+    "react native",
+    "flutter",
+    "bootstrap"
+   ]
+  },
+  {
+   "id": "backend",
+   "nombre": "Backend y APIs",
+   "senales": [
+    "api",
+    "rest",
+    "restful",
+    "graphql",
+    "node",
+    "nodejs",
+    "node.js",
+    "express",
+    "backend",
+    "back-end",
+    "back end",
+    "endpoint",
+    "spring",
+    "spring boot",
+    ".net",
+    "laravel",
+    "rails",
+    "nestjs",
+    "jwt",
+    "oauth",
+    "autenticacion",
+    "microservicios",
+    "http"
+   ]
+  },
+  {
    "id": "web3",
    "nombre": "Blockchain y Web3",
    "senales": [
@@ -258,6 +317,42 @@ var TEMAS = {
   }
  ],
  "puestos": [
+  {
+   "id": "fullstack",
+   "nombre": "Desarrollador Full Stack",
+   "resumen": "Construir la aplicación entera: la pantalla, el servidor que la alimenta y lo que hace falta para publicarla.",
+   "temas": {
+    "web": 3,
+    "backend": 3,
+    "prog": 2,
+    "calidad": 2,
+    "sql": 2,
+    "cloud": 2
+   }
+  },
+  {
+   "id": "frontend",
+   "nombre": "Desarrollador Frontend",
+   "resumen": "La parte que la gente toca: que se entienda, que responda y que funcione en cualquier pantalla.",
+   "temas": {
+    "web": 3,
+    "prog": 2,
+    "calidad": 2,
+    "backend": 1
+   }
+  },
+  {
+   "id": "backend_dev",
+   "nombre": "Desarrollador Backend",
+   "resumen": "Lo que hay detrás de la pantalla: las APIs, los datos y que aguante cuando entra gente de verdad.",
+   "temas": {
+    "backend": 3,
+    "prog": 2,
+    "sql": 2,
+    "calidad": 2,
+    "cloud": 2
+   }
+  },
   {
    "id": "data_engineer",
    "nombre": "Data Engineer",
@@ -499,6 +594,20 @@ var TEMAS = {
     "id": "a12",
     "t": "Agrupar cursos con BERT",
     "min": 60
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f11",
+    "t": "Parte 11 &middot; Integración y despliegue continuos",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f13",
+    "t": "Parte 13 &middot; Bases de datos relacionales",
+    "min": 1020
    }
   ],
   "python": [
@@ -741,6 +850,27 @@ var TEMAS = {
     "id": "c16",
     "t": "The AI-Native SDLC Playbook",
     "min": 60
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f11",
+    "t": "Parte 11 &middot; Integración y despliegue continuos",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f12",
+    "t": "Parte 12 &middot; Contenedores",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f13",
+    "t": "Parte 13 &middot; Bases de datos relacionales",
+    "min": 1020
    }
   ],
   "pipelines": [
@@ -1627,6 +1757,99 @@ var TEMAS = {
     "min": 360
    }
   ],
+  "web": [
+   {
+    "ruta": "arquitectura",
+    "archivo": "arquitectura.html",
+    "id": "a07",
+    "t": "Sistemas reactivos",
+    "min": 300
+   },
+   {
+    "ruta": "arquitectura",
+    "archivo": "arquitectura.html",
+    "id": "a09",
+    "t": "Microservicios reactivos",
+    "min": 360
+   },
+   {
+    "ruta": "llmagentes",
+    "archivo": "llm-agentes.html",
+    "id": "l11",
+    "t": "Un agente ReAct desde cero",
+    "min": 90
+   },
+   {
+    "ruta": "llmagentes",
+    "archivo": "llm-agentes.html",
+    "id": "l23",
+    "t": "Un agente ReAct desde cero",
+    "min": 90
+   },
+   {
+    "ruta": "web3",
+    "archivo": "web3.html",
+    "id": "w02",
+    "t": "JavaScript desde cero",
+    "min": 980
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f00",
+    "t": "Parte 0 &middot; Cómo funciona una app web",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f01",
+    "t": "Parte 1 &middot; Introducción a React",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f05",
+    "t": "Parte 5 &middot; Probar el frontend y varias pantallas",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f06",
+    "t": "Parte 6 &middot; Estado que aguanta una app grande",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f07",
+    "t": "Parte 7 &middot; Tus propias herramientas",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f09",
+    "t": "Parte 9 &middot; TypeScript",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f10",
+    "t": "Parte 10 &middot; React Native",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f14",
+    "t": "Parte 14 &middot; Next.js",
+    "min": 1020
+   }
+  ],
   "deep": [
    {
     "ruta": "aifund",
@@ -2133,6 +2356,71 @@ var TEMAS = {
     "id": "l27a",
     "t": "AWS Agentic AI Demonstrated",
     "min": 60
+   }
+  ],
+  "backend": [
+   {
+    "ruta": "claude",
+    "archivo": "claude.html",
+    "id": "c09",
+    "t": "Building with the Claude API",
+    "min": 540
+   },
+   {
+    "ruta": "deeplearning",
+    "archivo": "deep-learning.html",
+    "id": "d11",
+    "t": "Desplegar visión sin servidor",
+    "min": 60
+   },
+   {
+    "ruta": "deeplearning",
+    "archivo": "deep-learning.html",
+    "id": "d18",
+    "t": "Desplegar visión sin servidor",
+    "min": 60
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f02",
+    "t": "Parte 2 &middot; Hablar con el servidor",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f03",
+    "t": "Parte 3 &middot; Un servidor con Node y Express",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f04",
+    "t": "Parte 4 &middot; Probar el servidor y manejar usuarios",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f08",
+    "t": "Parte 8 &middot; GraphQL",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f11",
+    "t": "Parte 11 &middot; Integración y despliegue continuos",
+    "min": 1020
+   },
+   {
+    "ruta": "fullstack",
+    "archivo": "fullstack.html",
+    "id": "f13",
+    "t": "Parte 13 &middot; Bases de datos relacionales",
+    "min": 1020
    }
   ],
   "mlops": [

@@ -98,6 +98,33 @@ for ent in b.split("\n  {")[1:]:
     print(u"  %-20s %-16s dice %s, tiene %d (%s)" %
           ("index.html", u"el catálogo", mn.group(1), n, PALABRA.get(n, n)))
 
+# --- y que cada ruta active la suya
+#
+# El boton "sumar a tu semana" decide con var MI_RUTA. Las paginas se
+# arman copiando otra, asi que esa variable se hereda: el boton de
+# Full Stack Open activaba la ruta de Claude, y eso no se ve mirando
+# la pagina. Dos rutas con la misma clave, o una clave que no existe,
+# tienen que doler aca.
+vistas = {}
+for r in rutas:
+    try:
+        h = io.open(r["archivo"], encoding="utf-8").read()
+    except IOError:
+        continue
+    m = re.search(r'var MI_RUTA = "([^"]*)"', h)
+    if not m:
+        continue
+    k = m.group(1)
+    if k != r["clave"]:
+        mal += 1
+        print(u"  %-20s %-16s activa %s, tendria que activar %s" %
+              (r["archivo"], u"la clave", k, r["clave"]))
+    if k in vistas:
+        mal += 1
+        print(u"  %-20s %-16s comparte la clave %s con %s" %
+              (r["archivo"], u"la clave", k, vistas[k]))
+    vistas[k] = r["archivo"]
+
 print()
 print(u"los numeros coinciden" if not mal else
       u"%d desajustes: el texto dice una cantidad y el mapa tiene otra" % mal)

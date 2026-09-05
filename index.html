@@ -1891,12 +1891,12 @@ a.via{ text-decoration:none; }
   </div>
 </dialog>
 
-<script src="pasos.js?v=9acdd004"></script>
+<script src="pasos.js?v=e27f17fc"></script>
 <script src="chinchilla.js?v=cb0d5467"></script>
 <script src="path-sync.js?v=6fc1b3ae"></script>
-<script src="temas.js?v=a8e81f08"></script>
+<script src="temas.js?v=f4f910ce"></script>
 <script src="cv.js?v=9243a13a"></script>
-<script src="onboarding.js?v=13d6f98d"></script>
+<script src="onboarding.js?v=3a55ab58"></script>
 <script src="guia.js?v=04bc0664"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="problemas.js?v=cab859ac"></script>
@@ -2028,6 +2028,11 @@ var PATHS = [
     s: "abrir la ruta"
   },
   {
+    t: "Full Stack Open", nivel: "Con programación sabida", i: "web", u: "fullstack.html", listo: true,
+    d: "Quince partes del curso gratuito de la Universidad de Helsinki: React, Node, pruebas, TypeScript, contenedores y CI/CD. Da certificado y no hay examen.",
+    s: "abrir la ruta"
+  },
+  {
     t: "Airflow", nivel: "Con Python sabido", i: "flow", listo: false,
     d: "Orquestación de punta a punta: DAGs, dependencias, reintentos y alertas. Por ahora vive como un curso pago dentro del nivel 5.",
     pide: "Airflow"
@@ -2130,7 +2135,8 @@ function renderFiltroRutas(){
              '</span></button>';
 
   /* Orden fijo: de menos a más pedido previo. */
-  var ORDEN = ["Desde cero", "Con SQL sabido", "Con Python sabido", "Con experiencia"];
+  var ORDEN = ["Desde cero", "Con SQL sabido", "Con Python sabido",
+               "Con programación sabida", "Con experiencia"];
   for(i=0;i<ORDEN.length;i++){
     if(!cuenta[ORDEN[i]]) continue;
     html += '<button class="lib-filter' + (filtroRuta === ORDEN[i] ? " on" : "") + '" type="button" ' +

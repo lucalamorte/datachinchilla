@@ -76,6 +76,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://datachinchilla.com/fullstack</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://datachinchilla.com/web3</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

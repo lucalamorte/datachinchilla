@@ -34,6 +34,7 @@ RUTAS = {
     "llm-agentes.html":    "llmagentes",
     "ml-aplicado.html":    "mlaplicado",
     "web3.html":           "web3",
+    "fullstack.html":      "fullstack",
 }
 
 BOTON = u'''      <button class="btn-quiet btn-mia" id="miaBtn" type="button" hidden>

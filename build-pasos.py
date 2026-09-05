@@ -33,6 +33,7 @@ RUTAS = [
     ("llm-agentes.html",    "llmagentes",   u"LLMs y agentes"),
     ("ml-aplicado.html",    "mlaplicado",   u"ML aplicado"),
     ("web3.html",           "web3",         u"Web3"),
+    ("fullstack.html",      "fullstack",    u"Full Stack Open"),
 ]
 
 # Cuánto dura un paso, en minutos. El texto viene como lo escribe cada
@@ -80,12 +81,14 @@ NIVELES = {
     "sql-python.html": u"Desde cero",
     "subir-nivel.html": u"Con experiencia",
     "web3.html": u"Desde cero",
+    "fullstack.html": u"Con programación sabida",
 }
 
 ORDEN_NIVEL = {
     u"Desde cero": 0,
     u"Con SQL sabido": 1,
     u"Con Python sabido": 2,
+    u"Con programación sabida": 2,
     u"Con experiencia": 3,
 }
 

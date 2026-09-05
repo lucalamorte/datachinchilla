@@ -114,6 +114,12 @@ PAGINAS = {
         "color": u"#1A0B05",
         "ogtitulo": u"Trabajar con Claude, en orden",
     },
+    "fullstack.html": {
+        "titulo": u"Full Stack Open, gratis y en orden · " + MARCA,
+        "desc": u"Las quince partes del curso gratuito de la Universidad de Helsinki: React, Node, pruebas, TypeScript, contenedores y CI/CD, con certificado y sin examen.",
+        "color": u"#08121C",
+        "ogtitulo": u"Full Stack Open, en orden",
+    },
     "web3.html": {
         "titulo": u"Web3 y blockchain, gratis y en orden · " + MARCA,
         "desc": u"Los seis cursos gratuitos de Alchemy University en orden: de qué es una blockchain a contratos inteligentes y cuentas modulares.",
