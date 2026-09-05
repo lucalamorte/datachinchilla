@@ -245,7 +245,11 @@ var Onb = (function(){
     var puesto = (typeof CV !== "undefined") ? CV.puestoDe(estado.puesto) : null;
     var pide = (puesto && puesto.temas) ? puesto.temas : {};
     var centrales = [], kk;
-    for(kk in falta){ if(pide[kk] >= 3) centrales.push(kk); }
+    /* Sobre lo que el puesto pide, no sobre lo que te falta: un CV
+       que ya trae React y Node deja "web" y "backend" fuera de los
+       faltantes, la lista quedaba vacía y no filtraba nada. Central
+       es lo que el puesto es, lo sepas o no. */
+    for(kk in pide){ if(pide[kk] >= 3) centrales.push(kk); }
 
     var rs = (typeof PASOS !== "undefined") ? PASOS : [], out = [], j, k;
     var nivel = miNivel();
