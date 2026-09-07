@@ -14,7 +14,7 @@ var PROBLEMAS = [
   "lang": "Python",
   "fuente": "LeetCode",
   "url": "https://leetcode.com/problemset/",
-  "d": "Los 75 que cubren los patrones que se repiten en las entrevistas de algoritmos.",
+  "d": "Los 75 que cubren los patrones que se repiten en las entrevistas de algoritmos. Cinco de los originales pasaron a LeetCode Premium, así que van cinco gratis que entrenan el mismo patrón: acá no entra nada que se pague.",
   "items": [
    {
     "n": 128,
@@ -57,12 +57,11 @@ var PROBLEMAS = [
     "u": "https://leetcode.com/problems/clone-graph/"
    },
    {
-    "n": 261,
-    "t": "Graph Valid Tree",
+    "n": 684,
+    "t": "Redundant Connection",
     "d": "medio",
-    "ac": 50.1,
     "p": "Grafos",
-    "u": "https://leetcode.com/problems/graph-valid-tree/"
+    "u": "https://leetcode.com/problems/redundant-connection/"
    },
    {
     "n": 647,
@@ -121,12 +120,11 @@ var PROBLEMAS = [
     "u": "https://leetcode.com/problems/reorder-list/"
    },
    {
-    "n": 269,
-    "t": "Alien Dictionary",
-    "d": "dificil",
-    "ac": 37.3,
+    "n": 210,
+    "t": "Course Schedule II",
+    "d": "medio",
     "p": "Grafos",
-    "u": "https://leetcode.com/problems/alien-dictionary/"
+    "u": "https://leetcode.com/problems/course-schedule-ii/"
    },
    {
     "n": 271,
@@ -345,12 +343,11 @@ var PROBLEMAS = [
     "u": "https://leetcode.com/problems/coin-change/"
    },
    {
-    "n": 323,
-    "t": "Number of Connected Components in an Undirected Graph",
+    "n": 547,
+    "t": "Number of Provinces",
     "d": "medio",
-    "ac": 65.1,
     "p": "Grafos",
-    "u": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/"
+    "u": "https://leetcode.com/problems/number-of-provinces/"
    },
    {
     "n": 70,
@@ -481,12 +478,11 @@ var PROBLEMAS = [
     "u": "https://leetcode.com/problems/top-k-frequent-elements/"
    },
    {
-    "n": 253,
-    "t": "Meeting Rooms II",
+    "n": 1094,
+    "t": "Car Pooling",
     "d": "medio",
-    "ac": 52.8,
     "p": "Intervalos",
-    "u": "https://leetcode.com/problems/meeting-rooms-ii/"
+    "u": "https://leetcode.com/problems/car-pooling/"
    },
    {
     "n": 98,
@@ -585,12 +581,11 @@ var PROBLEMAS = [
     "u": "https://leetcode.com/problems/sum-of-two-integers/"
    },
    {
-    "n": 252,
-    "t": "Meeting Rooms",
-    "d": "facil",
-    "ac": 59.6,
+    "n": 986,
+    "t": "Interval List Intersections",
+    "d": "medio",
     "p": "Intervalos",
-    "u": "https://leetcode.com/problems/meeting-rooms/"
+    "u": "https://leetcode.com/problems/interval-list-intersections/"
    },
    {
     "n": 121,

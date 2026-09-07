@@ -65,7 +65,8 @@ var Guia = (function(){
              "a dónde apuntes. Se puede cambiar cuando quieras.",
       accion: "Ya elegí",
       lleva: "",
-      ancla: "#puestos"
+      ancla: "#puestos",
+      pide: "puesto"
     },
     {
       id: "cargar",
@@ -75,7 +76,8 @@ var Guia = (function(){
              "reconocí y cuál de las rutas te sirve para ese puesto.",
       accion: "Ya está, seguir",
       lleva: "",
-      ancla: "#cvZona"
+      ancla: "#cvZona",
+      pide: "cv"
     },
     {
       id: "leido",
@@ -99,7 +101,8 @@ var Guia = (function(){
          creyendo que ya lo había hecho. */
       accion: "Listo, la guardé",
       lleva: "",
-      ancla: "#guardarRuta"
+      ancla: "#guardarRuta",
+      pide: "ruta"
     },
     {
       id: "semana",
@@ -119,7 +122,8 @@ var Guia = (function(){
              "reparto la ruta y queda escrito qué hacer cada día.",
       accion: "Listo, ver mi agenda",
       lleva: "index.html",
-      ancla: ".plan-form"
+      ancla: ".plan-form",
+      pide: "semana"
     },
     {
       id: "listo",
@@ -277,6 +281,33 @@ var Guia = (function(){
      terminada.
 
      No reabre lo cerrado: si la cerraste a mano, cerrada esta. */
+  /* Lo que falta para poder pasar de este paso, o null si no falta
+     nada. Los pasos que solo explican algo no piden nada.
+
+     Sin esto el boton avanzaba igual: apretabas "Ya lo cargue" sin
+     haber cargado nada y los pasos siguientes hablaban de algo que no
+     existia. */
+  function falta(p){
+    if(!p || !p.pide) return null;
+    if(typeof Onb === "undefined") return null;
+    Onb.cargar();
+    if(p.pide === "puesto"){
+      return Onb.estado.puesto ? null : "Elige un puesto para seguir.";
+    }
+    if(p.pide === "cv"){
+      var hay = !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
+                Object.keys(Onb.estado.respuestas || {}).length >= 2;
+      return hay ? null : "Pega tu CV o contesta las preguntas para seguir.";
+    }
+    if(p.pide === "ruta"){
+      return Onb.estado.hecho ? null : "Guarda la ruta para seguir.";
+    }
+    if(p.pide === "semana"){
+      return Onb.estado.semanaLista ? null : "Reparte tu semana para seguir.";
+    }
+    return null;
+  }
+
   function retomar(id){
     cargar();
     if(estado.cerrada) return false;
@@ -297,6 +328,7 @@ var Guia = (function(){
     PASOS: PASOS, estado: estado,
     cargar: cargar, guardar: guardar,
     actual: actual, tocaAca: tocaAca, donde: donde, proximoCurso: proximoCurso,
+    falta: falta,
     avanzar: avanzar, cerrar: cerrar, reabrir: reabrir, retomar: retomar
   };
 })();

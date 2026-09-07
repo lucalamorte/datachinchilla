@@ -14,11 +14,11 @@
 <!-- Los neutros, los radios y el ritmo, compartidos por todas las páginas.
      Cada una define encima solo su acento. Va acá dentro y no a mano en el
      HTML: esta plantilla reescribe toda la cabecera en cada corrida. -->
-<link rel="stylesheet" href="tema.css?v=957d21cd">
+<link rel="stylesheet" href="tema.css?v=dbe2e08d">
 <!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
      lo mismo: si lo escribe otro script en el HTML, la próxima corrida
      de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
-<link rel="stylesheet" href="chinchilla.css?v=370921e6">
+<link rel="stylesheet" href="chinchilla.css?v=c71e9ab2">
 
 <!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
      estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
@@ -991,7 +991,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="temas.js?v=ceb5a984"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=24fd2234"></script>
-<script src="guia.js?v=b9ef3c20"></script>
+<script src="guia.js?v=540e6414"></script>
 <script src="chinchilla.js?v=cb0d5467"></script>
 <script src="path-sync.js?v=7ff30e61"></script>
 <script>
@@ -1853,6 +1853,25 @@ function pintarSigue(){
    ============================================================ */
 /* Deja el globo al lado de lo que hay que tocar. Debajo si entra,
    arriba si no; y si el paso no apunta a nada, en la esquina. */
+/* El ancla que el globo esta senalando, para poder recolocarlo
+   mientras se scrollea. */
+var chinAncla = null, chinReloj = 0;
+
+if(typeof window !== "undefined"){
+  window.addEventListener("scroll", function(){
+    var caja = document.getElementById("chin");
+    if(!caja || caja.hidden || !chinAncla) return;
+    if(caja.className.indexOf("chin-anclada") < 0) return;
+    if(chinReloj) return;          /* todavia esta viajando */
+    colocarGlobo(caja, chinAncla);
+  }, { passive: true });
+  window.addEventListener("resize", function(){
+    var caja = document.getElementById("chin");
+    if(caja && !caja.hidden && chinAncla &&
+       caja.className.indexOf("chin-anclada") >= 0) colocarGlobo(caja, chinAncla);
+  }, { passive: true });
+}
+
 function ubicarGuia(caja, sel){
   var viejo = document.querySelector(".chin-foco");
   if(viejo) viejo.classList.remove("chin-foco");
@@ -1860,6 +1879,7 @@ function ubicarGuia(caja, sel){
   if(!sel){
     caja.className = "chin chin-esquina";
     caja.style.top = ""; caja.style.left = "";
+    chinAncla = null;
     return;
   }
   var e = document.querySelector(sel);
@@ -1870,30 +1890,63 @@ function ubicarGuia(caja, sel){
   if(!seVe){
     caja.className = "chin chin-esquina";
     caja.style.top = ""; caja.style.left = "";
+    chinAncla = null;
     return;
   }
 
   e.classList.add("chin-foco");
+  chinAncla = e;
   e.scrollIntoView({ block: "center", behavior: "smooth" });
 
-  /* Se espera a que el scroll termine: medir antes da la posición
-     vieja y el globo aparece en cualquier lado. */
+  /* Se espera a que el scroll TERMINE, no un tiempo fijo. Con 320 ms
+     alcanzaba mientras el ancla estuviera cerca; si ya habias bajado,
+     el viaje es largo, la medicion caia a mitad de camino y el globo
+     quedaba fijado en una posicion que ya no existia. */
+  if(chinReloj){ clearInterval(chinReloj); chinReloj = 0; }
+  var ultimo = -1, quietos = 0;
+  chinReloj = setInterval(function(){
+    var y = Math.round(window.pageYOffset);
+    if(y === ultimo) quietos++;
+    else { quietos = 0; ultimo = y; }
+    if(quietos >= 2){
+      clearInterval(chinReloj); chinReloj = 0;
+      colocarGlobo(caja, e);
+    }
+  }, 60);
+  /* Red, por si el navegador no hace scroll suave o lo interrumpen. */
   setTimeout(function(){
-    var r = e.getBoundingClientRect();
-    var ancho = Math.min(340, window.innerWidth - 32);
-    var alto = caja.offsetHeight || 220;
+    if(chinReloj){ clearInterval(chinReloj); chinReloj = 0; }
+    colocarGlobo(caja, e);
+  }, 1200);
+}
 
-    caja.className = "chin chin-anclada";
-    var top = r.bottom + 16;
-    if(top + alto > window.innerHeight - 12) top = Math.max(12, r.top - alto - 16);
+/* Donde va el globo respecto de lo que senala. Sale aparte de
+   ubicarGuia porque tambien corre en cada scroll: con position:fixed
+   y un top calculado una sola vez, bajar dos lineas dejaba al globo
+   apuntando al aire. */
+function colocarGlobo(caja, e){
+  if(!caja || !e) return;
+  var r = e.getBoundingClientRect();
+  var ancho = Math.min(340, window.innerWidth - 32);
+  var alto = caja.offsetHeight || 220;
 
-    var left = r.left;
-    if(left + ancho > window.innerWidth - 12) left = window.innerWidth - ancho - 12;
-    if(left < 12) left = 12;
+  caja.className = "chin chin-anclada";
+  var top = r.bottom + 16;
+  if(top + alto > window.innerHeight - 12) top = r.top - alto - 16;
+  /* Y si tampoco entra arriba, se lo mete adentro a la fuerza. Antes
+     solo se corregia el caso de "no entra abajo": el de "no entra
+     arriba" quedaba con top negativo, que es como se veia roto. */
+  if(top < 12) top = 12;
+  if(top + alto > window.innerHeight - 12){
+    top = Math.max(12, window.innerHeight - alto - 12);
+  }
 
-    caja.style.top = Math.round(top) + "px";
-    caja.style.left = Math.round(left) + "px";
-  }, 320);
+  var left = r.left;
+  if(left + ancho > window.innerWidth - 12) left = window.innerWidth - ancho - 12;
+  if(left < 12) left = 12;
+
+  caja.style.top = Math.round(top) + "px";
+  caja.style.left = Math.round(left) + "px";
 }
 
 function pintarGuia(){
@@ -1927,7 +1980,16 @@ function pintarGuia(){
     seg.hidden = true;
   }
 
-  document.getElementById("chinB").onclick = function(){
+  /* Si el paso pide una accion y no esta hecha, el boton no avanza:
+     dice que falta. Antes avanzaba igual y el recorrido se cortaba
+     solo unos pasos despues, hablando de algo que no existia. */
+  var pendiente = Guia.falta ? Guia.falta(p) : null;
+  var bot = document.getElementById("chinB");
+  bot.classList.toggle("chin-b-flojo", !!pendiente);
+  bot.title = pendiente || "";
+  bot.onclick = function(){
+    var f = Guia.falta ? Guia.falta(p) : null;
+    if(f){ toast(f); return; }
     Guia.avanzar();
     var dest = p.lleva || (p.dobles ? Guia.proximoCurso() : "");
     if(dest){ location.href = dest; return; }

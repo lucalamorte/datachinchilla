@@ -503,3 +503,8 @@ li.ok .tilde .caja{ animation:tilde-ok 320ms cubic-bezier(.2,.9,.3,1.4); }
      quietas en su posicion final. */
   .chin-huellas .c-huella{ opacity:.3; }
   .chin-asoma svg{ transform:none; }
+
+/* El boton de la guia cuando el paso pide algo que todavia no
+   hiciste. Se deja clickeable a proposito: apretarlo dice que falta,
+   que es mas util que un boton muerto que no explica nada. */
+.chin-b-flojo{ opacity:.55; }

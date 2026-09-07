@@ -33,8 +33,14 @@ PATRON = {
     "Lista enlazada":   [206, 21, 141, 143, 19, 23],
     "Arboles":          [226, 104, 100, 572, 105, 98, 230, 102, 124, 297, 235],
     "Trie":             [208, 211, 212],
-    "Grafos":           [200, 133, 417, 207, 261, 323, 269],
-    "Intervalos":       [57, 56, 435, 252, 253],
+    # 261, 323 y 269 pasaron a LeetCode Premium, igual que 252 y 253.
+    # Van reemplazos gratis con el mismo patron: 684 union-find,
+    # 547 componentes, 210 orden topologico, 986 cruce de
+    # intervalos y 1094 barrido. El sitio promete que todo es
+    # gratis, asi que un problema con candado no puede quedarse
+    # por respeto a la lista original.
+    "Grafos":           [200, 133, 417, 207, 684, 547, 210],
+    "Intervalos":       [57, 56, 435, 986, 1094],
     "Programacion dinamica": [70, 198, 213, 139, 300, 322, 62, 91, 152, 53, 5, 647, 1143],
     "Matrices":         [73, 54, 48, 79],
     "Bits":             [191, 338, 190, 268, 371],
@@ -262,7 +268,7 @@ def main():
     bancos = [
         {"id": "blind75", "nombre": "Blind 75", "lang": "Python",
          "fuente": "LeetCode", "url": "https://leetcode.com/problemset/",
-         "d": "Los 75 que cubren los patrones que se repiten en las entrevistas de algoritmos.",
+         "d": "Los 75 que cubren los patrones que se repiten en las entrevistas de algoritmos. Cinco de los originales pasaron a LeetCode Premium, así que van cinco gratis que entrenan el mismo patrón: acá no entra nada que se pague.",
          "items": b},
         {"id": "strata", "nombre": "Consultas de entrevistas", "lang": "SQL",
          "fuente": "StrataScratch", "url": "https://platform.stratascratch.com/coding",
