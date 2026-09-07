@@ -52,7 +52,7 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 
 | Qué | Por qué acá | Estado |
 |---|---|---|
-| (10) Verificador de todos los links del sitio | Son cientos, y tiene que quedar corriendo solo | abierto |
+| (10) Verificador de todos los links del sitio | `links.py`: 434 links, ninguno roto. 126 que se habían mudado, apuntados al lugar nuevo con `mudar.py` | **hecho** |
 | (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | Análisis de todo el catálogo | abierto |
 | (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |
 | (19b) Evaluar IA para leer el CV, sin que nadie pague | Decisión de arquitectura y de costo | a decidir |

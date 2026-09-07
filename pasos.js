@@ -27,7 +27,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando escribes una consulta con filtros sin buscar la sintaxis.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-databases-and-sql",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/introduction-to-databases-and-sql",
     "boss": false,
     "wins": [
      "SELECT, FROM y WHERE sin dudar",
@@ -45,7 +45,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando distingues WHERE de HAVING sin pensarlo.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-aggregate-functions",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/introduction-to-aggregate-functions",
     "boss": false,
     "wins": [
      "GROUP BY y las funciones de agregación",
@@ -63,7 +63,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando eliges el JOIN correcto por lo que necesitas, no por costumbre.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/understanding-table-relationships",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/understanding-table-relationships",
     "boss": false,
     "wins": [
      "INNER, LEFT, RIGHT, FULL y CROSS, con sus casos",
@@ -81,7 +81,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando reescribes una consulta anidada como una cadena de CTEs.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/understanding-subqueries",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/understanding-subqueries",
     "boss": false,
     "wins": [
      "Subconsultas y dónde pueden ir",
@@ -99,7 +99,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves una pregunta de rango de fechas sin googlear.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/date-time-data-types-and-extraction",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/date-time-data-types-and-extraction",
     "boss": false,
     "wins": [
      "Extraer año, mes y día, y truncar",
@@ -117,7 +117,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves un ranking por grupo de memoria.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-window-functions",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/introduction-to-window-functions",
     "boss": true,
     "wins": [
      "PARTITION BY y las funciones de ranking",
@@ -135,7 +135,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando filtras un DataFrame por varias condiciones sin errores de sintaxis.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-python/introduction-to-python-and-pandas",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/introduction-to-python-and-pandas",
     "boss": false,
     "wins": [
      "Seleccionar y crear columnas",
@@ -153,7 +153,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando traduces una consulta con GROUP BY a pandas de corrido.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-python/introduction-to-aggregate-methods",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/introduction-to-aggregate-methods",
     "boss": false,
     "wins": [
      "groupby y los métodos de agregación",
@@ -171,7 +171,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando eliges entre concat y merge sin dudar.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-python/understanding-dataframe-relationships",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/understanding-dataframe-relationships",
     "boss": false,
     "wins": [
      "concat frente a merge, que no son lo mismo",
@@ -189,7 +189,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves un problema en pasos encadenados y legibles.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-python/step-by-step-analysis",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/step-by-step-analysis",
     "boss": false,
     "wins": [
      "Encadenar sin crear diez variables intermedias",
@@ -207,7 +207,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando manipulas fechas en pandas sin pelearte con los tipos.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-python/datetime-extraction",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/datetime-extraction",
     "boss": false,
     "wins": [
      "Extraer y truncar fechas",
@@ -225,7 +225,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves en pandas lo mismo que resolviste con funciones de ventana en SQL.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-python/introduction-to-window-operations",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/introduction-to-window-operations",
     "boss": true,
     "wins": [
      "Ranking dentro de grupos",
@@ -1265,7 +1265,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes usar el vocabulario sin repetir titulares.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+BD0101EN+v2",
+    "u": "https://cognitiveclass.ai/courses/what-is-big-data",
     "boss": false,
     "wins": [
      "Las famosas uves, y cuáles importan de verdad",
@@ -1283,7 +1283,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entiendes qué pasa cuando un archivo se parte en bloques y se replica.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+BD0111EN+v1",
+    "u": "https://cognitiveclass.ai/courses/introduction-to-hadoop",
     "boss": true,
     "wins": [
      "HDFS: cómo se guarda un archivo que no entra en una máquina",
@@ -1301,7 +1301,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes explicar qué hace un map, qué hace un reduce y quién reparte el trabajo.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0115EN+v1",
+    "u": "https://cognitiveclass.ai/courses/mapreduce-and-yarn",
     "boss": false,
     "wins": [
      "El modelo map y reduce, que es la idea detrás de casi todo lo distribuido",
@@ -1319,7 +1319,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes traer una tabla de una base relacional al clúster.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+BD0131EN+2016",
+    "u": "https://cognitiveclass.ai/courses/flume-sqoop-moving-data-into-hadoop",
     "boss": false,
     "wins": [
      "Sqoop, que es el puente con las bases de siempre",
@@ -1337,7 +1337,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entiendes por qué un log distribuido resuelve el acople entre sistemas.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0123EN+v1",
+    "u": "https://cognitiveclass.ai/courses/simplifying-data-pipelines-with-apache-kafka",
     "boss": false,
     "wins": [
      "El vocabulario de Kafka, que aparece en toda entrevista de datos",
@@ -1355,7 +1355,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando escribes una consulta sobre datos que viven en HDFS.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+BD0141EN+v1",
+    "u": "https://cognitiveclass.ai/courses/accessing-hadoop-data-using-hive",
     "boss": false,
     "wins": [
      "Por qué poner SQL encima de Hadoop cambió quién podía usarlo",
@@ -1373,7 +1373,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entiendes qué significa que una transformación sea perezosa.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+BD0211EN+v1",
+    "u": "https://cognitiveclass.ai/courses/what-is-spark",
     "boss": true,
     "wins": [
      "RDDs y el grafo de ejecución que Spark arma antes de correr nada",
@@ -1391,7 +1391,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando sabes por qué una operación cuesta un shuffle y otra no.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0212EN+v1",
+    "u": "https://cognitiveclass.ai/courses/spark-rdd",
     "boss": false,
     "wins": [
      "El shuffle, que es de donde sale casi todo el tiempo perdido",
@@ -1409,7 +1409,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entrenas un modelo sobre datos que no entran en una máquina.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0221EN+v1",
+    "u": "https://cognitiveclass.ai/courses/spark-mllib",
     "boss": false,
     "wins": [
      "Pipelines de ML sobre datos distribuidos",
@@ -1427,7 +1427,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando reconoces un problema de grafos disfrazado de tabla.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+BD0223EN+2016",
+    "u": "https://cognitiveclass.ai/courses/spark-graphx",
     "boss": false,
     "wins": [
      "Cuándo un problema es de grafos y conviene tratarlo así",
@@ -1445,7 +1445,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando corres un análisis en R sobre datos que no entrarían en tu memoria.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+RP0105EN+v1",
+    "u": "https://cognitiveclass.ai/courses/analyzing-big-data-in-r-using-apache-spark",
     "boss": false,
     "wins": [
      "El puente entre R y el clúster",
@@ -1463,7 +1463,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando lees código Scala sin sentir que es otro idioma.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:LightBend+SC0101EN+v1",
+    "u": "https://cognitiveclass.ai/courses/introduction-to-scala",
     "boss": true,
     "wins": [
      "Programación funcional aplicada, no en abstracto",
@@ -1481,7 +1481,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando escribes una aplicación de Spark y la corres en un clúster.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:LightBend+SC0103EN+v1",
+    "u": "https://cognitiveclass.ai/courses/spark-overview-scala-analytics",
     "boss": false,
     "wins": [
      "La API de Spark como fue pensada originalmente",
@@ -1499,7 +1499,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando ajustas un modelo aprovechando todo el clúster y sabes qué costó.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:Lightbend+SC0105EN+v1",
+    "u": "https://cognitiveclass.ai/courses/data-science-scala",
     "boss": false,
     "wins": [
      "Pipelines de ML en la API nativa",
@@ -1517,7 +1517,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando armas un flujo con varios pasos y lo dejas corriendo solo.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0133EN+v1",
+    "u": "https://cognitiveclass.ai/courses/controlling-hadoop-jobs-using-oozie",
     "boss": false,
     "wins": [
      "Un flujo de trabajo con dependencias entre pasos",
@@ -1535,7 +1535,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes explicar por qué un sistema distribuido necesita un árbitro.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0135EN+v1",
+    "u": "https://cognitiveclass.ai/courses/developing-distributed-applications-using-zookeeper",
     "boss": false,
     "wins": [
      "El problema de la coordinación, que aparece en todo lo distribuido",
@@ -1553,7 +1553,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando indexas un conjunto de documentos y los consultas por texto.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0137EN+v1",
+    "u": "https://cognitiveclass.ai/courses/solr",
     "boss": false,
     "wins": [
      "Qué es un índice invertido y por qué es rápido",
@@ -1586,7 +1586,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes explicar el oficio sin recurrir a la palabra algoritmo.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+DS0101EN+v1",
+    "u": "https://cognitiveclass.ai/courses/data-science-101",
     "boss": true,
     "wins": [
      "Qué problemas resuelve y cuáles no",
@@ -1604,7 +1604,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir en qué etapa está un proyecto y qué falta para la siguiente.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DS0103EN+v3",
+    "u": "https://cognitiveclass.ai/courses/data-science-methodology-2",
     "boss": false,
     "wins": [
      "Empezar por la pregunta de negocio y no por el dato",
@@ -1622,7 +1622,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando armas tu entorno y sabes qué hace cada pieza.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DS0105EN+v3",
+    "u": "https://cognitiveclass.ai/courses/data-science-hands-open-source-tools-2",
     "boss": false,
     "wins": [
      "Jupyter y los notebooks, con sus límites",
@@ -1640,7 +1640,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando escribes tus propios scripts sin copiar el esqueleto de otro lado.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+PY0101EN+v3",
+    "u": "https://cognitiveclass.ai/courses/python-for-data-science",
     "boss": true,
     "wins": [
      "Python de verdad, no solo la sintaxis",
@@ -1658,7 +1658,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando tomas un conjunto de datos crudo y llegas a una respuesta defendible.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DA0101EN+v2",
+    "u": "https://cognitiveclass.ai/courses/data-analysis-python",
     "boss": false,
     "wins": [
      "Limpieza y datos faltantes, que nunca son pocos",
@@ -1676,7 +1676,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando eliges el gráfico por el dato que tienes, y no por el que sabes hacer.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DV0101EN+v2",
+    "u": "https://cognitiveclass.ai/courses/data-visualization-python",
     "boss": false,
     "wins": [
      "Qué gráfico corresponde a qué pregunta",
@@ -1694,7 +1694,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando detectas un problema en los datos antes de entrenar nada.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0HE1EN+v1",
+    "u": "https://cognitiveclass.ai/courses/exploratory-data-analysis-eda-for-data-science-and-ml",
     "boss": false,
     "wins": [
      "Calidad de datos y valores faltantes",
@@ -1712,7 +1712,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando eliges el clasificador por el problema y puedes defender la elección.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0120EN+v1",
+    "u": "https://cognitiveclass.ai/courses/classification-methods-problems-and-solutions",
     "boss": false,
     "wins": [
      "Regresión logística, KNN y SVM, con sus límites",
@@ -1730,7 +1730,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando cargas datos en R y los manipulas sin extrañar pandas.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+RP0101EN+v1",
+    "u": "https://cognitiveclass.ai/courses/r-101",
     "boss": false,
     "wins": [
      "La sintaxis de R, que no se parece a nada más",
@@ -1748,7 +1748,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando construyes un gráfico capa por capa y sabes qué hace cada una.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+DV0151EN+v1",
+    "u": "https://cognitiveclass.ai/courses/data-visualization-with-r",
     "boss": false,
     "wins": [
      "La gramática de gráficos, que es otra forma de pensarlo",
@@ -1766,7 +1766,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir si un modelo sirve mirando algo más que el porcentaje de acierto.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+PA0101EN+v1",
+    "u": "https://cognitiveclass.ai/courses/predictive-modeling-fundamentals",
     "boss": false,
     "wins": [
      "Entrenar y evaluar sin engañarse solo",
@@ -1784,7 +1784,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando eliges el algoritmo por el problema y puedes explicar la elección.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+ML0101EN+v4",
+    "u": "https://cognitiveclass.ai/courses/machine-learning-with-python",
     "boss": true,
     "wins": [
      "Regresión y clasificación, con sus casos de uso reales",
@@ -1816,7 +1816,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando despliegas una aplicación en contenedores y entiendes qué hace el orquestador.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMDeveloperSkillsNetwork+CC0201EN+v1",
+    "u": "https://cognitiveclass.ai/courses/kubernetes-course",
     "boss": true,
     "wins": [
      "Contenedores contra máquinas virtuales, con la diferencia real",
@@ -1834,7 +1834,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entiendes qué problema resuelve Istio que Kubernetes no resuelve solo.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+CO0301EN+v2",
+    "u": "https://cognitiveclass.ai/courses/get-started-with-microservices-istio-and-ibm-cloud-container-service",
     "boss": false,
     "wins": [
      "Qué es una malla de servicios y por qué apareció",
@@ -1852,7 +1852,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes ver la salud de cada servicio y cortar el tráfico a uno sin desplegar nada.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:CognitiveClass+CO0401EN+v2",
+    "u": "https://cognitiveclass.ai/courses/beyond-the-basics-istio-and-ibm-cloud-kubernetes-service",
     "boss": false,
     "wins": [
      "Observabilidad: ver qué servicio está rompiendo qué",
@@ -1888,7 +1888,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir si un sistema es reactivo y por qué, sin repetir el manifiesto.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:Lightbend+LB0101EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reactive-architecture-introduction",
     "boss": true,
     "wins": [
      "Los cuatro rasgos, y cuál sostiene a los otros tres",
@@ -1906,7 +1906,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes trazar los límites de un dominio y defender por dónde los pusiste.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:Lightbend+LB0103EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reactive-architecture-ddd",
     "boss": false,
     "wins": [
      "Contextos delimitados, que es de dónde salen los servicios",
@@ -1924,7 +1924,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando un servicio sigue respondiendo aunque el de al lado esté caído.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+LB0105EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reactive-architecture-microservices",
     "boss": false,
     "wins": [
      "Aislamiento: que la falla de uno no sea la falla de todos",
@@ -1942,7 +1942,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir qué eligió un sistema y qué perdió a cambio.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+LB0107EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reactive-architecture-building-scalable-systems",
     "boss": true,
     "wins": [
      "El teorema CAP explicado con consecuencias, no como trivia",
@@ -1960,7 +1960,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando eliges un modelo de entrega sabiendo qué duplicados vas a tener que manejar.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+LB0109EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reactive-architecture-dmp",
     "boss": false,
     "wins": [
      "Por qué asincrónico cambia el diseño entero, no solo el rendimiento",
@@ -1978,7 +1978,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir qué gana y qué cuesta guardar eventos en lugar de estado.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+LB0111EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reactive-architecture-cqrs",
     "boss": false,
     "wins": [
      "CQRS: por qué leer y escribir pueden querer modelos distintos",
@@ -2212,7 +2212,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando explicas por qué una operación dispara un shuffle y otra no.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+BD0211EN+v1",
+    "u": "https://cognitiveclass.ai/courses/what-is-spark",
     "boss": false,
     "wins": [
      "Evaluación perezosa, que es toda la idea",
@@ -2230,7 +2230,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando arreglas un trabajo lento mirando el plan y no probando al azar.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0212EN+v1",
+    "u": "https://cognitiveclass.ai/courses/spark-rdd",
     "boss": true,
     "wins": [
      "DataFrames y Spark SQL, que es la API que vas a usar",
@@ -2302,7 +2302,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir qué se pierde y qué se duplica en cada modo de entrega.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+BD0123EN+v1",
+    "u": "https://cognitiveclass.ai/courses/simplifying-data-pipelines-with-apache-kafka",
     "boss": false,
     "wins": [
      "Topics y particiones, que es de donde sale la escala",
@@ -2334,7 +2334,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes separar lo que la AI hace de lo que se le atribuye.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0105EN+v1",
+    "u": "https://cognitiveclass.ai/courses/introducing-ai-09f5c2a8-b79c-443d-b09a-8227c40c2108",
     "boss": false,
     "wins": [
      "De dónde viene el campo y por qué explotó ahora",
@@ -2352,7 +2352,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando usas los tres términos sin mezclarlos.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0109EN+v1",
+    "u": "https://cognitiveclass.ai/courses/ai-concepts-ba67406f-972f-40ec-bd11-4c45a979f57d",
     "boss": false,
     "wins": [
      "Machine learning dentro de AI, deep learning dentro de machine learning",
@@ -2370,7 +2370,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir por qué un modelo con buen puntaje igual puede ser inaceptable.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0110EN+v1",
+    "u": "https://cognitiveclass.ai/courses/ai-ethics-2f459a4d-fd9a-4fc6-aba8-e4f66cf33220",
     "boss": true,
     "wins": [
      "De dónde sale el sesgo, que casi siempre es de los datos",
@@ -2388,7 +2388,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entrenas un modelo y sabes leer si sirve o no.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+ML0104EN+v1",
+    "u": "https://cognitiveclass.ai/courses/a-quick-introduction-to-machine-learning",
     "boss": false,
     "wins": [
      "Aprendizaje supervisado y no supervisado, con la diferencia clara",
@@ -2406,7 +2406,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes plantear un problema como estado, acción y recompensa.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+ML0105EN+v1",
+    "u": "https://cognitiveclass.ai/courses/reinforcement-learning-and-deep-learning-essentials",
     "boss": false,
     "wins": [
      "Agente, entorno, estado y recompensa",
@@ -2424,7 +2424,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu clasificador predice sobre datos que no vio antes.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0TRPEN+v1",
+    "u": "https://cognitiveclass.ai/courses/precise-predictions-classification-for-flower-and-tumors",
     "boss": false,
     "wins": [
      "Un clasificador funcionando de punta a punta",
@@ -2442,7 +2442,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes decir en qué se diferencia de clasificar.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0AEIEN+v1",
+    "u": "https://cognitiveclass.ai/courses/predictions-regression-for-car-mileage-and-diamond-price",
     "boss": false,
     "wins": [
      "Regresión, con dos casos que se entienden solos",
@@ -2460,7 +2460,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando explicas qué separa a un grupo del otro.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0MYYEN+v1",
+    "u": "https://cognitiveclass.ai/courses/customer-clustering-with-kmeans-to-boost-business-strategy",
     "boss": true,
     "wins": [
      "Agrupamiento sobre datos de clientes reales",
@@ -2478,7 +2478,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando resuelves un problema de punta a punta sin seguir un tutorial.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BDU+ML0101EN+v4",
+    "u": "https://cognitiveclass.ai/courses/machine-learning-with-python",
     "boss": true,
     "wins": [
      "Regresión y clasificación, con los casos donde se usan",
@@ -2813,7 +2813,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes explicar qué aprende cada capa sin recurrir a la analogía del cerebro.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:DeepLearning.TV+ML0115EN+v2.0",
+    "u": "https://cognitiveclass.ai/courses/introduction-deep-learning",
     "boss": false,
     "wins": [
      "Capas, pesos y funciones de activación",
@@ -2831,7 +2831,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entrenas una red tuya y sabes qué mirar cuando no converge.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:BigDataUniversity+ML0120EN+v2",
+    "u": "https://cognitiveclass.ai/courses/deep-learning-with-tensorflow",
     "boss": false,
     "wins": [
      "El grafo de cómputo, que es la idea que sostiene todo",
@@ -2849,7 +2849,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando sabes si tu cuello de botella es la GPU, la memoria o los datos.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMDeveloperSkillsNetwork+ML0122ENv3+v1",
+    "u": "https://cognitiveclass.ai/courses/tensorflow_gpu",
     "boss": true,
     "wins": [
      "Qué hace distinta a una GPU para esta cuenta",
@@ -2867,7 +2867,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando armas tu propio cargador de datos y lo alimentas a un modelo.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0111EN+v1",
+    "u": "https://cognitiveclass.ai/courses/pytorch-tensor-dataset-and-data-augmentation",
     "boss": false,
     "wins": [
      "Tensores y operaciones, que es toda la base",
@@ -2885,7 +2885,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando escribes el bucle de entrenamiento sin copiarlo.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0116EN+v1",
+    "u": "https://cognitiveclass.ai/courses/linear-regression-with-pytorch",
     "boss": false,
     "wins": [
      "Descenso de gradiente, paso a paso",
@@ -2903,7 +2903,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando entrenas un clasificador y lees su matriz de confusión.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0112EN+v1",
+    "u": "https://cognitiveclass.ai/courses/classification-with-pytorch",
     "boss": false,
     "wins": [
      "Softmax y entropía cruzada, sin la fórmula suelta",
@@ -2921,7 +2921,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando diagnosticas por qué una red no aprende.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0114EN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-a-neural-network-with-pytorch",
     "boss": false,
     "wins": [
      "Módulos y cómo se compone un modelo",
@@ -2939,7 +2939,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando reusas una red preentrenada para tu propio problema.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0113EN+v1",
+    "u": "https://cognitiveclass.ai/courses/convolutional-neural-networks-with-pytorch",
     "boss": true,
     "wins": [
      "Convolución y pooling, y qué ve cada filtro",
@@ -2957,7 +2957,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo corre entero en tu máquina.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMDeveloper+GPXX0W98EN+v1",
+    "u": "https://cognitiveclass.ai/courses/getting-started-with-machine-learning-with-pytorch",
     "boss": false,
     "wins": [
      "El flujo completo, en una hora",
@@ -2974,7 +2974,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes decir por qué una LSTM sirve acá y una red común no.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0UI5EN+v1",
+    "u": "https://cognitiveclass.ai/courses/predict-stock-prices-with-lstm-in-pytorch",
     "boss": false,
     "wins": [
      "Qué agrega la memoria en una red",
@@ -2991,7 +2991,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo responde desde una URL pública.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0PTYEN+v1",
+    "u": "https://cognitiveclass.ai/courses/deploy-a-computer-vision-app-in-a-serverless-environment",
     "boss": false,
     "wins": [
      "De un notebook a algo que otros pueden usar",
@@ -3008,7 +3008,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo marca objetos por nombre en tus propias imágenes.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0D2MEN+v1",
+    "u": "https://cognitiveclass.ai/courses/object-detection-with-faster-r-cnn-and-pytorch",
     "boss": false,
     "wins": [
      "Detección con una red preentrenada sobre COCO",
@@ -3025,7 +3025,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando entiendes qué separa segmentar de clasificar.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0DL9EN+v1",
+    "u": "https://cognitiveclass.ai/courses/medical-image-segmentation-with-pytorch-and-u-net",
     "boss": false,
     "wins": [
      "U-Net armada con capas de PyTorch",
@@ -3042,7 +3042,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes decir cuándo conviene un transformer y cuándo una CNN.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0CLHEN+v1",
+    "u": "https://cognitiveclass.ai/courses/vision-transformers-for-image-classification-hands-on",
     "boss": false,
     "wins": [
      "Atención aplicada a partes de una imagen",
@@ -3059,7 +3059,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo genera imágenes que no existían.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0A52EN+v1",
+    "u": "https://cognitiveclass.ai/courses/creating-anime-characters-using-dcgans-and-pytorch",
     "boss": true,
     "wins": [
      "Generador y discriminador, y por qué compiten",
@@ -3076,7 +3076,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando generas retratos a partir de fotos propias.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0JV6EN+v1",
+    "u": "https://cognitiveclass.ai/courses/human-portrait-drawing-with-u-squared-net-and-pytorch",
     "boss": false,
     "wins": [
      "U-2 Net y qué la hace buena para recortar figuras",
@@ -3093,7 +3093,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes decir cuándo conviene un transformer y cuándo una CNN.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0CLHEN+v1",
+    "u": "https://cognitiveclass.ai/courses/vision-transformers-for-image-classification-hands-on",
     "boss": false,
     "wins": [
      "Atención aplicada a partes de una imagen",
@@ -3110,7 +3110,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo responde desde una URL pública.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0PTYEN+v1",
+    "u": "https://cognitiveclass.ai/courses/deploy-a-computer-vision-app-in-a-serverless-environment",
     "boss": false,
     "wins": [
      "De un notebook a algo que otros pueden usar",
@@ -3127,7 +3127,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo distingue tejido sano del que no lo es.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0W5QEN+v1",
+    "u": "https://cognitiveclass.ai/courses/cancer-image-detection-with-pytorch-part-3-ibest-workshop",
     "boss": false,
     "wins": [
      "Transferencia de aprendizaje sobre imágenes médicas",
@@ -3144,7 +3144,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo corre entero en tu máquina.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMDeveloper+GPXX0W98EN+v1",
+    "u": "https://cognitiveclass.ai/courses/getting-started-with-machine-learning-with-pytorch",
     "boss": false,
     "wins": [
      "El flujo completo, en una hora",
@@ -3161,7 +3161,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo genera imágenes que no existían.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0A52EN+v1",
+    "u": "https://cognitiveclass.ai/courses/creating-anime-characters-using-dcgans-and-pytorch",
     "boss": false,
     "wins": [
      "Generador y discriminador, y por qué compiten",
@@ -3178,7 +3178,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo marca objetos por nombre en tus propias imágenes.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0D2MEN+v1",
+    "u": "https://cognitiveclass.ai/courses/object-detection-with-faster-r-cnn-and-pytorch",
     "boss": true,
     "wins": [
      "Detección con una red preentrenada sobre COCO",
@@ -3195,7 +3195,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando ajustas un modelo ajeno a tus propias clases.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0RR9EN+v1",
+    "u": "https://cognitiveclass.ai/courses/image-classification-using-hugging-face-for-crypto-beans",
     "boss": false,
     "wins": [
      "Fine-tuning sobre un modelo del hub",
@@ -3212,7 +3212,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando repites el proceso con un objeto elegido por ti.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0WTIEN+v1",
+    "u": "https://cognitiveclass.ai/courses/train-a-hotdog-image-recognition-model-with-python",
     "boss": false,
     "wins": [
      "Un clasificador binario de imágenes, entero",
@@ -3229,7 +3229,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando entiendes por qué CycleGAN no necesita imágenes emparejadas.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0KSEEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-an-image-style-transfer-tool-using-cyclegans",
     "boss": false,
     "wins": [
      "CycleGAN por partes, sin magia",
@@ -3246,7 +3246,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo genera imágenes que no existían.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0A52EN+v1",
+    "u": "https://cognitiveclass.ai/courses/creating-anime-characters-using-dcgans-and-pytorch",
     "boss": true,
     "wins": [
      "Generador y discriminador, y por qué compiten",
@@ -3278,7 +3278,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando un prompt tuyo resuelve la tarea sin quince intentos.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0117EN+v1",
+    "u": "https://cognitiveclass.ai/courses/prompt-engineering-for-everyone",
     "boss": false,
     "wins": [
      "Las técnicas que sirven y las que son superstición",
@@ -3296,7 +3296,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando armas prompts dentro de un programa y no en un chat.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0TGVEN+v1",
+    "u": "https://cognitiveclass.ai/courses/the-art-of-prompt-engineering",
     "boss": false,
     "wins": [
      "Prompts dentro de código, no sueltos",
@@ -3313,7 +3313,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu chat responde desde tu propia página.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX04ESEN+v1",
+    "u": "https://cognitiveclass.ai/courses/create-your-own-chatgpt-like-website-with-open-source-llms",
     "boss": false,
     "wins": [
      "Un chat funcionando de punta a punta",
@@ -3330,7 +3330,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo se niega a lo que no corresponde.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX05SHEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-guardrails-for-your-ai-with-open-source",
     "boss": true,
     "wins": [
      "Filtros de entrada y de salida",
@@ -3347,7 +3347,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo contesta sobre un documento que nunca vio en su entrenamiento.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0FVDEN+v1",
+    "u": "https://cognitiveclass.ai/courses/summarize-private-documents-using-rag-langchain-and-llms",
     "boss": false,
     "wins": [
      "Partir y vectorizar un documento",
@@ -3364,7 +3364,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando una sola consulta busca en formatos distintos.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0TQPEN+v1",
+    "u": "https://cognitiveclass.ai/courses/rag-with-llamaindex-build-a-retrieval-agent-using-llms",
     "boss": false,
     "wins": [
      "LlamaIndex sobre documentos mezclados",
@@ -3381,7 +3381,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando cada respuesta viene con su fuente.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0AOVEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-a-grounded-q-a-agent-with-langchain-granite-and-rag",
     "boss": false,
     "wins": [
      "La cadena completa de recuperación y generación",
@@ -3398,7 +3398,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu sistema responde sobre algo que pasó hoy.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX03NIEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-a-rag-system-for-web-data-with-langchain-and-llama-3-1",
     "boss": false,
     "wins": [
      "Recuperar contenido web al vuelo",
@@ -3415,7 +3415,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando le preguntas a un video de una hora sin verlo.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0WSJEN+v1",
+    "u": "https://cognitiveclass.ai/courses/ai-powered-youtube-summarizer-q-a-tool-with-rag-langchain",
     "boss": false,
     "wins": [
      "De la transcripción a un resumen útil",
@@ -3432,7 +3432,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el bot arma un tema de charla con datos reales.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX06PWEN+v1",
+    "u": "https://cognitiveclass.ai/courses/create-an-ai-icebreaker-bot-with-watsonx-and-llamaindex",
     "boss": true,
     "wins": [
      "RAG sobre datos de una persona",
@@ -3449,7 +3449,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes explicar cada paso del ciclo sin mirar el código.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX01DREN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-a-simple-react-agent-from-scratch",
     "boss": false,
     "wins": [
      "Razonar, actuar y observar, en ese orden",
@@ -3466,7 +3466,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo deja de equivocarse en cuentas simples.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0MJGEN+v1",
+    "u": "https://cognitiveclass.ai/courses/how-to-build-ai-math-assistant-with-langchain-tool-calling",
     "boss": false,
     "wins": [
      "Definir herramientas que el modelo puede llamar",
@@ -3483,7 +3483,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo usa una herramienta escrita por ti.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0YQQEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-and-execute-your-own-tools-for-llms",
     "boss": false,
     "wins": [
      "Del modelo aislado al modelo con manos",
@@ -3500,7 +3500,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el agente cambia de estrategia al ver un resultado.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0F6REN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-reasoning-and-acting-ai-agents-with-react",
     "boss": false,
     "wins": [
      "El ciclo entero en LangGraph",
@@ -3517,7 +3517,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando la segunda versión es mejor que la primera, sin que intervengas.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0JFVEN+v1",
+    "u": "https://cognitiveclass.ai/courses/make-your-ai-agents-smarter-with-reflection-in-langgraph",
     "boss": false,
     "wins": [
      "Autocrítica estructurada",
@@ -3534,7 +3534,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el agente corrige un error suyo con una fuente.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0IRMEN+v1",
+    "u": "https://cognitiveclass.ai/courses/reflexion-agent-101",
     "boss": false,
     "wins": [
      "Reflexión más búsqueda",
@@ -3551,7 +3551,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el agente resuelve una tarea de varios pasos sin guía.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0560EN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-a-self-reflective-deep-research-agent-using-langgraph",
     "boss": true,
     "wins": [
      "Investigación autónoma con validación",
@@ -3568,7 +3568,7 @@ var PASOS = [
     "goal": "Terminas este curso cuando puedes decir qué separa un agente de una llamada a un modelo.",
     "cert": "Certificado de IBM",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+AI0146EN+v1",
+    "u": "https://cognitiveclass.ai/courses/introduction-to-agentic-ai",
     "boss": false,
     "wins": [
      "Qué es un agente y qué no lo es",
@@ -3586,7 +3586,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando dos agentes resuelven juntos algo que uno solo no podía.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX03V3EN+v1",
+    "u": "https://cognitiveclass.ai/courses/agentic-ai-build-a-multi-agent-app-with-crewai-gradio",
     "boss": false,
     "wins": [
      "Agentes con roles distintos",
@@ -3603,7 +3603,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando armas tu propio equipo de agentes.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX02Z3EN+v1",
+    "u": "https://cognitiveclass.ai/courses/crewai-101-building-multi-agent-ai-systems",
     "boss": false,
     "wins": [
      "Definir roles y tareas",
@@ -3620,7 +3620,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo deja de equivocarse en cuentas simples.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0MJGEN+v1",
+    "u": "https://cognitiveclass.ai/courses/how-to-build-ai-math-assistant-with-langchain-tool-calling",
     "boss": false,
     "wins": [
      "Definir herramientas que el modelo puede llamar",
@@ -3637,7 +3637,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el modelo usa una herramienta escrita por ti.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0YQQEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-and-execute-your-own-tools-for-llms",
     "boss": false,
     "wins": [
      "Del modelo aislado al modelo con manos",
@@ -3654,7 +3654,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes explicar cada paso del ciclo sin mirar el código.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX01DREN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-a-simple-react-agent-from-scratch",
     "boss": false,
     "wins": [
      "Razonar, actuar y observar, en ese orden",
@@ -3671,7 +3671,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando eliges el patrón según el problema, no por costumbre.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0FPGEN+v1",
+    "u": "https://cognitiveclass.ai/courses/agentic-ai-workflow-design-patterns-with-langgraph",
     "boss": false,
     "wins": [
      "Secuencial, enrutado y paralelo",
@@ -3688,7 +3688,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando los agentes se corrigen entre sí.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0DK1EN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-multiagent-chatbot-with-ag2-autogen-for-healthcare",
     "boss": false,
     "wins": [
      "AutoGen y la conversación entre agentes",
@@ -3705,7 +3705,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando una respuesta mal formada se rechaza sola.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0BX5EN+v1",
+    "u": "https://cognitiveclass.ai/courses/learn-pydanticai-by-building-a-customer-support-agent",
     "boss": false,
     "wins": [
      "Validación de estructura en la salida",
@@ -3722,7 +3722,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el sistema detecta y arregla su propia respuesta floja.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX026DEN+v1",
+    "u": "https://cognitiveclass.ai/courses/chat-with-your-documents-via-agentic-rag-langgraph-docling",
     "boss": true,
     "wins": [
      "RAG con arquitectura de varios agentes",
@@ -3774,7 +3774,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando ves un patrón que PCA común no encontraba.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX05W9EN+v1",
+    "u": "https://cognitiveclass.ai/courses/use-kernel-pca-to-find-why-are-you-poor",
     "boss": false,
     "wins": [
      "PCA con kernel, para relaciones no lineales",
@@ -3791,7 +3791,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando el algoritmo separa zonas que no marcaste.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX04YGEN+v1",
+    "u": "https://cognitiveclass.ai/courses/image-segmentation-with-mean-shift-clustering",
     "boss": false,
     "wins": [
      "Agrupamiento sin fijar la cantidad de grupos",
@@ -3808,7 +3808,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes decir por qué a veces conviene una pertenencia parcial.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX04T2EN+v1",
+    "u": "https://cognitiveclass.ai/courses/building-recommender-systems-with-gaussian-mixture-model",
     "boss": false,
     "wins": [
      "Agrupamiento probabilístico",
@@ -3825,7 +3825,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando distingues un caso raro de uno mal medido.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0SHHEN+v1",
+    "u": "https://cognitiveclass.ai/courses/unraveling-patterns-with-dbscan",
     "boss": false,
     "wins": [
      "Grupos de cualquier forma, no solo esferas",
@@ -3842,7 +3842,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando reconoces caras con una fracción de los datos.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0VWBEN+v1",
+    "u": "https://cognitiveclass.ai/courses/using-pca-to-improve-facial-recognition",
     "boss": false,
     "wins": [
      "De miles de píxeles a unas pocas componentes",
@@ -3859,7 +3859,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando separas figura y fondo sin marcar nada a mano.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0IT0EN+v1",
+    "u": "https://cognitiveclass.ai/courses/video-processing-subtracting-background-with-svd",
     "boss": false,
     "wins": [
      "SVD explicada por lo que hace, no por la fórmula",
@@ -3876,7 +3876,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu buscador devuelve imágenes parecidas de verdad.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX06S4EN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-an-image-retrieval-system-with-nmf-and-more",
     "boss": true,
     "wins": [
      "Factorizar de forma que los factores se entiendan",
@@ -3893,7 +3893,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu sistema recomienda sin saber nada de otros usuarios.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0RPXEN+v1",
+    "u": "https://cognitiveclass.ai/courses/creating-a-content-based-recommendation-system",
     "boss": false,
     "wins": [
      "Preparar los datos, que es la mitad del trabajo",
@@ -3910,7 +3910,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes explicar por qué recomendó cada película.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0XMEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-netflix-like-recommendation-systems-with-sklearn",
     "boss": false,
     "wins": [
      "KNN sobre géneros y tipos",
@@ -3927,7 +3927,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando entiendes la diferencia entre usuario a usuario y elemento a elemento.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0M0YEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-recommendation-systems-using-collaborative-filtering",
     "boss": false,
     "wins": [
      "Las dos formas de filtrado colaborativo",
@@ -3944,7 +3944,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando la recomendación entiende una descripción en lenguaje natural.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0SV2EN+v1",
+    "u": "https://cognitiveclass.ai/courses/find-your-best-bottle-of-wine-with-nlp",
     "boss": false,
     "wins": [
      "Texto convertido en vectores comparables",
@@ -3961,7 +3961,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando encuentras cursos parecidos sin comparar títulos.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0QZ9EN+v1",
+    "u": "https://cognitiveclass.ai/courses/mastering-nlp-and-clustering-find-best-courses-like-a-pro",
     "boss": false,
     "wins": [
      "BERT para representar texto",
@@ -3978,7 +3978,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando dos descripciones distintas con el mismo sentido quedan cerca.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX068IEN+v1",
+    "u": "https://cognitiveclass.ai/courses/perfume-recommendation-with-sentence-bert",
     "boss": false,
     "wins": [
      "Sentence-BERT y similitud semántica",
@@ -3995,7 +3995,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes decir por qué a veces conviene una pertenencia parcial.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX04T2EN+v1",
+    "u": "https://cognitiveclass.ai/courses/building-recommender-systems-with-gaussian-mixture-model",
     "boss": false,
     "wins": [
      "Agrupamiento probabilístico aplicado a recomendación",
@@ -4012,7 +4012,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tienes una aplicación que otros pueden usar.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0D14EN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-your-movie-recommender-with-django",
     "boss": true,
     "wins": [
      "Del notebook a una aplicación web",
@@ -4029,7 +4029,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando resuelves cuatro tareas distintas sin entrenar nada.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0AIAEN+v1",
+    "u": "https://cognitiveclass.ai/courses/natural-language-processing-with-hugging-face-transformers",
     "boss": false,
     "wins": [
      "Modelos preentrenados listos para usar",
@@ -4046,7 +4046,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu aplicación clasifica texto por API.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0PYAEN+v1",
+    "u": "https://cognitiveclass.ai/courses/text-sentiment-analysis-using-caikit-and-hugging-face",
     "boss": false,
     "wins": [
      "Servir un modelo detrás de una API",
@@ -4063,7 +4063,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu clasificador funciona sobre texto que nadie limpió.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0UN5EN+v1",
+    "u": "https://cognitiveclass.ai/courses/classification-of-yelp-reviews-using-sentiment-analysis",
     "boss": false,
     "wins": [
      "Preparar texto real, con su ruido",
@@ -4080,7 +4080,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando la extensión corre en tu navegador.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0DUXEN+v1",
+    "u": "https://cognitiveclass.ai/courses/sentiment-analysis-extension-for-twitter",
     "boss": true,
     "wins": [
      "Una extensión de navegador funcionando",
@@ -4097,7 +4097,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando le hablas a tu asistente y te responde.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0IWWEN+v1",
+    "u": "https://cognitiveclass.ai/courses/chatapp-powered-by-openai",
     "boss": false,
     "wins": [
      "Reconocimiento y síntesis de voz",
@@ -4114,7 +4114,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes leer el ánimo de cientos de reseñas de un vistazo.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX01V6EN+v1",
+    "u": "https://cognitiveclass.ai/courses/how-do-people-feel-about-a-product-use-ai-to-get-the-answer",
     "boss": false,
     "wins": [
      "Clasificación de emociones, más fina que positivo o negativo",
@@ -4131,7 +4131,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tomas un pedido hablando.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0E8TEN+v1",
+    "u": "https://cognitiveclass.ai/courses/improve-customer-support-with-ai-powered-voice-services",
     "boss": false,
     "wins": [
      "Servir un modelo con Flask",
@@ -4148,7 +4148,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando la extensión corre en tu navegador.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0DUXEN+v1",
+    "u": "https://cognitiveclass.ai/courses/sentiment-analysis-extension-for-twitter",
     "boss": true,
     "wins": [
      "Una extensión de navegador funcionando",
@@ -4165,7 +4165,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu agente deja de perder.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0HAUEN+v1",
+    "u": "https://cognitiveclass.ai/courses/build-your-own-unbeatable-tictactoe-ai",
     "boss": false,
     "wins": [
      "Agente, entorno, estado y recompensa",
@@ -4182,7 +4182,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando entiendes qué aporta un entorno estandarizado.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0XENEN+v1",
+    "u": "https://cognitiveclass.ai/courses/playing-tictactoe-with-reinforcement-learning-and-openai-gym",
     "boss": false,
     "wins": [
      "Diferencia temporal frente a Monte Carlo",
@@ -4199,7 +4199,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes responder si se le gana a la casa o no.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0EP1EN+v1",
+    "u": "https://cognitiveclass.ai/courses/win-blackjack-with-reinforcement-learning",
     "boss": false,
     "wins": [
      "Entrenar y evaluar una política",
@@ -4216,7 +4216,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tomas un pedido hablando.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0E8TEN+v1",
+    "u": "https://cognitiveclass.ai/courses/improve-customer-support-with-ai-powered-voice-services",
     "boss": true,
     "wins": [
      "Servir un modelo con Flask",
@@ -4233,7 +4233,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando puedes nombrar los tres factores que más pesan y por qué.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0T2WEN+v1",
+    "u": "https://cognitiveclass.ai/courses/learn-explainable-ai-employee-retention-use-case",
     "boss": false,
     "wins": [
      "SHAP para medir la influencia de cada variable",
@@ -4250,7 +4250,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando tu modelo entrega la razón junto con la decisión.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0RWFEN+v1",
+    "u": "https://cognitiveclass.ai/courses/from-data-to-decisions-explainable-ai-in-credit-approval",
     "boss": false,
     "wins": [
      "Modelos basados en reglas, interpretables de origen",
@@ -4267,7 +4267,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando explicas una tasación con tres reglas.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX014EEN+v1",
+    "u": "https://cognitiveclass.ai/courses/explainable-ai-in-housing-markets-rule-based-analysis",
     "boss": false,
     "wins": [
      "Reglas extraídas de los datos",
@@ -4284,7 +4284,7 @@ var PASOS = [
     "goal": "Terminas este proyecto cuando identificas perfiles y no casos sueltos.",
     "cert": "",
     "i": "",
-    "u": "https://cognitiveclass.ai/courses/course-v1:IBMSkillsNetwork+GPXX0DH4EN+v1",
+    "u": "https://cognitiveclass.ai/courses/learn-explainable-ai-by-analyzing-student-performance",
     "boss": true,
     "wins": [
      "Protodash para encontrar ejemplos representativos",

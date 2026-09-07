@@ -1391,7 +1391,7 @@ dialog.sheet.wide{ width:min(760px,calc(100vw - 32px)); }
   <span id="toastText"></span>
 </div>
 
-<script src="pasos.js?v=f6152d8a"></script>
+<script src="pasos.js?v=0726fb5f"></script>
 <script src="temas.js?v=872bdd56"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=24fd2234"></script>
@@ -1636,7 +1636,7 @@ var NODES = [
     ],
     links: [
       { t: "Data sharing: introducción", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/data-sharing-intro", b: "oficial" },
-      { t: "Snowflake Marketplace", s: "snowflake.com", i: "tool", u: "https://www.snowflake.com/en/data-cloud/marketplace/", b: "oficial" }
+      { t: "Snowflake Marketplace", s: "snowflake.com", i: "tool", u: "https://www.snowflake.com/en/product/features/marketplace/", b: "oficial" }
     ]
   },
 
@@ -1656,9 +1656,9 @@ var NODES = [
       "Los tres tipos de URL para archivos sin estructura y cuándo va cada uno"
     ],
     links: [
-      { t: "Cortex: funciones de AI", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/snowflake-cortex/llm-functions", b: "oficial" },
+      { t: "Cortex: funciones de AI", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql", b: "oficial" },
       { t: "Tablas Apache Iceberg", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/tables-iceberg", b: "oficial" },
-      { t: "Dynamic tables", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/dynamic-tables-about", b: "oficial" },
+      { t: "Dynamic tables", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/dynamic-tables/overview", b: "oficial" },
       { t: "Snowpark", s: "docs.snowflake.com · guía de desarrollo", i: "docs", u: "https://docs.snowflake.com/en/developer-guide/snowpark/index", b: "oficial" },
       { t: "Datos sin estructura", s: "docs.snowflake.com", i: "docs", u: "https://docs.snowflake.com/en/user-guide/unstructured-intro", b: "oficial" },
       { t: "Level Up: Snowpark y Python", s: "learn.snowflake.com · track oficial gratuito, incluye Streamlit", i: "track", u: "https://learn.snowflake.com/en/pages/level-up-snowpark-essentials-track/", b: "oficial" },
@@ -1832,7 +1832,7 @@ var BONUS = [
     t: "Virtual Hands-On Lab",
     d: "Sesiones gratuitas en vivo con features nuevas. Sirven para no oxidarte después de aprobar.",
     i: "lab", s: "snowflake.com", b: "oficial",
-    u: "https://www.snowflake.com/virtual-hands-on-lab/"
+    u: "https://www.snowflake.com/en/webinars/virtual-hands-on-lab/"
   },
   {
     t: "Mis apuntes",
@@ -1864,7 +1864,7 @@ var QUIZ=[
 {n:100,q:"What is the most granular object that the Time Travel retention period can be defined on?",o:["Account","Database","Schema","Table fi ."],a:"D"},
 {n:138,q:"What is the minimum Snowflake edition that has column-level security enabled?",o:["Standard","Enterprise","Business Critical","Virtual Private Snowflake"],a:"B"},
 {n:146,q:"Which of the following are characteristics of Snowflake virtual warehouses? (Choose two.)",o:["Auto-resume applies only to the last warehouse that was started in a multi-cluster warehouse.","The ability to auto-suspend a warehouse is only available in the Enterprise edition or above.","SnowSQL supports both a configuration file and a command line option for specifying a default warehouse.","A user cannot specify a default warehouse when using the ODBC driver.","The default virtual warehouse size can be changed at any time."],a:"CE"},
-{n:150,q:"What versions of Snowflake should be used to manage compliance with Personal Identifiable Information (PII) requirements? (Choose two.)",o:["Custom Edition","Virtual Private Snowflake","Business Critical Edition","Standard Edition","Enterprise Edition"],a:"BC",e:"https://docs.snowflake.com/en/user-guide/intro-editions.html"},
+{n:150,q:"What versions of Snowflake should be used to manage compliance with Personal Identifiable Information (PII) requirements? (Choose two.)",o:["Custom Edition","Virtual Private Snowflake","Business Critical Edition","Standard Edition","Enterprise Edition"],a:"BC",e:"https://docs.snowflake.com/en/user-guide/intro-editions"},
 {n:158,q:"What is the SNOWFLAKEFL.ACCOUNT_USAGE view that contains information about which objects were read by queries within the last 365 days (1 year)?",o:["VIEWS_HISTORY","OBJECT_HISTORY","ACCESS_HISTORY","LOGIN_HISTORY"],a:"C"},
 {n:166,q:"How does Snowflake Fail-safe protect data in a permanent table?",o:["Fail-safe makes data available up to 1 day, recoverable by user operations.","Fail-safe makes data available for 7 days, recoverable by user operations.","Fail-safe makes data available for 7 days, recoverable only by Snowflake Support.","Fail-safe makes data available up to 1 day, recoverable only by Snowflake Support."],a:"C"},
 {n:167,q:"A virtual warehouse is created using the following command: Create warehouse my_WH with warehouse_size = MEDIUM min_cluster_count = 1 max_cluster_count = 1 auto_suspend = 60 auto_resume = true; The image below is a graphical representation of the warehouse utilization across two days. What action should be taken to address this situation?",o:["Increase the warehouse size from Medium to 2XL.","Increase the value for the parameter MAX_CONCURRENCY_LEVEL.","Configure the warehouse to a multi-cluster warehouse.","Lower the value of the parameter STATEMENT_QUEUED_TIMEOUT_IN_SECONDS."],a:"C"},
@@ -1979,7 +1979,7 @@ var QUIZ=[
 {n:294,q:"Which of the following are benefits of micro-partitioning? (Choose two.)",o:["Micro-partitions cannot overlap in their range of values.","Micro-partitions are immutable objects that support the use of Time Travel.","Micro-partitions can reduce the amount of I/O from object storage to virtual warehouses.","Rows are automatically stored in sorted order within micro-partitions.","Micro-partitions can be defined on a schema-by-schema basis."],a:"BC"},
 {n:296,q:"If all virtual warehouse resources are maximized while processing a query workload, what will happen to new queries that are submitted to the warehouse?",o:["All queries will terminate when the resources are maximized.","The warehouse will scale out automatically","The warehouse will move to a suspended state.","New queries will be queued and executed when capacity is available."],a:"D"},
 {n:297,q:"Masking policies can be applied to which of the following Snowflake objects? (Choose two.)",o:["A materialized view","A stored procedure","A table","A stream","A pipe","A User-Defined Function (UDF)"],a:"AC"},
-{n:298,q:"What actions are supported by Snowflake resource monitors? (Choose two.)",o:["Alert","Notify","Notify and suspend","Abort","Suspend immediately"],a:"BC",e:"https://docs.snowflake.com/en/user-guide/resource-monitors.html#actions"},
+{n:298,q:"What actions are supported by Snowflake resource monitors? (Choose two.)",o:["Alert","Notify","Notify and suspend","Abort","Suspend immediately"],a:"BC",e:"https://docs.snowflake.com/en/user-guide/resource-monitors#actions"},
 {n:299,q:"A user executes the following SQL query: create table SALES_BKP like SALES; What are the cost implications for processing this query?",o:["Processing costs will be generated based on how long the query takes.","Storage costs will be generated based on the size of the data.","No costs will be incurred as the query will use metadata.","The cost for running the virtual warehouse will be charged by the second."],a:"C"},
 {n:300,q:"What is the maximum length of time travel available in the Snowflake Standard Edition?",o:["1 Day","7 Days","30 Days","90 Days"],a:"A"},
 {n:301,q:"What happens when an external or an internal stage is dropped? (Choose two.)",o:["When dropping an external stage, the files are not removed and only the stage is dropped.","When dropping an external stage, both the stage and the files within the stage are removed.","When dropping an internal stage, the files are deleted with the stage and the files are recoverable.","When dropping an internal stage, the files are deleted with the stage and the files are not recoverable.","When dropping an internal stage, only selected files are deleted with the stage and are not recoverable."],a:"AD"},
@@ -2022,7 +2022,7 @@ var QUIZ=[
 {n:338,q:"What are value types that a VARIANT column can store? (Choose two.)",o:["STRUCT","OBJECT","BINARY","ARRAY","CLOB"],a:"BD"},
 {n:339,q:"A company needs to read multiple terabytes of data for an initial load as part of a Snowflake migration. The company can control the number and size of CSV extract files. How does Snowflake recommend maximizing the load performance?",o:["Use auto-ingest Snowpipes to load large files in a serverless model.","Produce the largest files possible, reducing the overall number of files to process.","Produce a larger number of smaller files and process the ingestion with size Small virtual warehouses.","Use an external tool to issue batched row-by-row inserts within BEGIN TRANSACTION and COMMIT commands."],a:"C"},
 {n:340,q:"For non-materialized views, what column in Information Schema and Account Usage identifes whether a view is secure or not?",o:["CHECK_OPTION","IS_SECURE","IS_UPDATEABLE","TABLE_NAME"],a:"B"},
-{n:341,q:"The bulk data load history that is available upon completion of the COPY statement is stored where and for how long?",o:["In the metadata of the target table for 14 days","In the metadata of the pipe for 14 days","In the metadata of the target table for 64 days","In the metadata of the pipe for 64 days"],a:"C",e:"https://docs.snowflake.com/en/user-guide/data-load-snowpipe-intro.html#load-history"},
+{n:341,q:"The bulk data load history that is available upon completion of the COPY statement is stored where and for how long?",o:["In the metadata of the target table for 14 days","In the metadata of the pipe for 14 days","In the metadata of the target table for 64 days","In the metadata of the pipe for 64 days"],a:"C",e:"https://docs.snowflake.com/en/user-guide/data-load-snowpipe-intro#load-history"},
 {n:342,q:"User INQUISITIVE_PERSON has been granted the role DATA_SCIENCE. The role DATA_SCIENCE has privileges OWNERSHIP on the schema MARKETING of the database ANALYTICS_DW. Which command will show all privileges granted to that schema?",o:["SHOW GRANTS ON ROLE DATA_SCIENCE","SHOW GRANTS ON SCHEMA ANALYTICS_DW.MARKETING","SHOW GRANTS TO USER INQUISITIVE_PERSON","SHOW GRANTS OF ROLE DATA_SCIENCE"],a:"B"},
 {n:343,q:"Which of the following are characteristics of security in Snowflake?",o:["Account and user authentication is only available with the Snowflake Business Critical edition.","Support for HIPAA and GDPR compliance is available for UI Snowflake editions.","Periodic rekeying of encrypted data is available with the Snowflake Enterprise edition and higher","Private communication to internal stages is allowed in the Snowflake Enterprise edition and higher."],a:"C"},
 {n:344,q:"Which of the following objects can be shared through secure data sharing?",o:["Masking policy","Stored procedure","Task","External table"],a:"D"},
