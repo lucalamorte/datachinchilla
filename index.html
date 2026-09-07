@@ -1365,14 +1365,6 @@ a.via{ text-decoration:none; }
 .ir-ruta .fl{ margin-left:auto; color:var(--accent); display:flex; flex:none;
   transition:transform 160ms ease; }
 .ir-ruta:hover .fl{ transform:translateX(3px); }
-.ir-ruta.practicar{
-  background:linear-gradient(160deg, var(--surface-2), var(--surface) 65%);
-  border-color:var(--divider);
-}
-.ir-ruta.practicar .ico{ color:var(--text-2); }
-.ir-ruta.practicar .fl{ color:var(--text-3); }
-.ir-ruta.practicar:hover{ border-color:var(--accent); }
-.ir-ruta.practicar:hover .fl{ color:var(--accent); }
 
 /* La portada tiene dos caras y muestra una sola: el onboarding
    mientras falta, tu estado cuando ya está. */
@@ -1749,18 +1741,6 @@ a.via{ text-decoration:none; }
       </span>
     </a>
 
-    <a class="ir-ruta practicar" href="practica.html">
-      <span class="ico">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
-      </span>
-      <span class="txt">
-        <b>Practicar</b>
-        <span id="practDato">Blind 75 y consultas de entrevistas</span>
-      </span>
-      <span class="fl">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
     </div>
   </div>
 </section>
@@ -2819,13 +2799,6 @@ function pintarPuertas(){
     if(pend.length) sigue = { ruta: act[i], paso: pend[0] };
   }
 
-  var pract = null;
-  if(typeof Practica !== "undefined"){
-    var banco = Practica.bancoDeHoy();
-    var s = Practica.siguiente(banco);
-    if(s) pract = { banco: banco, p: s, lleva: Practica.hoyCuantos(banco) };
-  }
-
   var h = "";
   if(sigue){
     h += '<a class="puerta destacada" href="' + esc(sigue.ruta.archivo) + '#' + esc(sigue.paso.id) + '">' +
@@ -2834,14 +2807,11 @@ function pintarPuertas(){
         '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span>' +
       '<span class="p-ir">Seguir ' + icon("arrow", 12) + '</span></a>';
   }
-  if(pract){
-    h += '<a class="puerta" href="practica.html">' +
-      '<span class="p-ico">' + icon("code", 19) + '</span>' +
-      '<span class="p-txt"><b>Práctica de hoy</b>' +
-        '<span>' + esc((pract.p.n ? pract.p.n + ". " : "") + pract.p.t) +
-        ' · llevas ' + pract.lleva + ' de ' + Practica.POR_DIA + '</span></span>' +
-      '<span class="p-ir">Practicar ' + icon("arrow", 12) + '</span></a>';
-  }
+  /* La puerta "Practica de hoy" se fue: mostraba el mismo problema
+     que las tarjetas de la seccion de abajo y llevaba al mismo lado.
+     De los cuatro caminos a la practica que habia en esta pantalla
+     queda la seccion, que no es un link sino la funcion, y su
+     cabecera, que es el unico camino al listado completo. */
   h += '<a class="puerta" href="semana.html">' +
     '<span class="p-ico">' + icon("clock", 19) + '</span>' +
     '<span class="p-txt"><b>Tu semana</b>' +
@@ -3073,12 +3043,6 @@ function pintarEstado(){
     (nombre ? nombre + " · " : "") +
     cursos + (cursos === 1 ? " curso · " : " cursos · ") + horas + " horas";
 
-  if(typeof Practica !== "undefined"){
-    var ab = Practica.avance("blind75"), as = Practica.avance("strata");
-    document.getElementById("practDato").textContent =
-      (ab.hechos + as.hechos) + " de " + (ab.total + as.total) +
-      " problemas, con tu avance";
-  }
 }
 
 

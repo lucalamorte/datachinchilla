@@ -1,132 +1,78 @@
 # Roadmap de DataChinchilla
 
-Todo lo pedido, en un solo lado, para que no se pierda nada. La
-numeración entre paréntesis es la del mensaje donde se pidió, para
-poder buscarlo.
+Ordenado por esfuerzo contra impacto: arriba lo que cuesta poco y se
+nota mucho. El número entre paréntesis es el del mensaje donde se
+pidió.
 
 Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 
 ---
 
-## Roto ahora mismo
+## 1. Cuesta poco y se nota mucho
 
-Lo que está mal en producción. Va primero, siempre.
-
-| # | Qué | Estado |
+| Qué | Por qué está acá | Estado |
 |---|---|---|
-| 1 | El onboarding ya no aparece | abierto |
-| 8 | La agenda desapareció de la portada | abierto |
-| 17 | Volver atrás desde el armador lleva a Data Engineer, no a la portada | abierto |
-| 13 | Se pueden sumar bloques a "mi semana" sin cuenta; también guardar una ruta armada | abierto |
+| (17) El "volver" del armador va a Data Engineer | Un `href` hardcodeado. Navegación rota en la página que más se usa | **hecho** |
+| (13) Pedir cuenta para guardar la ruta armada y para sumar bloques a la semana | El candado ya existe, falta usarlo en dos lugares más | **hecho** |
+| (7) Sacar "Las bloqueadas todavía no existen" | Un borrado | **hecho** |
+| (5, 22) Sacar la banda "¿Ya sabes la mitad de esto?" | Un borrado, y saca una acción duplicada | **hecho** |
+| Sacar del pie "Todas las rutas" y "Armar la mía" | Un borrado | **hecho** |
+| (3, 9, 4, 4.5) FAQ en su propia página, con la plata contestada de una | Una página nueva, y es lo que más frena a alguien que llega | **hecho** |
+| (11) Barra de scroll propia | CSS | **hecho** |
+| (12) Ambiente de pruebas | Ya estaba disponible en Cloudflare | **hecho** |
+| Unificar los cuatro "Practicar" de la portada | Borrar tres, decidir cuál queda | abierto |
+| (21) Los bordes del catálogo parecen "seleccionado" | CSS. Define la jerarquía visual de todo el sitio | abierto |
+| (23) Las huellas entre secciones | Si se sacan, es un borrado. Ocupan mucho y no se entienden | abierto |
+| (4) Sumar Laws of UX | Una entrada de contenido | abierto |
 
----
+## 2. Cuesta poco y se nota
 
-## Confianza: que se entienda que es gratis
-
-Lo más importante del producto. Alguien tiene que poder llegar, mirar
-diez segundos y saber que no se le va a cobrar nunca.
-
-| # | Qué | Estado |
+| Qué | Por qué acá | Estado |
 |---|---|---|
-| 3 | Decir que es gratis sin que suene a las que dicen que son gratis y no lo son | abierto |
-| 9 | FAQ, y lo que hace que una app se vea profesional | abierto |
-| 7 | Sacar "Las bloqueadas todavía no existen. Escríbeme cuál te sirve" | abierto |
-| 6 | Poner en cada ruta "¿Conoces algo gratis que debería estar acá?" | abierto |
+| (24) Estandarizar espaciados entre secciones | CSS, pero hay que revisar 22 páginas | abierto |
+| (6) "¿Conocés algo gratis que debería estar acá?" en cada ruta | Ya puesto en las 16 | **hecho** |
+| (3) El pie sin borde en claro | CSS | **hecho** |
+| Flechitas para pasar de ejercicio en práctica | Una fila de botones y dos funciones | abierto |
+| (2) Desbloquear Airflow | Cuesta poco escribirla; lo que cuesta es encontrarle material gratis serio | abierto |
 
-Sobre el 3: no alcanza con escribir "gratis" más grande. Lo que
-convence es que no haya ningún lugar donde pueda aparecer un precio:
-sin plan, sin "pro", sin límite de nada, y decir de dónde sale el
-material y por qué no cuesta.
+## 3. Cuesta medio, se nota mucho
 
----
-
-## Interfaz: sacar ruido
-
-| # | Qué | Estado |
+| Qué | Por qué acá | Estado |
 |---|---|---|
-| — | Unificar los cuatro "Practicar" de la portada | abierto |
-| — | Sacar "Todas las rutas" y "Armar la mía" del pie | abierto |
-| 5 | Reescribir "¿Ya sabes la mitad de esto?" | abierto |
-| 22 | Ese bloque va al mismo lado que "Ármala a mano" de arriba: decidir si se queda | a decidir |
-| 21 | Los bordes del catálogo parecen tarjetas seleccionadas. Definir jerarquía: qué lleva degradado, qué lleva borde, con qué intensidad | abierto |
-| 24 | Estandarizar los espaciados entre secciones | abierto |
-| 23 | Las huellas entre secciones: ocupan mucho y no se entiende la intención | a decidir |
-| 11 | Barra de scroll propia | **hecho** |
+| (20) Menú hamburguesa: CV, a mano, rutas, práctica, semana | Toca 22 páginas | abierto |
+| El recorrido: que explique dónde estás en cada página, y poder volver un paso | Rehacer el contenido de los nueve pasos | abierto |
+| (18) La ruta armada a mano y la del CV, ancladas juntas | Toca la portada y el modelo de datos | abierto |
+| (14) Que todo lo nuevo esté también en "armar ruta" | Hay que auditar qué falta | abierto |
+| (1) El globo no aparece en incógnito | Sin causa todavía. Hay una red puesta para que falle mostrándose | en curso |
+| Sección de lo que dan gratis por ser estudiante | Investigación de contenido | abierto |
 
----
+## 4. Cuesta mucho
 
-## Navegación
-
-| # | Qué | Estado |
+| Qué | Por qué acá | Estado |
 |---|---|---|
-| 20 | Menú hamburguesa: CV, a mano, rutas, práctica diaria, mi semana | abierto |
-| 18 | La ruta armada a mano y la que sale del CV, ancladas juntas, cada una con su color y sus filtros | abierto |
-| — | Flechitas para pasar de ejercicio en práctica sin entrar | abierto |
+| (10) Verificador de todos los links del sitio | Son cientos, y tiene que quedar corriendo solo | abierto |
+| (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | Análisis de todo el catálogo | abierto |
+| (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |
+| (19b) Evaluar IA para leer el CV, sin que nadie pague | Decisión de arquitectura y de costo | a decidir |
+| El motor no entiende negaciones: "no sé Docker" cuenta como saber | Requiere análisis de texto de verdad | abierto |
+| Preguntas de seguimiento cuando el CV es ambiguo | Diseño nuevo | abierto |
+| (16) Pasar el sitio a inglés | Al final. Conviene ir sacando textos a un solo lugar mientras tanto | abierto |
 
----
+## 5. Fuera del sitio
 
-## El recorrido guiado
-
-| # | Qué | Estado |
-|---|---|---|
-| 1 | No aparece más | abierto |
-| — | Que explique dónde estás parado en cada página, no solo qué sigue | abierto |
-| — | Poder volver al paso anterior, y que te devuelva a donde estabas | abierto |
-| — | Que las acciones adelanten el paso | **hecho** |
-| — | Que no se pueda avanzar sin hacer la acción | **hecho** |
-| — | Que se pueda reabrir después de cerrarla | **hecho** |
-| — | Que no se salga de la pantalla al scrollear | **hecho** |
-
----
-
-## Contenido
-
-| # | Qué | Estado |
-|---|---|---|
-| 2 | Desbloquear Airflow: hay que buscarle material gratis | abierto |
-| 4 | Sumar Laws of UX (lawsofux.com, tiene versión en español) | abierto |
-| — | Sección de lo que te dan gratis por ser estudiante | abierto |
-| 14 | Que todo lo que agreguemos esté también en "armar ruta" | abierto |
-| 15 | Evaluar el contenido: cuánto hay, qué falta, cuál es el mínimo para lanzar | abierto |
-| 10 | Links rotos y de pago: revisar todos, no solo los cinco | en curso |
-
-Sobre el 10: los cinco de LeetCode Premium ya se cambiaron por gratis
-del mismo patrón. Falta pasar un verificador por **todos** los links
-del sitio, que son cientos, y que quede corriendo solo.
-
----
-
-## El motor
-
-| # | Qué | Estado |
-|---|---|---|
-| 19 | Que subir el CV real dé exactamente "Subir de nivel". Iterar sin hardcodear | abierto |
-| 19b | Evaluar si conviene IA para el análisis del CV, sin que nadie pague | a decidir |
-| — | Preguntas de seguimiento cuando la evidencia del CV es ambigua | abierto |
-| — | El motor no entiende negaciones: "no sé Docker" cuenta como saber Docker | abierto |
-
----
-
-## Infraestructura
-
-| # | Qué | Estado |
-|---|---|---|
-| 12 | Ambiente de pruebas | **hecho** — `pruebas.datachinchilla.pages.dev` |
-| 13 | Pedir cuenta para guardar avance | **hecho** para cursos y práctica; falta semana y ruta armada |
-| — | Rotar la clave `sb_secret_` de Supabase | abierto |
-| — | Conectar `www.datachinchilla.com` | abierto |
-| 16 | Pasar el sitio a inglés | abierto, al final |
-
-Sobre el 16: conviene ir sacando los textos a un solo lugar a medida
-que se toca cada página, así el día que se traduzca no hay que
-recorrer veintiuna páginas buscando frases sueltas.
+| Qué | Estado |
+|---|---|
+| Rotar la clave `sb_secret_` de Supabase | abierto |
+| Conectar `www.datachinchilla.com` | abierto |
 
 ---
 
 ## Cómo se trabaja
 
-- Todo va primero a la rama `pruebas`, se verifica en
+- Todo va primero a `pruebas`, se verifica en
   `pruebas.datachinchilla.pages.dev`, y recién ahí se mergea a `main`.
 - `datachinchilla.com/version.txt` dice qué versión está publicada.
-- Antes de publicar: `humo.py`, `cuentas.py` y `publicar.py` tienen
-  que pasar.
+  Comparar contra el sha local antes de dar algo por desplegado: el
+  sitio devuelve la portada para cualquier ruta que no existe, así que
+  un 200 no prueba nada.
+- Antes de publicar: `humo.py`, `cuentas.py` y `publicar.py`.
