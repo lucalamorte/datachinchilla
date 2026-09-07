@@ -39,12 +39,13 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 
 | Qué | Por qué acá | Estado |
 |---|---|---|
-| (20) Menú hamburguesa: CV, a mano, rutas, práctica, semana | Toca 22 páginas | abierto |
-| El recorrido: que explique dónde estás en cada página, y poder volver un paso | Rehacer el contenido de los nueve pasos | abierto |
-| (18) La ruta armada a mano y la del CV, ancladas juntas | Toca la portada y el modelo de datos | abierto |
-| (14) Que todo lo nuevo esté también en "armar ruta" | Hay que auditar qué falta | abierto |
+| (20) Menú hamburguesa: CV, a mano, rutas, práctica, semana | Toca 22 páginas | **hecho** |
+| El recorrido: que explique dónde estás en cada página, y poder volver un paso | Rehacer el contenido de los nueve pasos | **hecho** |
+| (18) La ruta armada a mano y la del CV, ancladas juntas | Toca la portada y el modelo de datos | **hecho** |
+| (14) Que todo lo nuevo esté también en "armar ruta" | El armador conocía tres rutas de diecisiete: 36 piezas de 263 | **hecho** |
 | (1) El globo no aparece en incógnito | Sin causa todavía. Hay una red puesta para que falle mostrándose | en curso |
 | Sección de lo que dan gratis por ser estudiante | Ya tiene página donde ir: `recursos.html` | abierto |
+| Arquitectura y ML aplicado comparten color (#BE185D) | Los dos puntos del armador salen iguales. Es cambiarle el acento a una página | abierto |
 
 ## 4. Cuesta mucho
 
