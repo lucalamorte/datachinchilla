@@ -1096,6 +1096,15 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 }
 .chin-pide[hidden]{ display:none; }
 
+/* La otra forma de hacerlo, no una nota al pie. Era un link de texto
+   chico y quien no tenia el CV a mano no lo encontraba: parecia que
+   subir el archivo era la unica manera. */
+.cv-otra{
+  display:flex; align-items:center; gap:11px; flex-wrap:wrap;
+  margin:14px 0 0; font-size:13.5px; color:var(--text-2);
+}
+.btn-preg{ font-size:13px; }
+
 </style>
 </head>
 <body>
@@ -1178,8 +1187,8 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
       <p class="cv-o">o pega el texto directamente</p>
       <textarea id="cvTexto" placeholder="Data Analyst con 2 años de experiencia. SQL sobre Postgres, dashboards en Power BI, algo de Python con pandas..."></textarea>
 
-      <p class="cv-o">¿No lo tienes a mano?
-        <button class="link-btn" type="button" id="verPreg">Contesta cuatro preguntas</button>
+      <p class="cv-otra">¿No lo tienes a mano?
+        <button class="btn-quiet btn-preg" type="button" id="verPreg">Contesta cuatro preguntas</button>
       </p>
       <div id="pregCaja" hidden></div>
 
@@ -1264,7 +1273,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 <script src="temas.js?v=ceb5a984"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=24fd2234"></script>
-<script src="guia.js?v=540e6414"></script>
+<script src="guia.js?v=e01cbba3"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>

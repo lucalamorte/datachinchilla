@@ -72,8 +72,9 @@ var Guia = (function(){
       id: "cargar",
       donde: "cv",
       titulo: "Ahora sí, tu experiencia",
-      texto: "Arrastra el CV o pega el texto. En cuanto lo lea te muestro qué " +
-             "reconocí y cuál de las rutas te sirve para ese puesto.",
+      texto: "Arrastra el CV o pega el texto. Si no lo tienes a mano, contesta " +
+             "las cuatro preguntas de abajo y sale lo mismo. En cuanto lo lea te " +
+             "muestro qué reconocí y cuál de las rutas te sirve.",
       accion: "Ya está, seguir",
       lleva: "",
       ancla: "#cvZona",
