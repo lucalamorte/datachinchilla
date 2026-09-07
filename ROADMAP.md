@@ -1,271 +1,132 @@
-# DataChinchilla · Roadmap
+# Roadmap de DataChinchilla
 
-> Documento vivo. Cada ítem dice **qué es**, **qué verifiqué** y **qué falta
-> decidir**. Antes de escribir acá, se chequea contra lo que ya existe: la
-> mitad de esta lista resultó estar a medias, no ausente.
+Todo lo pedido, en un solo lado, para que no se pierda nada. La
+numeración entre paréntesis es la del mensaje donde se pidió, para
+poder buscarlo.
 
-Última revisión: 31 de agosto de 2026.
+Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 
 ---
 
-## P0 · Rompe la promesa del producto
+## Roto ahora mismo
 
-### 1. Control por tema antes de marcar un nivel
+Lo que está mal en producción. Va primero, siempre.
 
-Sin esto marcás todo como completado, bajás el certificado y la ruta no
-significa nada.
-
-**Estado verificado, y es peor de lo que parecía:**
-
-| Ruta | Control por tema | Qué pasa hoy |
+| # | Qué | Estado |
 |---|---|---|
-| SnowPro Core | Sí, existe `NODE_Q` con preguntas por hito | Funciona |
-| Data Engineer | **No** | `requestMark()` marca directo, sin preguntar nada |
-| CS50 | **No** | Ni siquiera tiene la función |
-
-**Qué falta:** escribir el banco de preguntas por nivel para Data Engineer
-(6 niveles) y CS50 (11 cursos), y portar el gate que ya funciona en SnowPro.
-Es el mismo mecanismo, lo que falta es contenido.
-
-**Y una corrección al gate que ya existe:** cada pregunta tiene que explicar
-el concepto, se haya acertado o no. Acertar un multiple choice no prueba que
-entendiste el tema. En el Data Interview Gym ya está resuelto con un banco de
-conceptos aparte y una pestaña "El concepto" en la corrección. Ese patrón hay
-que traerlo también acá.
-
-**A decidir:** cuántas preguntas por nivel y cuántas hay que acertar para
-habilitar la marca. En SnowPro el criterio actual es reintentable sin límite.
-
-### 2. Los certificados quedaron mal
-
-La tarjeta del certificado oficial que armé no sirve. **Sacarla.**
-
-**Qué queda:** solo el certificado de completar la ruta, el mío.
-
-**Qué pasa con la info oficial:** no desaparece, pero deja de ser una tarjeta
-con forma de certificado. Se convierte en una aclaración de texto: quién lo
-emite, qué cuesta, qué requisitos pide y el link. Los datos ya están
-verificados contra las páginas oficiales.
-
-| Ruta | Credencial | Precio | Requisito |
-|---|---|---|---|
-| SnowPro Core | Snowflake COF-C03 | USD 175 por intento | 6 meses de experiencia sugeridos |
-| CS50 | CS50 Certificate | Gratis | 70% o más en cada entrega |
-| Data Engineer | freeCodeCamp Relational Databases | Gratis | 5 proyectos, ~300 horas |
-
-### 3. El tema claro es inusable
-
-El oscuro está cuidado y el claro es una resta de contraste. Hoy es
-inaceptable en las cuatro páginas de DataChinchilla.
-
-**Ya hay una referencia que funciona:** la paleta clara del Data Interview
-Gym, con fondo con temperatura, degradado suave, texto bien oscuro y
-superficies que se despegan del fondo. Hay que portar ese criterio.
+| 1 | El onboarding ya no aparece | abierto |
+| 8 | La agenda desapareció de la portada | abierto |
+| 17 | Volver atrás desde el armador lleva a Data Engineer, no a la portada | abierto |
+| 13 | Se pueden sumar bloques a "mi semana" sin cuenta; también guardar una ruta armada | abierto |
 
 ---
 
-## P1 · Posicionamiento y crecimiento
+## Confianza: que se entienda que es gratis
 
-### 4. Reposicionar: no es solo para empezar
+Lo más importante del producto. Alguien tiene que poder llegar, mirar
+diez segundos y saber que no se le va a cobrar nunca.
 
-Hoy la página le habla a quien arranca. Tiene que hablarle también al data
-engineer con experiencia que quiere mejorar.
+| # | Qué | Estado |
+|---|---|---|
+| 3 | Decir que es gratis sin que suene a las que dicen que son gratis y no lo son | abierto |
+| 9 | FAQ, y lo que hace que una app se vea profesional | abierto |
+| 7 | Sacar "Las bloqueadas todavía no existen. Escríbeme cuál te sirve" | abierto |
+| 6 | Poner en cada ruta "¿Conoces algo gratis que debería estar acá?" | abierto |
 
-**La promesa nueva:** el lugar donde está **todo el contenido gratis de
-internet**, ordenado. No un curso, un índice curado.
-
-Toca los títulos, los leads y la descripción de las cuatro páginas.
-
-### 5. Landing propia
-
-Una página de entrada con el posicionamiento completo: para quién es, qué
-resuelve, por qué está ordenado así, qué se llevan. Hoy la entrada es la
-ruta de Data Engineer, que ya asume que sabés qué buscás.
-
-### 6. Que los usuarios sumen contenido
-
-Lo más importante del proyecto a mediano plazo. Si la comunidad no
-retroalimenta el catálogo, se envejece solo.
-
-**Hay que pensarlo.** Opciones sobre la mesa, de menos a más trabajo:
-
-1. Un formulario que caiga en un mail o una planilla, y yo curo a mano.
-2. Un issue template en un repo público de GitHub, con el catálogo versionado.
-3. Envío desde la propia página, guardado en Supabase, con estado
-   pendiente / aprobado y una vista de moderación.
-
-La 2 tiene una ventaja fuerte: el catálogo ya se genera con
-`build-catalog.py`, así que versionarlo en GitHub hace que sumar contenido
-sea un pull request. Cuesta poco y da trazabilidad.
-
-**A decidir:** cuál de las tres, y si el que sugiere queda acreditado en el
-catálogo.
-
-### 7. Comunidad
-
-**Recomendación:** empezar por **Discord**, y sumar Reddit solo si hay
-volumen.
-
-El motivo es que Discord sirve para un grupo chico y activo desde el día uno,
-mientras que un subreddit vacío se ve muerto y cuesta mucho arrancarlo. Un
-servidor con tres canales alcanza: sugerencias de contenido, dudas de las
-rutas, y quién aprobó qué certificación.
-
-LinkedIn ya es el canal natural para llegar, porque es donde está la
-audiencia de datos en español.
+Sobre el 3: no alcanza con escribir "gratis" más grande. Lo que
+convence es que no haya ningún lugar donde pueda aparecer un precio:
+sin plan, sin "pro", sin límite de nada, y decir de dónde sale el
+material y por qué no cuesta.
 
 ---
 
-## P2 · Alcance
+## Interfaz: sacar ruido
 
-### 8. Inglés
-
-Traducir las cuatro páginas. **Regla que se define ahora:** los simulacros y
-el repaso activo van en el idioma de la página. Página en español, preguntas
-en español. Página en inglés, preguntas en inglés.
-
-Esto obliga a que el banco de preguntas tenga las dos versiones desde el
-diseño, no como un parche. Aplica igual al Data Interview Gym.
-
-### 9. Ruta de Data Science y AI
-
-**Por qué está bloqueada, verificado:** los cinco links de CognitiveClass que
-pasaste **nunca se guardaron**. Aparecen mencionados en la descripción de la
-tarjeta, en prosa, pero no hay ni una URL en el código. Está bloqueada
-porque no existe la página ni el material cargado.
-
-**Qué falta:** que me vuelvas a pasar los cinco links, y armo la ruta con su
-mapa igual que las otras.
-
-### 10. Armar la ruta desde tu CV — HECHO (3 de septiembre de 2026)
-
-Está en `cv.html`. Pegas el CV o lo sueltas como PDF, eliges uno de
-los cinco puestos, y sale la lista corta de lo que te falta.
-
-**Cómo quedaron las tres decisiones que este ítem planteaba:**
-
-1. **Qué pasa con el archivo.** Nunca sale del navegador. El PDF se lee
-   con pdf.js del lado del cliente y el texto se cruza contra
-   `temas.js` ahí mismo. No hay subida, no hay servidor, no hay nada
-   que guardar ni que borrar, así que tampoco hace falta pedir
-   consentimiento. La página lo dice y propone comprobarlo cortando
-   internet.
-2. **Quién detecta los huecos.** El cuestionario, en la versión de
-   reglas: se cuentan señales distintas por tema (un CV que dice
-   "SQL, Postgres, BigQuery" dice más que uno que dice "SQL"), y hay
-   una tabla de implicaciones para no ofrecerle el curso de
-   principiantes a alguien con oficio. Cuesta cero y no inventa.
-3. **Contra qué se compara.** Acá estaba el trabajo real y ahora
-   existe: `build-temas.py` define quince temas, sus señales de CV y
-   cinco puestos con cuánto pide cada uno de cada tema. Los puestos
-   son los mismos del gimnasio de entrevistas a propósito.
-
-**Lo que el trabajo dejó a la vista:** MLOps no tiene un solo paso en
-todo el catálogo, y ML Engineer lo pide como su día a día. La página
-lo dice en vez de esconderlo ("tenemos el 83% del temario"), pero es un
-hueco de contenido real. Visualización tiene tres pasos para algo que
-Data Analyst pide al máximo.
+| # | Qué | Estado |
+|---|---|---|
+| — | Unificar los cuatro "Practicar" de la portada | abierto |
+| — | Sacar "Todas las rutas" y "Armar la mía" del pie | abierto |
+| 5 | Reescribir "¿Ya sabes la mitad de esto?" | abierto |
+| 22 | Ese bloque va al mismo lado que "Ármala a mano" de arriba: decidir si se queda | a decidir |
+| 21 | Los bordes del catálogo parecen tarjetas seleccionadas. Definir jerarquía: qué lleva degradado, qué lleva borde, con qué intensidad | abierto |
+| 24 | Estandarizar los espaciados entre secciones | abierto |
+| 23 | Las huellas entre secciones: ocupan mucho y no se entiende la intención | a decidir |
+| 11 | Barra de scroll propia | **hecho** |
 
 ---
 
-### 11. El análisis del CV con IA (el paso pago)
+## Navegación
 
-Lo de arriba arma el path gratis y sin backend. Esto es la otra mitad:
-un análisis de verdad del CV, que es lo que se puede cobrar.
-
-**Qué haría que no hace el motor de reglas:** leer la experiencia y no
-las palabras. El motor ve "Airflow" y marca pipelines; no puede ver que
-alguien orquestó tres DAGs de juguete y otro sostiene doscientos. Un
-modelo sí puede decir qué falta *contar mejor*, qué hueco te van a
-buscar en la entrevista y cómo se lee tu CV para el puesto que
-quieres.
-
-**Cómo:** Edge Function de Supabase con la key del lado del servidor.
-La key nunca puede estar en la página.
-
-**A decidir antes:**
-
-- **Qué pasa con el archivo, otra vez.** Acá sí viaja. Eso cambia
-  todo lo del punto 1 de arriba: hay que decir qué se manda, qué se
-  guarda, por cuánto tiempo, y pedir consentimiento explícito.
-- **Cuánto sale y quién paga.** Cada análisis cuesta plata desde el
-  primer usuario anónimo. O se cobra, o se limita por cuenta, o las
-  dos cosas.
-- **Validar antes de construir.** Conviene saber si alguien lo pagaría
-  antes de escribir la Edge Function.
-
-**Dependencia:** el path gratis tiene que estar andando y con gente
-usándolo. Sin eso no hay a quién cobrarle.
+| # | Qué | Estado |
+|---|---|---|
+| 20 | Menú hamburguesa: CV, a mano, rutas, práctica diaria, mi semana | abierto |
+| 18 | La ruta armada a mano y la que sale del CV, ancladas juntas, cada una con su color y sus filtros | abierto |
+| — | Flechitas para pasar de ejercicio en práctica sin entrar | abierto |
 
 ---
 
-### 10b. Notas viejas de este ítem, por si sirven
+## El recorrido guiado
 
-
-Subís el CV, elegís el puesto al que apuntás, y la página arma una ruta con
-lo que te falta en vez de darte el catálogo entero.
-
-**Por qué vale la pena:** hoy el sitio ordena contenido, pero sigue siendo el
-usuario el que decide qué necesita. Esto lo invierte. Y encaja con lo que ya
-existe: el cross-listing permite que un mismo curso viva en varias rutas, así
-que una ruta armada a medida es una selección sobre lo que ya está cargado,
-no material nuevo.
-
-**Lo que ya está y sirve de base:**
-
-- Los cursos con su duración real, su emisor y qué credencial dejan.
-- El Data Interview Gym tiene cuatro roles definidos con sus temas, que es
-  media definición de "posición a la que apuntás".
-- Las tablas de usuarios y eventos de Supabase, para guardar el resultado.
-
-**A decidir antes de escribir una línea:**
-
-1. **Qué pasa con el archivo.** Un CV tiene nombre, teléfono, mail y a veces
-   dirección, de una persona que no soy yo. Lo más limpio es procesarlo en el
-   navegador y no subirlo nunca; si tiene que ir a un servidor, hay que
-   decir qué se guarda, por cuánto tiempo y cómo se borra, y pedir
-   consentimiento explícito y separado del de marketing.
-2. **Quién detecta los huecos.** Un modelo de lenguaje leyendo el CV es lo
-   directo, y tiene costo por uso y riesgo de inventar. La alternativa es un
-   cuestionario de veinte preguntas que da un resultado parecido, cuesta
-   cero y no pide subir nada. Conviene probar la segunda primero.
-3. **Contra qué se compara.** Hace falta una definición de cada puesto: qué
-   temas pide y con qué profundidad. Eso hoy no existe escrito en ningún
-   lado, y es el trabajo de fondo. Sin eso, cualquiera de las dos opciones
-   devuelve algo genérico.
-
-**Dependencia real:** el punto 3 es el que manda. Definir los puestos es lo
-que hace que esto sirva; el resto es interfaz.
+| # | Qué | Estado |
+|---|---|---|
+| 1 | No aparece más | abierto |
+| — | Que explique dónde estás parado en cada página, no solo qué sigue | abierto |
+| — | Poder volver al paso anterior, y que te devuelva a donde estabas | abierto |
+| — | Que las acciones adelanten el paso | **hecho** |
+| — | Que no se pueda avanzar sin hacer la acción | **hecho** |
+| — | Que se pueda reabrir después de cerrarla | **hecho** |
+| — | Que no se salga de la pantalla al scrollear | **hecho** |
 
 ---
 
-## Pendientes de infraestructura
+## Contenido
 
-- **Supabase.** Correr los cuatro SQL, activar el magic link, autorizar las
-  URLs de redirect y pasarme la URL del proyecto y la anon key. Hasta
-  entonces el login por mail y la sincronización están escritos y sin probar
-  contra un servidor real.
-- **Recordatorios por mail.** Depende de lo anterior más un proveedor de correo.
-- **Study Guide del C03.** Hace falta para recuperar los pesos por dominio.
+| # | Qué | Estado |
+|---|---|---|
+| 2 | Desbloquear Airflow: hay que buscarle material gratis | abierto |
+| 4 | Sumar Laws of UX (lawsofux.com, tiene versión en español) | abierto |
+| — | Sección de lo que te dan gratis por ser estudiante | abierto |
+| 14 | Que todo lo que agreguemos esté también en "armar ruta" | abierto |
+| 15 | Evaluar el contenido: cuánto hay, qué falta, cuál es el mínimo para lanzar | abierto |
+| 10 | Links rotos y de pago: revisar todos, no solo los cinco | en curso |
 
----
-
-## Fuera de este roadmap
-
-**Data Interview Gym** va aparte por ahora, en su propia carpeta y con su
-propio spec. Se fusiona más adelante. Lo único que ya comparte es el
-criterio del tema claro, que salió bien ahí primero.
+Sobre el 10: los cinco de LeetCode Premium ya se cambiaron por gratis
+del mismo patrón. Falta pasar un verificador por **todos** los links
+del sitio, que son cientos, y que quede corriendo solo.
 
 ---
 
-## Cosas que revisé y estaban bien
+## El motor
 
-No todo lo que parecía roto lo estaba. Queda anotado para no volver a
-revisarlo:
+| # | Qué | Estado |
+|---|---|---|
+| 19 | Que subir el CV real dé exactamente "Subir de nivel". Iterar sin hardcodear | abierto |
+| 19b | Evaluar si conviene IA para el análisis del CV, sin que nadie pague | a decidir |
+| — | Preguntas de seguimiento cuando la evidencia del CV es ambigua | abierto |
+| — | El motor no entiende negaciones: "no sé Docker" cuenta como saber Docker | abierto |
 
-- **CS50 no está vacío.** Tiene sus once cursos en orden, en cuatro actos,
-  con su mapa y sus enlaces. Si viste otra cosa, decime en qué pantalla.
-- **DataExpert no está caído.** El bootcamp con certificado cerró el 31 de
-  julio de 2026, pero todos los links del sitio apuntan al handbook de
-  GitHub, que sigue vivo y gratis.
-- **Los links de los certificados responden.** Los cuatro dan 200.
+---
+
+## Infraestructura
+
+| # | Qué | Estado |
+|---|---|---|
+| 12 | Ambiente de pruebas | **hecho** — `pruebas.datachinchilla.pages.dev` |
+| 13 | Pedir cuenta para guardar avance | **hecho** para cursos y práctica; falta semana y ruta armada |
+| — | Rotar la clave `sb_secret_` de Supabase | abierto |
+| — | Conectar `www.datachinchilla.com` | abierto |
+| 16 | Pasar el sitio a inglés | abierto, al final |
+
+Sobre el 16: conviene ir sacando los textos a un solo lugar a medida
+que se toca cada página, así el día que se traduzca no hay que
+recorrer veintiuna páginas buscando frases sueltas.
+
+---
+
+## Cómo se trabaja
+
+- Todo va primero a la rama `pruebas`, se verifica en
+  `pruebas.datachinchilla.pages.dev`, y recién ahí se mergea a `main`.
+- `datachinchilla.com/version.txt` dice qué versión está publicada.
+- Antes de publicar: `humo.py`, `cuentas.py` y `publicar.py` tienen
+  que pasar.

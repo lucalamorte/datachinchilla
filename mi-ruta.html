@@ -776,6 +776,18 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 .acc.peligro{ color:var(--text-3); }
 .acc.peligro:hover{ border-color:var(--bad); color:var(--bad); background:var(--bad-soft); }
 
+/* El pedido de material, al final de cada ruta. Va tenue: es una
+   invitacion, no una accion del recorrido. */
+.aporte{
+  display:flex; gap:11px; align-items:flex-start;
+  margin:0; padding:16px 18px;
+  border:1px dashed var(--divider); border-radius:var(--r-lg);
+  font-size:13.5px; color:var(--text-2); line-height:1.6;
+}
+.aporte > svg{ flex:none; margin-top:2px; color:var(--text-3); }
+.aporte b{ color:var(--text); font-weight:800; }
+.aporte a{ color:var(--accent-strong); font-weight:700; }
+
 </style>
 </head>
 <body>
@@ -942,6 +954,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
     </a>
   </div>
 </section>
+
 
 <footer class="foot">
   <div class="wrap foot-in">
