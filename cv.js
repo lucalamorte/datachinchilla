@@ -302,7 +302,10 @@ var CV = (function(){
     var out = [], k;
     for(k in detectados){
       out.push({ id: k, nombre: nombreTema(k),
-                 nivel: detectados[k].nivel, senales: detectados[k].senales });
+                 nivel: detectados[k].nivel, senales: detectados[k].senales,
+                 /* Lo que puso la persona a mano se muestra distinto:
+                    es su palabra, no algo que yo lei. */
+                 aMano: !!detectados[k].aMano });
     }
     out.sort(function(a,b){ return b.nivel - a.nivel; });
     return out;
@@ -347,5 +350,6 @@ var CV = (function(){
   }
 
   return { leer: leer, armar: armar, fuertes: fuertes, leerPDF: leerPDF,
+           inferir: inferir, temas: function(){ return TEMAS.temas; },
            puestoDe: puestoDe, nombreTema: nombreTema };
 })();

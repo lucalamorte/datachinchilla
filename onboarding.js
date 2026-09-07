@@ -22,38 +22,59 @@ var Onb = (function(){
   /* Para el que no tiene el CV a mano. Cuatro preguntas dan un mapa
      de temas parecido al que sale de leer un CV, y se responden en
      menos de lo que tarda en encontrar el archivo. */
+  /* Las cinco preguntas.
+
+     Eran cuatro y eran de datos -programas, SQL, datos en un trabajo,
+     nube- porque se escribieron cuando el sitio eran tres rutas de
+     datos. Hoy hay diecisiete rutas y ocho puestos, y a la mitad no
+     le toca una base de datos: a alguien que eligio frontend se le
+     preguntaba si armo pipelines, que es preguntarle por el trabajo
+     de otro.
+
+     Estas cubren el ancho del sitio: programar, la pantalla, el
+     servidor, los datos y la infraestructura. Nadie contesta las
+     cinco sobre lo mismo, y cada una suma temas que existen en
+     temas.js desde que entraron las rutas de desarrollo. */
   var PREGUNTAS = [
     { id: "prog", texto: "¿Programas?",
       ayuda: "En cualquier lenguaje, aunque sea para automatizar algo tuyo.",
       opciones: [
         { t: "Nunca escribí código", temas: {} },
-        { t: "Algo, scripts sueltos", temas: { prog: 1, python: 1 } },
-        { t: "Sí, es parte de mi trabajo", temas: { prog: 2, python: 2 } },
-        { t: "Vengo del desarrollo", temas: { prog: 3, python: 2 } }
+        { t: "Algo, scripts sueltos", temas: { prog: 1 } },
+        { t: "Sí, es parte de mi trabajo", temas: { prog: 2 } },
+        { t: "Vengo del desarrollo", temas: { prog: 3 } }
       ] },
-    { id: "sql", texto: "¿Y SQL?",
-      ayuda: "La pregunta real es hasta dónde llegas sin buscar en Google.",
+    { id: "pantalla", texto: "¿Construiste algo que se vea en pantalla?",
+      ayuda: "Una página, una app, aunque haya sido para vos.",
       opciones: [
-        { t: "No lo usé nunca", temas: {} },
-        { t: "Consultas simples y algún JOIN", temas: { sql: 1 } },
-        { t: "Subconsultas, CTEs y ventanas", temas: { sql: 3 } },
-        { t: "Optimizo consultas ajenas", temas: { sql: 3, modelado: 1 } }
+        { t: "No, nunca", temas: {} },
+        { t: "HTML y CSS, algo suelto", temas: { web: 1 } },
+        { t: "Interfaces con un framework", temas: { web: 2, prog: 1 } },
+        { t: "Es lo que hago", temas: { web: 3, prog: 2 } }
       ] },
-    { id: "datos", texto: "¿Trabajaste con datos en un trabajo?",
+    { id: "servidor", texto: "¿Y del otro lado: APIs, servidores, bases?",
+      ayuda: "Lo que hay detrás de la pantalla, o detrás de un dashboard.",
+      opciones: [
+        { t: "No me tocó", temas: {} },
+        { t: "Consumí APIs de otros", temas: { backend: 1 } },
+        { t: "Escribí endpoints y consultas", temas: { backend: 2, sql: 2 } },
+        { t: "Diseño el backend y su base", temas: { backend: 3, sql: 3, modelado: 2 } }
+      ] },
+    { id: "datos", texto: "¿Trabajaste con datos para que otro decida?",
       ayuda: "Cuenta cualquier cosa que alguien más haya usado para decidir.",
       opciones: [
         { t: "Todavía no", temas: {} },
-        { t: "Reportes y planillas", temas: { viz: 1 } },
-        { t: "Dashboards o análisis para otros", temas: { viz: 2, sql: 1 } },
-        { t: "Pipelines o modelos en producción", temas: { pipelines: 2, modelado: 2 } }
+        { t: "Reportes y planillas", temas: { viz: 1, sql: 1 } },
+        { t: "Dashboards o análisis para otros", temas: { viz: 2, sql: 2 } },
+        { t: "Pipelines o modelos en producción", temas: { pipelines: 2, modelado: 2, python: 2 } }
       ] },
-    { id: "nube", texto: "¿Nube?",
-      ayuda: "AWS, Azure, Google Cloud, contenedores, lo que sea.",
+    { id: "nube", texto: "¿Nube e infraestructura?",
+      ayuda: "AWS, Azure, Google Cloud, Docker, lo que sea.",
       opciones: [
         { t: "Nada", temas: {} },
         { t: "Usé algún servicio suelto", temas: { cloud: 1 } },
-        { t: "Despliego cosas ahí", temas: { cloud: 2 } },
-        { t: "Administro la infraestructura", temas: { cloud: 3, prog: 1 } }
+        { t: "Despliego lo que hago", temas: { cloud: 2, prog: 1 } },
+        { t: "Administro la infraestructura", temas: { cloud: 3, prog: 1, mlops: 1 } }
       ] }
   ];
 
@@ -77,6 +98,9 @@ var Onb = (function(){
        en el CV. Van aparte de `temas` porque no son un dato menos:
        recalcularTemas los saca cada vez que se rehace la lista. */
     sacados: [],
+    /* Y los que dijiste que si sabes aunque el CV no los nombre. Es
+       el espejo de sacados, y por eso vive al lado. */
+    agregados: [],
     puesto: "",
     rutas: [],            /* las activas; salen del puesto y se editan */
     /* Si tu ruta es una del sitio y no una mezcla, acá queda cuál. */
@@ -154,6 +178,23 @@ var Onb = (function(){
     for(k in deCV){
       if(!out[k] || deCV[k].nivel > out[k].nivel) out[k] = deCV[k];
     }
+    /* Lo que agregaste a mano. Es el espejo de sacar: sacar algo es
+       decir "esto no lo sé" y el tema se cae entero, agregarlo es
+       decir "esto sí lo sé" y entra en nivel 3, el mismo peso que le
+       da un CV que lo nombra tres veces.
+
+       Existe porque el CV no dice todo: lo que aprendiste por tu
+       cuenta, lo que hiciste después de la última versión, o lo que
+       escribiste con otras palabras. Antes sólo se podía restar. */
+    var suma = estado.agregados || [];
+    for(var a=0;a<suma.length;a++){
+      out[suma[a]] = { nivel: 3, senales: [], aMano: true };
+    }
+    /* Y pasa por la inferencia, como lo que sale del CV: decir que
+       manejas la nube y que igual te ofrezcan los fundamentos de
+       programación es justo lo que la inferencia evita, y no vale
+       menos porque lo dijiste vos. */
+    if(suma.length && typeof CV !== "undefined" && CV.inferir) out = CV.inferir(out);
     /* Lo que dices que no sabes gana contra lo que yo lei. El CV
        cuenta lo que hiciste, no lo que te quedo, y esa diferencia
        solo la sabes vos. */
@@ -164,12 +205,36 @@ var Onb = (function(){
     return out;
   }
 
-  /* Marca un tema como no sabido, o lo devuelve. */
+  /* Marca un tema como no sabido, o lo devuelve.
+
+     Saca de "agregados" lo que se saca: los dos son la misma clase de
+     dato -lo que la persona corrige sobre lo que leyó la máquina- y
+     un tema en las dos listas dejaba ganar al que corriera último. */
   function sacarTema(clave, sacar){
     if(!estado.sacados) estado.sacados = [];
+    if(!estado.agregados) estado.agregados = [];
     var i = estado.sacados.indexOf(clave);
     if(sacar && i < 0) estado.sacados.push(clave);
     if(!sacar && i >= 0) estado.sacados.splice(i, 1);
+    if(sacar){
+      var j = estado.agregados.indexOf(clave);
+      if(j >= 0) estado.agregados.splice(j, 1);
+    }
+    recalcularTemas();
+    guardar();
+  }
+
+  /* Y el espejo: marcarlo como sabido aunque el CV no lo diga. */
+  function agregarTema(clave, agregar){
+    if(!estado.agregados) estado.agregados = [];
+    if(!estado.sacados) estado.sacados = [];
+    var i = estado.agregados.indexOf(clave);
+    if(agregar && i < 0) estado.agregados.push(clave);
+    if(!agregar && i >= 0) estado.agregados.splice(i, 1);
+    if(agregar){
+      var j = estado.sacados.indexOf(clave);
+      if(j >= 0) estado.sacados.splice(j, 1);
+    }
     recalcularTemas();
     guardar();
   }
@@ -447,7 +512,7 @@ var Onb = (function(){
     estado: estado,
     cargar: cargar, guardar: guardar, hecho: hecho,
     temasDeRespuestas: temasDeRespuestas, recalcularTemas: recalcularTemas,
-    sacarTema: sacarTema,
+    sacarTema: sacarTema, agregarTema: agregarTema,
     rutasSugeridas: rutasSugeridas, caminos: caminos, horasDe: horasDe,
     rutasQueCalzan: rutasQueCalzan, laQueCalza: laQueCalza, miNivel: miNivel,
     porQue: porQue,
