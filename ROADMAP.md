@@ -68,7 +68,10 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | Qué | Por qué acá | Estado |
 |---|---|---|
 | (10) Verificador de todos los links del sitio | `links.py`: 434 links, ninguno roto. 126 que se habían mudado, apuntados al lugar nuevo con `mudar.py` | **hecho** |
-| (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | Análisis de todo el catálogo | abierto |
+| (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | `contenido.py`: 1613 h, ningún tema pedido sin material | **hecho** |
+| 41 pasos se parten en 10 bloques o más; CS50 llega a "parte 1 de 40" | Lo encontró `contenido.py`. No falta contenido: sobra grano en unas rutas y falta en otras | abierto |
+| MLOps: 1 paso y 1 hora, y ML Engineer lo pide en nivel 4 | El único agujero real de los ocho puestos | abierto |
+| Visualización: 3 pasos para lo que pide Data Analyst | Es la ruta más buscada y el tema más flaco | abierto |
 | (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |
 | (19b) Evaluar IA para leer el CV, sin que nadie pague | Decisión de arquitectura y de costo | a decidir |
 | El motor no entiende negaciones: "no sé Docker" cuenta como saber | Resuelto en `cv.js`, con `motor.py` como red: 23 casos, la mitad trampas | **hecho** |
