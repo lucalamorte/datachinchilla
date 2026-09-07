@@ -1201,7 +1201,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   <div class="wrap">
     <p class="lema">Tu CV dice por dónde empezar</p>
     <h1>Tu ruta, desde tu <span class="grad">CV</span></h1>
-    <p class="hero-lead">Quince rutas es mucho catálogo para alguien que solo quiere saber qué le falta. Pega tu CV, elige el puesto al que apuntas, y en vez del catálogo entero te queda la lista corta: lo que todavía no aparece en tu experiencia y dónde estudiarlo.</p>
+    <p class="hero-lead"><b id="cuantasRutas">17</b> rutas es mucho catálogo para alguien que solo quiere saber qué le falta. Pega tu CV, elige el puesto al que apuntas, y en vez del catálogo entero te queda la lista corta: lo que todavía no aparece en tu experiencia y dónde estudiarlo.</p>
   </div>
 </section>
 
@@ -1332,7 +1332,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 <script src="chinchilla.js?v=7c39999c"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script src="temas.js?v=872bdd56"></script>
-<script src="cv.js?v=9243a13a"></script>
+<script src="cv.js?v=b70bef53"></script>
 <script src="onboarding.js?v=24fd2234"></script>
 <script src="guia.js?v=7a888cd1"></script>
 <script src="plan.js?v=35d7e8f9"></script>
@@ -2321,5 +2321,14 @@ if(document.readyState === "loading"){
     </div>
   </div>
 </div>
+<script>
+/* El numero del titulo sale de pasos.js. Escrito a mano decia quince
+   cuando ya eran diecisiete: el mismo error que tenia el armador, en
+   otra pagina. */
+window.addEventListener("DOMContentLoaded", function(){
+  var n = document.getElementById("cuantasRutas");
+  if(n && typeof PASOS !== "undefined" && PASOS.length) n.textContent = PASOS.length;
+});
+</script>
 </body>
 </html>

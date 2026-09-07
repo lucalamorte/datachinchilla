@@ -33,11 +33,120 @@ var CV = (function(){
     return s.replace(/[̀-ͯ]/g, "").toLowerCase();
   }
 
+  /* ---------------------------------------------------------------
+     LO QUE NO SE SABE
+
+     El motor buscaba la señal y, si estaba, daba el tema por sabido.
+     No miraba lo que tenía alrededor: "no tengo experiencia en Spark"
+     y "cinco años con Spark" valían igual, así que a quien aclaraba
+     lo que le falta se le ofrecía la ruta de quien ya lo sabe.
+
+     No es un caso raro: es lo que hace todo el mundo cuando le
+     preguntan qué sabe. Contesta también qué no sabe.
+     --------------------------------------------------------------- */
+
+  /* Hasta acá se mira hacia atrás. Una negación que quede más lejos
+     que esto ya está hablando de otra cosa. */
+  var VENTANA = 46;
+
+  /* Corta la frase. "No terminé la carrera. Python desde 2019" no
+     niega Python: el punto los separa. */
+  var CORTE = /[.;:\n\r\u2022\u00b7|]|(^|\s)[-*]\s/;
+
+  var NIEGAN = [
+    "no se", "no tengo", "no cuento con", "no manejo", "no domino",
+    "no conozco", "no use", "no usé", "no he usado", "no he trabajado",
+    "no trabaje", "no llegue a", "no alcance a", "no toque",
+    "nunca use", "nunca usé", "nunca he", "nunca trabaje", "nunca toque",
+    "desconozco", "cero", "nada de", "poco y nada de",
+    "sin experiencia", "sin conocimiento", "sin conocimientos",
+    "sin manejo", "sin saber", "sin haber", "sin practica",
+    /* Querer aprenderlo no es saberlo, y está en medio CV junior. */
+    "ganas de aprender", "quiero aprender", "quisiera aprender",
+    "me gustaria aprender", "me interesa aprender", "interes en aprender",
+    "aprendiendo a", "por aprender", "pendiente de aprender",
+    "me falta", "me faltan", "asignatura pendiente"
+  ];
+
+  /* "no solo Python sino también R" no niega Python. */
+  var NO_NIEGA = ["solo", "solamente", "unicamente", "obstante", "pocas"];
+
+  /* Lo que da vuelta la frase. "No sé Docker avanzado, PERO uso Docker
+     a diario": lo que viene después ya no lo niega nadie.
+
+     La coma sola no sirve para esto, y no puede cortar: en "no tengo
+     experiencia en Spark, Hadoop ni Kafka" la negación vale para los
+     tres. */
+  var CONTRASTE = /(^|[^a-z])(pero|aunque|sin embargo|igual|si bien)([^a-z]|$)/g;
+
+  /* Negaciones que van detrás: "Spark es mi asignatura pendiente".
+     Son pocas y son frases hechas: una lista corta no se equivoca,
+     una regla general sí. */
+  var DETRAS = [
+    "asignatura pendiente", "todavia no", "aun no", "ni idea",
+    "lo tengo pendiente", "esta pendiente", "queda pendiente",
+    "me falta", "en la lista", "quiero aprender"
+  ];
+  var VENTANA_DETRAS = 34;
+
+  function tramoFinal(previo){
+    /* Sólo desde el último corte: más atrás es otra frase. Y desde el
+       último contraste, que da vuelta lo que se dijo antes. */
+    var m = previo.split(CORTE);
+    var frase = m[m.length - 1], c, ultimo = -1;
+    CONTRASTE.lastIndex = 0;
+    while((c = CONTRASTE.exec(frase)) !== null) ultimo = c.index + c[0].length;
+    return ultimo >= 0 ? frase.slice(ultimo) : frase;
+  }
+
+  function niega(previo){
+    var frase = tramoFinal(previo);
+    var i, j, pos, resto;
+
+    for(i=0;i<NIEGAN.length;i++){
+      pos = frase.lastIndexOf(NIEGAN[i]);
+      if(pos < 0) continue;
+      if(NIEGAN[i].indexOf("no ") === 0){
+        resto = frase.slice(pos + 3).replace(/^\s+/, "");
+        for(j=0;j<NO_NIEGA.length;j++){
+          if(resto.indexOf(NO_NIEGA[j]) === 0) { pos = -1; break; }
+        }
+        if(pos < 0) continue;
+      }
+      return true;
+    }
+    /* "sin Docker" pegado. Suelto no: "sin problemas con Docker" es
+       lo contrario de una negación. */
+    return /(^|[^a-z])sin\s+[a-z0-9 ]{0,12}$/.test(frase);
+  }
+
+  /* La negación que va detrás de la señal. */
+  function niegaDetras(posterior){
+    var frase = posterior.split(CORTE)[0], i;
+    for(i=0;i<DETRAS.length;i++){
+      if(frase.indexOf(DETRAS[i]) >= 0) return true;
+    }
+    return false;
+  }
+
   /* Una señal cuenta sólo si aparece como palabra suelta o frase, no
-     dentro de otra. Sin esto "r" o "java" pescarían medio CV. */
+     dentro de otra. Sin esto "r" o "java" pescarían medio CV.
+
+     Y cuenta sólo si alguna de sus apariciones no está negada: se
+     cae entera únicamente cuando TODAS lo están, porque "no sé
+     Docker avanzado, pero uso Docker a diario" tiene que seguir
+     contando. */
   function apareceEn(texto, senal){
     var esc = senal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    return new RegExp("(^|[^a-z0-9])" + esc + "([^a-z0-9]|$)").test(texto);
+    var re = new RegExp("(^|[^a-z0-9])" + esc + "([^a-z0-9]|$)", "g");
+    var m;
+    while((m = re.exec(texto)) !== null){
+      var ini = m.index + m[1].length, fin = ini + senal.length;
+      if(!niega(texto.slice(Math.max(0, ini - VENTANA), ini)) &&
+         !niegaDetras(texto.slice(fin, fin + VENTANA_DETRAS))) return true;
+      if(re.lastIndex <= m.index) re.lastIndex = m.index + 1;
+    }
+    return false;
   }
 
   /* Qué temas asoma el CV, y con cuánta insistencia. */

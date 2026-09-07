@@ -56,7 +56,7 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | Análisis de todo el catálogo | abierto |
 | (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |
 | (19b) Evaluar IA para leer el CV, sin que nadie pague | Decisión de arquitectura y de costo | a decidir |
-| El motor no entiende negaciones: "no sé Docker" cuenta como saber | Requiere análisis de texto de verdad | abierto |
+| El motor no entiende negaciones: "no sé Docker" cuenta como saber | Resuelto en `cv.js`, con `motor.py` como red: 23 casos, la mitad trampas | **hecho** |
 | Preguntas de seguimiento cuando el CV es ambiguo | Diseño nuevo | abierto |
 | (16) Pasar el sitio a inglés | Al final. Conviene ir sacando textos a un solo lugar mientras tanto | abierto |
 
