@@ -1921,6 +1921,16 @@ function init(){
   /* Y que se actualice sola cuando cambia el onboarding, para que las
      acciones adelanten el paso sin apretar nada mas. */
   document.addEventListener("onb:cambio", function(){ pintarGuia(); });
+  /* Red: si la guia tendria que estar a la vista y no esta, se pinta
+     de nuevo. Hay un caso en incognito que no pude reproducir, y para
+     la primera impresion del sitio conviene fallar hacia mostrarla. */
+  setTimeout(function(){
+    if(typeof Guia === "undefined") return;
+    var c = document.getElementById("chin");
+    if(!c || !c.hidden) return;
+    if(!Guia.tocaAca()) return;
+    pintarGuia();
+  }, 900);
 
   pintarSigue();
   paintStates();
