@@ -83,6 +83,21 @@ def main():
         shutil.rmtree(SALE)
     os.makedirs(SALE)
 
+    # Que version quedo publicada, para poder mirarlo desde afuera.
+    # Cloudflare pone el sha en el entorno; corriendo local se pregunta
+    # a git. Sin esto no hay forma de distinguir "el build fallo" de
+    # "el deploy todavia no llego": los dos se ven igual.
+    sha = os.environ.get("CF_PAGES_COMMIT_SHA", "")
+    if not sha:
+        try:
+            import subprocess
+            sha = subprocess.check_output(
+                ["git", "rev-parse", "--short", "HEAD"], cwd=D).decode().strip()
+        except Exception:
+            sha = "local"
+    io.open(os.path.join(D, "version.txt"), "w", encoding="utf-8",
+            newline="").write(sha[:12] + chr(10))
+
     copiados = archivos_del_sitio()
 
     ajenas = [n for n in copiados if n.endswith(".html") and not html_del_sitio(n)]
