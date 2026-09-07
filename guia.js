@@ -108,9 +108,10 @@ var Guia = (function(){
     {
       id: "semana",
       donde: "ruta",
-      titulo: "Ahora, cuándo",
-      texto: "Ya tienes tu ruta. Ahora te la reparto en la semana: qué día, a qué " +
-             "hora y cuánto rato, para que sepas qué hacer un martes a las siete.",
+      titulo: "Ésta es tu ruta",
+      texto: "Cada tarjeta es un curso, en el orden que conviene, con cuánto lleva " +
+             "y qué te deja. Se marcan a medida que los haces y el mapa lleva la " +
+             "cuenta. Lo que falta es cuándo: te la reparto en tu semana.",
       accion: "Armar mi semana",
       lleva: "semana.html",
       ancla: "#sigue"
@@ -118,9 +119,10 @@ var Guia = (function(){
     {
       id: "repartir",
       donde: "semana",
-      titulo: "Tus días y tu rato",
-      texto: "Marca los días que vas a tener de verdad y cuánto rato. Con eso te " +
-             "reparto la ruta y queda escrito qué hacer cada día.",
+      titulo: "Acá se arma tu semana",
+      texto: "Marca los días que vas a tener de verdad y cuánto rato. Con eso reparto " +
+             "los cursos de tu ruta en bloques concretos, y queda escrito qué hacer " +
+             "un martes a las siete.",
       accion: "Listo, ver mi agenda",
       lleva: "index.html",
       ancla: ".plan-form",
@@ -129,7 +131,7 @@ var Guia = (function(){
     {
       id: "listo",
       donde: "index",
-      titulo: "Listo. Elige por dónde",
+      titulo: "Listo, ésta es tu portada",
       texto: "Arriba tienes tu agenda y abajo la práctica del día. Elige por dónde " +
              "arrancas y del resto me encargo yo.",
       /* Dos acciones y ninguna es "entendido": terminar la guía
@@ -270,6 +272,18 @@ var Guia = (function(){
     guardar();
   }
 
+  /* Volver un paso. Antes solo se podia avanzar o cerrar, asi que un
+     clic de mas te dejaba sin forma de releer lo que salteaste.
+     Devuelve el paso al que se llego, para que quien llama sepa a que
+     pagina tiene que ir: volver sin moverse mostraria un globo
+     hablando de algo que no esta a la vista. */
+  function retroceder(){
+    if(estado.paso <= 0) return null;
+    estado.paso--;
+    guardar();
+    return PASOS[estado.paso];
+  }
+
   function cerrar(){
     estado.cerrada = true;
     guardar();
@@ -330,6 +344,7 @@ var Guia = (function(){
     cargar: cargar, guardar: guardar,
     actual: actual, tocaAca: tocaAca, donde: donde, proximoCurso: proximoCurso,
     falta: falta,
-    avanzar: avanzar, cerrar: cerrar, reabrir: reabrir, retomar: retomar
+    avanzar: avanzar, retroceder: retroceder,
+    cerrar: cerrar, reabrir: reabrir, retomar: retomar
   };
 })();

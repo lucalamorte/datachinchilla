@@ -811,6 +811,15 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 .menu-i.aqui{ background:var(--accent-soft); }
 .menu-i.aqui b{ color:var(--accent-strong); }
 
+/* Volver un paso. Va tenue: es una salida, no el camino. */
+.chin-atras{
+  border:0; background:none; cursor:pointer; font:inherit;
+  font-size:12px; font-weight:700; color:var(--text-3);
+  padding:4px 2px; text-decoration:underline;
+}
+.chin-atras:hover{ color:var(--text-2); }
+.chin-atras[hidden]{ display:none; }
+
 </style>
 </head>
 <body>
@@ -1065,7 +1074,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="temas.js?v=872bdd56"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=24fd2234"></script>
-<script src="guia.js?v=e01cbba3"></script>
+<script src="guia.js?v=7a888cd1"></script>
 <script src="chinchilla.js?v=7c39999c"></script>
 <script src="path-sync.js?v=a6aaec4c"></script>
 <script>
@@ -1904,6 +1913,26 @@ function pintarGuia(){
     if(f) f.classList.remove("chin-foco");
     toast("Listo. La puedes volver a ver desde tu perfil.");
   }
+  /* Volver al paso anterior, y a su pagina si es otra. */
+  var atras = document.getElementById("chinAtras");
+  if(atras){
+    atras.hidden = Guia.estado.paso <= 0;
+    atras.onclick = function(){
+      var previo = Guia.retroceder();
+      if(!previo) return;
+      var aca = Guia.donde();
+      /* Cada paso vive en una pagina. Si el anterior no es de esta,
+         hay que ir: un globo que habla de algo que no esta en
+         pantalla no explica nada. */
+      if(previo.donde !== aca){
+        var dest = previo.donde === "index" ? "index.html"
+                 : previo.donde === "cv" ? "cv.html"
+                 : previo.donde === "semana" ? "semana.html" : "";
+        if(dest){ location.href = dest; return; }
+      }
+      pintarGuia();
+    };
+  }
   document.getElementById("chinX").onclick = cerrarGuia;
   var salto = document.getElementById("chinSalto");
   if(salto) salto.onclick = function(){
@@ -2130,6 +2159,7 @@ if(document.readyState === "loading"){
     <div class="chin-acc">
       <span class="chin-n" id="chinN"></span>
       <span class="chin-pide" id="chinPide" hidden></span>
+      <button class="chin-atras" type="button" id="chinAtras" hidden>Atrás</button>
       <button class="chin-salto" type="button" id="chinSalto">Saltear</button>
       <button class="chin-2" type="button" id="chinB2" hidden></button>
       <button class="btn-primary chin-b" type="button" id="chinB">

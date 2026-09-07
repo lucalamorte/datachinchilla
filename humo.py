@@ -28,6 +28,7 @@ PAGINAS = [
     "ai-fundamentos.html", "deep-learning.html", "llm-agentes.html",
     "claude.html",
     "ml-aplicado.html", "web3.html", "fullstack.html", "airflow.html",
+    "mi-ruta.html",
     "preguntas.html",
     "recursos.html",
 ]
@@ -72,6 +73,8 @@ MARCAS = {
     "semana.html": [("semana", "la grilla de la semana")],
     "practica.html": [("probs", "la lista de problemas"), ("bancos", "los bancos")],
     "armar.html":  [("catalogo", "el catalogo de piezas")],
+    # No es una ruta del catalogo: es la que se arma para vos.
+    "mi-ruta.html": [("mapa", "el mapa de tu ruta")],
     # No es una ruta: no pinta mapa. Lo que tiene que estar son
     # las preguntas, y estan en el HTML sin depender de ningun init.
     "preguntas.html": [("preguntas", "las preguntas")],
