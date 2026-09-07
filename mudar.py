@@ -175,7 +175,22 @@ def main():
             io.open(p, "w", encoding="utf-8", newline="").write(t)
             n += 1
 
-    print(u"%d archivos al dia" % n)
+    # Que no haya aparecido ninguna URL que nadie pidio. Es la red
+    # contra lo que ya paso una vez: una URL que es prefijo de otra y
+    # un reemplazo que le mete un tramo en el medio a doce vecinas.
+    # Se comprueba sin red: cada link que quede tiene que ser uno de
+    # los de antes o uno de los destinos previstos.
+    conocidos = set(donde) | set(nuevo for _, nuevo in cambios)
+    intrusos = sorted(u for u in juntar() if u not in conocidos)
+    if intrusos:
+        print()
+        print(u"CUIDADO: quedaron %d links que nadie pidio" % len(intrusos))
+        for u in intrusos[:20]:
+            print(u"  %s" % u)
+        print(u"  revisa el reemplazo antes de publicar")
+        return 1
+
+    print(u"%d archivos al dia, y ningun link de mas" % n)
     return 0
 
 
