@@ -371,3 +371,9 @@ body{
   background-clip:content-box;
 }
 ::-webkit-scrollbar-corner{ background:transparent; }
+
+/* El pie necesita un corte visible arriba. En oscuro el cambio de
+   fondo ya lo marca; en claro el pie y la pagina son casi del mismo
+   color, y la chinchilla que se asoma quedaba apoyada sobre un borde
+   que no existia, flotando. */
+.foot{ border-top:1px solid var(--divider); }

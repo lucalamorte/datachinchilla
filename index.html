@@ -14,7 +14,7 @@
 <!-- Los neutros, los radios y el ritmo, compartidos por todas las páginas.
      Cada una define encima solo su acento. Va acá dentro y no a mano en el
      HTML: esta plantilla reescribe toda la cabecera en cada corrida. -->
-<link rel="stylesheet" href="tema.css?v=dbe2e08d">
+<link rel="stylesheet" href="tema.css?v=0157989a">
 <!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
      lo mismo: si lo escribe otro script en el HTML, la próxima corrida
      de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
@@ -1676,33 +1676,6 @@ a.via{ text-decoration:none; }
   .chin{ right:12px; left:12px; bottom:12px; width:auto; }
 }
 
-/* --- Las preguntas frecuentes -------------------------------------
-   Con <details> del navegador y no con JavaScript: si el script
-   falla, las respuestas siguen ahi y se pueden abrir. Para algo que
-   contesta "esto cuesta algo?", que la respuesta dependa de que corra
-   un script seria justo al reves de lo que hace falta. */
-.faq{ display:flex; flex-direction:column; gap:9px; }
-.faq-i{
-  border:1px solid var(--divider); border-radius:var(--r-lg);
-  background:var(--surface); overflow:hidden;
-}
-.faq-i > summary{
-  cursor:pointer; padding:15px 18px; font-weight:800; font-size:15px;
-  list-style:none; display:flex; align-items:center; gap:10px;
-}
-.faq-i > summary::-webkit-details-marker{ display:none; }
-.faq-i > summary::after{
-  content:""; margin-left:auto; flex:none;
-  width:9px; height:9px; border-right:2.4px solid var(--text-3);
-  border-bottom:2.4px solid var(--text-3); transform:rotate(45deg);
-  transition:transform var(--dur) ease;
-}
-.faq-i[open] > summary::after{ transform:rotate(-135deg); }
-.faq-i > summary:hover{ color:var(--accent-strong); }
-.faq-i > p{
-  margin:0; padding:0 18px 16px; font-size:14px; color:var(--text-2);
-  line-height:1.65; max-width:70ch;
-}
 
 </style>
 </head>
@@ -1870,51 +1843,6 @@ a.via{ text-decoration:none; }
   </div>
 </section>
 
-<section class="section" id="faq">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Lo que suelen preguntar</span>
-      <h2>Antes de que lo preguntes</h2>
-      <p>La primera duda de casi todos es la misma, así que va primera.</p>
-    </div>
-    <div class="faq">
-      <details class="faq-i" open>
-        <summary>¿Cuánto cuesta?</summary>
-        <p>Nada, y no hay una versión de pago escondida. No vas a encontrar un precio, un plan, un botón de suscripción ni un límite que se destrabe pagando, porque no existen. Tampoco hay tarjeta que cargar en ningún momento.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿Y más adelante me van a cobrar?</summary>
-        <p>No. Los cursos son de universidades y de las empresas que hacen las herramientas, y son gratis en su propio sitio: acá no se puede cobrar por algo que es de otro y que además está abierto. Lo que este sitio agrega es el orden y tu avance, y eso es lo que se comparte.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿De qué vive esto, entonces?</summary>
-        <p>De nada. Es un proyecto de una persona, hecho a un costado del trabajo. Hay un enlace para invitar un café si a alguien le sirvió, que es opcional y no destraba absolutamente nada: quien no lo toca ve exactamente el mismo sitio.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿Quién dicta los cursos?</summary>
-        <p>Quien los hizo. Harvard, la Universidad de Helsinki, dbt Labs, Anthropic, AWS, CognitiveClass y varios más. Acá no se dicta ninguno: se eligen, se ponen en orden, se dice cuánto lleva cada uno y qué te deja, y se te lleva la cuenta de por dónde vas.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿Qué pasa con mi CV?</summary>
-        <p>Se lee en tu navegador y no se sube a ningún lado. El texto se cruza contra una lista de temas que está en el mismo sitio, y de ahí sale la ruta. Si cierras la pestaña sin guardar, no queda nada.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿Para qué necesito una cuenta?</summary>
-        <p>Sólo para que tu avance te siga a otra computadora. Podés recorrer todo el sitio, leer las rutas, ver los problemas y sacar tu ruta del CV sin crear nada. La cuenta hace falta recién cuando querés que lo que marcaste quede guardado.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿Los certificados los emiten ustedes?</summary>
-        <p>No. El que vale lo emite quien dicta el curso, y se baja de su sitio. Acá hay una constancia de que recorriste una ruta, que dice en la misma hoja que no es un certificado oficial ni acredita conocimiento.</p>
-      </details>
-      <details class="faq-i">
-        <summary>¿Y si un curso deja de ser gratis o el link se cae?</summary>
-        <p>Se saca o se reemplaza. Ya pasó: cinco problemas de práctica pasaron a ser de pago y se cambiaron por otros gratis que entrenan lo mismo. Si encontrás uno roto o con candado, escribime y lo miro.</p>
-      </details>
-    </div>
-  </div>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Nada. No hay version de pago, ni plan, ni suscripcion, ni limites que se destraben pagando. Nunca se pide una tarjeta."}}, {"@type": "Question", "name": "¿Y más adelante me van a cobrar?", "acceptedAnswer": {"@type": "Answer", "text": "No. Los cursos son de universidades y empresas, y son gratis en su propio sitio. Lo que agrega DataChinchilla es el orden y el avance."}}, {"@type": "Question", "name": "¿De qué vive esto, entonces?", "acceptedAnswer": {"@type": "Answer", "text": "De nada. Es un proyecto personal. Hay un enlace opcional para invitar un cafe que no destraba ninguna funcion."}}, {"@type": "Question", "name": "¿Quién dicta los cursos?", "acceptedAnswer": {"@type": "Answer", "text": "Quien los hizo: Harvard, la Universidad de Helsinki, dbt Labs, Anthropic, AWS y otros. DataChinchilla no dicta cursos: los ordena."}}, {"@type": "Question", "name": "¿Qué pasa con mi CV?", "acceptedAnswer": {"@type": "Answer", "text": "Se lee en el navegador y no se sube a ningun servidor. Si cierras la pestana sin guardar, no queda nada."}}, {"@type": "Question", "name": "¿Para qué necesito una cuenta?", "acceptedAnswer": {"@type": "Answer", "text": "Solo para guardar tu avance y que te siga en otro dispositivo. Se puede recorrer todo el sitio sin crear cuenta."}}, {"@type": "Question", "name": "¿Los certificados los emiten ustedes?", "acceptedAnswer": {"@type": "Answer", "text": "No. El certificado que vale lo emite quien dicta el curso. DataChinchilla emite una constancia de recorrido que aclara que no es oficial."}}, {"@type": "Question", "name": "¿Y si un curso deja de ser gratis o el link se cae?", "acceptedAnswer": {"@type": "Answer", "text": "Se saca o se reemplaza por algo gratis equivalente. Se puede avisar por correo si se encuentra un link roto o de pago."}}]}</script>
-</section>
-
 <footer class="foot">
   <div class="wrap foot-in">
     <span class="foot-marca">
@@ -1922,6 +1850,7 @@ a.via{ text-decoration:none; }
       <span><b>DataChinchilla</b> &middot; No planificar es planificar el fracaso</span>
     </span>
     <nav class="foot-links">
+      <a href="preguntas.html">Preguntas frecuentes</a>
       <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
       <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
     </nav>
@@ -1946,7 +1875,7 @@ a.via{ text-decoration:none; }
 
 <script src="pasos.js?v=e27f17fc"></script>
 <script src="chinchilla.js?v=cb0d5467"></script>
-<script src="path-sync.js?v=84697aba"></script>
+<script src="path-sync.js?v=ee71438c"></script>
 <script src="temas.js?v=ceb5a984"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=24fd2234"></script>

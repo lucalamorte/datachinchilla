@@ -28,6 +28,7 @@ PAGINAS = [
     "ai-fundamentos.html", "deep-learning.html", "llm-agentes.html",
     "claude.html",
     "ml-aplicado.html", "web3.html", "fullstack.html",
+    "preguntas.html",
 ]
 
 # Ruido que no es culpa de la pagina.
@@ -70,6 +71,9 @@ MARCAS = {
     "semana.html": [("semana", "la grilla de la semana")],
     "practica.html": [("probs", "la lista de problemas"), ("bancos", "los bancos")],
     "armar.html":  [("catalogo", "el catalogo de piezas")],
+    # No es una ruta: no pinta mapa. Lo que tiene que estar son
+    # las preguntas, y estan en el HTML sin depender de ningun init.
+    "preguntas.html": [("preguntas", "las preguntas")],
 }
 # El resto son rutas: todas pintan su mapa en #map.
 # snowpro fue la primera ruta y usa map; las demas mapa.

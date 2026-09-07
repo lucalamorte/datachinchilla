@@ -114,6 +114,12 @@ PAGINAS = {
         "color": u"#1A0B05",
         "ogtitulo": u"Trabajar con Claude, en orden",
     },
+    "preguntas.html": {
+        "titulo": u"Preguntas frecuentes · " + MARCA,
+        "desc": u"Si cuesta algo, quién dicta los cursos, qué pasa con tu CV y para qué hace falta una cuenta. Es gratis y no hay versión de pago.",
+        "color": u"#0C0818",
+        "ogtitulo": u"Preguntas frecuentes",
+    },
     "fullstack.html": {
         "titulo": u"Full Stack Open, gratis y en orden · " + MARCA,
         "desc": u"Las quince partes del curso gratuito de la Universidad de Helsinki: React, Node, pruebas, TypeScript, contenedores y CI/CD, con certificado y sin examen.",

@@ -705,7 +705,13 @@ var PathSync = (function(){
         }
         if(!tomadas.length) return 0;
         if(!save()) return 0;
-        for(i=0;i<tomadas.length;i++) del(tomadas[i]);
+        /* La copia suelta NO se borra, a proposito.
+           Onb.cargar() y Plan.cargar() leen el perfil solo si hay uno
+           activo. Si el puntero de sesion se pierde, la copia del
+           perfil no se lee, y si ademas borre la suelta no queda
+           nada: desde afuera se ve como que se perdieron la ruta, la
+           semana y la agenda. Una copia vieja es mejor que ningun
+           dato. */
         return tomadas.length;
       }
 
