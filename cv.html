@@ -1105,6 +1105,15 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 }
 .btn-preg{ font-size:13px; }
 
+/* El aviso de que hace falta cuenta, al lado del boton de guardar.
+   Descubrirlo despues de pegar el CV entero es la forma mas molesta
+   de contarlo. */
+.guardar-nota{
+  margin:10px 0 0; font-size:12.5px; color:var(--text-3);
+  line-height:1.5; max-width:44ch;
+}
+.guardar-nota[hidden]{ display:none; }
+
 </style>
 </head>
 <body>
@@ -1229,6 +1238,8 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
           <span class="stack"><span class="verb">Guardarla y</span><span class="dest">ver mi ruta</span></span>
         </button>
+        <p class="guardar-nota" id="guardarNota" hidden>Para quedarte con tu ruta hace falta
+          una cuenta. Leer el CV y ver el resultado no la piden.</p>
       </div>
     </div>
 
@@ -1818,6 +1829,14 @@ function tomarArchivo(file){
 
 function guardarComoRuta(){
   if(!ultimo){ toast("Todavía no hay ruta que guardar."); return; }
+  /* Guardar la ruta es guardar avance: deja tu puesto, tus rutas
+     activas y tu camino. Leer el CV y ver el resultado siguen
+     abiertos, porque eso no guarda nada. */
+  if(window.PathSync && PathSync.puedeGuardar && !PathSync.puedeGuardar()){
+    toast("Para quedarte con tu ruta hace falta una cuenta.");
+    try{ openAccount(); }catch(e){ try{ abrirCuenta(); }catch(e2){} }
+    return;
+  }
 
   /* Se cierra el plan: qué rutas quedan activas, con qué días y
      cuántas horas. Es lo que después leen la portada, la agenda y la
@@ -2110,6 +2129,12 @@ function init(){
   });
 
   document.getElementById("guardarRuta").addEventListener("click", guardarComoRuta);
+  /* El aviso, solo a quien no entro: a quien ya tiene cuenta no le
+     sirve leer que hace falta una. */
+  var nota = document.getElementById("guardarNota");
+  if(nota && window.PathSync && PathSync.puedeGuardar){
+    nota.hidden = PathSync.puedeGuardar();
+  }
   paintAccount();
   pintarGuia();
   /* Volver a ver la guia. El mensaje al cerrarla decia "la puedes
