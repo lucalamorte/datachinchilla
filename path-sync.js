@@ -31,8 +31,13 @@ var PathSync = (function(){
      compartidos que se carga. */
   (function(){
     try{
-      if(!/[?&]reset/.test(window.location.search)) return;
-      if(!window.confirm("Se borra todo lo que guardaste en este navegador " +
+      var m = /[?&]reset(?:=([^&]*))?/.exec(window.location.search);
+      if(!m) return;
+      /* ?reset pregunta; ?reset=ya borra directo. La segunda existe
+         para poder verificar esto con un navegador automatizado, que
+         rechaza los dialogos solo. */
+      if(m[1] !== "ya" &&
+         !window.confirm("Se borra todo lo que guardaste en este navegador " +
                          "-tu ruta, tu semana y lo que marcaste- y el sitio " +
                          "queda como en la primera visita. ¿Seguro?")) return;
       var k, fuera = [];
