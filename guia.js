@@ -50,7 +50,8 @@ var Guia = (function(){
       donde: "index",
       titulo: "Primero, cuéntame de ti",
       texto: "Con tu CV encuentro exactamente lo que te falta para el puesto que " +
-             "quieres, y te lo dejo en orden. Se lee acá en tu navegador.",
+             "quieres, y te lo dejo en orden. No se envía a ningún servidor: " +
+             "se procesa en tu navegador.",
       accion: "Cargar mi CV",
       lleva: "cv.html",
       /* La tarjeta del CV, que es la unica puerta que queda: el

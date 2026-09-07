@@ -1097,6 +1097,14 @@ li.ok .prob .t{ color:var(--text-3); }
 .chin-atras:hover{ color:var(--text-2); }
 .chin-atras[hidden]{ display:none; }
 
+/* El número de cada filtro de estado. Va tenue: es un dato del botón,
+   no lo que el botón dice. */
+.filtro .fn{
+  margin-left:5px; font-size:11px; font-weight:800;
+  color:var(--text-3); font-variant-numeric:tabular-nums;
+}
+.filtro[aria-pressed="true"] .fn{ color:inherit; opacity:.7; }
+
 </style>
 </head>
 <body>
@@ -1206,7 +1214,7 @@ li.ok .prob .t{ color:var(--text-3); }
 <script src="temas.js?v=872bdd56"></script>
 <script src="cv.js?v=b70bef53"></script>
 <script src="onboarding.js?v=24fd2234"></script>
-<script src="guia.js?v=2b1b40ac"></script>
+<script src="guia.js?v=27f2c050"></script>
 <script src="plan.js?v=35d7e8f9"></script>
 <script src="problemas.js?v=40933293"></script>
 <script src="practica.js?v=ba7e93cc"></script>
@@ -1534,10 +1542,25 @@ function pintarFiltros(){
     '<label class="sel' + (fDif !== "todo" ? " on" : "") + '">' +
       '<span>Dificultad</span><select id="selDif">' + od + '</select></label>' +
     selPat +
-    '<button class="filtro" type="button" data-est="pendientes" ' +
-      'aria-pressed="' + (fEstado === "pendientes") + '">Por hacer</button>' +
-    '<button class="filtro" type="button" data-est="todo" ' +
-      'aria-pressed="' + (fEstado === "todo") + '">Todos</button>';
+    /* Los tres estados, con su numero. Faltaba el de los resueltos,
+       que es el que uno busca para repasar: con "Todos" quedan
+       mezclados con los que faltan y hay que buscarlos a ojo.
+
+       El numero va porque un filtro que no dice cuanto hay adentro
+       obliga a apretarlo para saber si valia la pena. */
+    (function(){
+      var av = Practica.avance(bancoActual);
+      var pend = av.total - av.hechos;
+      return '<button class="filtro" type="button" data-est="pendientes" ' +
+          'aria-pressed="' + (fEstado === "pendientes") + '">Por hacer ' +
+          '<span class="fn">' + pend + '</span></button>' +
+        '<button class="filtro" type="button" data-est="hechos" ' +
+          'aria-pressed="' + (fEstado === "hechos") + '">Resueltos ' +
+          '<span class="fn">' + av.hechos + '</span></button>' +
+        '<button class="filtro" type="button" data-est="todo" ' +
+          'aria-pressed="' + (fEstado === "todo") + '">Todos ' +
+          '<span class="fn">' + av.total + '</span></button>';
+    })();
 
   document.getElementById("filtros").innerHTML = h;
 
@@ -1572,6 +1595,7 @@ function pasaProb(x){
   if(fDif !== "todo" && x.d !== fDif) return false;
   if(fPat !== "todo" && x.p !== fPat) return false;
   if(fEstado === "pendientes" && Practica.hecho(bancoActual, x)) return false;
+  if(fEstado === "hechos" && !Practica.hecho(bancoActual, x)) return false;
   if(busca){
     var s = ((x.n ? x.n + " " : "") + x.t + " " + x.p + " " + (x.co || "")).toLowerCase();
     if(s.indexOf(busca) < 0) return false;
@@ -1606,17 +1630,26 @@ function pintarLista(){
   }else if(typeof Chin !== "undefined"){
     /* Dos vacíos distintos: no quedan pendientes (que es bueno) o no
        hay ninguno que coincida (que es un filtro de más). */
+    /* Tres vacíos distintos, y cada uno quiere que hagas otra cosa:
+       no queda ninguno pendiente (que es bueno), todavía no
+       resolviste ninguno (que es el principio), o los filtros no
+       dejan pasar nada (que es un filtro de más). */
     var todos = Practica.avance(bancoActual);
-    var listo = fEstado === "pendientes" && todos.hechos >= todos.total;
-    c.innerHTML = "<li>" + (listo
-      ? '<div class="chin-vacio-caja"></div>'
-      : '<div class="chin-vacio-caja"></div>') + "</li>";
-    Chin.pinta(c.querySelector(".chin-vacio-caja"),
-      listo ? "festeja" : "busca",
-      listo ? "Los hiciste todos" : "Nada con esos filtros",
-      listo
-        ? "Los " + todos.total + " del banco, resueltos. Cambia de banco, o repasa el que quieras."
-        : "Ninguno coincide. Saca algún filtro, o cambia a Todos para ver también los hechos.");
+    var sinFiltros = fDif === "todo" && fPat === "todo" && !busca;
+    var listo   = fEstado === "pendientes" && sinFiltros && todos.hechos >= todos.total;
+    var ninguno = fEstado === "hechos"     && sinFiltros && todos.hechos === 0;
+    c.innerHTML = '<li><div class="chin-vacio-caja"></div></li>';
+    var caja = c.querySelector(".chin-vacio-caja");
+    if(listo){
+      Chin.pinta(caja, "festeja", "Los hiciste todos",
+        "Los " + todos.total + " del banco, resueltos. Cambia de banco, o repasa el que quieras.");
+    }else if(ninguno){
+      Chin.pinta(caja, "duerme", "Todavía ninguno",
+        "Acá van a aparecer los que marques como resueltos. Empieza por los que faltan.");
+    }else{
+      Chin.pinta(caja, "busca", "Nada con esos filtros",
+        "Ninguno coincide. Saca algún filtro, o cambia a Todos para ver el banco entero.");
+    }
   }
 
   var bt = c.querySelectorAll(".tilde"), j;
