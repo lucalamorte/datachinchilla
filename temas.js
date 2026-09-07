@@ -694,6 +694,13 @@ var TEMAS = {
     "id": "f09",
     "t": "Machine learning con Python",
     "min": 1200
+   },
+   {
+    "ruta": "airflow",
+    "archivo": "airflow.html",
+    "id": "g05",
+    "t": "Pythonic DAGs con la TaskFlow API",
+    "min": 90
    }
   ],
   "cloud": [
@@ -936,6 +943,34 @@ var TEMAS = {
     "id": "x14",
     "t": "Kafka para pipelines",
     "min": 240
+   },
+   {
+    "ruta": "airflow",
+    "archivo": "airflow.html",
+    "id": "g01",
+    "t": "Airflow 101",
+    "min": 90
+   },
+   {
+    "ruta": "airflow",
+    "archivo": "airflow.html",
+    "id": "g02",
+    "t": "Airflow 101, versión Airflow 2",
+    "min": 90
+   },
+   {
+    "ruta": "airflow",
+    "archivo": "airflow.html",
+    "id": "g04",
+    "t": "Airflow 101: Building Your First Workflow",
+    "min": 90
+   },
+   {
+    "ruta": "airflow",
+    "archivo": "airflow.html",
+    "id": "g06",
+    "t": "Un pipeline de datos simple",
+    "min": 90
    }
   ],
   "ml": [

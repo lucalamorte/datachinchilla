@@ -35,6 +35,7 @@ RUTAS = {
     "ml-aplicado.html":    "mlaplicado",
     "web3.html":           "web3",
     "fullstack.html":      "fullstack",
+    "airflow.html":        "airflow",
 }
 
 BOTON = u'''      <button class="btn-quiet btn-mia" id="miaBtn" type="button" hidden>

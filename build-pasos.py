@@ -34,6 +34,7 @@ RUTAS = [
     ("ml-aplicado.html",    "mlaplicado",   u"ML aplicado"),
     ("web3.html",           "web3",         u"Web3"),
     ("fullstack.html",      "fullstack",    u"Full Stack Open"),
+    ("airflow.html",        "airflow",      u"Airflow"),
 ]
 
 # Cuánto dura un paso, en minutos. El texto viene como lo escribe cada
@@ -82,6 +83,7 @@ NIVELES = {
     "subir-nivel.html": u"Con experiencia",
     "web3.html": u"Desde cero",
     "fullstack.html": u"Con programación sabida",
+    "airflow.html": u"Con Python sabido",
 }
 
 ORDEN_NIVEL = {

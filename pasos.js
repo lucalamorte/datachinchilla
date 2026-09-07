@@ -4703,5 +4703,163 @@ var PASOS = [
   ],
   "nivel": "Con programación sabida",
   "nivelN": 2
+ },
+ {
+  "archivo": "airflow.html",
+  "clave": "airflow",
+  "nombre": "Airflow",
+  "actos": [
+   "Los fundamentos",
+   "Escribir DAGs que aguanten",
+   "De la fuente"
+  ],
+  "pasos": [
+   {
+    "id": "g01",
+    "t": "Airflow 101",
+    "min": 90,
+    "act": 1,
+    "time": "a tu ritmo",
+    "sum": "El camino de entrada de Astronomer, sobre Airflow 3. Qué es un DAG, cómo se programa y qué pasa cuando una tarea falla.",
+    "goal": "Terminas esta parte cuando escribes un DAG, lo ves correr y entiendes por qué se ejecutó cuando se ejecutó.",
+    "cert": "",
+    "i": "",
+    "u": "https://academy.astronomer.io/path/airflow-101",
+    "boss": true,
+    "wins": [
+     "DAGs, tareas y dependencias: el vocabulario que todo lo demás da por sabido",
+     "El planificador: por qué una tarea arranca cuando arranca",
+     "Reintentos y alertas, que es la mitad de por qué se usa Airflow"
+    ]
+   },
+   {
+    "id": "g02",
+    "t": "Airflow 101, versión Airflow 2",
+    "min": 90,
+    "act": 1,
+    "time": "a tu ritmo",
+    "sum": "El mismo camino para quien trabaja sobre Airflow 2. Hazlo sólo si tu empresa todavía está en esa versión: si empiezas de cero, ve directo a la 3.",
+    "goal": "Terminas esta parte cuando reconoces qué cambió entre la 2 y la 3, y no te confunde la documentación.",
+    "cert": "",
+    "i": "",
+    "u": "https://academy.astronomer.io/path/airflow-101-airflow-2",
+    "boss": false,
+    "wins": [
+     "Lo mismo que la parte anterior, en la versión que todavía corre en producción en muchos lados",
+     "Las diferencias que importan al leer código viejo",
+     "Saltéala sin culpa si arrancas de cero"
+    ]
+   },
+   {
+    "id": "g03",
+    "t": "DAG Authoring",
+    "min": 90,
+    "act": 2,
+    "time": "a tu ritmo",
+    "sum": "El camino avanzado de Astronomer: TaskFlow API, tareas dinámicas y plantillas. Es donde un DAG deja de ser un ejemplo.",
+    "goal": "Terminas esta parte cuando escribes un DAG que genera tareas según lo que encuentre, sin repetir código.",
+    "cert": "",
+    "i": "",
+    "u": "https://academy.astronomer.io/path/airflow-dag-authoring",
+    "boss": true,
+    "wins": [
+     "TaskFlow API: DAGs que se leen como Python y no como configuración",
+     "Tareas dinámicas, para cuando no sabes de antemano cuántas hay",
+     "Plantillas y variables, que es como un DAG deja de estar hardcodeado"
+    ]
+   },
+   {
+    "id": "g04",
+    "t": "Airflow 101: Building Your First Workflow",
+    "min": 90,
+    "act": 3,
+    "time": "a tu ritmo",
+    "sum": "El primer tutorial de la documentación oficial. Abierto, sin cuenta y sin registro.",
+    "goal": "Terminas esta parte cuando tienes el primer flujo corriendo desde la documentación oficial.",
+    "cert": "",
+    "i": "",
+    "u": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html",
+    "boss": false,
+    "wins": [
+     "El mismo arranque, contado por quien mantiene el proyecto",
+     "La documentación oficial como fuente, que es a donde vas a volver siempre",
+     "Sin cuenta y sin registro"
+    ]
+   },
+   {
+    "id": "g05",
+    "t": "Pythonic DAGs con la TaskFlow API",
+    "min": 90,
+    "act": 3,
+    "time": "a tu ritmo",
+    "sum": "Escribir DAGs como funciones de Python en vez de como grafos armados a mano.",
+    "goal": "Terminas esta parte cuando tus tareas se pasan datos entre sí sin que tengas que pensar en XComs.",
+    "cert": "",
+    "i": "",
+    "u": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/taskflow.html",
+    "boss": false,
+    "wins": [
+     "Decoradores en vez de operadores para lo que hacés todos los días",
+     "Cómo viajan los datos de una tarea a la siguiente",
+     "Por qué el código queda más corto y más fácil de probar"
+    ]
+   },
+   {
+    "id": "g06",
+    "t": "Un pipeline de datos simple",
+    "min": 90,
+    "act": 3,
+    "time": "a tu ritmo",
+    "sum": "El caso completo de punta a punta: traer datos, transformarlos y dejarlos donde alguien los use.",
+    "goal": "Terminas esta parte cuando tienes un pipeline que corre solo y sabes dónde mirar cuando no corre.",
+    "cert": "",
+    "i": "",
+    "u": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/pipeline.html",
+    "boss": false,
+    "wins": [
+     "El recorrido entero, no un fragmento",
+     "Dónde se rompe un pipeline de verdad",
+     "Qué mirar en la interfaz cuando algo falló anoche"
+    ]
+   },
+   {
+    "id": "g07",
+    "t": "Flujos sobre almacenamiento de objetos",
+    "min": 90,
+    "act": 3,
+    "time": "a tu ritmo",
+    "sum": "Trabajar contra S3, GCS o Azure sin atarte a uno solo.",
+    "goal": "Terminas esta parte cuando lees y escribes en la nube desde un DAG sin código específico del proveedor.",
+    "cert": "",
+    "i": "",
+    "u": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/objectstorage.html",
+    "boss": false,
+    "wins": [
+     "Almacenamiento de objetos como si fuera un sistema de archivos",
+     "El mismo DAG contra distintos proveedores",
+     "Es lo que vas a usar en cualquier trabajo con datos en la nube"
+    ]
+   },
+   {
+    "id": "g08",
+    "t": "Cuando hace falta una persona en el medio",
+    "min": 90,
+    "act": 3,
+    "time": "a tu ritmo",
+    "sum": "El operador que frena el flujo y espera que alguien apruebe. Es lo que piden los procesos que tocan plata o clientes.",
+    "goal": "Terminas esta parte cuando un DAG espera una aprobación humana y sigue solo después.",
+    "cert": "",
+    "i": "",
+    "u": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/hitl.html",
+    "boss": true,
+    "wins": [
+     "Frenar un flujo hasta que alguien decida",
+     "Por qué esto aparece en cuanto el pipeline toca algo sensible",
+     "Cómo no dejar un flujo esperando para siempre"
+    ]
+   }
+  ],
+  "nivel": "Con Python sabido",
+  "nivelN": 2
  }
 ];

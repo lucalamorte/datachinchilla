@@ -498,8 +498,13 @@ var Chin = (function(){
        corre en DOMContentLoaded y el init de la página llama a
        Onb.cargar() después, así que sin esto se leía el estado
        inicial, vacío, y no saludaba nunca. */
+    /* Y solo a quien tiene cuenta. Saludar con "volviste" a alguien
+       anonimo suena a que el sitio sabe quien es, y no lo sabe: desde
+       que guardar avance pide cuenta, el reconocimiento tiene que
+       venir del mismo lado. */
     var tiene = false;
     try{
+      if(window.PathSync && PathSync.puedeGuardar && !PathSync.puedeGuardar()) return;
       if(typeof Onb !== "undefined"){
         Onb.cargar();
         tiene = Onb.estado.rutas.length > 0;

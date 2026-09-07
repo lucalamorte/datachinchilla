@@ -27,7 +27,7 @@ PAGINAS = [
     "arquitectura.html", "cs50.html", "data-science.html", "sql-python.html",
     "ai-fundamentos.html", "deep-learning.html", "llm-agentes.html",
     "claude.html",
-    "ml-aplicado.html", "web3.html", "fullstack.html",
+    "ml-aplicado.html", "web3.html", "fullstack.html", "airflow.html",
     "preguntas.html",
     "recursos.html",
 ]

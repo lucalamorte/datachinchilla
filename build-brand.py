@@ -126,6 +126,12 @@ PAGINAS = {
         "color": u"#0C0818",
         "ogtitulo": u"Preguntas frecuentes",
     },
+    "airflow.html": {
+        "titulo": u"Airflow gratis, en orden · " + MARCA,
+        "desc": u"Orquestación con Apache Airflow sin pagar nada: los caminos de Astronomer Academy y los cinco tutoriales oficiales de Apache, en orden.",
+        "color": u"#04171A",
+        "ogtitulo": u"Airflow, en orden",
+    },
     "fullstack.html": {
         "titulo": u"Full Stack Open, gratis y en orden · " + MARCA,
         "desc": u"Las quince partes del curso gratuito de la Universidad de Helsinki: React, Node, pruebas, TypeScript, contenedores y CI/CD, con certificado y sin examen.",
