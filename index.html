@@ -1742,6 +1742,29 @@ a.via{ text-decoration:none; }
 .chin-atras:hover{ color:var(--text-2); }
 .chin-atras[hidden]{ display:none; }
 
+/* Cada ruta armada a mano con su color. El tono sale de su id y se
+   aplica pisando --accent acá: las reglas de .card.own ya están
+   escritas contra ese token, así que no hay una segunda tarjeta que
+   mantener, sólo un tono distinto.
+
+   Los cuatro se derivan de uno para que el degradado y el borde no
+   queden peleados: mezclar contra --surface los deja bien en los dos
+   temas. */
+.card-wrap.armada{
+  --accent:        var(--tono);
+  --accent-strong: color-mix(in srgb, var(--tono) 82%, #000000);
+  --accent-soft:   color-mix(in srgb, var(--tono) 13%, var(--surface));
+  --accent-line:   color-mix(in srgb, var(--tono) 32%, var(--surface));
+}
+/* En oscuro el tono entero queda ilegible sobre el fondo: se aclara,
+   igual que hace el tema con su propio acento. */
+:root[data-theme="dark"] .card-wrap.armada{
+  --accent:        color-mix(in srgb, var(--tono) 52%, #FFFFFF);
+  --accent-strong: color-mix(in srgb, var(--tono) 30%, #FFFFFF);
+  --accent-soft:   color-mix(in srgb, var(--tono) 32%, var(--surface));
+  --accent-line:   color-mix(in srgb, var(--tono) 48%, var(--surface));
+}
+
 </style>
 </head>
 <body>
@@ -1946,7 +1969,7 @@ a.via{ text-decoration:none; }
 
 <script src="pasos.js?v=f6152d8a"></script>
 <script src="chinchilla.js?v=7c39999c"></script>
-<script src="path-sync.js?v=a6aaec4c"></script>
+<script src="path-sync.js?v=73ed780d"></script>
 <script src="temas.js?v=872bdd56"></script>
 <script src="cv.js?v=9243a13a"></script>
 <script src="onboarding.js?v=24fd2234"></script>
@@ -1992,7 +2015,10 @@ function icon(name, size){
     open:   '<path d="M14 4h6v6"/><path d="M20 4l-8.5 8.5"/><path d="M18 14v5a1.9 1.9 0 0 1-2 2H5a1.9 1.9 0 0 1-2-2V8a1.9 1.9 0 0 1 2-2h5"/>',
     user:   '<circle cx="12" cy="8" r="3.6"/><path d="M4.6 20a7.4 7.4 0 0 1 14.8 0"/>',
     warn:   '<path d="M12 3.5L2.8 19.5h18.4z"/><path d="M12 10v4M12 17v.1"/>',
-    lock:   '<rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>'
+    lock:   '<rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+    /* La tarjeta de tu ruta lo pedia desde siempre y no estaba: caia
+       en el de por defecto y mostraba un tilde. */
+    map:    '<path d="M9 4L3 6.5v14L9 18l6 2.5 6-2.5v-14L15 6.5z"/><path d="M9 4v14M15 6.5v14"/>'
   };
   return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
          'stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -2164,9 +2190,117 @@ function idRuta(p){ return p.u || ("bloqueada-" + p.t); }
 var filtroRuta = "todo";
 var buscaRuta = "";
 
+/* ---------------------------------------------------------------
+   LAS RUTAS ARMADAS A MANO
+
+   Se guardan en /armar y hasta ahora se quedaban ahi: la portada no
+   las conocia, asi que quien armaba una tenia que acordarse de que
+   esa pagina existe para volver a verla.
+
+   Se leen igual que las lee /armar -perfil primero, clave suelta
+   despues- porque es el mismo dato y no puede tener dos verdades.
+   La clave suelta es lo de antes de que guardar pidiera cuenta.
+   --------------------------------------------------------------- */
+function armadas(){
+  var pf = null, crudo = null, out = [], i, r;
+  try{ pf = activeProfile(); }catch(e){ pf = null; }
+  if(pf && pf.customs){
+    crudo = pf.customs;
+  }else{
+    try{ crudo = JSON.parse(localStorage.getItem("custom-path/v1/guardadas") || "[]"); }
+    catch(e){ crudo = null; }
+  }
+  if(Object.prototype.toString.call(crudo) !== "[object Array]") return out;
+  for(i=0;i<crudo.length;i++){
+    r = crudo[i];
+    if(!r || !r.id) continue;
+    if(Object.prototype.toString.call(r.items) !== "[object Array]" || !r.items.length) continue;
+    out.push(r);
+  }
+  return out;
+}
+
+/* "sqlpy:q01" -> el paso, sacado de pasos.js, que la portada ya
+   carga. Es lo unico que hace falta para contar niveles y horas de
+   una ruta armada: traer catalog.js entero -78 kB- para eso seria
+   pagar el catalogo por una cuenta. Se arma una vez. */
+/* Los ids de ruta que cambiaron. El mapa lo emite build-catalog.py
+   en catalog.js, pero la portada no carga catalog.js -78 kB por una
+   entrada-, así que acá va escrito. cuentas.py comprueba que digan lo
+   mismo. */
+var ALIAS_RUTA = { "snowpro": "__suelto__" };
+
+var PIEZAS_IX = null;
+function piezaDe(id){
+  if(!PIEZAS_IX){
+    PIEZAS_IX = {};
+    var rs = (typeof PASOS !== "undefined") ? PASOS : [], a, b;
+    for(a=0;a<rs.length;a++){
+      for(b=0;b<rs[a].pasos.length;b++){
+        PIEZAS_IX[rs[a].clave + ":" + rs[a].pasos[b].id] = rs[a].pasos[b];
+      }
+    }
+  }
+  if(PIEZAS_IX[id]) return PIEZAS_IX[id];
+  /* Una ruta guardada trae los ids con los que se guardó. */
+  var c = String(id).indexOf(":"), r = c < 0 ? "" : String(id).slice(0, c);
+  if(r && ALIAS_RUTA[r]) return PIEZAS_IX[ALIAS_RUTA[r] + String(id).slice(c)] || null;
+  return null;
+}
+
+/* El color de cada ruta armada. Sale de su id, asi que es el mismo
+   siempre y dos rutas distintas no se confunden. Se pisa --accent en
+   la tarjeta y listo: las reglas de .card.own ya estan escritas
+   contra ese token. */
+var TONOS = ["#0F766E", "#B45309", "#9D174D", "#1D4ED8", "#4D7C0F", "#A21CAF"];
+function tonoDe(id){
+  var n = 0, i;
+  for(i=0;i<id.length;i++) n = (n * 31 + id.charCodeAt(i)) % 100003;
+  return TONOS[n % TONOS.length];
+}
+
+function tarjetaArmada(r){
+  var min = 0, hechos = 0, i, pz;
+  for(i=0;i<r.items.length;i++){
+    pz = piezaDe(r.items[i]);
+    if(pz) min += pz.min || 0;
+    if(r.done && r.done[r.items[i]]) hechos++;
+  }
+  var n = r.items.length, hs = Math.round(min / 60);
+  var av = hechos > 0
+    ? '<span class="card-av"><span class="b"><i style="width:' +
+        Math.round(100 * hechos / n) + '%"></i></span>' +
+      '<span class="n">' + hechos + " de " + n + '</span></span>'
+    : "";
+  return '<div class="card-wrap tuya armada" style="--tono:' + tonoDe(r.id) + '">' +
+    '<a class="card own" href="armar.html#abrir=' + encodeURIComponent(r.id) + '">' +
+      '<span class="own-ribbon">' + icon("build", 11) + 'La armaste tú</span>' +
+      '<span class="ico">' + icon("build", 19) + '</span>' +
+      '<h3>' + esc(r.name || "Tu ruta a mano") + '</h3>' +
+      '<div class="card-tags"><span class="chip">' + n +
+        (n === 1 ? ' nivel' : ' niveles') + '</span>' +
+        (hs ? '<span class="chip official">' + hs + ' horas</span>' : '') +
+      '</div>' + av +
+      '<p>La elegiste nivel por nivel. Se edita cuando quieras y el avance queda guardado.</p>' +
+      '<span class="go">Abrirla ' + icon("arrow", 12) + '</span></a></div>';
+}
+
+/* Las rutas del sitio que tenés en tu semana también son tuyas: el
+   filtro "Tuyas" junta las tres cosas, o diría una cosa y mostraría
+   otra. */
+function enTuSemana(p){
+  var clave = claveDe(p);
+  return !!(clave && typeof Onb !== "undefined" && Onb.activa(clave));
+}
+
 function pasaFiltro(p){
+  if(filtroRuta === "tuyas") return enTuSemana(p) && cabeEnBusqueda(p);
   if(filtroRuta === "favoritas" && !esFavorita(idRuta(p))) return false;
   if(filtroRuta !== "todo" && filtroRuta !== "favoritas" && p.nivel !== filtroRuta) return false;
+  return cabeEnBusqueda(p);
+}
+
+function cabeEnBusqueda(p){
   if(!buscaRuta) return true;
   var texto = (p.t + " " + p.d + " " + p.nivel).toLowerCase();
   return texto.indexOf(buscaRuta) >= 0;
@@ -2195,6 +2329,14 @@ function renderFiltroRutas(){
     html += '<button class="lib-filter' + (filtroRuta === ORDEN[i] ? " on" : "") + '" type="button" ' +
             'data-fr="' + ORDEN[i] + '">' + ORDEN[i] + ' <span class="n">' + cuenta[ORDEN[i]] + '</span></button>';
   }
+  /* Lo tuyo, junto: la del CV, las que armaste a mano y las del
+     sitio que metiste en tu semana. Antes lo tuyo se escondia con
+     cualquier filtro, que es lo contrario de lo que uno espera. */
+  var tuyas = cuantasTuyas();
+  if(tuyas){
+    html += '<button class="lib-filter' + (filtroRuta === "tuyas" ? " on" : "") + '" type="button" data-fr="tuyas">' +
+            'Tuyas <span class="n">' + tuyas + '</span></button>';
+  }
   if(favs){
     html += '<button class="lib-filter' + (filtroRuta === "favoritas" ? " on" : "") + '" type="button" data-fr="favoritas">' +
             'Favoritas <span class="n">' + favs + '</span></button>';
@@ -2209,6 +2351,18 @@ function renderFiltroRutas(){
       renderPaths();
     });
   }
+}
+
+/* Cuántas son tuyas: para el número del filtro. */
+function cuantasTuyas(){
+  var n = armadas().length, i;
+  if(hayRutaDelCV()) n++;
+  for(i=0;i<PATHS.length;i++){ if(enTuSemana(PATHS[i])) n++; }
+  return n;
+}
+
+function hayRutaDelCV(){
+  return (typeof Onb !== "undefined") && Onb.hecho() && (typeof CV !== "undefined");
 }
 
 /* Cuántas rutas se ven antes de "ver más". Seis entra en dos filas
@@ -2241,9 +2395,17 @@ function renderPaths(){
   }
   var lista = mias.concat(favs, resto);
 
-  /* Tu ruta, primera y aparte: es la única armada para vos. */
+  /* Lo tuyo, primero y aparte. Va en "Todo" y en "Tuyas", y responde
+     a la búsqueda por nombre: esconderlo con cualquier filtro era
+     justo lo contrario de lo que uno espera de lo suyo. */
+  var anclado = (filtroRuta === "todo" || filtroRuta === "tuyas");
+  var nAnclas = 0;
+  function buscada(nombre){
+    return !buscaRuta || String(nombre).toLowerCase().indexOf(buscaRuta) >= 0;
+  }
+
   var tuya = "";
-  if(hayOnb && !buscaRuta && filtroRuta === "todo" && typeof CV !== "undefined"){
+  if(hayOnb && anclado && typeof CV !== "undefined"){
     var nCursos, hs = 0, z, titulo, sub;
     if(Onb.estado.deRuta && typeof Plan !== "undefined"){
       /* Es una ruta del sitio: la tarjeta dice cuál, no "tu ruta". */
@@ -2263,24 +2425,38 @@ function renderPaths(){
       titulo = "Tu ruta a " + CV.puestoDe(Onb.estado.puesto).nombre;
       sub = "Los tramos son lo que te falta para el puesto que elegiste. Los cursos salen del catálogo entero, en orden.";
     }
-    tuya = '<div class="card-wrap tuya">' +
-      '<a class="card own" href="mi-ruta.html">' +
-        '<span class="own-ribbon">' + icon("arrow", 11) + 'Armada para ti</span>' +
-        '<span class="ico">' + icon("map", 19) + '</span>' +
-        '<h3>' + esc(titulo) + '</h3>' +
-        '<div class="card-tags"><span class="chip">' + nCursos + ' cursos</span>' +
-          '<span class="chip official">' + Math.round(hs / 60) + ' horas</span></div>' +
-        '<p>' + esc(sub) + '</p>' +
-        '<span class="go">Abrirla ' + icon("arrow", 12) + '</span></a></div>';
+    if(buscada(titulo)){
+      tuya = '<div class="card-wrap tuya">' +
+        '<a class="card own" href="mi-ruta.html">' +
+          '<span class="own-ribbon">' + icon("arrow", 11) + 'Armada para ti</span>' +
+          '<span class="ico">' + icon("map", 19) + '</span>' +
+          '<h3>' + esc(titulo) + '</h3>' +
+          '<div class="card-tags"><span class="chip">' + nCursos + ' cursos</span>' +
+            '<span class="chip official">' + Math.round(hs / 60) + ' horas</span></div>' +
+          '<p>' + esc(sub) + '</p>' +
+          '<span class="go">Abrirla ' + icon("arrow", 12) + '</span></a></div>';
+      nAnclas++;
+    }
+  }
+
+  /* Las que armaste a mano, al lado de la del CV. */
+  if(anclado){
+    var ar = armadas(), w;
+    for(w=0;w<ar.length;w++){
+      if(!buscada(ar[w].name || "")) continue;
+      tuya += tarjetaArmada(ar[w]);
+      nAnclas++;
+    }
   }
 
   /* Con filtro o búsqueda no se esconde nada: ahí la lista ya la
      acotó el usuario y ocultarle resultados sería pelearle. */
   var acotando = !!buscaRuta || filtroRuta !== "todo";
-  /* La tuya ocupa un lugar de la grilla, así que cuenta para el tope:
-     si no, quedaban siete tarjetas y una sola en la última fila. */
-  var propia = hayOnb && !buscaRuta && filtroRuta === "todo";
-  var cupo = TOPE_RUTAS - (propia ? 1 : 0);
+  /* Las tuyas ocupan lugares de la grilla, así que cuentan para el
+     tope: si no, quedaban siete tarjetas y una sola en la última
+     fila. */
+  var cupo = TOPE_RUTAS - nAnclas;
+  if(cupo < 2) cupo = 2;
   var muestro = (verTodas || acotando) ? lista : lista.slice(0, cupo);
   var quedan = lista.length - muestro.length;
 
@@ -2343,8 +2519,8 @@ function renderPaths(){
   }
   document.getElementById("pathList").innerHTML = tuya + html;
   var vacio = document.getElementById("sinRutas");
-  vacio.hidden = lista.length > 0;
-  if(!lista.length && typeof Chin !== "undefined"){
+  vacio.hidden = (lista.length + nAnclas) > 0;
+  if(!lista.length && !nAnclas && typeof Chin !== "undefined"){
     Chin.pinta(vacio, "busca", "Acá no hay nada",
       "Ninguna ruta coincide con eso. Prueba con otra palabra, o mira todas.");
   }

@@ -62,10 +62,10 @@
   --accent-soft:   #DAF2EB;
   --accent-line:   #B3E2D4;
 
-  /* un color por ruta de origen, el mismo que usa cada página */
-  --ruta-snowpro:  #0E7FAE;
-  --ruta-de:       #6D28D9;
-  --ruta-cs50:     #A51C30;
+  /* Un color por ruta de origen. No están acá: los escribe la página
+     al cargar, leyéndolos de catalog.js, que los saca del --accent de
+     cada ruta. Escritos a mano eran tres, y las otras catorce salían
+     pidiendo una variable que no existe. */
 }
 :root[data-theme="dark"]{
   --accent:        #34D399;
@@ -73,9 +73,6 @@
   --accent-soft:   #06342A;
   --accent-line:   #0B4A3B;
 
-  --ruta-snowpro:  #38BDF8;
-  --ruta-de:       #A78BFA;
-  --ruta-cs50:     #F2707F;
 }
 :root{ color-scheme: light; }
 :root[data-theme="dark"]{ color-scheme: dark; }
@@ -600,7 +597,7 @@ svg{ flex-shrink:0; }
   <div class="wrap">
     <p class="lema">No planificar es planificar el fracaso</p>
     <h1>Arma tu ruta con las <span class="grad">piezas que ya están</span></h1>
-    <p class="hero-lead">Las tres rutas del sitio se abren en niveles sueltos. Elige los que te sirven, ponlos en el orden que quieras y te queda tu propio camino, con su mapa y su avance guardado. Si ya sabes SQL, sáltalo. Si solo te interesa certificarte, llévate los seis niveles que necesitas.</p>
+    <p class="hero-lead">Las <b id="cuantasRutas">17</b> rutas del sitio se abren en niveles sueltos. Elige los que te sirven, ponlos en el orden que quieras y te queda tu propio camino, con su mapa y su avance guardado. Si ya sabes SQL, sáltalo. Si solo te interesa certificarte, llévate los seis niveles que necesitas.</p>
     <p class="hero-foot">Cada pieza es material de terceros: Snowflake, Harvard, freeCodeCamp, DataExpert y los demás que están en los créditos de cada ruta. Acá no se copia nada, se ordena y se enlaza al original.</p>
   </div>
 </section>
@@ -630,7 +627,7 @@ svg{ flex-shrink:0; }
   <div class="wrap">
     <div class="section-head">
       <h2>El catálogo</h2>
-      <p>Treinta y tres niveles de todas tus rutas. Filtra, busca y suma los que quieras: el orden lo decides a la derecha.</p>
+      <p><b id="cuantasPiezas">263</b> niveles de todas las rutas. Filtra, busca y suma los que quieras: el orden lo decides a la derecha.</p>
     </div>
     <div class="mesa">
       <div>
@@ -737,9 +734,9 @@ svg{ flex-shrink:0; }
   <span id="toastText"></span>
 </div>
 
-<script src="catalog.js?v=b57968cc"></script>
+<script src="catalog.js?v=82bb91eb"></script>
 <script src="chinchilla.js?v=7c39999c"></script>
-<script src="path-sync.js?v=a6aaec4c"></script>
+<script src="path-sync.js?v=73ed780d"></script>
 <script>
 (function(){
 "use strict";
@@ -794,11 +791,23 @@ function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ retu
 function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
 
 /* ============================================================
-   EL CATÁLOGO · lo genera build-catalog.py leyendo las tres
-   páginas. Acá solo se indexa para buscarlo rápido.
+   EL CATÁLOGO · lo genera build-catalog.py leyendo cada página del
+   sitio. Acá solo se indexa para buscarlo rápido.
    ============================================================ */
 var PIEZAS = (typeof CATALOGO !== "undefined") ? CATALOGO : [];
 var RUTAS  = (typeof CATALOGO_RUTAS !== "undefined") ? CATALOGO_RUTAS : [];
+
+/* Ids de ruta que cambiaron. Lo emite build-catalog.py; acá sólo se
+   aplica al leer una ruta guardada, que trae los ids con los que se
+   guardó. Sin esto los niveles de SnowPro de una ruta vieja
+   desaparecían sin aviso. */
+var ALIAS = (typeof CATALOGO_ALIAS !== "undefined") ? CATALOGO_ALIAS : {};
+function alDia(id){
+  var c = String(id).indexOf(":");
+  if(c < 0) return id;
+  var r = String(id).slice(0, c);
+  return ALIAS[r] ? ALIAS[r] + String(id).slice(c) : id;
+}
 
 var PORID = {}, PORRUTA = {};
 (function indexar(){
@@ -807,7 +816,42 @@ var PORID = {}, PORRUTA = {};
   for(i=0;i<RUTAS.length;i++) PORRUTA[RUTAS[i].id] = RUTAS[i];
 })();
 
-function colorRuta(id){ return "var(--ruta-" + (id || "de") + ")"; }
+/* Un color por ruta, escrito al cargar y no a mano. A mano eran
+   tres, y las otras catorce pedían una variable que no existe: sin
+   color. El valor sale de catalog.js, que lo saca del --accent de la
+   propia página de cada ruta.
+
+   En oscuro se aclara, porque .tag pinta el icono con el color del
+   fondo: un tono pensado para papel blanco deja el icono ilegible. */
+(function tonosDeRuta(){
+  var claro = [], oscuro = [], i, r;
+  for(i=0;i<RUTAS.length;i++){
+    r = RUTAS[i];
+    if(!r.color) continue;
+    claro.push("--ruta-" + r.id + ":" + r.color + ";");
+    oscuro.push("--ruta-" + r.id + ":color-mix(in srgb," + r.color + " 55%,#FFFFFF);");
+  }
+  if(!claro.length) return;
+  var s = document.createElement("style");
+  s.textContent = ":root{" + claro.join("") + "}" +
+                  ':root[data-theme="dark"]{' + oscuro.join("") + "}";
+  document.head.appendChild(s);
+})();
+
+/* Si una ruta no trajera color, gris antes que una variable vacía. */
+function colorRuta(id){
+  return PORRUTA[id] && PORRUTA[id].color ? "var(--ruta-" + id + ")" : "#7C8AA0";
+}
+
+/* Los dos números del texto salen del catálogo. Escritos a mano
+   decían tres rutas y treinta y tres niveles cuando ya eran
+   diecisiete y doscientos sesenta y tres. */
+(function cuantos(){
+  var a = document.getElementById("cuantasRutas");
+  var b = document.getElementById("cuantasPiezas");
+  if(a && RUTAS.length)  a.textContent = RUTAS.length;
+  if(b && PIEZAS.length) b.textContent = PIEZAS.length;
+})();
 function nombreRuta(id){ return PORRUTA[id] ? PORRUTA[id].nombre : id; }
 function archivoRuta(id){ return PORRUTA[id] ? PORRUTA[id].archivo : ""; }
 function iconoRuta(id){ return PORRUTA[id] ? PORRUTA[id].icono : "data"; }
@@ -842,10 +886,16 @@ function normalizar(raw){
     for(i=0;i<raw.items.length;i++){
       // una pieza que ya no existe en el catálogo se descarta en silencio:
       // el catálogo cambia y la ruta guardada no puede romper la página
-      if(PORID[raw.items[i]] && out.items.indexOf(raw.items[i]) < 0) out.items.push(raw.items[i]);
+      var pid = alDia(raw.items[i]);
+      if(PORID[pid] && out.items.indexOf(pid) < 0) out.items.push(pid);
     }
   }
-  if(raw.done && typeof raw.done === "object") out.done = raw.done;
+  if(raw.done && typeof raw.done === "object"){
+    /* El avance está guardado con la misma clave vieja que los items:
+       traducirlos y dejar el avance atrás sería mostrar la ruta con
+       todo sin hacer. */
+    for(var d in raw.done){ if(raw.done[d]) out.done[alDia(d)] = true; }
+  }
   out.id = String(raw.id || "");
   out.name = String(raw.name || "");
   out.updated = String(raw.updated || "");
@@ -1197,7 +1247,8 @@ function leerHash(){
   if(h.indexOf("#r=") !== 0) return null;
   var crudos = decodeURIComponent(h.slice(3)).split(","), out = [], i;
   for(i=0;i<crudos.length;i++){
-    if(PORID[crudos[i]] && out.indexOf(crudos[i]) < 0) out.push(crudos[i]);
+    var cid = alDia(crudos[i]);
+    if(PORID[cid] && out.indexOf(cid) < 0) out.push(cid);
   }
   return out.length ? out : null;
 }
@@ -1780,6 +1831,14 @@ function init(){
   pintarTodo();
 
   if(compartida) ofrecerCompartida(compartida);
+
+  /* La portada ancla las rutas armadas a mano y linkea con #abrir=.
+     Sin esto el link caía en el armador vacío y había que buscarla
+     otra vez en la lista de abajo. Reusa abrirGuardada, que ya
+     pregunta antes de pisar lo que tenías a medio armar. */
+  var pedida = (location.hash || "").indexOf("#abrir=") === 0
+             ? decodeURIComponent(location.hash.slice(7)) : "";
+  if(pedida) abrirGuardada(pedida);
 
   document.getElementById("q").addEventListener("input", function(){
     filtroTexto = (this.value || "").trim().toLowerCase();

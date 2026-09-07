@@ -67,6 +67,18 @@ def _rutas_del_sitio():
 RUTAS = _rutas_del_sitio()
 
 
+# Ids de ruta que cambiaron de nombre, viejo -> nuevo. Una ruta
+# armada a mano guarda los ids con los que se guardo, asi que sin esto
+# sus piezas se descartan en silencio al abrirla.
+#
+# snowpro estaba escrito a mano cuando la lista era a mano. Al pasar a
+# salir de pasos.js quedo con la clave que usa esa pagina, que es
+# "__suelto__" porque es la ruta vieja, la que guarda el avance suelto
+# en el perfil. Es un hecho historico: no se deduce de ningun lado y
+# no se puede borrar mientras exista una ruta guardada de antes.
+ALIAS_VIEJOS = {"snowpro": "__suelto__"}
+
+
 # los campos que necesita el armador, nada más
 CAMPO = {
     "id":      re.compile(r'id:\s*"([^"]+)"'),
@@ -132,6 +144,9 @@ for ruta in RUTAS:
 salida = (u"/* Generado por build-catalog.py. No editar a mano: los datos viven\n"
           u"   en cada página y este archivo se regenera con un comando. */\n"
           u"var CATALOGO = " + json.dumps(piezas, ensure_ascii=False, indent=1) + u";\n\n"
+          u"/* Ids de ruta que cambiaron. Ver ALIAS_VIEJOS en\n"
+          u"   build-catalog.py: una ruta guardada trae los ids viejos. */\n"
+          u"var CATALOGO_ALIAS = " + json.dumps(ALIAS_VIEJOS, ensure_ascii=False) + u";\n\n"
           u"var CATALOGO_RUTAS = " + json.dumps(
               [{"id": r["id"], "nombre": r["nombre"], "archivo": r["archivo"],
                 "color": r["color"], "icono": r["icono"], "orden": r["orden"]} for r in RUTAS],

@@ -2896,6 +2896,10 @@ var CATALOGO = [
  }
 ];
 
+/* Ids de ruta que cambiaron. Ver ALIAS_VIEJOS en
+   build-catalog.py: una ruta guardada trae los ids viejos. */
+var CATALOGO_ALIAS = {"snowpro": "__suelto__"};
+
 var CATALOGO_RUTAS = [
  {
   "id": "sqlpy",

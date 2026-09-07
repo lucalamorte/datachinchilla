@@ -730,7 +730,13 @@ var PathSync = (function(){
         ["datachinchilla/v1/plan",       "plan"],
         ["datachinchilla/v1/practica",   "practica"],
         ["datachinchilla/v1/dias",       "dias"],
-        ["datachinchilla/v1/cursos",     "cursos"]
+        ["datachinchilla/v1/cursos",     "cursos"],
+        /* Lo armado a mano antes de tener cuenta. Sin esto, quien
+           armó una ruta y después se hizo el perfil la veía
+           desaparecer de la portada y del armador: el perfil vacío
+           gana sobre la clave suelta. */
+        ["custom-path/v1/anon",          "custom"],
+        ["custom-path/v1/guardadas",     "customs"]
       ];
       /* 'guia' no esta y no tiene que estar: el recorrido guiado es
          de este navegador, igual que 'visto'. Reclamarlo borraba la

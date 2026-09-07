@@ -125,6 +125,42 @@ for r in rutas:
               (r["archivo"], u"la clave", k, vistas[k]))
     vistas[k] = r["archivo"]
 
+# --- y que los dos mapas de ids viejos digan lo mismo
+#
+# Cuando una ruta cambia de id, una ruta armada a mano guarda los ids
+# viejos: sin traducirlos, sus piezas se descartan en silencio. El
+# mapa lo emite build-catalog.py en catalog.js, pero la portada no
+# carga catalog.js, asi que ahi hay una copia escrita. Dos copias de
+# una regla se separan solas.
+def _alias(texto, marca):
+    i = texto.find(marca)
+    if i < 0:
+        return None
+    j = texto.index("{", i)
+    k = texto.index("}", j)
+    out = {}
+    for par in texto[j + 1:k].split(","):
+        if ":" not in par:
+            continue
+        a, b = par.split(":", 1)
+        out[a.strip().strip('"\'')] = b.strip().strip('"\'')
+    return out
+
+try:
+    _a = _alias(io.open("catalog.js", encoding="utf-8").read(), "var CATALOGO_ALIAS")
+    _b = _alias(io.open("index.html", encoding="utf-8").read(), "var ALIAS_RUTA")
+except IOError:
+    _a = _b = None
+
+if _a is None or _b is None:
+    mal += 1
+    print(u"  %-20s %-16s no encuentro uno de los dos mapas de ids viejos" %
+          ("catalog.js", u"los alias"))
+elif _a != _b:
+    mal += 1
+    print(u"  %-20s %-16s catalog.js dice %s, index.html dice %s" %
+          ("index.html", u"los alias", _a, _b))
+
 print()
 print(u"los numeros coinciden" if not mal else
       u"%d desajustes: el texto dice una cantidad y el mapa tiene otra" % mal)
