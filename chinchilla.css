@@ -67,7 +67,12 @@
 .chin-pose .c-ojo-l{
   fill:none; stroke:var(--chin-ojo); stroke-width:2.4; stroke-linecap:round;
 }
-.chin-pose .c-pozo{ fill:color-mix(in srgb, var(--accent) 26%, transparent); }
+/* Atado al cuerpo y no al acento: el pozo va DELANTE de ella, asi
+   que tiene que desaparecer sobre su cuerpo y verse solo contra el
+   fondo. Con el acento andaba de casualidad, porque el cuerpo era
+   el acento; al aclarar el cuerpo paso a oscurecerlo y se leia
+   como si la tapara. */
+.chin-pose .c-pozo{ fill:color-mix(in srgb, var(--chin-cuerpo) 26%, transparent); }
 /* Los grumos salen del montículo, así que llevan su tono, un poco
    más marcado para que se vean en el aire. */
 .chin-pose .c-tierra circle{ fill:color-mix(in srgb, var(--accent) 55%, transparent); }
