@@ -29,11 +29,11 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 
 | Qué | Por qué acá | Estado |
 |---|---|---|
-| (24) Estandarizar espaciados entre secciones | CSS, pero hay que revisar 22 páginas | abierto |
+| (24) Estandarizar espaciados entre secciones | Escala de dos distancias, con significado | **hecho** |
 | (6) "¿Conocés algo gratis que debería estar acá?" en cada ruta | Ya puesto en las 16 | **hecho** |
 | (3) El pie sin borde en claro | CSS | **hecho** |
-| Flechitas para pasar de ejercicio en práctica | Una fila de botones y dos funciones | abierto |
-| (2) Desbloquear Airflow | Cuesta poco escribirla; lo que cuesta es encontrarle material gratis serio | abierto |
+| Flechitas para pasar de ejercicio en práctica | Con contador, y marcando el que está en pantalla | **hecho** |
+| (2) Desbloquear Airflow | Ocho pasos: Astronomer Academy y los tutoriales de Apache | **hecho** |
 
 ## 3. Cuesta medio, se nota mucho
 
