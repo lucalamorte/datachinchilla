@@ -51,6 +51,35 @@ def misma(a, b):
     return a.rstrip("/") == b.rstrip("/")
 
 
+# Donde puede terminar una URL dentro del archivo. Lo que siga a la
+# URL tiene que ser uno de estos, o no es la URL entera.
+FIN = "\"'<> \t\r\n)"
+
+
+def cambiar(texto, viejo, nuevo):
+    u"""Reemplaza la URL entera, no el pedazo.
+
+       Un replace pelado rompio doce links de verdad: ".../learn" es
+       prefijo de ".../learn/comprehensive-sql/introduction", asi que
+       al mudar el corto se le inyecto el tramo en el medio a los doce
+       largos y quedaron en 404. Lo encontro links.py en la corrida
+       siguiente, que para eso esta.
+
+       Ahora la URL solo se cambia si lo que viene detras es un cierre
+       de comilla, un espacio o el fin del texto."""
+    salida, i = [], 0
+    while True:
+        j = texto.find(viejo, i)
+        if j < 0:
+            salida.append(texto[i:])
+            return "".join(salida)
+        fin = j + len(viejo)
+        sigue = texto[fin] if fin < len(texto) else ""
+        salida.append(texto[i:j])
+        salida.append(nuevo if (sigue == "" or sigue in FIN) else viejo)
+        i = fin
+
+
 # Una redireccion a una pantalla de sesion no dice que el link se
 # mudo: dice que el que pregunta no esta logueado. El link de
 # compartir en LinkedIn redirige al login para este script y anda
@@ -141,7 +170,7 @@ def main():
         t = io.open(p, encoding="utf-8").read()
         antes = t
         for u, nuevo in cambios:
-            t = t.replace(u, nuevo)
+            t = cambiar(t, u, nuevo)
         if t != antes:
             io.open(p, "w", encoding="utf-8", newline="").write(t)
             n += 1

@@ -27,7 +27,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando escribes una consulta con filtros sin buscar la sintaxis.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/introduction-to-databases-and-sql",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-databases-and-sql",
     "boss": false,
     "wins": [
      "SELECT, FROM y WHERE sin dudar",
@@ -45,7 +45,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando distingues WHERE de HAVING sin pensarlo.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/introduction-to-aggregate-functions",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-aggregate-functions",
     "boss": false,
     "wins": [
      "GROUP BY y las funciones de agregación",
@@ -63,7 +63,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando eliges el JOIN correcto por lo que necesitas, no por costumbre.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/understanding-table-relationships",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/understanding-table-relationships",
     "boss": false,
     "wins": [
      "INNER, LEFT, RIGHT, FULL y CROSS, con sus casos",
@@ -81,7 +81,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando reescribes una consulta anidada como una cadena de CTEs.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/understanding-subqueries",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/understanding-subqueries",
     "boss": false,
     "wins": [
      "Subconsultas y dónde pueden ir",
@@ -99,7 +99,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves una pregunta de rango de fechas sin googlear.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/date-time-data-types-and-extraction",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/date-time-data-types-and-extraction",
     "boss": false,
     "wins": [
      "Extraer año, mes y día, y truncar",
@@ -117,7 +117,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves un ranking por grupo de memoria.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-sql/introduction-to-window-functions",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-window-functions",
     "boss": true,
     "wins": [
      "PARTITION BY y las funciones de ranking",
@@ -135,7 +135,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando filtras un DataFrame por varias condiciones sin errores de sintaxis.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/introduction-to-python-and-pandas",
+    "u": "https://www.stratascratch.com/learn/comprehensive-python/introduction-to-python-and-pandas",
     "boss": false,
     "wins": [
      "Seleccionar y crear columnas",
@@ -153,7 +153,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando traduces una consulta con GROUP BY a pandas de corrido.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/introduction-to-aggregate-methods",
+    "u": "https://www.stratascratch.com/learn/comprehensive-python/introduction-to-aggregate-methods",
     "boss": false,
     "wins": [
      "groupby y los métodos de agregación",
@@ -171,7 +171,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando eliges entre concat y merge sin dudar.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/understanding-dataframe-relationships",
+    "u": "https://www.stratascratch.com/learn/comprehensive-python/understanding-dataframe-relationships",
     "boss": false,
     "wins": [
      "concat frente a merge, que no son lo mismo",
@@ -189,7 +189,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves un problema en pasos encadenados y legibles.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/step-by-step-analysis",
+    "u": "https://www.stratascratch.com/learn/comprehensive-python/step-by-step-analysis",
     "boss": false,
     "wins": [
      "Encadenar sin crear diez variables intermedias",
@@ -207,7 +207,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando manipulas fechas en pandas sin pelearte con los tipos.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/datetime-extraction",
+    "u": "https://www.stratascratch.com/learn/comprehensive-python/datetime-extraction",
     "boss": false,
     "wins": [
      "Extraer y truncar fechas",
@@ -225,7 +225,7 @@ var PASOS = [
     "goal": "Terminas este módulo cuando resuelves en pandas lo mismo que resolviste con funciones de ventana en SQL.",
     "cert": "",
     "i": "",
-    "u": "https://www.stratascratch.com/learn/comprehensive-sql/comprehensive-python/introduction-to-window-operations",
+    "u": "https://www.stratascratch.com/learn/comprehensive-python/introduction-to-window-operations",
     "boss": true,
     "wins": [
      "Ranking dentro de grupos",
