@@ -19,6 +19,32 @@ var PathSync = (function(){
   var ses = null;          // { access_token, refresh_token, expires_at, user_id, email }
   var lastType = "";       // que clase de link nos trajo: "recovery", "magiclink", ...
 
+  /* ?reset en cualquier pagina: vuelve a la primera visita.
+
+     Sin esto, probar como alguien que entra por primera vez pide
+     abrir la consola, o pelear con una ventana de incognito que no
+     siempre esta limpia: Chrome mantiene viva la sesion mientras
+     quede cualquier ventana de incognito abierta, y la barra de
+     direcciones autocompleta desde el historial normal.
+
+     Corre antes que nada porque este es el primero de los modulos
+     compartidos que se carga. */
+  (function(){
+    try{
+      if(!/[?&]reset/.test(window.location.search)) return;
+      if(!window.confirm("Se borra todo lo que guardaste en este navegador " +
+                         "-tu ruta, tu semana y lo que marcaste- y el sitio " +
+                         "queda como en la primera visita. ¿Seguro?")) return;
+      var k, fuera = [];
+      for(k in window.localStorage){
+        if(k.indexOf("datachinchilla/") === 0 || k.indexOf("snowpro-path/") === 0) fuera.push(k);
+      }
+      for(k = 0; k < fuera.length; k++) window.localStorage.removeItem(fuera[k]);
+      try{ window.sessionStorage.clear(); }catch(e){}
+      window.location.replace(window.location.pathname);
+    }catch(e){}
+  })();
+
   function get(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
   function set(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
   function del(k){ try{ window.localStorage.removeItem(k); return true; }catch(e){ return false; } }
