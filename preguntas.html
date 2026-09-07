@@ -1677,7 +1677,15 @@ function applyTheme(mode){
    ARRANQUE
    ============================================================ */
 function init(){
-  var nubeLista = PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
+  /* Esta pagina no tiene comportamiento propio: es HTML y las
+     preguntas se abren con <details> del navegador. Lo unico que
+     arranca es lo que comparte con el resto del sitio.
+
+     Se llego aca copiando armar.html, cuyo init busca #catalogo, #q y
+     media docena mas de elementos que esta pagina no tiene: el
+     primero que faltaba tiraba TypeError y dejaba sin enganchar el
+     tema, la cuenta y la guia. */
+  PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
 
   var stored = safeGet(STORAGE.theme);
   if(stored !== "dark" && stored !== "light"){
@@ -1686,82 +1694,16 @@ function init(){
   }
   applyTheme(stored);
 
-  if(!PIEZAS.length){
-    document.getElementById("catalogo").innerHTML =
-      '<p class="vacio">No pude cargar el catálogo. Falta catalog.js, que se genera con <b>python build-catalog.py</b>.</p>';
-    return;
-  }
+  try{ paintAccount(); }catch(e){}
 
-  loadState();
-  migrarVieja();
-
-  /* El link compartido se lee antes que la sesión: si el hash trae una
-     ruta no hay tokens que capturar, y son dos usos distintos del hash. */
-  var compartida = leerHash();
-
-  renderPlantillas();
-  renderFiltros();
-  pintarTodo();
-
-  if(compartida) ofrecerCompartida(compartida);
-
-  document.getElementById("q").addEventListener("input", function(){
-    filtroTexto = (this.value || "").trim().toLowerCase();
-    renderCatalogo();
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    var ahora = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    applyTheme(ahora);
+    safeSet(STORAGE.theme, ahora);
   });
-  document.getElementById("guardarBtn").addEventListener("click", guardarActual);
-  document.getElementById("copiarBtn").addEventListener("click", copiarLink);
-  document.getElementById("vaciarBtn").addEventListener("click", vaciar);
-
-  var nombre = document.getElementById("miNombre");
-  nombre.value = mi.name;
-  nombre.addEventListener("change", function(){
-    mi.name = (this.value || "").trim().slice(0, 60);
-    saveState();
-  });
-
   document.getElementById("acctBtn").addEventListener("click", openAccount);
   document.getElementById("acctClose").addEventListener("click", hideAcct);
   acctDlg.addEventListener("click", function(ev){ if(ev.target === acctDlg) hideAcct(); });
-
-  if(nubeLista && !compartida){
-    var fresh = PathSync.captureHash(function(m){
-      cloudMsg = m;
-      toast("El link del mail no sirvió: " + m);
-    });
-    refreshSes();
-    /* El link de recuperación trae sesión, y aun así hay que pedir la
-       contraseña nueva: si no, la vieja sigue siendo la que vale. */
-    if(cloudSes && PathSync.hashType() === "recovery"){
-      openAccount();
-      renderAccess("");
-      PathSync.authUI.irA("recovery");
-    }else if(cloudSes){
-      window.setTimeout(function(){
-        cloudSync();
-        sincronizarPerfil();
-        PathSync.evento("snowpath", "entro", { ruta: "armar" });
-      }, fresh ? 0 : 400);
-    }
-  }
-
-  document.getElementById("themeBtn").addEventListener("click", function(){
-    applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-  });
-
-  var redrawTimer = null;
-  function scheduleRedraw(){
-    window.clearTimeout(redrawTimer);
-    redrawTimer = window.setTimeout(drawTrack, 90);
-  }
-  window.addEventListener("resize", scheduleRedraw);
-  if(window.ResizeObserver){
-    new window.ResizeObserver(scheduleRedraw).observe(document.getElementById("track"));
-  }
-  if(document.fonts && document.fonts.ready && document.fonts.ready.then){
-    document.fonts.ready.then(drawTrack)["catch"](function(){});
-  }
-  window.setTimeout(drawTrack, 220);
 }
 
 if(document.readyState === "loading"){
