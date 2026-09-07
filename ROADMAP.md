@@ -20,10 +20,10 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (3, 9, 4, 4.5) FAQ en su propia página, con la plata contestada de una | Una página nueva, y es lo que más frena a alguien que llega | **hecho** |
 | (11) Barra de scroll propia | CSS | **hecho** |
 | (12) Ambiente de pruebas | Ya estaba disponible en Cloudflare | **hecho** |
-| Unificar los cuatro "Practicar" de la portada | Borrar tres, decidir cuál queda | abierto |
-| (21) Los bordes del catálogo parecen "seleccionado" | CSS. Define la jerarquía visual de todo el sitio | abierto |
-| (23) Las huellas entre secciones | Si se sacan, es un borrado. Ocupan mucho y no se entienden | abierto |
-| (4) Sumar Laws of UX | Una entrada de contenido | abierto |
+| Unificar los cuatro "Practicar" de la portada | Borrar tres, decidir cuál queda | **hecho** |
+| (21) Los bordes del catálogo parecen "seleccionado" | CSS. Define la jerarquía visual de todo el sitio | **hecho** |
+| (23) Las huellas entre secciones | Se sacaron: se leían como un indicador de carga | **hecho** |
+| (4) Sumar Laws of UX | En `recursos.html`, que además aloja lo de estudiantes | **hecho** |
 
 ## 2. Cuesta poco y se nota
 
@@ -44,7 +44,7 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (18) La ruta armada a mano y la del CV, ancladas juntas | Toca la portada y el modelo de datos | abierto |
 | (14) Que todo lo nuevo esté también en "armar ruta" | Hay que auditar qué falta | abierto |
 | (1) El globo no aparece en incógnito | Sin causa todavía. Hay una red puesta para que falle mostrándose | en curso |
-| Sección de lo que dan gratis por ser estudiante | Investigación de contenido | abierto |
+| Sección de lo que dan gratis por ser estudiante | Ya tiene página donde ir: `recursos.html` | abierto |
 
 ## 4. Cuesta mucho
 
