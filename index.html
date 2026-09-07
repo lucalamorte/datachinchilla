@@ -795,6 +795,21 @@ a.card:hover{ transform:translateY(-3px); border-color:var(--accent); box-shadow
 /* Una ruta que todavía no existe no está bloqueada: se puede pedir.
    Por eso no lleva borde punteado ni cursor de prohibido. */
 .paths-top{ padding-top:10px; }
+/* --- Jerarquia del catalogo ---------------------------------------
+
+   De menor a mayor, y cada nivel con una sola razon de ser:
+
+     base            todas las rutas. Borde gris, fondo plano.
+     .es-mia         en tu semana. Borde de acento tenue: la cinta ya
+                     lo dice, el borde solo acompaña.
+     .tuya           la que salio de tu CV. Es UNA, y es el unico
+                     lugar del catalogo que grita.
+     :hover          borde de acento, reservado a la interaccion.
+
+   El acento marca "esto responde ahora" o "esto es tuyo", nunca
+   "esto existe". Antes marcaba las tres cosas y no significaba
+   nada: las dieciseis llevaban la clase .own y parecian todas
+   seleccionadas. */
 .card.own{
   border-color:var(--accent); border-width:2px;
   background:linear-gradient(145deg, var(--surface) 40%, var(--accent-soft));
@@ -1565,7 +1580,10 @@ a.via{ text-decoration:none; }
 
    El botón va abajo y no arriba: arriba caía justo encima de la cinta
    y quedaban las dos etiquetas ilegibles, una sobre la otra. */
-.card-wrap.es-mia .card{ border-color:var(--accent); }
+/* En tu semana: borde tenue. Con el acento entero competia con la
+   ruta que de verdad es tuya, y si tenias cuatro rutas en la semana
+   quedaban cuatro tarjetas gritando lo mismo. */
+.card-wrap.es-mia .card{ border-color:var(--accent-line); }
 .own-ribbon.mia-ribbon{ background:var(--accent); color:var(--warm-ink); }
 .mia{
   position:absolute; z-index:3; left:15px; bottom:14px;
@@ -1854,7 +1872,7 @@ a.via{ text-decoration:none; }
 </dialog>
 
 <script src="pasos.js?v=e27f17fc"></script>
-<script src="chinchilla.js?v=cb0d5467"></script>
+<script src="chinchilla.js?v=56dc22d1"></script>
 <script src="path-sync.js?v=01591747"></script>
 <script src="temas.js?v=ceb5a984"></script>
 <script src="cv.js?v=9243a13a"></script>
@@ -2237,14 +2255,15 @@ function renderPaths(){
         'title="' + (mia ? "Sacar de tu semana" : "Sumar a tu semana") + '">' +
         icon("check", 12) + (mia ? "En tu semana" : "Sumar a mi semana") + '</button>'
       : "";
-    /* Una sola cinta arriba: si la ruta es tuya lo dice, y si no,
-       dice que está lista. Antes había dos etiquetas encimadas. */
+    /* Cinta solo cuando dice algo. "Lista para hacer" estaba en las
+       dieciséis: una etiqueta que llevan todas no distingue nada, y
+       ocupaba el mismo lugar que ésta, que sí. */
     var cinta = mia
       ? '<span class="own-ribbon mia-ribbon">' + icon("check", 11) + 'En tu semana</span>'
-      : '<span class="own-ribbon">' + icon("arrow", 11) + 'Lista para hacer</span>';
+      : '';
 
     html += '<div class="card-wrap' + (mia ? " es-mia" : "") + '">' + estrella + marca + (p.listo
-      ? '<a class="card own" href="' + p.u + '">' + cinta + cuerpo +
+      ? '<a class="card" href="' + p.u + '">' + cinta + cuerpo +
           '<span class="go">' + p.s + ' ' + icon("arrow", 12) + '</span></a>'
       : '<div class="card locked" title="Todavía no existe como página propia">' + cuerpo +
           '<span class="go">' + icon("lock", 12) + ' Todavía no existe</span></div>') + '</div>';

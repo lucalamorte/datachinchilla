@@ -463,11 +463,11 @@ var Chin = (function(){
 
   /* Una tira de huellas contra una seccion escondida no se lee como
      rastro, se lee como error. Se van. */
+  /* Ya no se insertan: esto solo barre las que hayan quedado. */
   function limpiarHuellas(){
-    var q = document.querySelectorAll(".chin-paso"), i, sig;
+    var q = document.querySelectorAll(".chin-paso"), i;
     for(i=0;i<q.length;i++){
-      sig = q[i].nextElementSibling;
-      q[i].hidden = !(sig && visible(sig));
+      if(q[i].parentNode) q[i].parentNode.removeChild(q[i]);
     }
   }
 
@@ -598,24 +598,12 @@ var Chin = (function(){
       lead.insertBefore(caja, lead.firstChild);
     }
 
-    /* Huellas entre sección y sección: como si hubiera cruzado por
-       ahí mientras nadie miraba. Van en las de en medio, no en la
-       primera ni en la última: un rastro que arranca pegado al hero
-       o que termina contra el pie no se lee como rastro. */
-    var secs = document.querySelectorAll(".section");
-    for(i = 1; i < secs.length - 1; i++){
-      if(secs[i].previousElementSibling &&
-         secs[i].previousElementSibling.classList.contains("chin-paso")) continue;
-      /* Nada de huellas contra una sección escondida: quedan colgadas
-         en el aire, sin nada arriba ni abajo. Varias páginas esconden
-         secciones después de que esto corre. */
-      if(!visible(secs[i])) continue;
-      var tira = document.createElement("div");
-      tira.className = "chin-paso";
-      tira.setAttribute("aria-hidden", "true");
-      tira.innerHTML = huellas();
-      secs[i].parentNode.insertBefore(tira, secs[i]);
-    }
+    /* Las huellas entre seccion y seccion se fueron. La intencion
+       era una marca de la casa, pero se leian como un indicador de
+       carga -aparecen y desaparecen en bucle, una atras de la otra,
+       igual que un spinner- y sumaban 54px entre cada par de
+       secciones sin decir nada. limpiarHuellas() se queda para sacar
+       las que hayan quedado de una version anterior. */
 
     /* Y las que hayan quedado colgadas de una pasada anterior. */
     limpiarHuellas();
