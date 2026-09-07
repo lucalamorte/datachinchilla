@@ -1069,7 +1069,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="temas.js?v=872bdd56"></script>
 <script src="cv.js?v=cbfec907"></script>
 <script src="onboarding.js?v=f56a235c"></script>
-<script src="guia.js?v=27f2c050"></script>
+<script src="guia.js?v=b91387ac"></script>
 <script src="chinchilla.js?v=7c39999c"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script>
@@ -2054,16 +2054,12 @@ function pintarGuia(){
     atras.onclick = function(){
       var previo = Guia.retroceder();
       if(!previo) return;
-      var aca = Guia.donde();
       /* Cada paso vive en una pagina. Si el anterior no es de esta,
          hay que ir: un globo que habla de algo que no esta en
-         pantalla no explica nada. */
-      if(previo.donde !== aca){
-        var dest = previo.donde === "index" ? "index.html"
-                 : previo.donde === "cv" ? "cv.html"
-                 : previo.donde === "semana" ? "semana.html" : "";
-        if(dest){ location.href = dest; return; }
-      }
+         pantalla no explica nada. La tabla vive en guia.js: aca eran
+         veintidos copias, y a todas les faltaba el caso "ruta". */
+      var dest = Guia.llevaA ? Guia.llevaA(previo) : "";
+      if(dest){ location.href = dest; return; }
       pintarGuia();
     };
   }

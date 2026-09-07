@@ -353,16 +353,41 @@ var Guia = (function(){
      Desde otra pagina saltea el saludo: quien abre el recorrido
      estando adentro del sitio ya sabe quien soy, y empezar por la
      presentacion es empezar por lo unico que ya no le hace falta. */
+  /* Que pagina le toca a un paso. Estaba escrita en el boton de
+     volver de las veintidos paginas, con lo cual eran veintidos
+     copias, y a todas les faltaba el caso "ruta": el paso del mapa de
+     tu ruta no tenia a donde ir, asi que volver desde la semana no
+     hacia nada. */
+  function paginaDe(p){
+    if(!p) return "";
+    if(p.donde === "index")  return "index.html";
+    if(p.donde === "cv")     return "cv.html";
+    if(p.donde === "semana") return "semana.html";
+    if(p.donde === "ruta")   return "mi-ruta.html";
+    return "";
+  }
+
+  /* A donde ir para ver un paso, o "" si ya estamos donde toca. */
+  function llevaA(p){
+    if(!p || p.donde === donde()) return "";
+    return paginaDe(p);
+  }
+
   function abrir(){
     estado.cerrada = false;
-    if(donde() === "index"){
-      estado.paso = 0;
-      guardar();
-      return "";
-    }
-    estado.paso = 1;
+    /* Sin nada hecho arranca en el segundo paso: quien abre el
+       recorrido estando adentro del sitio ya sabe quien soy, y
+       empezar por la presentacion es empezar por lo unico que ya no
+       le hace falta. */
+    if(estado.paso < 1) estado.paso = 1;
+    /* Y con algo hecho manda alDia(), que sabe hasta donde llegaste.
+       Va antes de decidir la pagina y no despues: si no, te dejaba en
+       la portada con el paso parado en uno de /cv, y el globo no se
+       pinta donde el paso no es de esa pagina. Que es el sintoma que
+       esto viene a sacar, otra vez. */
+    alDia();
     guardar();
-    return "index.html";
+    return llevaA(PASOS[estado.paso]);
   }
 
   return {
@@ -371,6 +396,7 @@ var Guia = (function(){
     actual: actual, tocaAca: tocaAca, donde: donde, proximoCurso: proximoCurso,
     falta: falta,
     avanzar: avanzar, retroceder: retroceder,
-    cerrar: cerrar, reabrir: reabrir, abrir: abrir, retomar: retomar
+    cerrar: cerrar, reabrir: reabrir, abrir: abrir, retomar: retomar,
+    paginaDe: paginaDe, llevaA: llevaA
   };
 })();
