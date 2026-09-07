@@ -339,12 +339,37 @@ var Guia = (function(){
     guardar();
   }
 
+  /* El boton de la interrogacion, desde cualquier pagina.
+
+     Antes llamaba a reabrir() y listo, o sea que dejaba el recorrido
+     en el paso 0 -que vive en la portada- y el globo no se pinta
+     donde el paso no es de esa pagina: fuera de la portada el boton
+     no hacia nada.
+
+     Devuelve a donde hay que ir, o "" si ya estamos donde toca. La
+     decision vive aca y no repetida en veintidos paginas.
+
+     Desde otra pagina saltea el saludo: quien abre el recorrido
+     estando adentro del sitio ya sabe quien soy, y empezar por la
+     presentacion es empezar por lo unico que ya no le hace falta. */
+  function abrir(){
+    estado.cerrada = false;
+    if(donde() === "index"){
+      estado.paso = 0;
+      guardar();
+      return "";
+    }
+    estado.paso = 1;
+    guardar();
+    return "index.html";
+  }
+
   return {
     PASOS: PASOS, estado: estado,
     cargar: cargar, guardar: guardar,
     actual: actual, tocaAca: tocaAca, donde: donde, proximoCurso: proximoCurso,
     falta: falta,
     avanzar: avanzar, retroceder: retroceder,
-    cerrar: cerrar, reabrir: reabrir, retomar: retomar
+    cerrar: cerrar, reabrir: reabrir, abrir: abrir, retomar: retomar
   };
 })();

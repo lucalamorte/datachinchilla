@@ -943,11 +943,6 @@ dialog.sheet.wide{ width:min(760px,calc(100vw - 32px)); }
 .chin-acc{ flex-wrap:wrap; }
 
 .chin-acc{ display:flex; align-items:center; gap:12px; margin-top:16px; }
-.chin-salto{
-  background:none; border:0; padding:4px 2px; cursor:pointer;
-  font:inherit; font-size:12px; color:var(--text-3); text-decoration:underline;
-}
-.chin-salto:hover{ color:var(--text); }
 
 .chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
   text-transform:uppercase; color:var(--text-3); }
@@ -1395,7 +1390,7 @@ dialog.sheet.wide{ width:min(760px,calc(100vw - 32px)); }
 <script src="temas.js?v=872bdd56"></script>
 <script src="cv.js?v=b70bef53"></script>
 <script src="onboarding.js?v=24fd2234"></script>
-<script src="guia.js?v=7a888cd1"></script>
+<script src="guia.js?v=2b1b40ac"></script>
 <script src="chinchilla.js?v=7c39999c"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script>
@@ -3801,13 +3796,12 @@ function pintarGuia(){
       pintarGuia();
     };
   }
-  document.getElementById("chinX").onclick = cerrarGuia;
-  var salto = document.getElementById("chinSalto");
-  if(salto) salto.onclick = function(){
-    /* Pregunta antes: saltear cierra el recorrido entero, y estaba
-       al lado del boton de seguir, asi que se iba de un clic al
-       pasar. Y avisa donde vuelve a activarse, que es lo que nadie
-       podia adivinar. */
+  /* La unica salida. Antes habia dos: esta cruz, que cerraba de una,
+     y un "Saltear" abajo que preguntaba. Dos botones para lo mismo, y
+     el que preguntaba estaba pegado al de avanzar. Queda la cruz, que
+     es donde uno busca cerrar algo, con la pregunta que era lo unico
+     bueno que tenia el otro. */
+  document.getElementById("chinX").onclick = function(){
     if(!window.confirm("Se cierra el recorrido completo. Lo vuelves a abrir " +
                        "cuando quieras con el bot\u00f3n de la interrogaci\u00f3n, " +
                        "arriba a la derecha. \u00bfSalir?")) return;
@@ -3876,7 +3870,10 @@ function init(){
   var gb = document.getElementById("guiaBtn");
   if(gb && typeof Guia !== "undefined"){
     gb.addEventListener("click", function(){
-      Guia.reabrir();
+      /* Fuera de la portada hay que ir: el primer paso vive alla y
+         el globo no se pinta donde el paso no es de esta pagina. */
+      var ir = Guia.abrir ? Guia.abrir() : (Guia.reabrir(), "");
+      if(ir){ location.href = ir; return; }
       pintarGuia();
       var c = document.getElementById("chin");
       if(c && !c.hidden && c.scrollIntoView) c.scrollIntoView({ block: "nearest" });
@@ -4067,7 +4064,6 @@ if(document.readyState === "loading"){
       <span class="chin-n" id="chinN"></span>
       <span class="chin-pide" id="chinPide" hidden></span>
       <button class="chin-atras" type="button" id="chinAtras" hidden>Atrás</button>
-      <button class="chin-salto" type="button" id="chinSalto">Saltear</button>
       <button class="chin-2" type="button" id="chinB2" hidden></button>
       <button class="btn-primary chin-b" type="button" id="chinB">
         <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>
