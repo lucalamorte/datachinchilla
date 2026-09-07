@@ -777,6 +777,15 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 .aporte b{ color:var(--text); font-weight:800; }
 .aporte a{ color:var(--accent-strong); font-weight:700; }
 
+/* Lo que falta para poder seguir. Ocupa el lugar del boton, que en
+   esos pasos no existe: la unica forma de avanzar es hacer la accion. */
+.chin-pide{
+  display:block; margin-left:auto; text-align:right;
+  font-size:12px; font-weight:700; color:var(--text-3); max-width:19ch;
+  line-height:1.4;
+}
+.chin-pide[hidden]{ display:none; }
+
 </style>
 </head>
 <body>
@@ -1016,7 +1025,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="onboarding.js?v=24fd2234"></script>
 <script src="guia.js?v=540e6414"></script>
 <script src="chinchilla.js?v=56dc22d1"></script>
-<script src="path-sync.js?v=01591747"></script>
+<script src="path-sync.js?v=a6aaec4c"></script>
 <script>
 (function(){
 "use strict";
@@ -1844,13 +1853,21 @@ function pintarGuia(){
   /* Si el paso pide una accion y no esta hecha, el boton no avanza:
      dice que falta. Antes avanzaba igual y el recorrido se cortaba
      solo unos pasos despues, hablando de algo que no existia. */
+  /* Si el paso pide una accion, no hay boton: la unica forma de
+     seguir es hacerla. Un boton que no avanza no es un boton, es una
+     cosa que se aprieta y no pasa nada. En su lugar queda dicho que
+     falta, que es lo que ese boton intentaba explicar. */
   var pendiente = Guia.falta ? Guia.falta(p) : null;
   var bot = document.getElementById("chinB");
-  bot.classList.toggle("chin-b-flojo", !!pendiente);
-  bot.title = pendiente || "";
+  var pide = document.getElementById("chinPide");
+  bot.hidden = !!pendiente;
+  if(pide){
+    pide.hidden = !pendiente;
+    pide.textContent = pendiente || "";
+  }
   bot.onclick = function(){
     var f = Guia.falta ? Guia.falta(p) : null;
-    if(f){ toast(f); return; }
+    if(f){ return; }
     Guia.avanzar();
     var dest = p.lleva || (p.dobles ? Guia.proximoCurso() : "");
     if(dest){ location.href = dest; return; }
@@ -1865,7 +1882,16 @@ function pintarGuia(){
   }
   document.getElementById("chinX").onclick = cerrarGuia;
   var salto = document.getElementById("chinSalto");
-  if(salto) salto.onclick = cerrarGuia;
+  if(salto) salto.onclick = function(){
+    /* Pregunta antes: saltear cierra el recorrido entero, y estaba
+       al lado del boton de seguir, asi que se iba de un clic al
+       pasar. Y avisa donde vuelve a activarse, que es lo que nadie
+       podia adivinar. */
+    if(!window.confirm("Se cierra el recorrido completo. Lo vuelves a abrir " +
+                       "cuando quieras con el bot\u00f3n de la interrogaci\u00f3n, " +
+                       "arriba a la derecha. \u00bfSalir?")) return;
+    cerrarGuia();
+  };
 }
 
 var MI_RUTA = "data_science";
@@ -2050,6 +2076,7 @@ if(document.readyState === "loading"){
     <p class="chin-p" id="chinP"></p>
     <div class="chin-acc">
       <span class="chin-n" id="chinN"></span>
+      <span class="chin-pide" id="chinPide" hidden></span>
       <button class="chin-salto" type="button" id="chinSalto">Saltear</button>
       <button class="chin-2" type="button" id="chinB2" hidden></button>
       <button class="btn-primary chin-b" type="button" id="chinB">

@@ -686,7 +686,24 @@ var PathSync = (function(){
       }
       function active(){
         var sid = sessionId();
-        return sid ? all()[sid] : null;
+        if(sid) return all()[sid] || null;
+        /* Sin puntero de sesion pero con un unico perfil, ese es. No
+           es adivinar: no hay otra opcion posible, y la alternativa
+           es mostrarle la pagina vacia a alguien que tiene todo
+           guardado adentro. Con dos o mas no se toca nada, porque ahi
+           si habria que elegir por el.
+
+           Pasaba de verdad: reclamarLocal() borraba la copia suelta
+           al pasarla al perfil, y si despues se perdia el puntero
+           -otro navegador, la clave borrada, un perfil que quedo sin
+           activar- el avance quedaba adentro sin que lo leyera
+           nadie. */
+        var solo = list();
+        if(solo.length === 1){
+          setActive(solo[0].id);
+          return solo[0];
+        }
+        return null;
       }
       function setActive(pid){
         if(pid) set(K_SESSION, pid); else del(K_SESSION);
