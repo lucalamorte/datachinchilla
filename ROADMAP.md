@@ -48,6 +48,21 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | Arquitectura y ML aplicado comparten color (#BE185D) | Los dos puntos del armador salen iguales. Es cambiarle el acento a una página | abierto |
 | `recursos.html` y `preguntas.html` cargan el armador entero y `catalog.js` sin usarlos | Salieron de copiar `armar.html`. Son ~150 kB de código muerto por página. Podarlo bien pide análisis de alcance | abierto |
 
+## 5. Lo del 7 de septiembre
+
+| Qué | Por qué acá | Estado |
+|---|---|---|
+| (1) Agregar skills a mano, no sólo sacarlas | El espejo de la cruz, que no estaba | **hecho** |
+| (2) El widget de la agenda en la landing | Estaba, pero siempre debajo del pliegue | **hecho** |
+| (3) Sacar "Saltear": queda la cruz, y pregunta | Dos salidas para una acción | **hecho** |
+| (4) El botón `?` fuera de la portada no hacía nada | Dejaba el recorrido en un paso de otra página | **hecho** |
+| (6) Las preguntas de a una, y de tech y no de datos | Nunca tuvieron CSS, y eran de cuando el sitio eran tres rutas | **hecho** |
+| (7) La frase de privacidad del CV, profesional | Verificado antes: el texto no sale del navegador | **hecho** |
+| (8) Filtro "Resueltos" en la práctica | Faltaba el tercer estado | **hecho** |
+| (5) Perfiles funcionales: tester y analista funcional | Tienen material gratis, ordenable y con credencial | a decidir |
+| (5) Credenciales cloud como ruta propia: AWS y Google | Exámenes reales con material gratuito | a decidir |
+| (5) PM: recursos, no ruta | Lo bueno son libros y experiencia; una ruta floja resta a las diecisiete | a decidir |
+
 ## 4. Cuesta mucho
 
 | Qué | Por qué acá | Estado |
