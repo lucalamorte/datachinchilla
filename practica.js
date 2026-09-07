@@ -62,6 +62,13 @@ var Practica = (function(){
   }
 
   function marcar(banco, item, valor){
+    /* Sin cuenta no se marca. Va aca y no en los botones porque hay
+       dos lugares que marcan -la lista de practica y la tarjeta de la
+       portada- y el que se agregue manana tambien tiene que quedar
+       tapado sin que nadie se acuerde. */
+    if(window.PathSync && PathSync.puedeGuardar && !PathSync.puedeGuardar()){
+      return { hecho: false, cerroElDia: false, sinCuenta: true };
+    }
     var mapa = leer(), k = clave(banco, item);
     if(valor === undefined) valor = !mapa[k];
     if(valor) mapa[k] = hoyKey();

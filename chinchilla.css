@@ -36,17 +36,21 @@
    contra el cuerpo en las cinco familias de acento del sitio, y el
    cuerpo entre 2.6 y 3.5 contra el fondo. Mas claro y el ojo se
    pierde; mas oscuro y el cuerpo se confunde con el fondo. */
-.chin-pose{
-  width:104px; height:96px; overflow:visible;
+/* Los tonos de la cara viven aca y en ningun otro lado. Los usan las
+   poses, el logo del nav, el del pie y el dibujo del globo, que son
+   SVG escritos a mano dentro de cada HTML: sin esto habia que
+   acordarse de tocar cuatro lugares y siempre quedaba uno viejo. */
+:root{
   --chin-cuerpo: color-mix(in srgb, var(--accent) 68%, #FFFFFF);
   --chin-pata:   color-mix(in srgb, var(--accent) 86%, #FFFFFF);
   --chin-ojo:    color-mix(in srgb, var(--accent) 26%, #0E0A16);
   --chin-luz:    #FFFFFF;
 }
-:root[data-theme="dark"] .chin-pose{
+:root[data-theme="dark"]{
   --chin-cuerpo: var(--accent);
   --chin-pata:   var(--accent-strong);
 }
+.chin-pose{ width:104px; height:96px; overflow:visible; }
 .chin-pose .c-cuerpo,
 .chin-pose .c-cabeza{ fill:var(--chin-cuerpo); }
 .chin-pose .c-oreja{ fill:var(--chin-cuerpo); }
@@ -454,12 +458,7 @@ li.ok .tilde .caja{ animation:tilde-ok 320ms cubic-bezier(.2,.9,.3,1.4); }
   display:block; width:58px; height:27px;
   animation:espia 7s ease-in-out infinite;
 }
-/* La que se asoma en el pie, con la misma cara que las demas. */
-.chin-asoma{
-  --chin-cuerpo: color-mix(in srgb, var(--accent) 68%, #FFFFFF);
-  --chin-ojo:    color-mix(in srgb, var(--accent) 26%, #0E0A16);
-}
-:root[data-theme="dark"] .chin-asoma{ --chin-cuerpo: var(--accent); }
+/* La que se asoma en el pie hereda los tonos de :root. */
 .chin-asoma .c-cabeza, .chin-asoma .c-oreja{ fill:var(--chin-cuerpo); }
 .chin-asoma .c-oreja-in{ fill:var(--accent-soft); }
 .chin-asoma .c-ojo, .chin-asoma .c-hocico{ fill:var(--chin-ojo); }

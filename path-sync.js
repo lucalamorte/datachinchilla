@@ -118,6 +118,11 @@ var PathSync = (function(){
     isOn: function(){ return !!(cfg.url && cfg.key); },
     session: function(){ return ses; },
 
+    /* Guardar avance pide cuenta. Un unico lugar que lo diga, para
+       que no haya dos ideas distintas de que significa estar
+       logueado repartidas por las paginas. */
+    puedeGuardar: function(){ return !!ses; },
+
     /* --------------------------------------------------- entrar */
 
     /* El link del mail vuelve a la misma URL de la que salio. Abierta
