@@ -46,6 +46,7 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (1) El globo no aparece en incógnito | Sin causa todavía. Hay una red puesta para que falle mostrándose | en curso |
 | Sección de lo que dan gratis por ser estudiante | Ya tiene página donde ir: `recursos.html` | abierto |
 | Arquitectura y ML aplicado comparten color (#BE185D) | Los dos puntos del armador salen iguales. Es cambiarle el acento a una página | abierto |
+| `recursos.html` y `preguntas.html` cargan el armador entero y `catalog.js` sin usarlos | Salieron de copiar `armar.html`. Son ~150 kB de código muerto por página. Podarlo bien pide análisis de alcance | abierto |
 
 ## 4. Cuesta mucho
 
