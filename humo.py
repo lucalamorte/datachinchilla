@@ -29,6 +29,7 @@ PAGINAS = [
     "claude.html",
     "ml-aplicado.html", "web3.html", "fullstack.html",
     "preguntas.html",
+    "recursos.html",
 ]
 
 # Ruido que no es culpa de la pagina.
@@ -74,6 +75,7 @@ MARCAS = {
     # No es una ruta: no pinta mapa. Lo que tiene que estar son
     # las preguntas, y estan en el HTML sin depender de ningun init.
     "preguntas.html": [("preguntas", "las preguntas")],
+    "recursos.html": [("recursos", "los recursos")],
 }
 # El resto son rutas: todas pintan su mapa en #map.
 # snowpro fue la primera ruta y usa map; las demas mapa.

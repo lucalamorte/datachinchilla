@@ -114,6 +114,12 @@ PAGINAS = {
         "color": u"#1A0B05",
         "ogtitulo": u"Trabajar con Claude, en orden",
     },
+    "recursos.html": {
+        "titulo": u"Recursos gratis que conviene tener a mano · " + MARCA,
+        "desc": u"Material gratuito que no entra en ninguna ruta porque no se recorre: se consulta. Empezando por Laws of UX, en español.",
+        "color": u"#0C0818",
+        "ogtitulo": u"Recursos gratis",
+    },
     "preguntas.html": {
         "titulo": u"Preguntas frecuentes · " + MARCA,
         "desc": u"Si cuesta algo, quién dicta los cursos, qué pasa con tu CV y para qué hace falta una cuenta. Es gratis y no hay versión de pago.",
