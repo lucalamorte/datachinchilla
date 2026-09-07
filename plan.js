@@ -118,19 +118,49 @@ var Plan = (function(){
      y respetando el orden de los pasos. Un paso largo se parte en
      varias sesiones y lo dice, así nadie abre un curso de seis horas
      pensando que entra en una tarde. */
+  /* Cuánto dura algo, en palabras cortas. Para decir el tamaño de un
+     paso que no entra en la semana. */
+  function tamano(min){
+    var h = Math.round(min / 60);
+    if(h < 1) return min + " min";
+    return h + (h === 1 ? " hora" : " horas");
+  }
+
   function repartirEstudio(minutos, ruta){
     var pend = pendientesDe(ruta), bloques = [], i;
     var paso = pend[0], usadoDelPaso = 0, parte = 1, partesDe = {}, resto = minutos, idx = 0;
 
-    for(i=0;i<pend.length;i++){ partesDe[pend[i].id] = Math.ceil(pend[i].min / MAX_BLOQUE); }
+    /* Numerar las partes sólo cuando el paso entra en la semana.
+
+       Antes se numeraba siempre, contra el total del paso, y con un
+       paso de cincuenta horas eso daba "parte 1 de 34". El número
+       grande era lo de menos: el problema es que no avanzaba. armar()
+       rehace la semana desde cero cada vez -a partir de los pasos que
+       faltan- y adentro de un paso no hay nada guardado, así que el
+       lunes siguiente volvía a decir "parte 1", y el otro también,
+       hasta marcar el paso entero como hecho. Once semanas diciendo
+       lo mismo, y diciéndolo mal.
+
+       Si el paso entra en la semana, las partes son de verdad la 1,
+       la 2 y la 3, y la semana que viene el paso ya no está. */
+    for(i=0;i<pend.length;i++){
+      partesDe[pend[i].id] = (pend[i].min <= minutos)
+        ? Math.ceil(pend[i].min / MAX_BLOQUE) : 0;
+    }
 
     while(resto >= 30 && paso){
       var libreEnPaso = paso.min - usadoDelPaso;
       var dura = Math.min(MAX_BLOQUE, libreEnPaso, resto);
       if(dura < 20) dura = Math.min(20, resto);
+      /* Y cuando no entra, en vez del número va el tamaño del paso,
+         que es el dato que falta: estás adentro de un curso de
+         cincuenta horas, no de una lección que se termina hoy. */
+      var cola = partesDe[paso.id] > 1
+        ? " · parte " + parte + " de " + partesDe[paso.id]
+        : (partesDe[paso.id] === 0 ? " · " + tamano(paso.min) + " en total" : "");
       bloques.push({
         tipo: "estudio", min: dura, id: paso.id,
-        qué: paso.t + (partesDe[paso.id] > 1 ? " · parte " + parte + " de " + partesDe[paso.id] : ""),
+        qué: paso.t + cola,
         url: ruta.archivo
       });
       resto -= dura;
