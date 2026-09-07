@@ -2,7 +2,8 @@
 """
 build-catalog.py
 
-Genera catalog.js leyendo los niveles de las tres rutas. El armador de rutas
+Genera catalog.js leyendo los niveles de todas las rutas del sitio.
+La lista sale de pasos.js: agregar una ruta la mete aca sola. El armador de rutas
 a medida necesita la lista completa de piezas, y copiarla a mano garantizaba
 que se separara de las páginas al primer cambio.
 
@@ -14,14 +15,57 @@ import io, json, re, os, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 
-RUTAS = [
-    {"id": "snowpro", "nombre": "SnowPro Core", "archivo": "snowpro.html",
-     "color": "#38BDF8", "icono": "snow", "orden": 2},
-    {"id": "de", "nombre": "Data Engineer", "archivo": "data-engineer.html",
-     "color": "#A78BFA", "icono": "data", "orden": 1},
-    {"id": "cs50", "nombre": "CS50", "archivo": "cs50.html",
-     "color": "#F2707F", "icono": "school", "orden": 3},
-]
+# --- Las rutas salen de pasos.js, no de una lista a mano ------------
+#
+# Esta lista estaba escrita a mano con tres rutas, y se quedo ahi
+# mientras el sitio llegaba a diecisiete: el armador ofrecia 36 piezas
+# de 263. Agregar catorce a mano habria durado hasta la ruta
+# siguiente.
+#
+# pasos.js ya se genera leyendo cada pagina, asi que es la fuente
+# correcta. El color sale del --accent de la propia pagina y el icono
+# del catalogo de la portada: los dos ya existen en algun lado, y
+# copiarlos aca seria tener dos verdades.
+
+def _rutas_del_sitio():
+    import json
+    p = os.path.join(AQUI, "pasos.js")
+    if not os.path.exists(p):
+        sys.exit("falta pasos.js: corre build-pasos.py primero")
+    crudo = io.open(p, encoding="utf-8").read()
+    rutas = json.loads(crudo[crudo.index("["):crudo.rindex("]") + 1])
+
+    # el icono de cada ruta, del catalogo de la portada
+    iconos = {}
+    idx = io.open(os.path.join(AQUI, "index.html"), encoding="utf-8").read()
+    b = idx[idx.index("var PATHS"):]
+    b = b[:b.index(chr(10) + "];")]
+    for ent in b.split(chr(10) + "  {")[1:]:
+        mu = re.search(r'u:\s*"([^"]+)"', ent)
+        mi = re.search(r'i:\s*"([^"]+)"', ent)
+        if mu and mi:
+            iconos[mu.group(1)] = mi.group(1)
+
+    out = []
+    for n, r in enumerate(rutas):
+        arch = r["archivo"]
+        color = "#7C8AA0"
+        pag = os.path.join(AQUI, arch)
+        if os.path.exists(pag):
+            m = re.search(r"--accent:\s*(#[0-9A-Fa-f]{6})",
+                          io.open(pag, encoding="utf-8").read())
+            if m:
+                color = m.group(1)
+        out.append({
+            "id": r["clave"], "nombre": r["nombre"], "archivo": arch,
+            "color": color, "icono": iconos.get(arch, "code"),
+            "orden": n + 1,
+        })
+    return out
+
+
+RUTAS = _rutas_del_sitio()
+
 
 # los campos que necesita el armador, nada más
 CAMPO = {
