@@ -14,7 +14,7 @@
 <!-- Los neutros, los radios y el ritmo, compartidos por todas las páginas.
      Cada una define encima solo su acento. Va acá dentro y no a mano en el
      HTML: esta plantilla reescribe toda la cabecera en cada corrida. -->
-<link rel="stylesheet" href="tema.css?v=0157989a">
+<link rel="stylesheet" href="tema.css?v=e364e613">
 <!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
      lo mismo: si lo escribe otro script en el HTML, la próxima corrida
      de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
@@ -1027,8 +1027,6 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 /* El estado, la agenda y el catálogo van seguidos: son una sola
    lectura, no tres capítulos. Con el aire de sección quedaba media
    pantalla vacía entre cada uno. */
-#estado{ padding-bottom:10px; }
-#hoy{ padding-top:0; padding-bottom:14px; }
 .rachas{
   display:flex; align-items:center; gap:10px;
   /* Sin wrap y con alto propio: abrir una pastilla no puede empujar
@@ -1389,7 +1387,6 @@ a.via{ text-decoration:none; }
 .estado.on{ display:block; }
 
 /* --- El problema del dia ---------------------------------------- */
-#reto{ padding-top:6px; padding-bottom:18px; }
 .reto-cab{ display:flex; align-items:baseline; gap:12px; margin-bottom:12px; }
 .reto-cab h3{ font-size:16px; margin:0; letter-spacing:-.01em; }
 /* El acceso a la lista completa: es de lo más usado del sitio y era
@@ -1735,7 +1732,7 @@ a.via{ text-decoration:none; }
   </div>
 </section>
 
-<section class="section estado" id="estado">
+<section class="section estado sigue cierra" id="estado">
   <div class="wrap">
     <div class="estado-cab">
       <h2 id="estadoTitulo"></h2>
@@ -1774,7 +1771,7 @@ a.via{ text-decoration:none; }
   </div>
 </section>
 
-<section class="section hoy" id="hoy">
+<section class="section hoy sigue cierra" id="hoy">
   <div class="wrap">
     <div class="hoy-card" id="hoyCard"></div>
   </div>
@@ -1782,7 +1779,7 @@ a.via{ text-decoration:none; }
 
 
 
-<section class="section reto" id="reto">
+<section class="section reto sigue" id="reto">
   <div class="wrap">
     <div class="reto-cab">
       <h3>Práctica diaria</h3>
