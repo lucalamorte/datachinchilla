@@ -45,7 +45,7 @@ ACTS = u'''var ACTS = [
 # (id, acto, tiempo, icono, jefe, cert, titulo, resumen, objetivo, wins, parte)
 C = [
  ("f00", 1, "17 horas", "web", False, "",
-  u"Parte 0 &middot; Cómo funciona una app web",
+  u"Parte 0 · Cómo funciona una app web",
   u"Qué pasa de verdad entre que escribes una dirección y ves algo: pedidos, respuestas, y por qué las páginas dejaron de recargarse enteras.",
   u"Terminas esta parte cuando puedes dibujar, sin ayuda, todo lo que ocurre al apretar un botón en una página.",
   [u"El ida y vuelta entre el navegador y el servidor, mirado con las herramientas del navegador",
@@ -53,7 +53,7 @@ C = [
    u"El vocabulario que el resto del curso da por sabido"], "part0"),
 
  ("f01", 1, "17 horas", "code", False, "",
-  u"Parte 1 &middot; Introducción a React",
+  u"Parte 1 · Introducción a React",
   u"Componentes, propiedades y estado: las tres ideas sobre las que se apoya todo lo demás.",
   u"Terminas esta parte cuando armas una interfaz que reacciona a lo que hace quien la usa, sin tocar el DOM a mano.",
   [u"Componentes que reciben datos y devuelven interfaz",
@@ -61,7 +61,7 @@ C = [
    u"Manejar eventos sin ensuciar el componente"], "part1"),
 
  ("f02", 1, "17 horas", "flow", True, "",
-  u"Parte 2 &middot; Hablar con el servidor",
+  u"Parte 2 · Hablar con el servidor",
   u"Listas, formularios y el primer contacto con una API de verdad: traer datos, mandarlos y contar lo que salió mal.",
   u"Terminas esta parte cuando tu aplicación lee y escribe contra un servidor y avisa bien cuando algo falla.",
   [u"Renderizar colecciones sin que React se queje de las claves",
@@ -69,7 +69,7 @@ C = [
    u"Pedidos al servidor y qué hacer con el error, que es la mitad del trabajo"], "part2"),
 
  ("f03", 2, "17 horas", "build", False, "",
-  u"Parte 3 &middot; Un servidor con Node y Express",
+  u"Parte 3 · Un servidor con Node y Express",
   u"Del otro lado del cable: tu propio servidor, con rutas, validación y una base de datos, puesto a andar en internet.",
   u"Terminas esta parte cuando tu backend está desplegado y tu frontend le habla a él y no a un simulador.",
   [u"Express de cero: rutas, middleware y el manejo de errores",
@@ -77,7 +77,7 @@ C = [
    u"Desplegarlo, que es donde aparecen los problemas que en tu máquina no existían"], "part3"),
 
  ("f04", 2, "17 horas", "user", False, "",
-  u"Parte 4 &middot; Probar el servidor y manejar usuarios",
+  u"Parte 4 · Probar el servidor y manejar usuarios",
   u"Pruebas del backend, y después lo que todo producto termina necesitando: cuentas, contraseñas y quién puede hacer qué.",
   u"Terminas esta parte cuando tienes pruebas que corren solas y un inicio de sesión que no guarda contraseñas en claro.",
   [u"Pruebas de integración contra una base de prueba",
@@ -86,7 +86,7 @@ C = [
 
  ("f05", 2, "17 horas", "check", True,
   u"Certificado de la Universidad de Helsinki",
-  u"Parte 5 &middot; Probar el frontend y varias pantallas",
+  u"Parte 5 · Probar el frontend y varias pantallas",
   u"Pruebas de la interfaz y navegación entre pantallas. Con esta parte cierras el curso base: cinco créditos y el certificado.",
   u"Terminas esta parte cuando tu aplicación tiene varias pantallas, pruebas que las cubren, y puedes bajar el certificado.",
   [u"Probar componentes como los usa una persona, no como los escribiste",
@@ -94,7 +94,7 @@ C = [
    u"El certificado de Helsinki: se baja al llegar, sin examen ni inscripción"], "part5"),
 
  ("f06", 3, "17 horas", "brain", False, "",
-  u"Parte 6 &middot; Estado que aguanta una app grande",
+  u"Parte 6 · Estado que aguanta una app grande",
   u"Cuando pasar datos de componente en componente deja de alcanzar: manejo de estado global y datos que vienen del servidor.",
   u"Terminas esta parte cuando el estado de tu aplicación vive en un lugar y no repartido en diez componentes.",
   [u"Estado global, y cuándo de verdad hace falta",
@@ -102,7 +102,7 @@ C = [
    u"Reducers: cambios de estado que se pueden leer y probar"], "part6"),
 
  ("f07", 3, "17 horas", "code", True, "",
-  u"Parte 7 &middot; Tus propias herramientas",
+  u"Parte 7 · Tus propias herramientas",
   u"Hooks propios para no repetirte, y cómo se empaqueta todo esto para que llegue al navegador.",
   u"Terminas esta parte cuando sacas lógica repetida a un hook tuyo y entiendes qué hace el empaquetador.",
   [u"Hooks propios: la forma de reusar lógica en React",
@@ -110,7 +110,7 @@ C = [
    u"Estilos, que hasta acá el curso había dejado de lado a propósito"], "part7"),
 
  ("f08", 4, "17 horas", "flow", False, "",
-  u"Parte 8 &middot; GraphQL",
+  u"Parte 8 · GraphQL",
   u"La otra forma de pedirle datos a un servidor: el cliente dice exactamente qué quiere, en un solo pedido.",
   u"Terminas esta parte cuando tienes un servidor GraphQL propio y un frontend que le consulta.",
   [u"Consultas y mutaciones, y en qué se diferencian de REST",
@@ -118,7 +118,7 @@ C = [
    u"Cuándo GraphQL ayuda de verdad y cuándo es complejidad de más"], "part8"),
 
  ("f09", 4, "17 horas", "shield", False, "",
-  u"Parte 9 &middot; TypeScript",
+  u"Parte 9 · TypeScript",
   u"Tipos sobre JavaScript. Es lo que más aparece en las búsquedas de trabajo de los últimos años.",
   u"Terminas esta parte cuando escribes frontend y backend tipados y el editor te avisa del error antes de correr nada.",
   [u"Los tipos que hacen falta de verdad, sin pelear con el compilador",
@@ -126,7 +126,7 @@ C = [
    u"Por qué el error atajado al escribir sale mucho más barato"], "part9"),
 
  ("f10", 4, "17 horas", "web", True, "",
-  u"Parte 10 &middot; React Native",
+  u"Parte 10 · React Native",
   u"Lo que ya sabes de React, aplicado a una app de teléfono de verdad.",
   u"Terminas esta parte cuando corres tu aplicación en un teléfono y entiendes qué se comparte y qué no con la web.",
   [u"React Native con Expo, sin pelear con la instalación",
@@ -134,7 +134,7 @@ C = [
    u"Una app móvil que consume tu propia API"], "part10"),
 
  ("f11", 5, "17 horas", "build", False, "",
-  u"Parte 11 &middot; Integración y despliegue continuos",
+  u"Parte 11 · Integración y despliegue continuos",
   u"Que cada cambio se pruebe y se publique solo. Es la parte que separa un proyecto personal de un trabajo en equipo.",
   u"Terminas esta parte cuando un cambio tuyo pasa las pruebas y llega a producción sin que toques nada a mano.",
   [u"Un flujo que prueba, construye y despliega en cada cambio",
@@ -142,7 +142,7 @@ C = [
    u"Versionado y control de calidad automático"], "part11"),
 
  ("f12", 5, "17 horas", "cloud", False, "",
-  u"Parte 12 &middot; Contenedores",
+  u"Parte 12 · Contenedores",
   u"Empaquetar tu aplicación con todo lo que necesita, para que corra igual en tu máquina y en el servidor.",
   u"Terminas esta parte cuando levantas tu aplicación entera, con su base, con un solo comando.",
   [u"Imágenes y contenedores, sin mitología",
@@ -150,7 +150,7 @@ C = [
    u"Contenedores para desarrollar, que es el uso que más se subestima"], "part12"),
 
  ("f13", 5, "17 horas", "sql", False, "",
-  u"Parte 13 &middot; Bases de datos relacionales",
+  u"Parte 13 · Bases de datos relacionales",
   u"El curso base usa una base de documentos. Acá vas a la relacional, que es la que vas a encontrar en la mayoría de los trabajos.",
   u"Terminas esta parte cuando tu backend habla con Postgres y las migraciones están versionadas.",
   [u"Postgres desde Node, con y sin capa intermedia",
@@ -158,7 +158,7 @@ C = [
    u"Migraciones: cambiar el esquema sin romper lo que ya hay"], "part13"),
 
  ("f14", 5, "17 horas", "build", True, "",
-  u"Parte 14 &middot; Next.js",
+  u"Parte 14 · Next.js",
   u"El marco de trabajo sobre React que hoy usan muchas empresas: renderizado en el servidor y rutas por archivos.",
   u"Terminas esta parte cuando entiendes qué resuelve Next.js que React solo no resuelve, y lo usas.",
   [u"Renderizado en el servidor y por qué volvió a importar",

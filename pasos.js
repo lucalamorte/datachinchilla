@@ -4900,7 +4900,7 @@ var PASOS = [
   "pasos": [
    {
     "id": "f00",
-    "t": "Parte 0 &middot; Cómo funciona una app web",
+    "t": "Parte 0 · Cómo funciona una app web",
     "min": 1020,
     "act": 1,
     "time": "17 horas",
@@ -4918,7 +4918,7 @@ var PASOS = [
    },
    {
     "id": "f01",
-    "t": "Parte 1 &middot; Introducción a React",
+    "t": "Parte 1 · Introducción a React",
     "min": 1020,
     "act": 1,
     "time": "17 horas",
@@ -4936,7 +4936,7 @@ var PASOS = [
    },
    {
     "id": "f02",
-    "t": "Parte 2 &middot; Hablar con el servidor",
+    "t": "Parte 2 · Hablar con el servidor",
     "min": 1020,
     "act": 1,
     "time": "17 horas",
@@ -4954,7 +4954,7 @@ var PASOS = [
    },
    {
     "id": "f03",
-    "t": "Parte 3 &middot; Un servidor con Node y Express",
+    "t": "Parte 3 · Un servidor con Node y Express",
     "min": 1020,
     "act": 2,
     "time": "17 horas",
@@ -4972,7 +4972,7 @@ var PASOS = [
    },
    {
     "id": "f04",
-    "t": "Parte 4 &middot; Probar el servidor y manejar usuarios",
+    "t": "Parte 4 · Probar el servidor y manejar usuarios",
     "min": 1020,
     "act": 2,
     "time": "17 horas",
@@ -4990,7 +4990,7 @@ var PASOS = [
    },
    {
     "id": "f05",
-    "t": "Parte 5 &middot; Probar el frontend y varias pantallas",
+    "t": "Parte 5 · Probar el frontend y varias pantallas",
     "min": 1020,
     "act": 2,
     "time": "17 horas",
@@ -5008,7 +5008,7 @@ var PASOS = [
    },
    {
     "id": "f06",
-    "t": "Parte 6 &middot; Estado que aguanta una app grande",
+    "t": "Parte 6 · Estado que aguanta una app grande",
     "min": 1020,
     "act": 3,
     "time": "17 horas",
@@ -5026,7 +5026,7 @@ var PASOS = [
    },
    {
     "id": "f07",
-    "t": "Parte 7 &middot; Tus propias herramientas",
+    "t": "Parte 7 · Tus propias herramientas",
     "min": 1020,
     "act": 3,
     "time": "17 horas",
@@ -5044,7 +5044,7 @@ var PASOS = [
    },
    {
     "id": "f08",
-    "t": "Parte 8 &middot; GraphQL",
+    "t": "Parte 8 · GraphQL",
     "min": 1020,
     "act": 4,
     "time": "17 horas",
@@ -5062,7 +5062,7 @@ var PASOS = [
    },
    {
     "id": "f09",
-    "t": "Parte 9 &middot; TypeScript",
+    "t": "Parte 9 · TypeScript",
     "min": 1020,
     "act": 4,
     "time": "17 horas",
@@ -5080,7 +5080,7 @@ var PASOS = [
    },
    {
     "id": "f10",
-    "t": "Parte 10 &middot; React Native",
+    "t": "Parte 10 · React Native",
     "min": 1020,
     "act": 4,
     "time": "17 horas",
@@ -5098,7 +5098,7 @@ var PASOS = [
    },
    {
     "id": "f11",
-    "t": "Parte 11 &middot; Integración y despliegue continuos",
+    "t": "Parte 11 · Integración y despliegue continuos",
     "min": 1020,
     "act": 5,
     "time": "17 horas",
@@ -5116,7 +5116,7 @@ var PASOS = [
    },
    {
     "id": "f12",
-    "t": "Parte 12 &middot; Contenedores",
+    "t": "Parte 12 · Contenedores",
     "min": 1020,
     "act": 5,
     "time": "17 horas",
@@ -5134,7 +5134,7 @@ var PASOS = [
    },
    {
     "id": "f13",
-    "t": "Parte 13 &middot; Bases de datos relacionales",
+    "t": "Parte 13 · Bases de datos relacionales",
     "min": 1020,
     "act": 5,
     "time": "17 horas",
@@ -5152,7 +5152,7 @@ var PASOS = [
    },
    {
     "id": "f14",
-    "t": "Parte 14 &middot; Next.js",
+    "t": "Parte 14 · Next.js",
     "min": 1020,
     "act": 5,
     "time": "17 horas",

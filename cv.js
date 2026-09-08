@@ -268,8 +268,19 @@ var CV = (function(){
       var puestos = 0, j, desde = Math.min(f.tiene, Math.max(0, f.pasos.length - cuota));
       for(j=desde;j<f.pasos.length && puestos<cuota;j++){
         var p = f.pasos[j], clave = p.ruta + ":" + p.id;
-        if(usados[clave] || ya[clave]) continue;   /* ni repetido ni ya hecho */
-        usados[clave] = true; puestos++;
+        /* Y tampoco el mismo curso dos veces.
+
+           La clave era ruta+id, que alcanza para no repetir un paso,
+           pero no para no repetir un curso: el mismo esta en dos
+           rutas -"Testing a fondo" en dbt y en subirnivel- y hasta
+           dos veces en la misma -"Agrupar y agregar" es q02 y q08 de
+           sqlpy-. Son veinticuatro titulos repartidos asi, y salian
+           dos veces en la misma lista de nueve.
+
+           Se deduplica por titulo porque es lo unico que dice que
+           son el mismo curso: aca no llega la direccion. */
+        if(usados[clave] || usados["t:" + p.t] || ya[clave]) continue;
+        usados[clave] = true; usados["t:" + p.t] = true; puestos++;
         elegidos.push({
           ruta: p.ruta, archivo: p.archivo, id: p.id, t: p.t, min: p.min,
           tema: f.id, temaNombre: f.nombre
