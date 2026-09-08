@@ -125,29 +125,25 @@ var Chin = (function(){
                los brazos: inclinada hacia adelante, el borde del pozo
                cruzandole el cuerpo, la tierra saltando y la cola
                arriba. Las manos solo asoman en el borde. */
-            /* La pala va en la mano izquierda porque la cola ocupa la
-               derecha: ahi quedaba tapada por ella y no se entendia
-               que estaba agarrando algo.
+            /* La pala, agarrada de verdad.
 
-               Va debajo de la mano, para que se lea que la sostiene y
-               no que flota al lado. */
+               Antes el mango bajaba por un lado y la pata estaba en
+               otro: se veia una pala flotando al lado de una
+               chinchilla. Ahora la pata cae SOBRE el mango, a mitad
+               de camino entre el puno y la hoja, girada al angulo del
+               mango. Ahi es donde se agarra una pala.
+
+               Va del lado izquierdo porque la cola ocupa el derecho.
+               El mango en T queda arriba y a la vista, y la hoja entra
+               en la tierra, que es lo que se ve cuando alguien cava. */
             '<g class="c-mano-cava c-mano-izq">' +
-              /* La pala. La anterior era un palito y un rombo: no se
-                 entendia que era. Lo que hace que una pala se lea es
-                 el mango en T arriba y una hoja ancha que se angosta
-                 hacia la punta, no el palo.
-
-                 Y la hoja entra en el borde del pozo, no adentro: el
-                 monticulo se dibuja despues y tapa todo lo que pase de
-                 y=69, asi que una hoja mas abajo no se veia. */
               '<g class="c-pala">' +
-                '<path class="c-pala-t" d="M13 38L25 32"/>' +
-                '<path class="c-pala-m" d="M19 35L37 70"/>' +
-                '<path class="c-pala-h" d="M30.5 63.5L41.5 57.8' +
-                  'L49 72.5Q42 77 34.5 74.2Z"/>' +
+                '<path class="c-pala-t" d="M10 33L23 39"/>' +
+                '<path class="c-pala-m" d="M16 36L41 78"/>' +
+                '<path class="c-pala-h" d="M33 62L45 56L54 72Q46 78 38 74Z"/>' +
               '</g>' +
-              '<ellipse class="c-pata" cx="33" cy="71" rx="7.5" ry="4.4" ' +
-                'transform="rotate(30 33 71)"/>' +
+              '<ellipse class="c-pata" cx="28" cy="56" rx="7.5" ry="5" ' +
+                'transform="rotate(59 28 56)"/>' +
             '</g>' +
             /* La otra mano solo asoma en el borde. */
             '<g class="c-mano-cava c-mano-der">' +

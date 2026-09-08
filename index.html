@@ -18,7 +18,7 @@
 <!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
      lo mismo: si lo escribe otro script en el HTML, la próxima corrida
      de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
-<link rel="stylesheet" href="chinchilla.css?v=523e27f9">
+<link rel="stylesheet" href="chinchilla.css?v=48a23f02">
 
 <!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
      estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
@@ -1550,12 +1550,23 @@ a.via{ text-decoration:none; }
   display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:13px; margin-top:26px;
 }
-/* Con una sola puerta, el auto-fit la estiraba a todo el ancho: una
-   tarjeta de mil cien pixeles con dos renglones de texto adentro.
-   Paso al sacar la puerta "Tu semana", que dejo sola a la de retomar.
-   Sola ocupa lo que ocupaba antes, no lo que sobra. */
-.puertas:has(> :only-child){
-  grid-template-columns:minmax(250px, 420px);
+/* La puerta de retomar va en fila: icono, que sigue, y por donde. Es
+   la unica que queda cuando ya tenes ruta, no se compara con ninguna
+   otra, y lo que dice entra en un renglon. Como tarjeta era una caja
+   con dos lineas adentro y aire en el resto. */
+.puertas:has(> .fila:only-child){ grid-template-columns:1fr; }
+.puerta.fila{
+  flex-direction:row; align-items:center; gap:14px;
+  padding:14px 18px;
+}
+.puerta.fila .p-txt{ min-width:0; }
+.puerta.fila .p-txt span{
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.puerta.fila .p-ir{ margin-left:auto; flex-shrink:0; }
+@media (max-width:560px){
+  .puerta.fila{ flex-wrap:wrap; }
+  .puerta.fila .p-ir{ margin-left:0; }
 }
 .puerta{
   display:flex; flex-direction:column; gap:11px;
@@ -1999,11 +2010,11 @@ a.via{ text-decoration:none; }
 </dialog>
 
 <script src="pasos.js?v=65bf5593"></script>
-<script src="chinchilla.js?v=1880378c"></script>
+<script src="chinchilla.js?v=f9ed4ecd"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script src="temas.js?v=6526e6d5"></script>
 <script src="cv.js?v=5c07e222"></script>
-<script src="onboarding.js?v=d308683e"></script>
+<script src="onboarding.js?v=adf7c2fe"></script>
 <script src="guia.js?v=389d9289"></script>
 <script src="plan.js?v=33f63d17"></script>
 <script src="problemas.js?v=40933293"></script>
@@ -3125,7 +3136,16 @@ function pintarPuertas(){
 
   var h = "";
   if(sigue){
-    h += '<a class="puerta destacada" href="' + esc(sigue.ruta.archivo) + '#' + esc(sigue.paso.id) + '">' +
+    /* En una fila, no en una tarjeta.
+
+       Las tres puertas de la primera visita son tarjetas porque son
+       una eleccion: se comparan entre si, y para eso conviene que
+       tengan cuerpo. Esta no se compara con nada -es la unica que
+       queda- y lo que dice cabe en un renglon: un icono, que curso
+       sigue, y por donde se sigue. Como tarjeta era una caja de
+       ciento cuarenta pixeles de alto con dos lineas de texto
+       adentro y aire en el resto. */
+    h += '<a class="puerta fila" href="' + esc(sigue.ruta.archivo) + '#' + esc(sigue.paso.id) + '">' +
       '<span class="p-ico">' + icon("arrow", 19) + '</span>' +
       '<span class="p-txt"><b>Retoma donde quedaste</b>' +
         '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span>' +

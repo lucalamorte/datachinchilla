@@ -36,7 +36,11 @@ var Onb = (function(){
      cinco sobre lo mismo, y cada una suma temas que existen en
      temas.js desde que entraron las rutas de desarrollo. */
   var PREGUNTAS = [
-    { id: "prog", texto: "¿Programas?",
+    /* `sobre` es el tema que la pregunta averigua. Si el CV ya lo deja
+       en nivel 2 -que es el piso de "esto lo usaste"- la pregunta no
+       se hace: preguntarle a alguien que escribio "senior developer"
+       si programa dice que no lo leimos. */
+    { id: "prog", sobre: "prog", texto: "¿Programas?",
       ayuda: "En cualquier lenguaje, aunque sea para automatizar algo tuyo.",
       opciones: [
         { t: "Nunca escribí código", temas: {} },
@@ -44,7 +48,7 @@ var Onb = (function(){
         { t: "Sí, es parte de mi trabajo", temas: { prog: 2 } },
         { t: "Vengo del desarrollo", temas: { prog: 3 } }
       ] },
-    { id: "pantalla", texto: "¿Construiste algo que se vea en pantalla?",
+    { id: "pantalla", sobre: "web", texto: "¿Construiste algo que se vea en pantalla?",
       ayuda: "Una página, una app, aunque haya sido para vos.",
       opciones: [
         { t: "No, nunca", temas: {} },
@@ -52,7 +56,7 @@ var Onb = (function(){
         { t: "Interfaces con un framework", temas: { web: 2, prog: 1 } },
         { t: "Es lo que hago", temas: { web: 3, prog: 2 } }
       ] },
-    { id: "servidor", texto: "¿Y del otro lado: APIs, servidores, bases?",
+    { id: "servidor", sobre: "backend", texto: "¿Y del otro lado: APIs, servidores, bases?",
       ayuda: "Lo que hay detrás de la pantalla, o detrás de un dashboard.",
       opciones: [
         { t: "No me tocó", temas: {} },
@@ -60,7 +64,7 @@ var Onb = (function(){
         { t: "Escribí endpoints y consultas", temas: { backend: 2, sql: 2 } },
         { t: "Diseño el backend y su base", temas: { backend: 3, sql: 3, modelado: 2 } }
       ] },
-    { id: "datos", texto: "¿Trabajaste con datos para que otro decida?",
+    { id: "datos", sobre: "viz", texto: "¿Trabajaste con datos para que otro decida?",
       ayuda: "Cuenta cualquier cosa que alguien más haya usado para decidir.",
       opciones: [
         { t: "Todavía no", temas: {} },
@@ -68,7 +72,7 @@ var Onb = (function(){
         { t: "Dashboards o análisis para otros", temas: { viz: 2, sql: 2 } },
         { t: "Pipelines o modelos en producción", temas: { pipelines: 2, modelado: 2, python: 2 } }
       ] },
-    { id: "nube", texto: "¿Nube e infraestructura?",
+    { id: "nube", sobre: "cloud", texto: "¿Nube e infraestructura?",
       ayuda: "AWS, Azure, Google Cloud, Docker, lo que sea.",
       opciones: [
         { t: "Nada", temas: {} },
@@ -153,6 +157,25 @@ var Onb = (function(){
   /* Los temas que salen de las respuestas, en el mismo formato que
      devuelve cv.js, para que de acá en adelante dé igual de dónde
      vinieron. */
+  /* Las que el CV no contesto.
+
+     Mira el CV y no estado.temas, que ya trae mezcladas las
+     respuestas: filtrando por ahi, contestar una pregunta hacia
+     desaparecer la siguiente. */
+  function preguntasQueFaltan(){
+    var delCv = {};
+    try{
+      if(typeof CV !== "undefined" && estado.cv) delCv = CV.leer(estado.cv) || {};
+    }catch(e){ delCv = {}; }
+    var out = [], i, p;
+    for(i=0;i<PREGUNTAS.length;i++){
+      p = PREGUNTAS[i];
+      if(p.sobre && delCv[p.sobre] && delCv[p.sobre].nivel >= 2) continue;
+      out.push(p);
+    }
+    return out;
+  }
+
   function temasDeRespuestas(resp){
     var out = {}, i, p, o, k;
     for(i=0;i<PREGUNTAS.length;i++){
@@ -583,7 +606,7 @@ var Onb = (function(){
   }
 
   return {
-    PREGUNTAS: PREGUNTAS, FRANJAS: FRANJAS,
+    PREGUNTAS: PREGUNTAS, preguntasQueFaltan: preguntasQueFaltan, FRANJAS: FRANJAS,
     estado: estado,
     cargar: cargar, guardar: guardar, hecho: hecho,
     temasDeRespuestas: temasDeRespuestas, recalcularTemas: recalcularTemas,
