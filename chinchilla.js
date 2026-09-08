@@ -149,11 +149,18 @@ var Chin = (function(){
                Va afuera del grupo del bicho para que no se incline con
                el: una pala clavada se queda quieta aunque el que cava
                se mueva. */
-            /* La otra mano asoma en el borde. */
-            '<g class="c-mano-cava c-mano-der">' +
-              '<ellipse class="c-pata" cx="66" cy="76" rx="7.5" ry="4.4" ' +
-                'transform="rotate(12 66 76)"/>' +
-            '</g>' +
+            /* Sin manos asomando en el borde.
+
+               Era un ovalo claro pegado al borde de abajo del cuerpo y
+               se leia mal, por lo mismo que se leian mal los dos
+               brazos que hubo antes: cualquier forma clara y redondeada
+               colgando de un cuerpo a esa altura se lee asi. Es la
+               tercera vez que aparece el mismo problema en este dibujo
+               y las tres veces la respuesta fue sacarlo.
+
+               No hace falta ninguna mano: la postura inclinada, el
+               pozo, la pala clavada y las fichas ya cuentan la escena
+               entera. */
           '</g>' +
           '<g class="c-pala">' +
             '<path class="c-pala-h" d="M12 66L24 62L29 80Q20 84 14 79Z"/>' +

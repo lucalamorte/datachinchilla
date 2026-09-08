@@ -586,11 +586,13 @@ sitio lee tu CV:
   adentro, y está inclinada hacia adelante
 - La cola va del lado contrario a la pala
 
-**Falla si** parece sentada detrás de un montículo. Y **falla si le
-cuelgan dos formas verticales del cuerpo**: hubo una versión con dos
-brazos largos bajando del hombro y no se leían como brazos. Cualquier
-cosa vertical y redondeada a esa altura se lee mal, y no hay animación
-que lo arregle.
+**Falla si** parece sentada detrás de un montículo.
+
+Y **falla si le cuelga cualquier forma clara y redondeada del borde de
+abajo del cuerpo**. Pasó tres veces: dos brazos largos bajando del
+hombro, dos óvalos de manos apoyadas, y un óvalo suelto. Las tres
+veces la respuesta fue sacarlo. No lleva manos: la postura, el pozo,
+la pala y las fichas cuentan la escena sin ellas.
 
 ---
 
