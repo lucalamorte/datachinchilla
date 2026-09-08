@@ -76,9 +76,9 @@ var Guia = (function(){
       /* Decia "las cuatro preguntas de abajo". Son cinco, y abajo del
          CV ya no estan: quedaron dos secciones mas abajo, despues de
          los skills. Mandaba a buscar algo donde no estaba. */
-      texto: "Arrastra el CV o pega el texto. Si no lo tienes a mano no pasa " +
-             "nada: sigue igual y más adelante te hago unas preguntas que " +
-             "sirven para lo mismo. En cuanto lea algo te muestro qué reconocí.",
+      texto: "Arrastra el CV o pega el texto. Si no lo tienes a mano, el botón " +
+             "\"No tengo el CV a mano\" sigue igual: pones tus skills a mano y " +
+             "contestas unas preguntas que sirven para lo mismo.",
       accion: "Ya está, seguir",
       lleva: "",
       ancla: "#cvZona",
@@ -212,8 +212,15 @@ var Guia = (function(){
        al paso de la semana, que sólo se pinta en una página de ruta,
        y en cv.html el globo desaparecía para siempre. */
     var hayPuesto = !!Onb.estado.puesto;
+    /* O el CV, o dos respuestas, o haber dicho que no tenes CV.
+
+       Las tres cierran el mismo paso: el paso pregunta por tu
+       experiencia, y decir "no tengo el CV a mano" es una forma de
+       contestarlo. Sin la tercera, el boton existia en la pagina y el
+       recorrido seguia trabado igual. */
     var hayCV = !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
-                Object.keys(Onb.estado.respuestas || {}).length >= 2;
+                Object.keys(Onb.estado.respuestas || {}).length >= 2 ||
+                !!Onb.estado.sinCv;
 
     /* La marca explícita: los días y los minutos vienen con valor
        por defecto y siempre daban que sí. */

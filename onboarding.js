@@ -96,6 +96,12 @@ var Onb = (function(){
     paso: 0,
     desde: "",            /* "cv" o "preguntas" */
     cv: "",               /* el texto, sólo en este navegador */
+    /* Que dijiste que no tenes CV. Va en el estado y no en una
+       variable de la pagina porque la guia lo mira: sin esto, el paso
+       4 del recorrido te pedia el CV y no aceptaba otra cosa, asi que
+       el boton "No tengo el CV a mano" estaba en la pagina y el
+       recorrido seguia trabado igual. */
+    sinCv: false,
     respuestas: {},
     temas: {},            /* lo que ya sabes, venga de donde venga */
     /* Los temas que dijiste que no sabes, aunque yo los haya leido
