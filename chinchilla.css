@@ -101,12 +101,30 @@
    en el mundo con un color y pintarlas de otro las vuelve una forma
    abstracta. */
 .chin-pose .c-pala-m{
-  fill:none; stroke:#B07A45; stroke-width:3.4; stroke-linecap:round;
+  fill:none; stroke:#6B4226; stroke-width:3.4; stroke-linecap:round;
 }
 .chin-pose .c-pala-t{
-  fill:none; stroke:#B07A45; stroke-width:4.6; stroke-linecap:round;
+  fill:none; stroke:#6B4226; stroke-width:4.6; stroke-linecap:round;
 }
-.chin-pose .c-pala-h{ fill:#B9C3D0; }
+.chin-pose .c-pala-h{ fill:#F1F5F9; }
+/* Y los tonos elegidos por numero, no a ojo.
+
+   El primer intento fue un marron medio y no se distinguia igual: el
+   problema no era el tono sino el VALOR. Contra el cuerpo daba 1.35
+   a 1, o sea la misma luminancia con otro color, y a cien pixeles eso
+   es una sola mancha.
+
+   Estos son madera oscura y metal casi blanco, que es lo que da
+   separacion en los dos temas a la vez:
+
+     mango contra el cuerpo   3.17 en oscuro, 2.33 en claro
+     hoja  contra el cuerpo   2.48 en oscuro, 3.38 en claro
+     hoja  contra el fondo    16.48 en oscuro
+
+   El punto flojo es el mango contra el fondo oscuro, 2.09, y es el
+   mejor peor-caso de los siete marrones que probe: cualquiera mas
+   claro separa del fondo y deja de separar del cuerpo, que es lo que
+   importa. */
 .chin-pose .c-lupa-c{
   fill:color-mix(in srgb, var(--marca) 12%, transparent);
   stroke:var(--marca-strong); stroke-width:3.4;
