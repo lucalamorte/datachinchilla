@@ -985,16 +985,21 @@ a.bloque:hover{ border-color:var(--accent); }
 .bl-wrap:focus-within .bl-mover{ opacity:1; }
 @media (hover:none){ .bl-mover{ opacity:1; } }
 .bl-mover button{
-  display:grid; place-items:center; width:22px; height:22px; padding:0;
+  display:grid; place-items:center; width:20px; height:20px; padding:0;
   border-radius:var(--r-sm); cursor:pointer;
   background:var(--surface); color:var(--text-3);
   border:1px solid var(--divider);
 }
 .bl-mover button:hover{ color:var(--accent-strong); border-color:var(--accent); }
-/* Y el texto del bloque no pasa por debajo de las flechas. */
-.bl-wrap:hover .bloque .qué,
-.bl-wrap:focus-within .bloque .qué{ padding-right:48px; }
-@media (hover:none){ .bloque .qué{ padding-right:48px; } }
+/* El hueco para las flechas se reserva SIEMPRE, aparezcan o no.
+
+   Estaba puesto solo al pasar por encima, y eso movia el bloque cada
+   vez: el texto se acomodaba con menos ancho, cambiaba de alto, y el
+   calendario entero temblaba. Un hueco que aparece y desaparece es un
+   cambio de layout, y el hover no puede cambiar el layout.
+
+   Lo que aparece y desaparece son las flechas, que no ocupan lugar. */
+.bloque .qué{ padding-right:46px; }
 .bloque .tipo{ font-size:9.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; }
 .bloque.practica .tipo{ color:var(--warm); }
 .bloque.estudio .tipo{ color:var(--accent-strong); }

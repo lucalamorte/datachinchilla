@@ -336,6 +336,9 @@ En `/semana`, con la semana armada.
   va a caer se marca. **Falla si** no se marca: se suelta a ciegas
 - Con el bloque **enfocado**, las flechas ← y → lo mueven de día
 - Al pasar el mouse por encima aparecen **dos flechas** en el bloque.
+  **Falla si** el bloque cambia de tamaño al pasar por encima: el
+  hueco de las flechas se reserva siempre, aparezcan o no. Un hueco
+  que aparece y desaparece hace temblar el calendario entero.
   En pantallas táctiles están siempre: arrastrar es HTML5 drag and
   drop y al tacto no existe. **Falla si** en el teléfono no hay
   ninguna forma de mover un bloque
