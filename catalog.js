@@ -3135,6 +3135,116 @@ var CATALOGO = [
   "hs": "8 h",
   "nivel": "Curso 9",
   "pago": false
+ },
+ {
+  "id": "funcional:f01",
+  "nodo": "f01",
+  "ruta": "funcional",
+  "n": 1,
+  "t": "El Manifiesto Ágil, el original",
+  "d": "Cuatro valores y doce principios, en una página. Es corto a propósito, y es de donde salió todo lo que después te van a vender en cursos de tres días.",
+  "hs": "20 min",
+  "nivel": "Curso 1",
+  "pago": false
+ },
+ {
+  "id": "funcional:f02",
+  "nodo": "f02",
+  "ruta": "funcional",
+  "n": 2,
+  "t": "La Guía Scrum",
+  "d": "El documento oficial: los roles, los eventos y los artefactos, sin interpretación de nadie. Trece páginas.",
+  "hs": "2 h",
+  "nivel": "Curso 2",
+  "pago": false
+ },
+ {
+  "id": "funcional:f03",
+  "nodo": "f03",
+  "ruta": "funcional",
+  "n": 3,
+  "t": "Scrum en la práctica",
+  "d": "La guía de Atlassian: lo mismo pero contado por quienes hacen la herramienta donde vas a cargar los tickets. Con los problemas reales que la guía oficial no cuenta.",
+  "hs": "2 h",
+  "nivel": "Curso 3",
+  "pago": false
+ },
+ {
+  "id": "funcional:f04",
+  "nodo": "f04",
+  "ruta": "funcional",
+  "n": 4,
+  "t": "Historias de usuario",
+  "d": "El corazón del oficio: pasar de «quiero que el sistema haga algo» a algo que un equipo puede construir y verificar. Quién, qué y para qué.",
+  "hs": "2 h",
+  "nivel": "Curso 4",
+  "pago": false
+ },
+ {
+  "id": "funcional:f05",
+  "nodo": "f05",
+  "ruta": "funcional",
+  "n": 5,
+  "t": "Épicas, historias y temas",
+  "d": "Cómo se agrupa el trabajo cuando no entra en una historia. Es lo que evita el backlog de trescientos tickets sueltos.",
+  "hs": "1 h 30",
+  "nivel": "Curso 5",
+  "pago": false
+ },
+ {
+  "id": "funcional:f06",
+  "nodo": "f06",
+  "ruta": "funcional",
+  "n": 6,
+  "t": "Preguntar bien: investigación con usuarios",
+  "d": "Nielsen Norman Group, que es la autoridad del tema. Qué método usar según lo que necesitas saber, y por qué preguntarle a la gente qué quiere casi nunca funciona.",
+  "hs": "2 h",
+  "nivel": "Curso 6",
+  "pago": false
+ },
+ {
+  "id": "funcional:f07",
+  "nodo": "f07",
+  "ruta": "funcional",
+  "n": 7,
+  "t": "BPMN, la referencia completa",
+  "d": "El idioma con el que se dibuja un proceso: qué significa cada figura, y por qué un diagrama mal hecho esconde justamente lo que hay que discutir. Camunda publica la referencia entera.",
+  "hs": "3 h",
+  "nivel": "Curso 7",
+  "pago": false
+ },
+ {
+  "id": "funcional:f08",
+  "nodo": "f08",
+  "ruta": "funcional",
+  "n": 8,
+  "t": "Casos de uso y UML",
+  "d": "La notación anterior a BPMN, que sigue viva en la mitad de las empresas grandes. Vale conocerla porque te la vas a encontrar escrita.",
+  "hs": "1 h 30",
+  "nivel": "Curso 8",
+  "pago": false
+ },
+ {
+  "id": "funcional:f09",
+  "nodo": "f09",
+  "ruta": "funcional",
+  "n": 9,
+  "t": "SQL: mirar los datos tú mismo",
+  "d": "Es lo que separa a un analista funcional de alguien que toma notas. Poder responder «¿cuántos casos hay así?» sin pedirle a nadie que lo consulte.",
+  "hs": "4 h 30",
+  "nivel": "Curso 9",
+  "pago": false
+ },
+ {
+  "id": "funcional:f10",
+  "nodo": "f10",
+  "ruta": "funcional",
+  "n": 10,
+  "t": "Power BI, del lado de quien pide",
+  "d": "No para construir tableros, sino para saber qué se puede pedir, qué cuesta caro y por qué el dato no está como lo quieres.",
+  "hs": "5 h",
+  "nivel": "Curso 10",
+  "pago": false
  }
 ];
 
@@ -3294,5 +3404,13 @@ var CATALOGO_RUTAS = [
   "color": "#1E5F9E",
   "icono": "cloud",
   "orden": 19
+ },
+ {
+  "id": "funcional",
+  "nombre": "Analista funcional",
+  "archivo": "funcional.html",
+  "color": "#A94F2E",
+  "icono": "biz",
+  "orden": 20
  }
 ];

@@ -56,6 +56,13 @@ TEMAS = [
   ["airflow", "pipeline", "kafka", "ingesta", "moving data", "streaming",
    "orquest", "etl", "elt", "snowpipe", "carga"]),
 
+ ("producto", u"Producto y requisitos",
+  ["requerimiento", "requisito", "historia de usuario", "backlog", "scrum",
+   "product owner", "analista funcional", "bpmn", "casos de uso", "stakeholder",
+   "relevamiento", "jira", "kanban", "agile", "ágil"],
+  ["requisito", "historia", "backlog", "scrum", "proceso", "negocio",
+   "bpmn", "producto", "relevamiento"]),
+
  ("calidad", u"Calidad y testing",
   ["testing", "test unitario", "pytest", "calidad de datos", "great expectations",
    "data quality", "observabilidad", "monitoreo"],
@@ -172,6 +179,15 @@ POR_TRAMO = {
  # mundo sobre el que se prueba en ese tramo.
  # Credenciales de nube: los tres primeros tramos son nube pura, y
  # el de datos cruza con lo que el sitio ya ensena.
+ # Analista funcional. El tema "producto" es nuevo: el metodo de
+ # traducir lo que el negocio necesita no encajaba en ninguno de los
+ # diecisiete que habia, y meterlo en "calidad" o en "modelado"
+ # habria sido acomodarlo para no crear uno.
+ ("funcional", 1):    ["producto"],
+ ("funcional", 2):    ["producto"],
+ ("funcional", 3):    ["producto", "modelado"],
+ ("funcional", 4):    ["sql", "viz"],
+
  ("nube", 1):         ["cloud"],
  ("nube", 2):         ["cloud"],
  ("nube", 3):         ["cloud", "sql", "modelado", "pipelines"],
@@ -214,6 +230,10 @@ POR_RUTA = {
 PUESTOS = [
  # Un puesto sin ruta no se puede recomendar, y una ruta sin puesto
  # no la encuentra nadie desde el CV.
+ {"id": "analista_funcional", "nombre": u"Analista funcional",
+  "resumen": u"Traducir lo que el negocio necesita a algo que un equipo puede construir, y de vuelta.",
+  "temas": {"producto": 3, "sql": 2, "viz": 2, "modelado": 1, "calidad": 1}},
+
  {"id": "tester", "nombre": u"QA / Tester",
   "resumen": u"Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
   "temas": {"calidad": 3, "prog": 2, "web": 2, "backend": 2, "cloud": 1,

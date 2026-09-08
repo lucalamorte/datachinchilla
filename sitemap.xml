@@ -86,6 +86,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://datachinchilla.com/funcional</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://datachinchilla.com/nube</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

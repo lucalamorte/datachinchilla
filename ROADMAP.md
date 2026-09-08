@@ -59,9 +59,9 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (6) Las preguntas de a una, y de tech y no de datos | Nunca tuvieron CSS, y eran de cuando el sitio eran tres rutas | **hecho** |
 | (7) La frase de privacidad del CV, profesional | Verificado antes: el texto no sale del navegador | **hecho** |
 | (8) Filtro "Resueltos" en la práctica | Faltaba el tercer estado | **hecho** |
-| (5) Perfiles funcionales: tester y analista funcional | Tienen material gratis, ordenable y con credencial | a decidir |
-| (5) Credenciales cloud como ruta propia: AWS y Google | Exámenes reales con material gratuito | a decidir |
-| (5) PM: recursos, no ruta | Lo bueno son libros y experiencia; una ruta floja resta a las diecisiete | a decidir |
+| (5) Perfiles funcionales: tester y analista funcional | Dos rutas nuevas y dos puestos nuevos, cubiertos al 100% | **hecho** |
+| (5) Credenciales cloud como ruta propia: AWS y Google | `nube.html`: AZ-900, DP-900, AWS CCP y Cloud Digital Leader | **hecho** |
+| (5) PM: recursos, no ruta | Cuatro fuentes en `recursos.html`: Cagan, Shape Up, Lenny, Mind the Product | **hecho** |
 
 ## 4. Cuesta mucho
 
@@ -69,7 +69,8 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 |---|---|---|
 | (10) Verificador de todos los links del sitio | `links.py`: 434 links, ninguno roto. 126 que se habían mudado, apuntados al lugar nuevo con `mudar.py` | **hecho** |
 | (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | `contenido.py`: 1613 h, ningún tema pedido sin material | **hecho** |
-| 41 pasos se parten en 10 bloques o más; CS50 llega a "parte 1 de 40" | Lo encontró `contenido.py`. No falta contenido: sobra grano en unas rutas y falta en otras | abierto |
+| 41 pasos se parten en 10 bloques o más; CS50 llega a "parte 1 de 40" | El número además reiniciaba cada semana. Ya no se numera cuando el paso no entra en la semana | **hecho** |
+| CS50 tiene cinco pasos de 50 a 60 horas | El arreglo del número lo hace honesto, no chico. Partirlos por su estructura real (CS50x tiene diez semanas publicadas) es trabajo de contenido | abierto |
 | MLOps: 1 paso y 1 hora, y ML Engineer lo pide en nivel 4 | El único agujero real de los ocho puestos | abierto |
 | Visualización: 3 pasos para lo que pide Data Analyst | Es la ruta más buscada y el tema más flaco | abierto |
 | (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |

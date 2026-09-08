@@ -37,6 +37,7 @@ RUTAS = [
     ("airflow.html",        "airflow",      u"Airflow"),
     ("testing.html",        "testing",      u"Testing y QA"),
     ("nube.html",           "nube",         u"Credenciales de nube"),
+    ("funcional.html",      "funcional",    u"Analista funcional"),
 ]
 
 # Cuánto dura un paso, en minutos. El texto viene como lo escribe cada
@@ -88,6 +89,7 @@ NIVELES = {
     "airflow.html": u"Con Python sabido",
     "testing.html": u"Desde cero",
     "nube.html": u"Desde cero",
+    "funcional.html": u"Desde cero",
 }
 
 ORDEN_NIVEL = {

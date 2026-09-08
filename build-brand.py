@@ -126,6 +126,12 @@ PAGINAS = {
         "color": u"#0C0818",
         "ogtitulo": u"Preguntas frecuentes",
     },
+    "funcional.html": {
+        "titulo": u"Analista funcional, gratis y en orden · " + MARCA,
+        "desc": u"El material de referencia del oficio: la Guía Scrum, el manifiesto ágil, historias de usuario, BPMN y las dos habilidades técnicas que hacen falta.",
+        "color": u"#08121C",
+        "ogtitulo": u"Analista funcional, en orden",
+    },
     "nube.html": {
         "titulo": u"Credenciales de nube gratis, en orden · " + MARCA,
         "desc": u"El temario completo de AZ-900, DP-900, AWS Cloud Practitioner y Cloud Digital Leader, con el material oficial de cada proveedor y sin pagar por estudiarlo.",

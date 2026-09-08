@@ -38,6 +38,7 @@ RUTAS = {
     "airflow.html":        "airflow",
     "testing.html":        "testing",
     "nube.html":           "nube",
+    "funcional.html":      "funcional",
 }
 
 BOTON = u'''      <button class="btn-quiet btn-mia" id="miaBtn" type="button" hidden>

@@ -95,6 +95,27 @@ var TEMAS = {
    ]
   },
   {
+   "id": "producto",
+   "nombre": "Producto y requisitos",
+   "senales": [
+    "requerimiento",
+    "requisito",
+    "historia de usuario",
+    "backlog",
+    "scrum",
+    "product owner",
+    "analista funcional",
+    "bpmn",
+    "casos de uso",
+    "stakeholder",
+    "relevamiento",
+    "jira",
+    "kanban",
+    "agile",
+    "ágil"
+   ]
+  },
+  {
    "id": "calidad",
    "nombre": "Calidad y testing",
    "senales": [
@@ -317,6 +338,18 @@ var TEMAS = {
   }
  ],
  "puestos": [
+  {
+   "id": "analista_funcional",
+   "nombre": "Analista funcional",
+   "resumen": "Traducir lo que el negocio necesita a algo que un equipo puede construir, y de vuelta.",
+   "temas": {
+    "producto": 3,
+    "sql": 2,
+    "viz": 2,
+    "modelado": 1,
+    "calidad": 1
+   }
+  },
   {
    "id": "tester",
    "nombre": "QA / Tester",
@@ -649,6 +682,13 @@ var TEMAS = {
     "id": "n08",
     "t": "Empezar en ingeniería de datos",
     "min": 300
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f09",
+    "t": "SQL: mirar los datos tú mismo",
+    "min": 240
    }
   ],
   "python": [
@@ -1347,13 +1387,6 @@ var TEMAS = {
    {
     "ruta": "mlaplicado",
     "archivo": "ml-aplicado.html",
-    "id": "a21",
-    "t": "Qué siente la gente sobre un producto",
-    "min": 60
-   },
-   {
-    "ruta": "mlaplicado",
-    "archivo": "ml-aplicado.html",
     "id": "a22",
     "t": "Atención al cliente por voz",
     "min": 50
@@ -1788,6 +1821,13 @@ var TEMAS = {
     "id": "n08",
     "t": "Empezar en ingeniería de datos",
     "min": 300
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f08",
+    "t": "Casos de uso y UML",
+    "min": 60
    }
   ],
   "calidad": [
@@ -2111,6 +2151,13 @@ var TEMAS = {
     "id": "s08",
     "t": "Visualización con R",
     "min": 360
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f10",
+    "t": "Power BI, del lado de quien pide",
+    "min": 300
    }
   ],
   "deep": [
@@ -2627,6 +2674,71 @@ var TEMAS = {
     "archivo": "claude.html",
     "id": "c16",
     "t": "The AI-Native SDLC Playbook",
+    "min": 60
+   }
+  ],
+  "producto": [
+   {
+    "ruta": "mlaplicado",
+    "archivo": "ml-aplicado.html",
+    "id": "a21",
+    "t": "Qué siente la gente sobre un producto",
+    "min": 60
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f01",
+    "t": "El Manifiesto Ágil, el original",
+    "min": 20
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f02",
+    "t": "La Guía Scrum",
+    "min": 120
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f03",
+    "t": "Scrum en la práctica",
+    "min": 120
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f04",
+    "t": "Historias de usuario",
+    "min": 120
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f05",
+    "t": "Épicas, historias y temas",
+    "min": 60
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f06",
+    "t": "Preguntar bien: investigación con usuarios",
+    "min": 120
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f07",
+    "t": "BPMN, la referencia completa",
+    "min": 180
+   },
+   {
+    "ruta": "funcional",
+    "archivo": "funcional.html",
+    "id": "f08",
+    "t": "Casos de uso y UML",
     "min": 60
    }
   ],

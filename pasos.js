@@ -5287,5 +5287,200 @@ var PASOS = [
   ],
   "nivel": "Desde cero",
   "nivelN": 0
+ },
+ {
+  "archivo": "funcional.html",
+  "clave": "funcional",
+  "nombre": "Analista funcional",
+  "actos": [
+   "Cómo se trabaja",
+   "Escribir lo que se pide",
+   "Dibujar el proceso",
+   "Lo técnico que sí hace falta"
+  ],
+  "pasos": [
+   {
+    "id": "f01",
+    "t": "El Manifiesto Ágil, el original",
+    "min": 20,
+    "act": 1,
+    "time": "20 min",
+    "sum": "Cuatro valores y doce principios, en una página. Es corto a propósito, y es de donde salió todo lo que después te van a vender en cursos de tres días.",
+    "goal": "Terminas esta parte cuando reconoces qué de lo que hace tu equipo es ágil y qué es una reunión con otro nombre.",
+    "cert": "",
+    "i": "",
+    "u": "https://agilemanifesto.org/iso/es/manifesto.html",
+    "boss": true,
+    "wins": [
+     "El documento original, en español, gratis",
+     "Veinte minutos que te ahorran discusiones de años",
+     "Sirve para detectar cuándo alguien usa la palabra sin el contenido"
+    ]
+   },
+   {
+    "id": "f02",
+    "t": "La Guía Scrum",
+    "min": 120,
+    "act": 1,
+    "time": "2 h",
+    "sum": "El documento oficial: los roles, los eventos y los artefactos, sin interpretación de nadie. Trece páginas.",
+    "goal": "Terminas esta parte cuando distingues Scrum de lo que tu empresa llama Scrum.",
+    "cert": "",
+    "i": "",
+    "u": "https://scrumguides.org/scrum-guide.html",
+    "boss": false,
+    "wins": [
+     "Qué es cada ceremonia y para qué existe de verdad",
+     "Dónde entra el analista funcional en ese marco",
+     "Es la fuente: todo curso pago de Scrum explica esto"
+    ]
+   },
+   {
+    "id": "f03",
+    "t": "Scrum en la práctica",
+    "min": 120,
+    "act": 1,
+    "time": "2 h",
+    "sum": "La guía de Atlassian: lo mismo pero contado por quienes hacen la herramienta donde vas a cargar los tickets. Con los problemas reales que la guía oficial no cuenta.",
+    "goal": "Terminas esta parte cuando sabes qué hacer cuando el sprint no entra.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.atlassian.com/agile/scrum",
+    "boss": false,
+    "wins": [
+     "Cómo se ve el marco cuando lo aplica gente con apuro",
+     "El vocabulario de Jira, que es donde vas a trabajar",
+     "Los errores típicos, contados antes de que los cometas"
+    ]
+   },
+   {
+    "id": "f04",
+    "t": "Historias de usuario",
+    "min": 120,
+    "act": 2,
+    "time": "2 h",
+    "sum": "El corazón del oficio: pasar de «quiero que el sistema haga algo» a algo que un equipo puede construir y verificar. Quién, qué y para qué.",
+    "goal": "Terminas esta parte cuando escribes una historia que el desarrollador no tiene que venir a preguntarte.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.atlassian.com/agile/project-management/user-stories",
+    "boss": true,
+    "wins": [
+     "La forma de la historia, y por qué esa forma y no otra",
+     "Criterios de aceptación: cómo se sabe que está hecho",
+     "Es lo que te van a pedir escribir el primer día"
+    ]
+   },
+   {
+    "id": "f05",
+    "t": "Épicas, historias y temas",
+    "min": 60,
+    "act": 2,
+    "time": "1 h 30",
+    "sum": "Cómo se agrupa el trabajo cuando no entra en una historia. Es lo que evita el backlog de trescientos tickets sueltos.",
+    "goal": "Terminas esta parte cuando partes un pedido grande en piezas que se pueden entregar de a una.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.atlassian.com/agile/project-management/epics-stories-themes",
+    "boss": false,
+    "wins": [
+     "Partir sin romper: cada pieza tiene que servir sola",
+     "Los niveles, para poder hablar con negocio y con desarrollo",
+     "Ordenar un backlog en vez de acumularlo"
+    ]
+   },
+   {
+    "id": "f06",
+    "t": "Preguntar bien: investigación con usuarios",
+    "min": 120,
+    "act": 2,
+    "time": "2 h",
+    "sum": "Nielsen Norman Group, que es la autoridad del tema. Qué método usar según lo que necesitas saber, y por qué preguntarle a la gente qué quiere casi nunca funciona.",
+    "goal": "Terminas esta parte cuando eliges cómo averiguar algo en vez de mandar una encuesta por defecto.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.nngroup.com/articles/which-ux-research-methods/",
+    "boss": false,
+    "wins": [
+     "Qué método sirve para qué pregunta",
+     "Por qué lo que la gente dice y lo que hace no coinciden",
+     "Es la diferencia entre tomar el pedido y entender el problema"
+    ]
+   },
+   {
+    "id": "f07",
+    "t": "BPMN, la referencia completa",
+    "min": 180,
+    "act": 3,
+    "time": "3 h",
+    "sum": "El idioma con el que se dibuja un proceso: qué significa cada figura, y por qué un diagrama mal hecho esconde justamente lo que hay que discutir. Camunda publica la referencia entera.",
+    "goal": "Terminas esta parte cuando dibujas un proceso y el que lo lee entiende lo mismo que tú.",
+    "cert": "",
+    "i": "",
+    "u": "https://camunda.com/bpmn/reference/",
+    "boss": true,
+    "wins": [
+     "Cada figura y qué quiere decir, sin ambigüedad",
+     "Dónde se esconden las excepciones, que es donde está el trabajo",
+     "Es notación estándar: lo lee cualquiera, en cualquier empresa"
+    ]
+   },
+   {
+    "id": "f08",
+    "t": "Casos de uso y UML",
+    "min": 60,
+    "act": 3,
+    "time": "1 h 30",
+    "sum": "La notación anterior a BPMN, que sigue viva en la mitad de las empresas grandes. Vale conocerla porque te la vas a encontrar escrita.",
+    "goal": "Terminas esta parte cuando lees un diagrama de casos de uso ajeno sin traductor.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.uml-diagrams.org/use-case-diagrams.html",
+    "boss": false,
+    "wins": [
+     "Actores, casos y relaciones",
+     "Cuándo un caso de uso dice más que una historia",
+     "Poder trabajar donde ya está elegido"
+    ]
+   },
+   {
+    "id": "f09",
+    "t": "SQL: mirar los datos tú mismo",
+    "min": 240,
+    "act": 4,
+    "time": "4 h 30",
+    "sum": "Es lo que separa a un analista funcional de alguien que toma notas. Poder responder «¿cuántos casos hay así?» sin pedirle a nadie que lo consulte.",
+    "goal": "Terminas esta parte cuando contestas una pregunta del negocio con una consulta, en el momento.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.stratascratch.com/learn/comprehensive-sql/introduction-to-databases-and-sql",
+    "boss": true,
+    "wins": [
+     "SELECT, filtros y JOINs: alcanza para el noventa por ciento",
+     "Verificar un supuesto antes de escribir el requisito",
+     "Es la habilidad que más rápido te cambia el peso en una reunión"
+    ]
+   },
+   {
+    "id": "f10",
+    "t": "Power BI, del lado de quien pide",
+    "min": 300,
+    "act": 4,
+    "time": "5 h",
+    "sum": "No para construir tableros, sino para saber qué se puede pedir, qué cuesta caro y por qué el dato no está como lo quieres.",
+    "goal": "Terminas esta parte cuando pides un tablero sabiendo qué implica cada cosa que pediste.",
+    "cert": "",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/get-started-power-bi/",
+    "boss": false,
+    "wins": [
+     "Qué se puede y qué no, antes de prometerlo",
+     "El vocabulario para hablar con el equipo de datos",
+     "Gratis, en español, de Microsoft"
+    ]
+   }
+  ],
+  "nivel": "Desde cero",
+  "nivelN": 0
  }
 ];
