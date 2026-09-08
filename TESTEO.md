@@ -545,25 +545,26 @@ Las poses salen en: la portada (saluda), el pozo del CV mientras lee
 día (cohete), los días libres de la agenda (duerme), la invitación al
 café (cafe) y el festejo común (festeja).
 
-- **Todas tienen cola**, y es pomposa: una espina curva con cuatro
-  mechones, no un cable. La única sin cola es la del cohete, y es a
-  propósito: ahí de ella se ve la cabeza por la ventanilla y nada más.
-- La de dormir la lleva enroscada alrededor, de manta.
-- La cola sale del **lomo bajo**, no del hombro. **Falla si** parece
-  un ala o un brazo levantado.
+- **Todas tienen cola**, y es **la misma del logo**: el mismo path,
+  escalado. **Falla si** es otra: dos dibujos de la misma cola es uno
+  que sobra. La única sin cola es la del cohete, y es a propósito:
+  ahí de ella se ve la cabeza por la ventanilla y nada más.
 
 **Escarbando**, que es la que más se mira porque sale mientras el
 sitio lee tu CV:
 
-- Se le ven **dos brazos** bajando al pozo, de un tono más claro que
-  el cuerpo, moviéndose **alternados**
+- Tiene una **pala** en la mano izquierda, metida en el pozo
+- Lo que sale volando son **fichas de curso**, no grumos de tierra:
+  el dibujo tiene que decir para qué cava, no sólo que cava
 - El borde del pozo le **cruza el cuerpo**: la mitad de abajo está
-  adentro
-- Está inclinada hacia adelante y la cola le queda alta
+  adentro, y está inclinada hacia adelante
+- La cola va del lado contrario a la pala
 
-**Falla si** parece sentada detrás de un montículo, o si abajo se ven
-dos óvalos iguales a la misma altura: eso son pies, y era lo que
-había.
+**Falla si** parece sentada detrás de un montículo. Y **falla si le
+cuelgan dos formas verticales del cuerpo**: hubo una versión con dos
+brazos largos bajando del hombro y no se leían como brazos. Cualquier
+cosa vertical y redondeada a esa altura se lee mal, y no hay animación
+que lo arregle.
 
 ---
 

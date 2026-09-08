@@ -35,35 +35,32 @@ var Chin = (function(){
       '<ellipse class="c-oreja-in" cx="62.4" cy="23" rx="4.6" ry="6.4" transform="rotate(21 62.4 23)"/>';
   }
 
-  /* La cola pomposa.
+  /* La cola: la misma del logo.
 
-     Una chinchilla sin cola se lee como un raton gordo. La tenia solo
-     la pose de dormir, y ahi hace de manta.
+     Habia una inventada aca -una espina con circulos encima- y no
+     hacia falta: la cola ya existia, dibujada, en el logo del nav,
+     del pie y del globo. Dos dibujos de la misma cola es una que
+     sobra, y encima la que sobraba era la peor.
 
-     Es una espina curva de trazo grueso con tres mechones encima: a
-     104 pixeles, eso es lo que separa "pomposa" de "de raton". Un
-     solo trazo, por grueso que sea, sale liso.
+     El path viene tal cual del logo, que esta en un lienzo de 24x24.
+     La transformacion lo lleva a este, de 100x92, calculada para que
+     el cuerpo del logo caiga exactamente sobre el cuerpo de la pose:
+     el logo tiene el cuerpo en (14.2, 17.2) con rx 5.8 y la pose en
+     (50, 60) con rx 21, o sea escala 21/5.8 = 3.6207.
 
-     `lado` es -1 o 1 porque el lugar libre cambia en cada pose: la
-     lupa ocupa la derecha, la taza tambien, y el brazo del saludo va
-     por ahi. `alto` sube la punta cuando el cuerpo esta inclinado.
+     `lado` la espeja: en el logo va a la izquierda, y en algunas
+     poses ese lado esta ocupado. */
+  var COLA = "M 6.47 17.58 Q 6.26 19.36 5.23 17.77 Q 4.28 19.19 4.10 17.39 " +
+             "Q 2.68 18.16 3.32 16.56 Q 1.79 16.60 3.03 15.53 Q 1.74 14.90 " +
+             "3.24 14.54 Q 2.44 13.45 3.85 13.80 C 4.4 10.6 7.6 10.0 9.4 11.8 " +
+             "C 10.6 14.2 10.4 17.2 9.6 19.4 Z";
 
-     Va antes del cuerpo en cada pose, para salir por detras. */
-  function cola(lado, x, y, alto){
-    var d = lado || 1, ax = (x === undefined ? 68 : x),
-        ay = (y === undefined ? 70 : y), up = alto || 0;
-    function p(dx, dy){ return (ax + d * dx) + " " + (ay + dy - up); }
-    /* Sale de abajo del lomo y sube por afuera. Empezaba a la altura
-       del hombro y con mechones de radio 6: eso no era una cola, era
-       un ala pegada al costado de la cabeza. */
-    return '<g class="c-cola-g">' +
-      '<path class="c-cola" d="M' + p(-2, 0) +
-        'Q' + p(15, 2) + " " + p(17, -15) + '"/>' +
-      '<circle class="c-mecha" cx="' + (ax + d * 7)  + '" cy="' + (ay + 1 - up)  + '" r="4.8"/>' +
-      '<circle class="c-mecha" cx="' + (ax + d * 13) + '" cy="' + (ay - 3 - up)  + '" r="4.6"/>' +
-      '<circle class="c-mecha" cx="' + (ax + d * 16) + '" cy="' + (ay - 10 - up) + '" r="4.2"/>' +
-      '<circle class="c-mecha" cx="' + (ax + d * 17) + '" cy="' + (ay - 16 - up) + '" r="3.4"/>' +
-      '</g>';
+  function cola(lado){
+    var t = "translate(-1.41 -2.28) scale(3.6207)";
+    /* Espejada sobre el centro del cuerpo, para que caiga igual del
+       otro lado y no se corra. */
+    if(lado === 1) t = "translate(100 0) scale(-1 1) " + t;
+    return '<path class="c-cola" transform="' + t + '" d="' + COLA + '"/>';
   }
 
   function ojos(cerrados){
@@ -87,16 +84,22 @@ var Chin = (function(){
     /* Escarbando: medio cuerpo adentro del pozo y la tierra saltando.
        Es lo que hace la chinchilla y lo que hace el sitio. */
     escarba: function(){
+      /* Lo que sale del pozo son cursos, no tierra.
+
+         Es lo que hace el sitio: escarba y saca cursos. Con grumos de
+         tierra el dibujo era una chinchilla cavando y nada mas; con
+         fichas que salen volando dice ademas para que cava. */
+      function ficha(x, y, g){
+        return '<g class="c-ficha" transform="translate(' + x + ' ' + y +
+                 ') rotate(' + g + ')">' +
+          '<rect x="-7" y="-5" width="14" height="10" rx="2.6"/>' +
+          '<rect class="c-ficha-l" x="-4.4" y="-2.2" width="8.8" height="1.6" rx=".8"/>' +
+          '<rect class="c-ficha-l" x="-4.4" y="1" width="5.6" height="1.6" rx=".8"/>' +
+          '</g>';
+      }
       return '<g class="c-cava">' +
-          '<g class="c-tierra">' +
-            '<circle cx="20" cy="72" r="3.2"/>' +
-            '<circle cx="27" cy="66" r="2.2"/>' +
-            '<circle cx="15" cy="66" r="1.8"/>' +
-          '</g>' +
-          '<g class="c-tierra c-tierra-2">' +
-            '<circle cx="80" cy="70" r="2.8"/>' +
-            '<circle cx="73" cy="64" r="2"/>' +
-          '</g>' +
+          '<g class="c-tierra">' + ficha(20, 70, -18) + ficha(28, 62, 12) + '</g>' +
+          '<g class="c-tierra c-tierra-2">' + ficha(80, 68, 20) + '</g>' +
           /* Inclinada hacia el pozo. Derecha y con dos patas abajo
              era una chinchilla sentada detras de un monticulo: la
              postura tenia que decir "cabeza adentro" antes que
@@ -104,20 +107,39 @@ var Chin = (function(){
           '<g class="c-bicho" transform="rotate(-9 50 74)">' +
             /* Y por eso la cola queda alta: es lo que mas se ve de
                una chinchilla metida en un pozo. */
-            cola(1, 70, 60, 12) +
+            cola(1) +
             cuerpo() + ojos(false) + hocico() +
-            /* Brazos, no pies. Eran dos ovalos iguales a la misma
-               altura abajo del cuerpo, o sea estar parada. Salen del
-               hombro, bajan al pozo -las manos quedan tapadas por el
-               monticulo, que es donde tienen que estar- y se mueven
-               alternados. */
-            '<g class="c-brazo-cava c-brazo-izq">' +
-              '<path class="c-hueso" d="M36 57L26 74"/>' +
-              '<ellipse class="c-pata" cx="25" cy="76" rx="6" ry="4.6"/>' +
+            /* Las manos apoyadas en el borde, anchas y horizontales.
+
+               Antes eran dos brazos largos bajando del hombro. No
+               hace falta describir a que se parecian: la respuesta de
+               quien lo miro fue "dos penes colgando", y tenia razon.
+               Cualquier cosa vertical y redondeada colgando de un
+               cuerpo a esa altura se lee asi, y no hay animacion que
+               lo arregle.
+
+               Lo que dice "esta cavando" es la postura y el pozo, no
+               los brazos: inclinada hacia adelante, el borde del pozo
+               cruzandole el cuerpo, la tierra saltando y la cola
+               arriba. Las manos solo asoman en el borde. */
+            /* La pala va en la mano izquierda porque la cola ocupa la
+               derecha: ahi quedaba tapada por ella y no se entendia
+               que estaba agarrando algo.
+
+               Va debajo de la mano, para que se lea que la sostiene y
+               no que flota al lado. */
+            '<g class="c-mano-cava c-mano-izq">' +
+              '<g class="c-pala">' +
+                '<path class="c-pala-m" d="M22 52L34 72"/>' +
+                '<path class="c-pala-h" d="M30 69l8-5 6 9-8 5Z"/>' +
+              '</g>' +
+              '<ellipse class="c-pata" cx="33" cy="71" rx="7.5" ry="4.4" ' +
+                'transform="rotate(30 33 71)"/>' +
             '</g>' +
-            '<g class="c-brazo-cava c-brazo-der">' +
-              '<path class="c-hueso" d="M60 60L70 74"/>' +
-              '<ellipse class="c-pata" cx="71" cy="76" rx="6" ry="4.6"/>' +
+            /* La otra mano solo asoma en el borde. */
+            '<g class="c-mano-cava c-mano-der">' +
+              '<ellipse class="c-pata" cx="66" cy="76" rx="7.5" ry="4.4" ' +
+                'transform="rotate(12 66 76)"/>' +
             '</g>' +
           '</g>' +
         '</g>' +
@@ -132,13 +154,10 @@ var Chin = (function(){
     /* Dormida, hecha un ovillo, con la cola de manta. */
     duerme: function(){
       return '<g class="c-duerme">' +
-          /* Acá hace de manta, enroscada, así que no usa cola():
-             es la única pose donde la cola no va detrás sino
-             alrededor. Los mechones la hacen pomposa igual. */
-          '<path class="c-cola" d="M74 62q16 -4 14 10q-2 12 -16 8"/>' +
-          '<circle class="c-mecha" cx="84" cy="64" r="6"/>' +
-          '<circle class="c-mecha" cx="88" cy="72" r="5.6"/>' +
-          '<circle class="c-mecha" cx="82" cy="79" r="5.2"/>' +
+          /* La misma cola que las demas. Girarla para que hiciera de
+             manta la despegaba del cuerpo y quedaba flotando al
+             costado. */
+          cola(1) +
           cuerpo() + ojos(true) + hocico() +
           '<g class="c-zzz">' +
             '<text x="74" y="26" class="c-z c-z1">z</text>' +
@@ -149,7 +168,7 @@ var Chin = (function(){
 
     /* Buscando: la lupa y la cabeza ladeada. */
     busca: function(){
-      return '<g class="c-busca">' + cola(-1, 32, 70, 0) +
+      return '<g class="c-busca">' + cola(-1) +
         cuerpo() + ojos(false) + hocico() + '</g>' +
         '<g class="c-lupa">' +
           '<circle class="c-lupa-c" cx="76" cy="58" r="12"/>' +
@@ -160,7 +179,7 @@ var Chin = (function(){
     /* Festejando: las patas arriba y confeti. */
     festeja: function(){
       return '<g class="c-salta">' +
-          cola(1, 68, 70, 0) +
+          cola(1) +
           cuerpo() + ojos(false) + hocico() +
           '<ellipse class="c-pata" cx="28" cy="50" rx="6" ry="4.5" transform="rotate(-40 28 50)"/>' +
           '<ellipse class="c-pata" cx="72" cy="50" rx="6" ry="4.5" transform="rotate(40 72 50)"/>' +
@@ -205,7 +224,7 @@ var Chin = (function(){
        desde el hombro: la mano sola, sin brazo, eran dos manchas a
        treinta pixeles una de otra. */
     saluda: function(){
-      return cola(-1, 32, 70, 0) + cuerpo() + ojos(false) + hocico() +
+      return cola(-1) + cuerpo() + ojos(false) + hocico() +
         '<ellipse class="c-pata" cx="34" cy="74" rx="6" ry="4.5"/>' +
         '<g class="c-brazo">' +
           '<path class="c-hueso" d="M66 60L75 45"/>' +
@@ -215,7 +234,7 @@ var Chin = (function(){
 
     /* Con el cafe: va al lado de la invitacion, y nada mas. */
     cafe: function(){
-      return '<g class="c-toma">' + cola(-1, 32, 70, 0) +
+      return '<g class="c-toma">' + cola(-1) +
           cuerpo() + ojos(false) + hocico() +
           '<ellipse class="c-pata" cx="30" cy="66" rx="6" ry="4.5"/>' +
         '</g>' +
