@@ -168,6 +168,13 @@ POR_TRAMO = {
  # Full Stack Open: cada tramo ensena algo distinto y los titulos
  # estan en espanol pero no usan el vocabulario de datos, asi que
  # sin esto los quince pasos caerian en el mismo saco.
+ # Testing: cada tramo suma calidad, que es lo suyo, y ademas el
+ # mundo sobre el que se prueba en ese tramo.
+ ("testing", 1):      ["calidad"],
+ ("testing", 2):      ["calidad", "prog"],
+ ("testing", 3):      ["calidad", "web", "backend"],
+ ("testing", 4):      ["calidad", "cloud"],
+
  ("fullstack", 1):    ["web", "prog"],
  ("fullstack", 2):    ["backend", "calidad"],
  ("fullstack", 3):    ["web"],
@@ -198,6 +205,13 @@ POR_RUTA = {
 # Cuanto pide cada puesto de cada tema: 3 es el dia a dia, 2 se usa
 # seguido, 1 se toca. Lo que no figura, no se pide.
 PUESTOS = [
+ # Un puesto sin ruta no se puede recomendar, y una ruta sin puesto
+ # no la encuentra nadie desde el CV.
+ {"id": "tester", "nombre": u"QA / Tester",
+  "resumen": u"Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
+  "temas": {"calidad": 3, "prog": 2, "web": 2, "backend": 2, "cloud": 1,
+            "sql": 1}},
+
  {"id": "data_engineer", "nombre": u"Data Engineer",
   "resumen": u"Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
   "temas": {"sql": 3, "python": 3, "modelado": 3, "pipelines": 3, "cloud": 2,

@@ -318,6 +318,19 @@ var TEMAS = {
  ],
  "puestos": [
   {
+   "id": "tester",
+   "nombre": "QA / Tester",
+   "resumen": "Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
+   "temas": {
+    "calidad": 3,
+    "prog": 2,
+    "web": 2,
+    "backend": 2,
+    "cloud": 1,
+    "sql": 1
+   }
+  },
+  {
    "id": "data_engineer",
    "nombre": "Data Engineer",
    "resumen": "Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
@@ -892,6 +905,27 @@ var TEMAS = {
     "id": "f14",
     "t": "Parte 14 &middot; Next.js",
     "min": 1020
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t10",
+    "t": "Que las pruebas corran en cada cambio",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t11",
+    "t": "Playwright en integración continua",
+    "min": 60
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t13",
+    "t": "Accesibilidad: probar que se pueda usar",
+    "min": 120
    }
   ],
   "pipelines": [
@@ -971,6 +1005,13 @@ var TEMAS = {
     "id": "g06",
     "t": "Un pipeline de datos simple",
     "min": 90
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t12",
+    "t": "Carga: qué pasa cuando entran mil",
+    "min": 180
    }
   ],
   "ml": [
@@ -1395,6 +1436,20 @@ var TEMAS = {
     "id": "f02",
     "t": "Parte 2 &middot; Hablar con el servidor",
     "min": 1020
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t04",
+    "t": "Fixtures: preparar y limpiar",
+    "min": 180
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t05",
+    "t": "Vitest, lo mismo en JavaScript",
+    "min": 120
    }
   ],
   "modelado": [
@@ -1651,6 +1706,90 @@ var TEMAS = {
     "id": "f05",
     "t": "Parte 5 &middot; Probar el frontend y varias pantallas",
     "min": 1020
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t01",
+    "t": "El sílabo de ISTQB Foundation",
+    "min": 360
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t02",
+    "t": "La pirámide de pruebas, de Martin Fowler",
+    "min": 45
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t03",
+    "t": "pytest, de cero",
+    "min": 180
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t04",
+    "t": "Fixtures: preparar y limpiar",
+    "min": 180
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t05",
+    "t": "Vitest, lo mismo en JavaScript",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t06",
+    "t": "Playwright, la primera prueba",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t07",
+    "t": "Encontrar elementos sin que se rompa mañana",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t08",
+    "t": "Cypress, la otra escuela",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t09",
+    "t": "Probar APIs",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t10",
+    "t": "Que las pruebas corran en cada cambio",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t11",
+    "t": "Playwright en integración continua",
+    "min": 60
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t13",
+    "t": "Accesibilidad: probar que se pueda usar",
+    "min": 120
    }
   ],
   "bigdata": [
@@ -2458,6 +2597,34 @@ var TEMAS = {
     "id": "f10",
     "t": "Parte 10 &middot; React Native",
     "min": 1020
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t06",
+    "t": "Playwright, la primera prueba",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t07",
+    "t": "Encontrar elementos sin que se rompa mañana",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t08",
+    "t": "Cypress, la otra escuela",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t09",
+    "t": "Probar APIs",
+    "min": 120
    }
   ],
   "backend": [
@@ -2523,6 +2690,34 @@ var TEMAS = {
     "id": "f14",
     "t": "Parte 14 &middot; Next.js",
     "min": 1020
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t06",
+    "t": "Playwright, la primera prueba",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t07",
+    "t": "Encontrar elementos sin que se rompa mañana",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t08",
+    "t": "Cypress, la otra escuela",
+    "min": 120
+   },
+   {
+    "ruta": "testing",
+    "archivo": "testing.html",
+    "id": "t09",
+    "t": "Probar APIs",
+    "min": 120
    }
   ]
  }

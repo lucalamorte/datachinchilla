@@ -119,6 +119,15 @@ for r in rutas:
         mal += 1
         print(u"  %-20s %-16s activa %s, tendria que activar %s" %
               (r["archivo"], u"la clave", k, r["clave"]))
+    # Y la otra, que decide si sale el pie de "segui por aca". Se
+    # heredaba igual de mal al copiar una pagina, y esta comprobacion
+    # miraba solo MI_RUTA: tres rutas quedaron creyendo ser AI:
+    # fundamentos sin que doliera en ningun lado.
+    m2 = re.search(r'var MI_CLAVE = "([^"]*)"', h)
+    if m2 and m2.group(1) != r["clave"]:
+        mal += 1
+        print(u"  %-20s %-16s dice ser %s, y es %s" %
+              (r["archivo"], u"MI_CLAVE", m2.group(1), r["clave"]))
     if k in vistas:
         mal += 1
         print(u"  %-20s %-16s comparte la clave %s con %s" %
@@ -160,6 +169,25 @@ elif _a != _b:
     mal += 1
     print(u"  %-20s %-16s catalog.js dice %s, index.html dice %s" %
           ("index.html", u"los alias", _a, _b))
+
+# --- y que ninguna ruta prometa la credencial de otra
+#
+# Es la tercera vez que una pagina copiada se trae texto de la
+# original: MI_RUTA, MI_CLAVE, y "dejan insignia de Anthropic" en tres
+# rutas que no dejan nada de eso. Dos estaban publicadas. Prometer una
+# credencial que no existe es lo peor que puede decir un sitio que se
+# sostiene en que lo que dice es verdad.
+for _r in rutas:
+    if _r["archivo"] == "claude.html":
+        continue
+    try:
+        _h = io.open(_r["archivo"], encoding="utf-8").read()
+    except IOError:
+        continue
+    if "Anthropic" in _h:
+        mal += 1
+        print(u"  %-20s %-16s promete algo de Anthropic, y no es la ruta de Claude" %
+              (_r["archivo"], u"la credencial"))
 
 print()
 print(u"los numeros coinciden" if not mal else

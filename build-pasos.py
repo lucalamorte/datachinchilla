@@ -35,6 +35,7 @@ RUTAS = [
     ("web3.html",           "web3",         u"Web3"),
     ("fullstack.html",      "fullstack",    u"Full Stack Open"),
     ("airflow.html",        "airflow",      u"Airflow"),
+    ("testing.html",        "testing",      u"Testing y QA"),
 ]
 
 # Cuánto dura un paso, en minutos. El texto viene como lo escribe cada
@@ -84,6 +85,7 @@ NIVELES = {
     "web3.html": u"Desde cero",
     "fullstack.html": u"Con programación sabida",
     "airflow.html": u"Con Python sabido",
+    "testing.html": u"Desde cero",
 }
 
 ORDEN_NIVEL = {

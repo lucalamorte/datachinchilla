@@ -2893,6 +2893,149 @@ var CATALOGO = [
   "hs": "a tu ritmo",
   "nivel": "Curso 8",
   "pago": false
+ },
+ {
+  "id": "testing:t01",
+  "nodo": "t01",
+  "ruta": "testing",
+  "n": 1,
+  "t": "El sílabo de ISTQB Foundation",
+  "d": "El vocabulario con el que la industria habla de esto: qué es un defecto, qué es una prueba de caja negra, qué significa cobertura. Se baja gratis en PDF y trae exámenes de ejemplo, también gratis.",
+  "hs": "6 h",
+  "nivel": "Curso 1",
+  "pago": false
+ },
+ {
+  "id": "testing:t02",
+  "nodo": "t02",
+  "ruta": "testing",
+  "n": 2,
+  "t": "La pirámide de pruebas, de Martin Fowler",
+  "d": "Qué probar en cada nivel y por qué. Es el artículo que evita el error más caro de todos: escribir cincuenta pruebas de interfaz para algo que se probaba con tres unitarias.",
+  "hs": "45 min",
+  "nivel": "Curso 2",
+  "pago": false
+ },
+ {
+  "id": "testing:t03",
+  "nodo": "t03",
+  "ruta": "testing",
+  "n": 3,
+  "t": "pytest, de cero",
+  "d": "El framework de pruebas de Python. Instalarlo, escribir la primera prueba, entender qué pasa cuando falla y cómo se lee el error.",
+  "hs": "3 h",
+  "nivel": "Curso 3",
+  "pago": false
+ },
+ {
+  "id": "testing:t04",
+  "nodo": "t04",
+  "ruta": "testing",
+  "n": 4,
+  "t": "Fixtures: preparar y limpiar",
+  "d": "Lo que separa un puñado de pruebas de una suite: cómo se prepara el estado que cada prueba necesita, y cómo se deja todo limpio después.",
+  "hs": "3 h",
+  "nivel": "Curso 4",
+  "pago": false
+ },
+ {
+  "id": "testing:t05",
+  "nodo": "t05",
+  "ruta": "testing",
+  "n": 5,
+  "t": "Vitest, lo mismo en JavaScript",
+  "d": "El equivalente del lado del navegador. Si vas a probar una aplicación web, las unitarias van acá.",
+  "hs": "2 h",
+  "nivel": "Curso 5",
+  "pago": false
+ },
+ {
+  "id": "testing:t06",
+  "nodo": "t06",
+  "ruta": "testing",
+  "n": 6,
+  "t": "Playwright, la primera prueba",
+  "d": "Automatizar el navegador de verdad: abrir la página, hacer clic, escribir, comprobar. Es la herramienta que se está llevando el mercado.",
+  "hs": "2 h",
+  "nivel": "Curso 6",
+  "pago": false
+ },
+ {
+  "id": "testing:t07",
+  "nodo": "t07",
+  "ruta": "testing",
+  "n": 7,
+  "t": "Encontrar elementos sin que se rompa mañana",
+  "d": "El tema que decide si tu suite sobrevive un rediseño. Localizar por rol y por texto en vez de por la clase CSS que alguien va a cambiar.",
+  "hs": "2 h",
+  "nivel": "Curso 7",
+  "pago": false
+ },
+ {
+  "id": "testing:t08",
+  "nodo": "t08",
+  "ruta": "testing",
+  "n": 8,
+  "t": "Cypress, la otra escuela",
+  "d": "La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir vos la que usa la empresa donde entres.",
+  "hs": "2 h",
+  "nivel": "Curso 8",
+  "pago": false
+ },
+ {
+  "id": "testing:t09",
+  "nodo": "t09",
+  "ruta": "testing",
+  "n": 9,
+  "t": "Probar APIs",
+  "d": "Lo que hay detrás de la pantalla. Escribir comprobaciones sobre las respuestas de un servicio: códigos, cuerpos, errores.",
+  "hs": "2 h",
+  "nivel": "Curso 9",
+  "pago": false
+ },
+ {
+  "id": "testing:t10",
+  "nodo": "t10",
+  "ruta": "testing",
+  "n": 10,
+  "t": "Que las pruebas corran en cada cambio",
+  "d": "Una suite que hay que acordarse de correr no sirve. Acá se conecta a GitHub Actions para que corra sola en cada commit.",
+  "hs": "2 h",
+  "nivel": "Curso 10",
+  "pago": false
+ },
+ {
+  "id": "testing:t11",
+  "nodo": "t11",
+  "ruta": "testing",
+  "n": 11,
+  "t": "Playwright en integración continua",
+  "d": "La parte específica: correr pruebas de navegador en un servidor que no tiene pantalla, y guardar la evidencia de lo que falló.",
+  "hs": "1 h 30",
+  "nivel": "Curso 11",
+  "pago": false
+ },
+ {
+  "id": "testing:t12",
+  "nodo": "t12",
+  "ruta": "testing",
+  "n": 12,
+  "t": "Carga: qué pasa cuando entran mil",
+  "d": "k6 es de código abierto y se escribe en JavaScript. Simular carga real y ver dónde se cae el sistema antes de que se caiga solo.",
+  "hs": "3 h",
+  "nivel": "Curso 12",
+  "pago": false
+ },
+ {
+  "id": "testing:t13",
+  "nodo": "t13",
+  "ruta": "testing",
+  "n": 13,
+  "t": "Accesibilidad: probar que se pueda usar",
+  "d": "La guía del W3C para evaluar accesibilidad. Es requisito legal en cada vez más lugares, y casi nadie lo prueba.",
+  "hs": "2 h",
+  "nivel": "Curso 13",
+  "pago": false
  }
 ];
 
@@ -3036,5 +3179,13 @@ var CATALOGO_RUTAS = [
   "color": "#0E6B78",
   "icono": "flow",
   "orden": 17
+ },
+ {
+  "id": "testing",
+  "nombre": "Testing y QA",
+  "archivo": "testing.html",
+  "color": "#15803D",
+  "icono": "check",
+  "orden": 18
  }
 ];

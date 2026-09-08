@@ -4861,5 +4861,254 @@ var PASOS = [
   ],
   "nivel": "Con Python sabido",
   "nivelN": 2
+ },
+ {
+  "archivo": "testing.html",
+  "clave": "testing",
+  "nombre": "Testing y QA",
+  "actos": [
+   "Qué es probar",
+   "Probar el código",
+   "Probar la aplicación",
+   "Que corra solo"
+  ],
+  "pasos": [
+   {
+    "id": "t01",
+    "t": "El sílabo de ISTQB Foundation",
+    "min": 360,
+    "act": 1,
+    "time": "6 h",
+    "sum": "El vocabulario con el que la industria habla de esto: qué es un defecto, qué es una prueba de caja negra, qué significa cobertura. Se baja gratis en PDF y trae exámenes de ejemplo, también gratis.",
+    "goal": "Terminas esta parte cuando entiendes qué te están pidiendo en una entrevista de QA sin traducir mentalmente.",
+    "cert": "",
+    "i": "",
+    "u": "https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/",
+    "boss": true,
+    "wins": [
+     "El vocabulario común: sin esto, cada equipo te lo explica distinto",
+     "Los niveles y tipos de prueba, que es lo que se pregunta siempre",
+     "Exámenes de ejemplo gratis para saber si te alcanza"
+    ]
+   },
+   {
+    "id": "t02",
+    "t": "La pirámide de pruebas, de Martin Fowler",
+    "min": 45,
+    "act": 1,
+    "time": "45 min",
+    "sum": "Qué probar en cada nivel y por qué. Es el artículo que evita el error más caro de todos: escribir cincuenta pruebas de interfaz para algo que se probaba con tres unitarias.",
+    "goal": "Terminas esta parte cuando, ante una funcionalidad nueva, sabes en qué nivel conviene probarla.",
+    "cert": "",
+    "i": "",
+    "u": "https://martinfowler.com/articles/practical-test-pyramid.html",
+    "boss": false,
+    "wins": [
+     "Por qué una prueba de interfaz cuesta cien veces más que una unitaria",
+     "Dónde poner el esfuerzo cuando el tiempo no alcanza",
+     "El lenguaje que vas a escuchar en cualquier equipo que pruebe en serio"
+    ]
+   },
+   {
+    "id": "t03",
+    "t": "pytest, de cero",
+    "min": 180,
+    "act": 2,
+    "time": "3 h",
+    "sum": "El framework de pruebas de Python. Instalarlo, escribir la primera prueba, entender qué pasa cuando falla y cómo se lee el error.",
+    "goal": "Terminas esta parte cuando escribes una prueba que falla, la lees, y arreglas el código en vez de la prueba.",
+    "cert": "",
+    "i": "",
+    "u": "https://docs.pytest.org/en/stable/getting-started.html",
+    "boss": true,
+    "wins": [
+     "Escribir y correr pruebas sin ceremonia",
+     "Leer un fallo y saber qué te está diciendo",
+     "Es la base de todo lo demás: lo de arriba no reemplaza esto"
+    ]
+   },
+   {
+    "id": "t04",
+    "t": "Fixtures: preparar y limpiar",
+    "min": 180,
+    "act": 2,
+    "time": "3 h",
+    "sum": "Lo que separa un puñado de pruebas de una suite: cómo se prepara el estado que cada prueba necesita, y cómo se deja todo limpio después.",
+    "goal": "Terminas esta parte cuando tus pruebas no dependen del orden en que corren.",
+    "cert": "",
+    "i": "",
+    "u": "https://docs.pytest.org/en/stable/how-to/fixtures.html",
+    "boss": false,
+    "wins": [
+     "Preparar datos sin copiar y pegar en cada prueba",
+     "Por qué una suite que depende del orden es una suite rota",
+     "Alcances: qué se arma una vez y qué se arma cada vez"
+    ]
+   },
+   {
+    "id": "t05",
+    "t": "Vitest, lo mismo en JavaScript",
+    "min": 120,
+    "act": 2,
+    "time": "2 h",
+    "sum": "El equivalente del lado del navegador. Si vas a probar una aplicación web, las unitarias van acá.",
+    "goal": "Terminas esta parte cuando pruebas una función de tu frontend sin abrir el navegador.",
+    "cert": "",
+    "i": "",
+    "u": "https://vitest.dev/guide/",
+    "boss": false,
+    "wins": [
+     "Las mismas ideas, en el otro lenguaje",
+     "Correr las pruebas mientras escribes, no al final",
+     "Simulacros: cómo se prueba algo que llama a un servidor"
+    ]
+   },
+   {
+    "id": "t06",
+    "t": "Playwright, la primera prueba",
+    "min": 120,
+    "act": 3,
+    "time": "2 h",
+    "sum": "Automatizar el navegador de verdad: abrir la página, hacer clic, escribir, comprobar. Es la herramienta que se está llevando el mercado.",
+    "goal": "Terminas esta parte cuando una prueba tuya recorre tu aplicación sola y te dice si algo se rompió.",
+    "cert": "",
+    "i": "",
+    "u": "https://playwright.dev/docs/intro",
+    "boss": true,
+    "wins": [
+     "Instalar y correr, que en esta herramienta es de verdad rápido",
+     "Escribir una prueba que hace lo que haría una persona",
+     "Ver la grabación de la prueba que falló, que es la mitad del trabajo"
+    ]
+   },
+   {
+    "id": "t07",
+    "t": "Encontrar elementos sin que se rompa mañana",
+    "min": 120,
+    "act": 3,
+    "time": "2 h",
+    "sum": "El tema que decide si tu suite sobrevive un rediseño. Localizar por rol y por texto en vez de por la clase CSS que alguien va a cambiar.",
+    "goal": "Terminas esta parte cuando tus pruebas siguen pasando después de que el equipo toca el HTML.",
+    "cert": "",
+    "i": "",
+    "u": "https://playwright.dev/docs/locators",
+    "boss": false,
+    "wins": [
+     "Localizadores que describen qué hace el elemento, no dónde está",
+     "Por qué el selector CSS es la causa número uno de pruebas frágiles",
+     "De paso, te obliga a mirar la accesibilidad de la página"
+    ]
+   },
+   {
+    "id": "t08",
+    "t": "Cypress, la otra escuela",
+    "min": 120,
+    "act": 3,
+    "time": "2 h",
+    "sum": "La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir vos la que usa la empresa donde entres.",
+    "goal": "Terminas esta parte cuando lees una suite de Cypress ajena y sabes qué hace.",
+    "cert": "",
+    "i": "",
+    "u": "https://docs.cypress.io/app/get-started/why-cypress",
+    "boss": false,
+    "wins": [
+     "El mismo problema resuelto con otra filosofía",
+     "Qué gana y qué pierde contra Playwright",
+     "Poder trabajar donde ya está elegida"
+    ]
+   },
+   {
+    "id": "t09",
+    "t": "Probar APIs",
+    "min": 120,
+    "act": 3,
+    "time": "2 h",
+    "sum": "Lo que hay detrás de la pantalla. Escribir comprobaciones sobre las respuestas de un servicio: códigos, cuerpos, errores.",
+    "goal": "Terminas esta parte cuando una API rota se detecta antes de que alguien abra la aplicación.",
+    "cert": "",
+    "i": "",
+    "u": "https://learning.postman.com/docs/writing-scripts/test-scripts/",
+    "boss": true,
+    "wins": [
+     "Comprobar respuestas, no solo mirarlas",
+     "Encadenar pedidos: usar lo que devolvió uno en el siguiente",
+     "Es la capa más barata de probar y la que más problemas encuentra"
+    ]
+   },
+   {
+    "id": "t10",
+    "t": "Que las pruebas corran en cada cambio",
+    "min": 120,
+    "act": 4,
+    "time": "2 h",
+    "sum": "Una suite que hay que acordarse de correr no sirve. Acá se conecta a GitHub Actions para que corra sola en cada commit.",
+    "goal": "Terminas esta parte cuando un cambio que rompe algo no llega a la rama principal.",
+    "cert": "",
+    "i": "",
+    "u": "https://docs.github.com/en/actions/writing-workflows/quickstart",
+    "boss": true,
+    "wins": [
+     "Un flujo que corre tus pruebas sin que nadie apriete nada",
+     "Bloquear lo que rompe, que es el punto de todo esto",
+     "Es lo que separa 'tengo pruebas' de 'las pruebas me cuidan'"
+    ]
+   },
+   {
+    "id": "t11",
+    "t": "Playwright en integración continua",
+    "min": 60,
+    "act": 4,
+    "time": "1 h 30",
+    "sum": "La parte específica: correr pruebas de navegador en un servidor que no tiene pantalla, y guardar la evidencia de lo que falló.",
+    "goal": "Terminas esta parte cuando puedes ver el video de la prueba que falló anoche.",
+    "cert": "",
+    "i": "",
+    "u": "https://playwright.dev/docs/ci-intro",
+    "boss": false,
+    "wins": [
+     "Navegador sin pantalla, que es donde todos se traban la primera vez",
+     "Guardar rastros y videos de lo que fallo",
+     "Correr en paralelo para que la suite no tarde una hora"
+    ]
+   },
+   {
+    "id": "t12",
+    "t": "Carga: qué pasa cuando entran mil",
+    "min": 180,
+    "act": 4,
+    "time": "3 h",
+    "sum": "k6 es de código abierto y se escribe en JavaScript. Simular carga real y ver dónde se cae el sistema antes de que se caiga solo.",
+    "goal": "Terminas esta parte cuando sabes cuántos usuarios aguanta lo que probaste, con un número.",
+    "cert": "",
+    "i": "",
+    "u": "https://grafana.com/docs/k6/latest/get-started/running-k6/",
+    "boss": false,
+    "wins": [
+     "Medir en vez de suponer",
+     "La diferencia entre lento y roto",
+     "Es lo que te preguntan cuando algo se cayó y nadie sabe por qué"
+    ]
+   },
+   {
+    "id": "t13",
+    "t": "Accesibilidad: probar que se pueda usar",
+    "min": 120,
+    "act": 4,
+    "time": "2 h",
+    "sum": "La guía del W3C para evaluar accesibilidad. Es requisito legal en cada vez más lugares, y casi nadie lo prueba.",
+    "goal": "Terminas esta parte cuando encuentras los problemas de accesibilidad de un sitio con un método y no a ojo.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.w3.org/WAI/test-evaluate/",
+    "boss": true,
+    "wins": [
+     "Qué se puede comprobar automático y qué hay que mirar a mano",
+     "Es de las pocas habilidades de QA que se piden y no abundan",
+     "Se cruza con los localizadores: probar bien y ser accesible van juntos"
+    ]
+   }
+  ],
+  "nivel": "Desde cero",
+  "nivelN": 0
  }
 ];

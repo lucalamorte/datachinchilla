@@ -28,6 +28,7 @@ PAGINAS = [
     "ai-fundamentos.html", "deep-learning.html", "llm-agentes.html",
     "claude.html",
     "ml-aplicado.html", "web3.html", "fullstack.html", "airflow.html",
+    "testing.html",
     "mi-ruta.html",
     "preguntas.html",
     "recursos.html",

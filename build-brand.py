@@ -126,6 +126,12 @@ PAGINAS = {
         "color": u"#0C0818",
         "ogtitulo": u"Preguntas frecuentes",
     },
+    "testing.html": {
+        "titulo": u"Testing y QA gratis, en orden \u00b7 " + MARCA,
+        "desc": u"Probar software sin pagar nada: el s\u00edlabo de ISTQB y la documentaci\u00f3n oficial de Playwright, Cypress, pytest y k6, en el orden que conviene.",
+        "color": u"#08121C",
+        "ogtitulo": u"Testing y QA, en orden",
+    },
     "airflow.html": {
         "titulo": u"Airflow gratis, en orden · " + MARCA,
         "desc": u"Orquestación con Apache Airflow sin pagar nada: los caminos de Astronomer Academy y los cinco tutoriales oficiales de Apache, en orden.",
