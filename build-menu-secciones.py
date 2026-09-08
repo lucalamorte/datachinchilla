@@ -106,6 +106,9 @@ CSS = u'''
   letter-spacing:.1em; text-transform:uppercase; color:var(--text-3);
 }
 .menu-t:first-child{ margin-top:4px; }
+/* En fila: el icono al lado del texto, no encima. `.menu-i` venia en
+   columna de cuando la fila era solo <b> y <span>. */
+.menu-i{ flex-direction:row; align-items:center; gap:11px; }
 .mi-ico-caja{
   display:grid; place-items:center; flex-shrink:0;
   width:30px; height:30px; border-radius:var(--r-md);

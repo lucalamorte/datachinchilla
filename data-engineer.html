@@ -332,7 +332,14 @@ svg{ flex-shrink:0; }
 .chip.paid{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 30%, transparent); }
 /* qué lo publica el fabricante y qué deja una credencial */
 .chip.official{ background:var(--accent-soft); color:var(--accent-strong); border-color:var(--accent-line); }
-.chip.cert{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
+/* "cred", no "cert": `.cert` ya era la tarjeta grande de la
+   constancia -padding 26px, degradado, borde de acento- y el chip
+   se llevaba todo eso puesto. Un modificador con el nombre de un
+   componente que ya existe no es un modificador, es el componente.
+   Por eso "Pago" se veia bien y "Certificacion gratis" era un
+   ladrillo amarillo: la unica diferencia entre los dos era la
+   clase. */
+.chip.cred{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
 .res .txt .t .chip{ margin-left:6px; vertical-align:middle; }
 
 /* node states */
@@ -990,6 +997,9 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   letter-spacing:.1em; text-transform:uppercase; color:var(--text-3);
 }
 .menu-t:first-child{ margin-top:4px; }
+/* En fila: el icono al lado del texto, no encima. `.menu-i` venia en
+   columna de cuando la fila era solo <b> y <span>. */
+.menu-i{ flex-direction:row; align-items:center; gap:11px; }
 .mi-ico-caja{
   display:grid; place-items:center; flex-shrink:0;
   width:30px; height:30px; border-radius:var(--r-md);
@@ -1325,8 +1335,8 @@ function icon(name, size){
    por eso lleva su nombre y no dice "oficial". */
 function pills(tipo){
   if(tipo === "oficial") return '<span class="chip official">Oficial</span>';
-  if(tipo === "fcc") return '<span class="chip cert">Certificación gratis</span>';
-  if(tipo === "udemy") return '<span class="chip cert">Certificado de Udemy</span>';
+  if(tipo === "fcc") return '<span class="chip cred">Certificación gratis</span>';
+  if(tipo === "udemy") return '<span class="chip cred">Certificado de Udemy</span>';
   return "";
 }
 

@@ -328,7 +328,14 @@ svg{ flex-shrink:0; }
 /* qué es del fabricante y qué deja una credencial */
 .chip.official{ background:var(--ice-soft); color:var(--ice-strong); border-color:var(--ice-line); }
 .chip.badge{ background:var(--good-soft); color:var(--good); border-color:color-mix(in srgb, var(--good) 30%, transparent); }
-.chip.cert{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
+/* "cred", no "cert": `.cert` ya era la tarjeta grande de la
+   constancia -padding 26px, degradado, borde de acento- y el chip
+   se llevaba todo eso puesto. Un modificador con el nombre de un
+   componente que ya existe no es un modificador, es el componente.
+   Por eso "Pago" se veia bien y "Certificacion gratis" era un
+   ladrillo amarillo: la unica diferencia entre los dos era la
+   clase. */
+.chip.cred{ background:var(--warn-soft); color:var(--warn); border-color:color-mix(in srgb, var(--warn) 34%, transparent); }
 .res .txt .t .chip{ margin-left:6px; vertical-align:middle; }
 .node-meta .chip.cert, .node-meta .chip.badge{ font-weight:800; }
 
@@ -1052,6 +1059,9 @@ dialog.sheet.wide{ width:min(760px,calc(100vw - 32px)); }
   letter-spacing:.1em; text-transform:uppercase; color:var(--text-3);
 }
 .menu-t:first-child{ margin-top:4px; }
+/* En fila: el icono al lado del texto, no encima. `.menu-i` venia en
+   columna de cuando la fila era solo <b> y <span>. */
+.menu-i{ flex-direction:row; align-items:center; gap:11px; }
 .mi-ico-caja{
   display:grid; place-items:center; flex-shrink:0;
   width:30px; height:30px; border-radius:var(--r-md);
@@ -2285,7 +2295,7 @@ function renderMap(){
                 '<span class="node-meta">' +
                   '<span class="chip time">' + icon("clock", 11) + '<span class="num">' + n.time + '</span></span>' +
                   '<span class="chip weight">' + n.weight + '</span>' +
-                  (nodeCredential(n) === "cert" ? '<span class="chip cert">' + icon("boss", 11) + 'Certificación oficial</span>' : '') +
+                  (nodeCredential(n) === "cert" ? '<span class="chip cred">' + icon("boss", 11) + 'Certificación oficial</span>' : '') +
                   (nodeCredential(n) === "badge" ? '<span class="chip badge">' + icon("check", 11) + 'Deja badge</span>' : '') +
                   (n.isNew ? '<span class="chip new">' + icon("check", 11) + 'Sumado para el examen</span>' : '') +
                 '</span>' +
@@ -2701,7 +2711,7 @@ function openSheet(id){
 /* Oficial = lo publica el fabricante del producto. Badge y certificación
    solo se ponen donde está confirmado que dejan una credencial. */
 function pills(tipo){
-  if(tipo === "cert") return '<span class="chip cert">' + icon("boss", 11) + 'Certificación oficial</span>';
+  if(tipo === "cert") return '<span class="chip cred">' + icon("boss", 11) + 'Certificación oficial</span>';
   if(tipo === "badge") return '<span class="chip official">Oficial</span>' +
                               '<span class="chip badge">' + icon("check", 11) + 'Deja badge</span>';
   if(tipo === "oficial") return '<span class="chip official">Oficial</span>';
