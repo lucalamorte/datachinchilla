@@ -1,260 +1,383 @@
 # Guion de prueba de DataChinchilla
 
-Para pasarle a un agente con navegador. Cada caso dice qué hacer y qué
-tiene que pasar. Si algo no coincide, es un fallo: anotá el caso, lo
-que esperabas y lo que viste.
+Para pasárselo a un agente con navegador. Cada caso dice qué hacer y
+qué tiene que pasar. Si algo no coincide, es un fallo: anota el caso,
+lo que esperabas y lo que viste.
 
 **Sitio:** <https://datachinchilla.com>
+
+**Cómo saber qué versión estás probando:** abre
+<https://datachinchilla.com/version.txt>. Devuelve el commit que está
+publicado. Si reportas un fallo, incluí ese número: sin él no se sabe
+si probaste lo de ahora o lo de ayer.
 
 ---
 
 ## Antes de empezar
 
 El sitio guarda todo en el navegador. Para probar como alguien que
-entra por primera vez, abrí la consola (F12) y corré:
+entra por primera vez, abre la consola (F12) y corre:
 
 ```js
 localStorage.clear(); location.reload();
 ```
 
-Hacelo antes de cualquier caso que diga "desde cero". Sin eso vas a
+Hazlo antes de cualquier caso que diga **desde cero**. Sin eso vas a
 estar probando sobre datos viejos y los resultados no valen.
+
+También funciona agregar `?reset` a la dirección.
+
+**Deja la consola abierta todo el tiempo.** Casi todos los fallos de
+este sitio aparecieron primero como un error en rojo. Si ves uno,
+cópialo aunque la página se vea bien.
 
 ---
 
 ## 1. La portada, sin haber hecho nada
 
-**Desde cero.** Abrí la portada.
+**Desde cero.** Abre la portada.
 
 Tiene que verse:
 
 - El título "El camino completo para trabajar en tech"
 - **Tres tarjetas y nada más**: "Empecemos por tu CV", "Ármala a mano",
-  "O mira las 16 rutas"
-- Abajo, "Práctica diaria" con dos tarjetas (Python y SQL)
-- Más abajo, el catálogo de rutas
-- Un globo de la chinchilla abajo a la derecha que dice "Hola, soy la
-  chinchilla" y "Paso 1 de 9"
+  "O mira las 22 rutas"
+- "Práctica diaria" con dos tarjetas (Python y SQL)
+- El catálogo de rutas, con seis tarjetas y un botón para ver el resto
+- Un globo de la chinchilla que dice "Hola, soy la chinchilla" y
+  "Paso 1 de 9"
 
-**Falla si:** el CV se pide dos veces en la misma pantalla (había un
-banner duplicado abajo de las tarjetas; ya no tiene que estar).
+**No tiene que verse** el renglón de la agenda ni el bloque "Tu ruta":
+quien no configuró nada no tiene agenda que mostrar.
 
 ---
 
-## 2. El recorrido guiado, entero
+## 2. El menú, en todas las páginas
+
+Arriba a la derecha hay un botón de tres rayas. Ábrelo en la portada,
+en `/cv`, en `/practica` y en una ruta cualquiera.
+
+- Tiene ocho destinos: Inicio, Tu CV, Ármala a mano, Todas las rutas,
+  Práctica diaria, Tu semana, Recursos, Preguntas
+- **Marca dónde estás**: el destino de la página actual sale resaltado
+- Cierra con Escape y con un clic afuera, no sólo con su botón
+
+---
+
+## 3. El recorrido guiado, entero
 
 Es el caso más importante. **Desde cero.**
 
-Seguí el globo tocando siempre su botón, y anotá el número de paso que
-muestra. Tienen que salir los nueve, en este orden y en estas páginas:
+Sigue el globo tocando siempre su botón y anota el número de paso.
+Tienen que salir los nueve, en este orden y en estas páginas:
 
 | Paso | Dice | Dónde estás |
 |---|---|---|
 | 1 de 9 | Hola, soy la chinchilla | portada |
-| 2 de 9 | Primero, cuéntame de vos | portada |
+| 2 de 9 | Primero, cuéntame de ti | portada |
 | 3 de 9 | ¿A dónde vas? | cv |
 | 4 de 9 | Ahora sí, tu experiencia | cv |
 | 5 de 9 | Esto ya lo sabes | cv |
 | 6 de 9 | Y esto es lo que falta | cv |
-| 7 de 9 | Ahora, cuándo | una ruta |
-| 8 de 9 | Tus días y tu rato | semana |
-| 9 de 9 | Listo. Elige por dónde | portada |
+| 7 de 9 | Ésta es tu ruta | una ruta |
+| 8 de 9 | Acá se arma tu semana | semana |
+| 9 de 9 | Listo, ésta es tu portada | portada |
 
-En el paso 4 vas a tener que pegar un CV de verdad en el textarea para
-poder seguir. Usá el de la sección 12.
+En el paso 4 vas a tener que pegar un CV de verdad para poder seguir.
+Usa el de la sección 14.
 
-Entre el paso 6 y el 7 el globo no aparece: tenés que tocar el botón
-**"Guardarla y ver mi ruta"** de la página, que es el que guarda. El
-globo del paso 6 solo confirma que lo leíste.
+Entre el paso 6 y el 7 el globo no avanza solo: tienes que tocar
+**"Guardarla y ver mi ruta"** en la página.
 
 **Falla si:** el globo desaparece en alguna página y no vuelve. Es el
-bug que más veces volvió. Si pasa, anotá en qué paso y en qué página.
+bug que más veces volvió. Anota en qué paso y en qué página.
 
-**Falla si:** el globo aparece pegado a la esquina de arriba a la
-izquierda, flotando sobre el contenido en vez de al lado de lo que hay
-que tocar.
+**Falla si:** el globo aparece pegado a una esquina, flotando sobre el
+contenido en vez de al lado de lo que hay que tocar.
+
+### 3b. Salir del recorrido
+
+- **No tiene que haber un botón "Saltear".** Si lo ves, es un fallo:
+  se sacó a propósito, había dos salidas para lo mismo.
+- La **cruz** de arriba a la derecha del globo tiene que **preguntar
+  antes** de cerrar. Si cancelas, el globo sigue ahí.
+- El botón **"Atrás"** vuelve al paso anterior, y si ese paso vive en
+  otra página, te lleva a esa página.
+
+### 3c. El botón de la interrogación
+
+Arriba a la derecha hay un botón `?`. Pruébalo en **`/practica`**, que
+no es la portada:
+
+- **Desde cero**, te lleva a la portada y abre el recorrido en el paso
+  2, saltando el saludo.
+- **Con un CV ya cargado**, te lleva a `/cv`, que es donde el recorrido
+  está de verdad, y el globo aparece ahí.
+
+**Falla si:** no pasa nada al tocarlo, o si te deja en una página sin
+globo. Ese era el bug: el botón era decorativo fuera de la portada.
 
 ---
 
-## 3. El popup de la cuenta se puede cerrar
+## 4. El popup de la cuenta se puede cerrar
 
 En **cada una** de estas páginas: portada, `/cv`, `/practica`,
-`/semana`, y una ruta cualquiera (`/dbt`).
+`/semana` y una ruta cualquiera (`/dbt`).
 
-Tocá "Entrar" arriba a la derecha y probá cerrarlo de tres formas:
+Toca "Entrar" y prueba cerrarlo de tres formas:
 
-1. La cruz de arriba a la derecha del recuadro
-2. Un clic afuera del recuadro, sobre el fondo oscuro
+1. La cruz del recuadro
+2. Un clic afuera, sobre el fondo oscuro
 3. La tecla Escape
 
-**Las tres tienen que cerrarlo.** Un modal que no se puede cerrar deja
-a quien lo abrió sin salida más que recargar la página.
-
-Este bug estaba justo en las cuatro páginas principales, así que
-probalas todas y no solo una.
+**Las tres tienen que cerrarlo.**
 
 ---
 
-## 4. El CV se lee y no se pierde
+## 5. El CV, paso por paso
 
-**Desde cero.** Andá a `/cv`.
+**Desde cero.** Anda a `/cv`.
 
-1. Elegí el puesto **Data Engineer**
-2. Pegá el CV de la sección 12 en el textarea
-3. Esperá unos segundos
+La página tiene **cinco pasos numerados**: El puesto, Tu experiencia,
+Tus skills, Para afinar, Tu ruta.
 
-Tiene que aparecer:
+### 5a. Los trece puestos
 
-- **"Esto ya lo tienes"** con chips de temas (SQL, Python, Pipelines...).
-  Cada chip tiene una **cruz** para sacarlo.
-- **"Tu ruta es Subir de nivel"** con un porcentaje de cobertura
-- Un botón "Guardarla y ver mi ruta"
+En el paso 1 hay **trece** puestos. Cada uno tiene tres cosas: el
+nombre, qué hace, y **debajo de una línea, en qué se diferencia**.
 
-**Ahora la parte que importa:** recargá la página (F5).
+| | |
+|---|---|
+| Data Engineer | Data Analyst |
+| Data Scientist | ML Engineer |
+| AI Engineer | Big Data Engineer |
+| Cloud Engineer | Desarrollador Full Stack |
+| Desarrollador Frontend | Desarrollador Backend |
+| Desarrollador Web3 | QA / Tester |
+| Analista funcional | |
 
-El CV tiene que **seguir ahí**: el textarea con el texto y el resultado
-abajo. Si la página abre en blanco y hay que subir el CV de nuevo, es
-un fallo (pasaba hasta hace poco).
+**Falla si** alguno no tiene la línea de diferencia.
 
----
+### 5b. El CV se lee y no se pierde
 
-## 5. Los temas se pueden sacar
+Elige **Data Engineer** y pega el CV de la sección 14.
 
-Seguí en `/cv` con el CV cargado.
+Tiene que aparecer, en el paso 3, chips con los temas que reconoció,
+cada uno con una **cruz** para sacarlo. Y en el paso 5, la ruta.
 
-1. Anotá el porcentaje que dice "Cubre el N% de lo que te falta"
-2. Tocá la **cruz** de un chip, por ejemplo "Big data"
-3. El chip desaparece y aparece abajo, tachado, bajo "Sacaste"
-4. **El porcentaje tiene que cambiar** (la ruta se rehace sin ese tema)
-5. Tocá el chip tachado: vuelve arriba y el porcentaje se recalcula
+**Ahora lo que importa:** recarga la página (F5). El CV tiene que
+**seguir ahí**, con el textarea lleno y el resultado abajo.
 
-Recargá la página: **lo que sacaste tiene que seguir sacado.**
+### 5c. Sacar y agregar temas
 
----
+En el paso 3:
 
-## 6. Sumar y sacar rutas de tu semana
+1. Anota el porcentaje que dice "Cubre el N%"
+2. Toca la **cruz** de un chip. Desaparece y aparece abajo, bajo
+   "Sacaste". **El porcentaje tiene que cambiar.**
+3. Toca el chip tachado: vuelve arriba y el porcentaje se recalcula
+4. Toca **"Agregar una que sepas"**. Se abre un panel con los temas
+   que todavía no tienes. Elige uno: aparece arriba como chip, con
+   **borde punteado** (es tuyo, no salió del CV), y el panel ya no lo
+   ofrece.
 
-Se puede hacer desde tres lugares y los tres tienen que coincidir.
+Recarga: **lo que sacaste sigue sacado y lo que agregaste sigue
+agregado.**
 
-**Desde una ruta:** andá a `/dbt`. Arriba, al lado de "Empezar por",
-hay un botón que dice "Sumar a tu semana" o "Está en tu semana".
-Tocalo. El texto cambia y aparece un cartel de la chinchilla abajo a la
-izquierda.
+### 5d. Las preguntas, de a una
 
-**Desde el catálogo:** en la portada, bajá hasta las rutas. Cada
-tarjeta tiene un botón "Sumar a mi semana" / "En tu semana". Buscá dbt:
-tiene que reflejar lo que acabás de hacer.
+El paso 4 tiene **cinco** preguntas y muestra **una sola por vez**:
 
-**Desde la semana:** andá a `/semana`. Hay una lista "Qué entra en tu
-semana" con las 15 rutas. dbt tiene que estar marcada igual.
+1. ¿Programas?
+2. ¿Construiste algo que se vea en pantalla?
+3. ¿Y del otro lado: APIs, servidores, bases?
+4. ¿Trabajaste con datos para que otro decida?
+5. ¿Nube e infraestructura?
 
-Cambiá el estado desde cualquiera de los tres y verificá que los otros
-dos lo muestren. **No hace falta tener CV cargado para esto.**
+- Arriba dice "1 de 5" y hay cinco puntos para saltar a cualquiera
+- Al **contestar**, pasa sola a la siguiente
+- Las flechas "Anterior" y "Siguiente" funcionan
+- La opción elegida queda marcada con el color de acento
 
----
+**Falla si** salen las cinco juntas, o si el título y la ayuda de la
+pregunta aparecen pegados en el mismo renglón.
 
-## 7. La semana se arma sola
+### 5e. La frase de privacidad
 
-En `/semana`, con al menos una ruta activa:
+Abajo del paso 2 tiene que decir que **tu CV no se envía a ningún
+servidor**, que se procesa en el navegador y que no se comparte.
 
-1. Elegí días (lunes, miércoles, viernes)
-2. Elegí una franja (a la noche)
-3. Movés las horas por semana
-
-Abajo tiene que armarse la semana con bloques concretos: qué día, qué
-curso y cuánto rato.
-
-**Falla si:** un día se llena de muchos bloques chiquitos. El tope son
-**dos bloques de estudio por día**, por más horas que pongas.
-
-Volvé a la portada: la agenda tiene que aparecer con lo mismo.
-
----
-
-## 8. La práctica y la racha
-
-Andá a `/practica`.
-
-- Hay dos bancos: **Blind 75** (Python) y **Consultas de entrevistas**
-  (SQL)
-- Los enunciados abren en LeetCode y StrataScratch, en su sitio
-- Marcá **dos** problemas del mismo banco
-
-Al marcar el segundo tiene que aparecer un cartel con la chinchilla en
-un cohete: "El día está cerrado".
-
-Volvé a la portada: en la fila de hoy de la agenda tiene que verse
-"2/2".
-
-La chinchilla con el café aparece con **los dos bancos** cerrados, no
-con uno: son 2 de Python y 2 de SQL. Con uno solo no tiene que estar.
-Y la fila de hoy solo muestra el contador si hoy es un día que
-marcaste en tu semana; si hoy te toca libre, dice "Libre" y está
-bien.
-
-**Probá también los vacíos:** escribí algo sin sentido en el buscador
-("zzzz"). Tiene que aparecer la chinchilla con una lupa y un texto que
-diga qué hacer, no un renglón gris.
+**Falla si** dice "se lee acá, en tu navegador": era la redacción vieja.
 
 ---
 
-## 9. La chinchilla está en todos lados
+## 6. Que cada puesto reciba su ruta
 
-No hay que hacer nada para que aparezcan. En cualquier página:
+Este es el caso que más bugs encontró. **Desde cero para cada uno.**
 
-- Una **escarbando** al lado del texto de entrada, arriba
-- **Huellas** entre sección y sección, donde haya al menos tres
-  secciones a la vista. En `/practica` hay una sola, así que ahí no
-  van, y en `/cv` los pasos que todavía no se abrieron no cuentan.
-- Una que se **asoma** por el borde de arriba del pie, cada 7 segundos
-- Una **huella chiquita** al lado del rótulo de cada bloque. En `/cv`
-  los rótulos llevan número de paso en vez de huella.
+En `/cv`, elige el puesto, pega el CV, y comprueba la ruta.
 
-Si tenés activado "reducir movimiento" en el sistema, la que se asoma
-en el pie se queda quieta y visible en vez de aparecer cada 7
-segundos. Es a propósito: sin su animación quedaría fuera de cuadro.
+| Puesto | Pega esto | Tiene que recomendar |
+|---|---|---|
+| Cloud Engineer | `Sysadmin 4 anios. Linux, bash, algo de Python. Nunca use la nube ni contenedores.` | **Credenciales de nube** |
+| QA / Tester | `Soporte 3 anios. Reporto bugs, escribo casos de prueba. Algo de SQL. No tengo experiencia en automatizacion.` | **Testing y QA** |
+| Desarrollador Web3 | `Desarrollador React y Node. Nunca toque un contrato inteligente ni blockchain.` | **Web3** |
+| Analista funcional | `Administrativo. Excel. No conozco Scrum ni BPMN ni SQL.` | **Analista funcional** |
+| Data Analyst | `Analista de negocio. Excel y SQL en Postgres. No manejo ninguna herramienta de visualizacion ni tableros.` | **Visualización y BI** |
+| ML Engineer | `Data scientist. Python, scikit-learn, entreno modelos. Estadistica y experimentos A/B. No puse ninguno en produccion.` | **MLOps** |
 
-En el pie tiene que haber **una sola** chinchilla (la de la marca).
-Si ves tres en el mismo renglón, es un fallo.
+**Falla si** un puesto recibe la ruta de otro. Pasó: un sysadmin
+recibía la ruta de testing porque esa ruta estaba etiquetada de más.
 
 ---
 
-## 10. Los números coinciden
+## 7. Las negaciones
 
-Entrá a estas rutas y comparen el título con el contador de arriba:
+El motor tiene que entender lo que **no** sabes. **Desde cero**, en
+`/cv`, con el puesto Data Engineer, pega:
 
-El catálogo dice "las 15 rutas" y el filtro "Todo 15": son las que se
-pueden hacer. La grilla muestra 16 tarjetas porque hay una anunciada,
-sin página.
+```
+Analista con 4 anos. SQL en Snowflake y Postgres, stored procedures.
+Modelado dimensional con dbt. Power BI para los tableros. Python con
+pandas.
+
+Lo que me falta: no tengo experiencia en Spark ni en Kubernetes.
+Ganas de aprender machine learning en produccion.
+```
+
+En "Esto ya lo sabes" tienen que estar SQL, Modelado, Python,
+Visualización. **No tienen que estar** Big data, Nube ni Machine
+learning: el CV dice explícitamente que no los tiene.
+
+**Falla si** aparece cualquiera de esos tres. Es el bug de las
+negaciones: antes "no tengo experiencia en Spark" contaba igual que
+"cinco años con Spark".
+
+**Y la trampa al revés:** pega `No solo Python, tambien R.` Python
+**sí** tiene que aparecer: "no solo" no es una negación.
+
+---
+
+## 8. Sumar y sacar rutas de tu semana
+
+Se puede desde tres lugares y los tres tienen que coincidir.
+
+- **Desde una ruta:** en `/dbt`, arriba, "Sumar a tu semana"
+- **Desde el catálogo:** en la portada, cada tarjeta tiene su botón
+- **Desde la semana:** en `/semana`, la lista con las 22 rutas
+
+Cambia el estado desde cualquiera y verifica que los otros dos lo
+muestren. **No hace falta tener CV cargado.**
+
+---
+
+## 9. La semana y la agenda
+
+En `/semana`, con al menos una ruta activa: elige días, franja y
+horas. Abajo se arma la semana con bloques concretos.
+
+**Falla si** un día se llena de bloques chiquitos: el tope son **dos
+bloques de estudio por día**.
+
+Ahora vuelve a la portada. Tiene que verse, **sin scrollear**:
+
+- Un renglón en el hero que dice **"Hoy: N horas"** con lo que toca, y
+  un enlace "Ver la agenda"
+- Más abajo, la agenda de los siete días, **antes** del bloque "Tu
+  ruta"
+
+**Falla si** hay que bajar dos pantallas para encontrar la agenda.
+
+### 9b. Los bloques dicen algo útil
+
+Mira los nombres de los bloques.
+
+- Un paso que **entra en la semana** se numera: "parte 1 de 3",
+  "parte 2 de 3", y se cierra
+- Un paso que **no entra** no lleva número: dice el tamaño, por
+  ejemplo "50 horas en total"
+
+**Falla si** ves "parte 1 de 40", o si el mismo bloque dice "parte 1"
+semana tras semana. El número no avanzaba entre semanas.
+
+---
+
+## 10. La práctica
+
+Anda a `/practica`.
+
+- Dos bancos: **Blind 75** (Python, 75 problemas) y **Consultas de
+  entrevistas** (SQL, 64)
+- Los enunciados abren en LeetCode y StrataScratch
+- Hay **tres filtros** con su número: "Por hacer", "Resueltos",
+  "Todos"
+
+**Marcar pide cuenta.** Sin haber entrado, tocar el tilde no marca
+nada: tiene que aparecer el cartel de la cuenta.
+
+Con cuenta, marca dos del mismo banco: aparece "El día está cerrado".
+
+Toca **"Resueltos"**: salen sólo los que marcaste, y el número del
+filtro coincide.
+
+**Los vacíos:** busca "zzzz". Tiene que aparecer la chinchilla con una
+lupa y un texto que diga qué hacer, no un renglón gris.
+
+---
+
+## 11. Los números coinciden
+
+Compara el título de cada ruta con el contador de arriba.
 
 | Ruta | Tiene que decir |
 |---|---|
-| `/dbt` | "Cuatro tramos, veintitrés pasos" y "0/23" arriba |
-| `/subir-nivel` | "Cinco tramos, diecisiete cursos" y "0/17" |
-| `/claude` | "Cinco tramos, dieciséis cursos" y "0/16" |
-| `/llm-agentes` | "Cuatro credenciales, veintiocho pasos" y "0/28" |
+| `/cs50` | "Cuatro tramos, treinta y siete pasos" y "0/37" |
+| `/dbt` | "Cuatro tramos, veintitrés pasos" y "0/23" |
+| `/testing` | "Cuatro tramos, trece pasos" y "0/13" |
+| `/mlops` | "Cuatro tramos, trece pasos" y "0/13" |
+| `/nube` | "Cuatro tramos, nueve pasos" y "0/9" |
+| `/visualizacion` | "Tres tramos, nueve pasos" y "0/9" |
+| `/funcional` | "Cuatro tramos, diez pasos" y "0/10" |
 
 **Falla si** el texto dice una cantidad y el contador otra.
 
+Y al terminar una ruta, el botón grande dice **"Los N pasos"** con el
+número de esa ruta. **Falla si** dice "Las quince partes": ése era el
+número de Full Stack Open, heredado por copiar la página.
+
 ---
 
-## 11. Marcar un curso
+## 12. CS50, semana por semana
 
-En `/dbt`, tocá cualquier tarjeta de curso. Se abre una hoja con el
-detalle. Tocá "Marcar como completado".
+Anda a `/cs50`. Tiene **37 pasos**, no once cursos.
 
-- El cartel de la chinchilla aparece **por encima** de la hoja, no
-  detrás del velo gris
+- Los primeros son **"CS50x · Semana 0 · Scratch"**, "Semana 1 · C",
+  "Semana 2 · Arrays"… hasta "Semana 10" y el proyecto final
+- Después las nueve semanas de Python y las siete de bases de datos
+- Al final, ocho cursos enteros: Scratch, R, AI, Web, Cybersecurity,
+  Games, Business y Law
+
+**Falla si** algún paso dice sólo "CS50x" sin semana: eran los pasos
+de sesenta horas que no se podían repartir en una agenda.
+
+---
+
+## 13. Marcar un curso
+
+En `/dbt`, toca cualquier tarjeta. Se abre una hoja con el detalle.
+Toca "Marcar como completado".
+
+- El cartel de la chinchilla aparece **por encima** de la hoja
 - El contador de arriba sube
-- Cerrá la hoja: la tarjeta queda marcada
+- Cierra la hoja: la tarjeta queda marcada
 
-Recargá: **la marca tiene que seguir.**
+Recarga: **la marca tiene que seguir.**
 
 ---
 
-## 12. El CV de prueba
+## 14. El CV de prueba
 
-Pegá esto tal cual donde el caso lo pida:
+Pega esto tal cual donde el caso lo pida:
 
 ```
 Data Engineer con 4 anos de experiencia.
@@ -276,19 +399,15 @@ que no entran en una maquina.
 Git, CI/CD con GitHub Actions, Docker.
 ```
 
-Con ese CV apuntando a **Data Engineer**, el sitio tiene que recomendar
+Con ese CV apuntando a **Data Engineer**, tiene que recomendar
 **"Subir de nivel"**. Es la vara: si recomienda otra cosa o arma una
 lista de cursos sueltos, es un fallo.
 
----
+### 14b. El CV que no es de datos
 
-## 12b. El CV que no es de datos
+**Desde cero**, en `/cv`, puesto **Desarrollador Full Stack**.
 
-El sitio dice "para trabajar en tech", así que tiene que servir a
-alguien que no viene de datos. **Desde cero**, en `/cv`, elegí el
-puesto **Desarrollador Full Stack** y probá estos dos.
-
-**Alguien que empieza.** Pegá:
+**Alguien que empieza:**
 
 ```
 Estudiante de sistemas. Hice algo de programacion en la facultad, con
@@ -297,9 +416,9 @@ Arme dos paginas con HTML y CSS para practicar. Nunca trabaje de esto
 y quiero dedicarme al desarrollo web.
 ```
 
-Tiene que recomendar **"Full Stack Open"**, 15 cursos.
+Tiene que recomendar **"Full Stack Open"**.
 
-**Alguien que ya trabaja de esto.** Pegá:
+**Alguien que ya trabaja de esto:**
 
 ```
 Desarrollador con 3 anos de experiencia. Hago interfaces en React con
@@ -308,48 +427,83 @@ tablas. Uso HTML y CSS a diario, y Git para todo. Toque Node con
 Express para un par de endpoints simples. No hice tests nunca.
 ```
 
-Acá **no** tiene que recomendar una ruta entera: ya sabe React y Node,
-así que la respuesta correcta es una lista corta a medida con lo que
-le falta. Debería decir "Tu ruta son N cursos".
+Acá **no** tiene que recomendar una ruta entera: la respuesta correcta
+es una lista corta con lo que le falta.
 
 **Falla si** en cualquiera de los dos aparece una ruta de datos
-—SnowPro Core, dbt, Big Data— como recomendación principal. Pasaba: a
-un desarrollador de React le salía la certificación de Snowflake.
+—SnowPro Core, dbt, Big Data— como recomendación principal.
 
 ---
 
-## 13. En el teléfono
+## 15. La ruta armada a mano
 
-Abrí el sitio en un teléfono, o achicá la ventana a 375px de ancho.
+Anda a `/armar`.
 
-- Nada se sale para el costado (no tiene que haber scroll horizontal)
-- El menú de arriba se lee
+- El catálogo tiene **343 niveles de las 22 rutas**, y los filtros de
+  arriba listan las 22
+- El texto dice "22 rutas" y el número de niveles, no un número viejo
+
+Arma una ruta con cuatro niveles de rutas distintas y ponle nombre.
+**Guardarla pide cuenta.**
+
+Con cuenta, guárdala y vuelve a la portada: tiene que aparecer
+**anclada al lado de la del CV**, con su propio color, sus niveles y
+sus horas. Al tocarla, se abre en el armador.
+
+En el catálogo de la portada, el filtro **"Tuyas"** tiene que
+mostrarla.
+
+---
+
+## 16. Que nada prometa lo que no da
+
+Esto es de leer, no de tocar. Abre `/airflow`, `/fullstack` y
+`/testing`.
+
+- **Ninguna** puede decir que sus cursos dejan "insignia de Anthropic":
+  sólo la ruta de Claude da eso
+- El botón "Ir al sitio de X" tiene que **llevar a X**. Fíjate en el
+  texto y después en dónde caés.
+- El pie de cada una dice qué es gratis y **dónde empieza a costar**.
+  En `/nube` tiene que decir que los exámenes se pagan; en `/testing`,
+  que el examen de ISTQB se paga y el sílabo no.
+
+**Falla si** el botón dice un sitio y te lleva a otro. Un link que
+miente es peor que uno roto, porque no se nota.
+
+---
+
+## 17. En el teléfono
+
+Abre el sitio en un teléfono, o achica la ventana a 375px.
+
+- Nada se sale para el costado
 - Las tarjetas se apilan en una columna
 - El globo de la chinchilla no tapa la pantalla entera
-- La chinchilla del encabezado desaparece (a ese ancho estorba)
+- El menú de tres rayas abre y se lee
 
 ---
 
-## 14. En claro y en oscuro
+## 18. En claro y en oscuro
 
-Tocá el botón de la luna arriba a la derecha, en varias páginas.
+Toca el botón de la luna en varias páginas.
 
 - Todo se lee en los dos temas
-- **El pie se lee**: los links "Todas las rutas", "Armar la mía",
-  "Invitame un café" y el nombre. Si se ven casi del color del fondo,
-  es un fallo.
+- **El pie se lee**: "Recursos", "Preguntas frecuentes", "Invitame un
+  café" y el nombre. Si se ven casi del color del fondo, es un fallo.
+- En una ruta armada a mano anclada en la portada, su color se ve en
+  los dos temas
 - Las chinchillas cambian de color según la ruta y se ven en ambos
 
 ---
 
 ## Qué anotar si algo falla
 
-Para cada fallo:
-
 1. El número del caso
 2. Qué esperabas y qué viste
 3. La URL exacta
-4. Si hay algo en rojo en la consola (F12), copiá el mensaje
+4. **El commit** de `/version.txt`
+5. Si hay algo en rojo en la consola (F12), copia el mensaje
 
 Los errores de consola valen mucho: casi todos los bugs de este sitio
 aparecieron primero ahí.
