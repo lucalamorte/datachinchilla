@@ -715,46 +715,11 @@ var TEMAS = {
     "min": 1020
    },
    {
-    "ruta": "nube",
-    "archivo": "nube.html",
-    "id": "n06",
-    "t": "Fundamentos de datos en Azure",
-    "min": 480
-   },
-   {
-    "ruta": "nube",
-    "archivo": "nube.html",
-    "id": "n07",
-    "t": "Microsoft Fabric",
-    "min": 240
-   },
-   {
-    "ruta": "nube",
-    "archivo": "nube.html",
-    "id": "n08",
-    "t": "Empezar en ingeniería de datos",
-    "min": 300
-   },
-   {
     "ruta": "funcional",
     "archivo": "funcional.html",
     "id": "f09",
     "t": "SQL: mirar los datos tú mismo",
     "min": 240
-   },
-   {
-    "ruta": "viz",
-    "archivo": "visualizacion.html",
-    "id": "v07",
-    "t": "Looker Studio, de Google",
-    "min": 180
-   },
-   {
-    "ruta": "viz",
-    "archivo": "visualizacion.html",
-    "id": "v09",
-    "t": "Metabase, código abierto",
-    "min": 180
    }
   ],
   "python": [
@@ -841,27 +806,6 @@ var TEMAS = {
     "id": "g05",
     "t": "Pythonic DAGs con la TaskFlow API",
     "min": 90
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m04",
-    "t": "MLflow, primeros pasos",
-    "min": 120
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m06",
-    "t": "Versionar los datos, no sólo el código",
-    "min": 120
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m07",
-    "t": "Seguimiento, con el curso al lado",
-    "min": 180
    }
   ],
   "cloud": [
@@ -1055,27 +999,6 @@ var TEMAS = {
     "min": 1020
    },
    {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t10",
-    "t": "Que las pruebas corran en cada cambio",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t11",
-    "t": "Playwright en integración continua",
-    "min": 60
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t13",
-    "t": "Accesibilidad: probar que se pueda usar",
-    "min": 120
-   },
-   {
     "ruta": "nube",
     "archivo": "nube.html",
     "id": "n01",
@@ -1137,27 +1060,6 @@ var TEMAS = {
     "id": "n09",
     "t": "Cloud Digital Leader, de Google",
     "min": 480
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m08",
-    "t": "El registro de modelos",
-    "min": 120
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m09",
-    "t": "Servir el modelo",
-    "min": 180
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m10",
-    "t": "Que se despliegue solo",
-    "min": 180
    }
   ],
   "pipelines": [
@@ -1931,13 +1833,6 @@ var TEMAS = {
     "min": 300
    },
    {
-    "ruta": "funcional",
-    "archivo": "funcional.html",
-    "id": "f08",
-    "t": "Casos de uso y UML",
-    "min": 60
-   },
-   {
     "ruta": "viz",
     "archivo": "visualizacion.html",
     "id": "v05",
@@ -2264,13 +2159,6 @@ var TEMAS = {
     "id": "d05",
     "t": "Regresión lineal con PyTorch",
     "min": 420
-   },
-   {
-    "ruta": "mlops",
-    "archivo": "mlops.html",
-    "id": "m05",
-    "t": "Seguimiento de experimentos",
-    "min": 180
    }
   ],
   "viz": [
@@ -2913,6 +2801,13 @@ var TEMAS = {
    {
     "ruta": "mlops",
     "archivo": "mlops.html",
+    "id": "m05",
+    "t": "Seguimiento de experimentos",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
     "id": "m06",
     "t": "Versionar los datos, no sólo el código",
     "min": 120
@@ -3118,34 +3013,6 @@ var TEMAS = {
     "id": "f10",
     "t": "Parte 10 &middot; React Native",
     "min": 1020
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t06",
-    "t": "Playwright, la primera prueba",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t07",
-    "t": "Encontrar elementos sin que se rompa mañana",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t08",
-    "t": "Cypress, la otra escuela",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t09",
-    "t": "Probar APIs",
-    "min": 120
    }
   ],
   "backend": [
@@ -3211,34 +3078,6 @@ var TEMAS = {
     "id": "f14",
     "t": "Parte 14 &middot; Next.js",
     "min": 1020
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t06",
-    "t": "Playwright, la primera prueba",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t07",
-    "t": "Encontrar elementos sin que se rompa mañana",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t08",
-    "t": "Cypress, la otra escuela",
-    "min": 120
-   },
-   {
-    "ruta": "testing",
-    "archivo": "testing.html",
-    "id": "t09",
-    "t": "Probar APIs",
-    "min": 120
    }
   ]
  }

@@ -85,7 +85,14 @@ TEMAS = [
  ("stats", u"Estadística y experimentos",
   ["estadistica", "statistics", "ab testing", "experimento", "hipotesis",
    "regresion", "probabilidad", "inferencia", "significancia"],
-  ["estadistica", "experimento", "hipotesis", "probabilidad", "inferencia",
+  # "experimento" esta en la lista del CV y NO en la de los titulos.
+  # En un CV, "diseñe experimentos" quiere decir estadistica. En el
+  # titulo de un curso quiere decir otra cosa: "Seguimiento de
+  # experimentos", de la ruta de MLOps, es registrar corridas de
+  # entrenamiento, y con esa senal la ruta de MLOps quedaba cubriendo
+  # estadistica. Es el mismo tipo de contaminacion que ya nos paso con
+  # "react" en "sistemas reactivos".
+  ["estadistica", "hipotesis", "probabilidad", "inferencia",
    "regresion lineal", "metodologia"]),
 
  ("ml", u"Machine learning",
@@ -158,6 +165,17 @@ SIN_INDICE = {"de"}
 # y si el tramo no dice nada, el de la ruta entera. El tramo importa:
 # en "SQL y Python" el acto 1 es SQL y el 2 es Python, y heredar de la
 # ruta le ponia los dos temas a todos los pasos.
+# Se etiqueta lo que el tramo ENSENA, no lo que toca.
+#
+# Paso al reves y costo caro: las rutas nuevas quedaron etiquetadas
+# con todo lo que rozaban -testing con web, backend y cloud porque se
+# prueban aplicaciones web, APIs y se corre en GitHub Actions- y la
+# ruta de testing termino cubriendo cinco de los cinco temas que pide
+# Cloud Engineer. Un CV de sysadmin que decia "nunca use la nube"
+# recibia la ruta de testing en vez de la de la nube.
+#
+# Aprender Playwright no es aprender desarrollo web. Si etiquetas lo
+# que roza, la ruta empieza a competir por puestos que no sirve.
 POR_TRAMO = {
  ("sqlpy", 1):        ["sql"],
  ("sqlpy", 2):        ["python"],
@@ -186,30 +204,30 @@ POR_TRAMO = {
  # MLOps: los cuatro tramos son mlops, y los que tocan nube y
  # pruebas lo dicen tambien, porque es lo que de verdad ensenan.
  ("mlops", 1):        ["mlops"],
- ("mlops", 2):        ["mlops", "python"],
- ("mlops", 3):        ["mlops", "cloud"],
+ ("mlops", 2):        ["mlops"],
+ ("mlops", 3):        ["mlops"],
  ("mlops", 4):        ["mlops", "calidad"],
 
  # Visualizacion: el primer tramo son principios, los otros dos
  # herramientas. El de Power BI suma modelado, que es la mitad.
  ("viz", 1):          ["viz"],
  ("viz", 2):          ["viz", "modelado"],
- ("viz", 3):          ["viz", "sql"],
+ ("viz", 3):          ["viz"],
 
  ("funcional", 1):    ["producto"],
  ("funcional", 2):    ["producto"],
- ("funcional", 3):    ["producto", "modelado"],
+ ("funcional", 3):    ["producto"],
  ("funcional", 4):    ["sql", "viz"],
 
  ("nube", 1):         ["cloud"],
  ("nube", 2):         ["cloud"],
- ("nube", 3):         ["cloud", "sql", "modelado", "pipelines"],
+ ("nube", 3):         ["cloud", "modelado", "pipelines"],
  ("nube", 4):         ["cloud"],
 
  ("testing", 1):      ["calidad"],
  ("testing", 2):      ["calidad", "prog"],
- ("testing", 3):      ["calidad", "web", "backend"],
- ("testing", 4):      ["calidad", "cloud"],
+ ("testing", 3):      ["calidad"],
+ ("testing", 4):      ["calidad"],
 
  ("fullstack", 1):    ["web", "prog"],
  ("fullstack", 2):    ["backend", "calidad"],
