@@ -68,6 +68,10 @@ BLINDADOS = (
     # comprobo abriendo uno de los sesenta y cinco en un navegador de
     # verdad y carga perfecto.
     "platform.stratascratch.com",
+    # El W3C tiene un muro anti-bots que ni un navegador de verdad
+    # automatizado pasa. Sus paginas existen; este script no puede
+    # decirlo.
+    "www.w3.org",
 )
 
 # Paginas de la propia casa: las revisa publicar.py.

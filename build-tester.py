@@ -164,14 +164,17 @@ C = [
    u"Es lo que te preguntan cuando algo se cayó y nadie sabe por qué"],
   "https://grafana.com/docs/k6/latest/get-started/running-k6/"),
 
+ # No va la guia del W3C, que seria la fuente natural: su sitio tiene
+ # un muro anti-bots que no deja comprobar que un lector la vea. MDN
+ # cubre lo mismo, se puede verificar y esta en espanol.
  ("t13", 4, "2 h", "user", True, "",
   u"Accesibilidad: probar que se pueda usar",
-  u"La guía del W3C para evaluar accesibilidad. Es requisito legal en cada vez más lugares, y casi nadie lo prueba.",
+  u"Las herramientas para encontrar problemas de accesibilidad y las tecnologías que usa la gente que las necesita. Es requisito legal en cada vez más lugares y casi nadie lo prueba.",
   u"Terminas esta parte cuando encuentras los problemas de accesibilidad de un sitio con un método y no a ojo.",
   [u"Qué se puede comprobar automático y qué hay que mirar a mano",
    u"Es de las pocas habilidades de QA que se piden y no abundan",
    u"Se cruza con los localizadores: probar bien y ser accesible van juntos"],
-  "https://www.w3.org/WAI/test-evaluate/"),
+  "https://developer.mozilla.org/es/docs/Learn_web_development/Core/Accessibility"),
 ]
 
 # El <head> no se toca: lo reescribe build-brand.py entero, y por eso

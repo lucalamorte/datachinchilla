@@ -3032,7 +3032,7 @@ var CATALOGO = [
   "ruta": "testing",
   "n": 13,
   "t": "Accesibilidad: probar que se pueda usar",
-  "d": "La guía del W3C para evaluar accesibilidad. Es requisito legal en cada vez más lugares, y casi nadie lo prueba.",
+  "d": "Las herramientas para encontrar problemas de accesibilidad y las tecnologías que usa la gente que las necesita. Es requisito legal en cada vez más lugares y casi nadie lo prueba.",
   "hs": "2 h",
   "nivel": "Curso 13",
   "pago": false

@@ -5095,11 +5095,11 @@ var PASOS = [
     "min": 120,
     "act": 4,
     "time": "2 h",
-    "sum": "La guía del W3C para evaluar accesibilidad. Es requisito legal en cada vez más lugares, y casi nadie lo prueba.",
+    "sum": "Las herramientas para encontrar problemas de accesibilidad y las tecnologías que usa la gente que las necesita. Es requisito legal en cada vez más lugares y casi nadie lo prueba.",
     "goal": "Terminas esta parte cuando encuentras los problemas de accesibilidad de un sitio con un método y no a ojo.",
     "cert": "",
     "i": "",
-    "u": "https://www.w3.org/WAI/test-evaluate/",
+    "u": "https://developer.mozilla.org/es/docs/Learn_web_development/Core/Accessibility",
     "boss": true,
     "wins": [
      "Qué se puede comprobar automático y qué hay que mirar a mano",
