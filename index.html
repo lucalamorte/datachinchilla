@@ -18,7 +18,7 @@
 <!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
      lo mismo: si lo escribe otro script en el HTML, la próxima corrida
      de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
-<link rel="stylesheet" href="chinchilla.css?v=48a23f02">
+<link rel="stylesheet" href="chinchilla.css?v=3bb6f955">
 
 <!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
      estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
@@ -1554,7 +1554,6 @@ a.via{ text-decoration:none; }
    la unica que queda cuando ya tenes ruta, no se compara con ninguna
    otra, y lo que dice entra en un renglon. Como tarjeta era una caja
    con dos lineas adentro y aire en el resto. */
-.puertas:has(> .fila:only-child){ grid-template-columns:1fr; }
 .puerta.fila{
   flex-direction:row; align-items:center; gap:14px;
   padding:14px 18px;
@@ -1563,7 +1562,23 @@ a.via{ text-decoration:none; }
 .puerta.fila .p-txt span{
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
+/* Solo la flecha. Decia "Seguir" al lado de una flecha que ya dice
+   eso, y la fila entera es un link: son tres formas de contar lo
+   mismo. */
 .puerta.fila .p-ir{ margin-left:auto; flex-shrink:0; }
+
+/* Y no ocupa el ancho entero: es un renglon de dos datos, no una
+   barra. */
+.puertas:has(> .fila){
+  grid-template-columns:minmax(0, 620px);
+  align-items:center; gap:10px;
+}
+.puerta-cv{
+  display:inline-flex; align-items:center; gap:7px; width:fit-content;
+  font-size:12.5px; font-weight:650; text-decoration:none;
+  color:var(--text-3); padding:6px 2px;
+}
+.puerta-cv:hover{ color:var(--accent-strong); }
 @media (max-width:560px){
   .puerta.fila{ flex-wrap:wrap; }
   .puerta.fila .p-ir{ margin-left:0; }
@@ -2010,7 +2025,7 @@ a.via{ text-decoration:none; }
 </dialog>
 
 <script src="pasos.js?v=65bf5593"></script>
-<script src="chinchilla.js?v=f9ed4ecd"></script>
+<script src="chinchilla.js?v=419ec8f2"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script src="temas.js?v=6526e6d5"></script>
 <script src="cv.js?v=5c07e222"></script>
@@ -3149,7 +3164,12 @@ function pintarPuertas(){
       '<span class="p-ico">' + icon("arrow", 19) + '</span>' +
       '<span class="p-txt"><b>Retoma donde quedaste</b>' +
         '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span>' +
-      '<span class="p-ir">Seguir ' + icon("arrow", 12) + '</span></a>';
+      '<span class="p-ir">' + icon("arrow", 14) + '</span></a>' +
+      /* Y como llegar al CV. Estaba solo en el bloque "Tu ruta", que
+         al subir la agenda quedo abajo del pliegue: existia y no se
+         veia, que para quien lo busca es lo mismo que no estar. */
+      '<a class="puerta-cv" href="cv.html">' + icon("user", 14) +
+        'Cambiar mi CV</a>';
   }
   /* La puerta "Practica de hoy" se fue: mostraba el mismo problema
      que las tarjetas de la seccion de abajo y llevaba al mismo lado.

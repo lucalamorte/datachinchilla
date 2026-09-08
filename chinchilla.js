@@ -125,25 +125,23 @@ var Chin = (function(){
                los brazos: inclinada hacia adelante, el borde del pozo
                cruzandole el cuerpo, la tierra saltando y la cola
                arriba. Las manos solo asoman en el borde. */
-            /* La pala, agarrada de verdad.
+            /* Sin pala.
 
-               Antes el mango bajaba por un lado y la pata estaba en
-               otro: se veia una pala flotando al lado de una
-               chinchilla. Ahora la pata cae SOBRE el mango, a mitad
-               de camino entre el puno y la hoja, girada al angulo del
-               mango. Ahi es donde se agarra una pala.
+               Hubo tres versiones y las tres empeoraron el dibujo: un
+               palito con un rombo que no se entendia, una pala que se
+               perdia adentro del cuerpo por el color, y una agarrada
+               que quedaba cruzando media chinchilla. A cien pixeles no
+               entra una herramienta ademas del bicho, el pozo, la cola
+               y las fichas: es una cosa mas en un dibujo que ya esta
+               lleno.
 
-               Va del lado izquierdo porque la cola ocupa el derecho.
-               El mango en T queda arriba y a la vista, y la hoja entra
-               en la tierra, que es lo que se ve cuando alguien cava. */
+               Lo que dice "esta escarbando" ya estaba antes de la
+               pala, y sigue: la postura inclinada, el borde del pozo
+               cruzandole el cuerpo, las manos apoyadas en ese borde y
+               las fichas saliendo. */
             '<g class="c-mano-cava c-mano-izq">' +
-              '<g class="c-pala">' +
-                '<path class="c-pala-t" d="M10 33L23 39"/>' +
-                '<path class="c-pala-m" d="M16 36L41 78"/>' +
-                '<path class="c-pala-h" d="M33 62L45 56L54 72Q46 78 38 74Z"/>' +
-              '</g>' +
-              '<ellipse class="c-pata" cx="28" cy="56" rx="7.5" ry="5" ' +
-                'transform="rotate(59 28 56)"/>' +
+              '<ellipse class="c-pata" cx="32" cy="74" rx="7.5" ry="4.4" ' +
+                'transform="rotate(-14 32 74)"/>' +
             '</g>' +
             /* La otra mano solo asoma en el borde. */
             '<g class="c-mano-cava c-mano-der">' +

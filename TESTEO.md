@@ -566,9 +566,13 @@ café (cafe) y el festejo común (festeja).
 **Escarbando**, que es la que más se mira porque sale mientras el
 sitio lee tu CV:
 
-- Tiene una **pala** en la mano izquierda, metida en el pozo
 - Lo que sale volando son **fichas de curso**, no grumos de tierra:
   el dibujo tiene que decir para qué cava, no sólo que cava
+- El pozo es **opaco**: le tapa la mitad de abajo. **Falla si** se ve
+  el montículo a través del cuerpo, como si fuera de vidrio
+- **No lleva pala.** Hubo tres versiones y las tres empeoraron el
+  dibujo: a cien píxeles no entra una herramienta además del bicho, el
+  pozo, la cola y las fichas
 - El borde del pozo le **cruza el cuerpo**: la mitad de abajo está
   adentro, y está inclinada hacia adelante
 - La cola va del lado contrario a la pala
