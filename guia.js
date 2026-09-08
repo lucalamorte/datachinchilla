@@ -229,7 +229,17 @@ var Guia = (function(){
        más. Antes el CV saltaba directo a la semana y se comía los dos
        pasos que explican el resultado. */
     var i = indiceDe;
-    if(haySemana && estado.paso < i("listo")) estado.paso = i("listo");
+    /* Hasta "repartir", no hasta "listo".
+
+       Repartir la semana adelantaba al paso 10, que vive en la
+       portada. O sea que en el momento en que hacias lo que el paso 9
+       te pedia, el paso 9 dejaba de existir: el globo desaparecia de
+       /semana y el recorrido moria ahi, sin llegar nunca al final.
+
+       La senal completa el paso 9, no el 10. El que lleva a la
+       portada es el boton de ese paso -"Listo, ver mi agenda"-, que
+       aparece justo cuando la semana queda repartida. */
+    if(haySemana && estado.paso < i("repartir")) estado.paso = i("repartir");
     else if(hayRutaPropia && estado.paso < i("semana")) estado.paso = i("semana");
     else if(hayCV && estado.paso < i("leido")) estado.paso = i("leido");
     /* Elegir el puesto ya es haber hecho el paso del puesto: pedir

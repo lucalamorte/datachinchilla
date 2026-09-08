@@ -1232,11 +1232,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 
 /* La diferencia entre un puesto y el de al lado. Más tenue que el
    resumen: se lee cuando dudas entre dos, no antes. */
-.puesto .distingue{
-  font-size:11.5px; color:var(--text-3); line-height:1.45;
-  padding-top:5px; border-top:1px solid var(--divider-soft);
-}
-.puesto[aria-pressed="true"] .distingue{ border-top-color:var(--accent-line); }
+/* La regla de .distingue se fue con la segunda descripcion. */
 
 </style>
 </head>
@@ -1441,7 +1437,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 <script src="temas.js?v=c11ccb0e"></script>
 <script src="cv.js?v=cbfec907"></script>
 <script src="onboarding.js?v=f56a235c"></script>
-<script src="guia.js?v=4cfc61a6"></script>
+<script src="guia.js?v=389d9289"></script>
 <script src="plan.js?v=33f63d17"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
@@ -1853,14 +1849,24 @@ function pintarPuestos(){
     for(k in p.temas){
       if(!(TEMAS.pasosPorTema[k] || []).length) sinMat.push(CV.nombreTema(k));
     }
+    /* Elegido es lo que esta guardado, no la variable.
+
+       `puestoElegido` arranca en "data_engineer" para poder calcular,
+       y de aca salia el aria-pressed: Data Engineer se veia elegido
+       sin que nadie lo eligiera, mientras el globo pedia elegir uno y
+       el boton no avanzaba. */
+    var elegido = (typeof Onb !== "undefined" && Onb.estado.puesto) || "";
+
+    /* Una sola descripcion por tarjeta.
+
+       Habia dos: `resumen` -que hace- y `distingue` -en que se
+       diferencia del de al lado-. En varios puestos decian lo mismo, y
+       en Frontend y Backend eran la misma frase. `distingue` se puso
+       para separar Data Engineer de Cloud, Big Data y AI Engineer,
+       pero el resumen de esos cuatro ya los separa solo. */
     html += '<button class="puesto" type="button" data-puesto="' + p.id + '" ' +
-      'aria-pressed="' + (p.id === puestoElegido ? "true" : "false") + '">' +
+      'aria-pressed="' + (p.id === elegido ? "true" : "false") + '">' +
       '<b>' + esc(p.nombre) + '</b><span>' + esc(p.resumen) + '</span>' +
-      /* En qué se diferencia del de al lado. Va aparte del resumen
-         porque son dos preguntas distintas -qué hace, y en qué se
-         distingue- y quien elige entre dos parecidos necesita la
-         segunda. */
-      (p.distingue ? '<span class="distingue">' + esc(p.distingue) + '</span>' : "") +
       (sinMat.length ? '<span class="falta">Sin material de ' +
         esc(sinMat.join(" ni ")) + '</span>' : "") + '</button>';
   }
