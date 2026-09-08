@@ -339,34 +339,10 @@ var TEMAS = {
  ],
  "puestos": [
   {
-   "id": "analista_funcional",
-   "nombre": "Analista funcional",
-   "resumen": "Traducir lo que el negocio necesita a algo que un equipo puede construir, y de vuelta.",
-   "temas": {
-    "producto": 3,
-    "sql": 2,
-    "viz": 2,
-    "modelado": 1,
-    "calidad": 1
-   }
-  },
-  {
-   "id": "tester",
-   "nombre": "QA / Tester",
-   "resumen": "Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
-   "temas": {
-    "calidad": 3,
-    "prog": 2,
-    "web": 2,
-    "backend": 2,
-    "cloud": 1,
-    "sql": 1
-   }
-  },
-  {
    "id": "data_engineer",
    "nombre": "Data Engineer",
    "resumen": "Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
+   "distingue": "Mueve y ordena los datos para que otros los usen. No los analiza ni entrena modelos con ellos.",
    "temas": {
     "sql": 3,
     "python": 3,
@@ -382,6 +358,7 @@ var TEMAS = {
    "id": "data_analyst",
    "nombre": "Data Analyst",
    "resumen": "Responder preguntas del negocio con datos y dejar claro qué significa la respuesta.",
+   "distingue": "Usa los datos que otro preparó. Su producto es una respuesta, no un sistema que queda corriendo.",
    "temas": {
     "sql": 3,
     "viz": 3,
@@ -395,6 +372,7 @@ var TEMAS = {
    "id": "data_scientist",
    "nombre": "Data Scientist",
    "resumen": "Estadística, experimentos y modelos predictivos para decidir con evidencia.",
+   "distingue": "Investiga y prueba hipótesis. Llevar a producción lo que encuentra es trabajo del ML Engineer.",
    "temas": {
     "stats": 3,
     "ml": 3,
@@ -409,6 +387,7 @@ var TEMAS = {
    "id": "ml_engineer",
    "nombre": "ML Engineer",
    "resumen": "Llevar modelos a producción y que sigan funcionando cuando nadie los mira.",
+   "distingue": "Lo que el científico entrenó, éste lo hace correr todos los días y avisar cuando falla.",
    "temas": {
     "ml": 3,
     "mlops": 3,
@@ -424,6 +403,7 @@ var TEMAS = {
    "id": "ai_engineer",
    "nombre": "AI Engineer",
    "resumen": "Aplicaciones sobre modelos de lenguaje: recuperación, agentes y sus límites.",
+   "distingue": "No entrena modelos: usa los que ya existen y arma algo alrededor que resuelva un problema.",
    "temas": {
     "llm": 3,
     "python": 3,
@@ -435,9 +415,38 @@ var TEMAS = {
    }
   },
   {
+   "id": "bigdata_engineer",
+   "nombre": "Big Data Engineer",
+   "resumen": "Procesar datos que no entran en una máquina: Spark, streaming y sistemas distribuidos.",
+   "distingue": "Es Data Engineer cuando el volumen ya no deja hacerlo de la forma simple.",
+   "temas": {
+    "bigdata": 3,
+    "sql": 3,
+    "python": 3,
+    "cloud": 2,
+    "pipelines": 2,
+    "modelado": 2,
+    "prog": 1
+   }
+  },
+  {
+   "id": "cloud_engineer",
+   "nombre": "Cloud Engineer",
+   "resumen": "Sostener la infraestructura sobre la que corre todo lo demás, y que no cueste una fortuna.",
+   "distingue": "No escribe la aplicación: hace que tenga dónde correr, que aguante y que se pueda pagar.",
+   "temas": {
+    "cloud": 3,
+    "prog": 2,
+    "calidad": 2,
+    "backend": 1,
+    "pipelines": 1
+   }
+  },
+  {
    "id": "fullstack",
    "nombre": "Desarrollador Full Stack",
    "resumen": "Construir la aplicación entera: la pantalla, el servidor que la alimenta y lo que hace falta para publicarla.",
+   "distingue": "Toca las dos mitades. Sabe menos de cada una que el especialista, y llega solo hasta el final.",
    "temas": {
     "web": 3,
     "backend": 3,
@@ -451,6 +460,7 @@ var TEMAS = {
    "id": "frontend",
    "nombre": "Desarrollador Frontend",
    "resumen": "La parte que la gente toca: que se entienda, que responda y que funcione en cualquier pantalla.",
+   "distingue": "Termina donde empieza el servidor. Su problema es que se entienda y funcione en cualquier pantalla.",
    "temas": {
     "web": 3,
     "prog": 2,
@@ -462,12 +472,54 @@ var TEMAS = {
    "id": "backend_dev",
    "nombre": "Desarrollador Backend",
    "resumen": "Lo que hay detrás de la pantalla: las APIs, los datos y que aguante cuando entra gente de verdad.",
+   "distingue": "Nunca se ve, y si falla se nota en todo. Su problema es que aguante y que los datos estén bien.",
    "temas": {
     "backend": 3,
     "prog": 2,
     "sql": 2,
     "calidad": 2,
     "cloud": 2
+   }
+  },
+  {
+   "id": "web3_dev",
+   "nombre": "Desarrollador Web3",
+   "resumen": "Contratos inteligentes y aplicaciones sobre blockchain, de Solidity para arriba.",
+   "distingue": "Es desarrollo backend donde un error no se arregla con otro deploy: el contrato ya está publicado.",
+   "temas": {
+    "web3": 3,
+    "prog": 3,
+    "web": 2,
+    "backend": 2,
+    "calidad": 2,
+    "cloud": 1
+   }
+  },
+  {
+   "id": "tester",
+   "nombre": "QA / Tester",
+   "resumen": "Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
+   "distingue": "No construye: rompe a propósito, y deja escrito cómo se rompió para que no vuelva a pasar.",
+   "temas": {
+    "calidad": 3,
+    "prog": 2,
+    "web": 2,
+    "backend": 2,
+    "cloud": 1,
+    "sql": 1
+   }
+  },
+  {
+   "id": "analista_funcional",
+   "nombre": "Analista funcional",
+   "resumen": "Traducir lo que el negocio necesita a algo que un equipo puede construir, y de vuelta.",
+   "distingue": "No programa. Su trabajo es que lo que se construya sea lo que hacía falta.",
+   "temas": {
+    "producto": 3,
+    "sql": 2,
+    "viz": 2,
+    "modelado": 1,
+    "calidad": 1
    }
   }
  ],

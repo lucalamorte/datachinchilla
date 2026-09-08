@@ -241,58 +241,82 @@ POR_RUTA = {
 # Cuanto pide cada puesto de cada tema: 3 es el dia a dia, 2 se usa
 # seguido, 1 se toca. Lo que no figura, no se pide.
 PUESTOS = [
- # Un puesto sin ruta no se puede recomendar, y una ruta sin puesto
- # no la encuentra nadie desde el CV.
- {"id": "analista_funcional", "nombre": u"Analista funcional",
-  "resumen": u"Traducir lo que el negocio necesita a algo que un equipo puede construir, y de vuelta.",
-  "temas": {"producto": 3, "sql": 2, "viz": 2, "modelado": 1, "calidad": 1}},
-
- {"id": "tester", "nombre": u"QA / Tester",
-  "resumen": u"Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
-  "temas": {"calidad": 3, "prog": 2, "web": 2, "backend": 2, "cloud": 1,
-            "sql": 1}},
-
  {"id": "data_engineer", "nombre": u"Data Engineer",
   "resumen": u"Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
+  "distingue": u"Mueve y ordena los datos para que otros los usen. No los analiza ni entrena modelos con ellos.",
   "temas": {"sql": 3, "python": 3, "modelado": 3, "pipelines": 3, "cloud": 2,
             "calidad": 2, "bigdata": 2, "prog": 1}},
 
  {"id": "data_analyst", "nombre": u"Data Analyst",
   "resumen": u"Responder preguntas del negocio con datos y dejar claro qué significa la respuesta.",
+  "distingue": u"Usa los datos que otro preparó. Su producto es una respuesta, no un sistema que queda corriendo.",
   "temas": {"sql": 3, "viz": 3, "stats": 2, "python": 2, "modelado": 1,
             "prog": 1}},
 
  {"id": "data_scientist", "nombre": u"Data Scientist",
   "resumen": u"Estadística, experimentos y modelos predictivos para decidir con evidencia.",
+  "distingue": u"Investiga y prueba hipótesis. Llevar a producción lo que encuentra es trabajo del ML Engineer.",
   "temas": {"stats": 3, "ml": 3, "python": 3, "sql": 2, "viz": 2, "deep": 1,
             "prog": 1}},
 
  {"id": "ml_engineer", "nombre": u"ML Engineer",
   "resumen": u"Llevar modelos a producción y que sigan funcionando cuando nadie los mira.",
+  "distingue": u"Lo que el científico entrenó, éste lo hace correr todos los días y avisar cuando falla.",
   "temas": {"ml": 3, "mlops": 3, "python": 3, "deep": 2, "cloud": 2, "prog": 2,
             "pipelines": 2, "sql": 1}},
 
  {"id": "ai_engineer", "nombre": u"AI Engineer",
   "resumen": u"Aplicaciones sobre modelos de lenguaje: recuperación, agentes y sus límites.",
+  "distingue": u"No entrena modelos: usa los que ya existen y arma algo alrededor que resuelva un problema.",
   "temas": {"llm": 3, "python": 3, "prog": 2, "cloud": 2, "ml": 1, "deep": 1,
             "mlops": 1}},
 
- # --- fuera de datos -------------------------------------------------
- # El sitio dice "para trabajar en tech" y hasta aca solo sabia leer
- # curriculums de datos. Estos tres son los primeros que no lo son.
+ {"id": "bigdata_engineer", "nombre": u"Big Data Engineer",
+  "resumen": u"Procesar datos que no entran en una m\u00e1quina: Spark, streaming y sistemas distribuidos.",
+  "distingue": u"Es Data Engineer cuando el volumen ya no deja hacerlo de la forma simple.",
+  "temas": {"bigdata": 3, "sql": 3, "python": 3, "cloud": 2,
+            "pipelines": 2, "modelado": 2, "prog": 1}},
+
+ {"id": "cloud_engineer", "nombre": u"Cloud Engineer",
+  "resumen": u"Sostener la infraestructura sobre la que corre todo lo dem\u00e1s, y que no cueste una fortuna.",
+  "distingue": u"No escribe la aplicaci\u00f3n: hace que tenga d\u00f3nde correr, que aguante y que se pueda pagar.",
+  "temas": {"cloud": 3, "prog": 2, "calidad": 2, "backend": 1,
+            "pipelines": 1}},
+
  {"id": "fullstack", "nombre": u"Desarrollador Full Stack",
   "resumen": u"Construir la aplicación entera: la pantalla, el servidor que la alimenta y lo que hace falta para publicarla.",
+  "distingue": u"Toca las dos mitades. Sabe menos de cada una que el especialista, y llega solo hasta el final.",
   "temas": {"web": 3, "backend": 3, "prog": 2, "calidad": 2, "sql": 2,
             "cloud": 2}},
 
  {"id": "frontend", "nombre": u"Desarrollador Frontend",
   "resumen": u"La parte que la gente toca: que se entienda, que responda y que funcione en cualquier pantalla.",
+  "distingue": u"Termina donde empieza el servidor. Su problema es que se entienda y funcione en cualquier pantalla.",
   "temas": {"web": 3, "prog": 2, "calidad": 2, "backend": 1}},
 
  {"id": "backend_dev", "nombre": u"Desarrollador Backend",
   "resumen": u"Lo que hay detrás de la pantalla: las APIs, los datos y que aguante cuando entra gente de verdad.",
+  "distingue": u"Nunca se ve, y si falla se nota en todo. Su problema es que aguante y que los datos estén bien.",
   "temas": {"backend": 3, "prog": 2, "sql": 2, "calidad": 2, "cloud": 2}},
+
+ {"id": "web3_dev", "nombre": u"Desarrollador Web3",
+  "resumen": u"Contratos inteligentes y aplicaciones sobre blockchain, de Solidity para arriba.",
+  "distingue": u"Es desarrollo backend donde un error no se arregla con otro deploy: el contrato ya est\u00e1 publicado.",
+  "temas": {"web3": 3, "prog": 3, "web": 2, "backend": 2, "calidad": 2,
+            "cloud": 1}},
+
+ {"id": "tester", "nombre": u"QA / Tester",
+  "resumen": u"Encontrar lo que se rompe antes que el usuario, y dejarlo comprobado solo.",
+  "distingue": u"No construye: rompe a propósito, y deja escrito cómo se rompió para que no vuelva a pasar.",
+  "temas": {"calidad": 3, "prog": 2, "web": 2, "backend": 2, "cloud": 1,
+            "sql": 1}},
+
+ {"id": "analista_funcional", "nombre": u"Analista funcional",
+  "resumen": u"Traducir lo que el negocio necesita a algo que un equipo puede construir, y de vuelta.",
+  "distingue": u"No programa. Su trabajo es que lo que se construya sea lo que hacía falta.",
+  "temas": {"producto": 3, "sql": 2, "viz": 2, "modelado": 1, "calidad": 1}},
 ]
+
 
 
 def limpiar(s):

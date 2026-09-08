@@ -1230,6 +1230,14 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
   .preg-cuenta{ display:none; }
 }
 
+/* La diferencia entre un puesto y el de al lado. Más tenue que el
+   resumen: se lee cuando dudas entre dos, no antes. */
+.puesto .distingue{
+  font-size:11.5px; color:var(--text-3); line-height:1.45;
+  padding-top:5px; border-top:1px solid var(--divider-soft);
+}
+.puesto[aria-pressed="true"] .distingue{ border-top-color:var(--accent-line); }
+
 </style>
 </head>
 <body>
@@ -1430,7 +1438,7 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
 <script src="pasos.js?v=f375cd48"></script>
 <script src="chinchilla.js?v=7c39999c"></script>
 <script src="path-sync.js?v=73ed780d"></script>
-<script src="temas.js?v=e6dfed03"></script>
+<script src="temas.js?v=690a2903"></script>
 <script src="cv.js?v=cbfec907"></script>
 <script src="onboarding.js?v=f56a235c"></script>
 <script src="guia.js?v=b91387ac"></script>
@@ -1848,6 +1856,11 @@ function pintarPuestos(){
     html += '<button class="puesto" type="button" data-puesto="' + p.id + '" ' +
       'aria-pressed="' + (p.id === puestoElegido ? "true" : "false") + '">' +
       '<b>' + esc(p.nombre) + '</b><span>' + esc(p.resumen) + '</span>' +
+      /* En qué se diferencia del de al lado. Va aparte del resumen
+         porque son dos preguntas distintas -qué hace, y en qué se
+         distingue- y quien elige entre dos parecidos necesita la
+         segunda. */
+      (p.distingue ? '<span class="distingue">' + esc(p.distingue) + '</span>' : "") +
       (sinMat.length ? '<span class="falta">Sin material de ' +
         esc(sinMat.join(" ni ")) + '</span>' : "") + '</button>';
   }

@@ -63,6 +63,10 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (5) Credenciales cloud como ruta propia: AWS y Google | `nube.html`: AZ-900, DP-900, AWS CCP y Cloud Digital Leader | **hecho** |
 | (5) PM: recursos, no ruta | Cuatro fuentes en `recursos.html`: Cagan, Shape Up, Lenny, Mind the Product | **hecho** |
 
+| Web3 tenía 5 pasos que ningún puesto pedía | Entró el puesto Desarrollador Web3 | **hecho** |
+| Faltaban tipos: Cloud Engineer y Big Data Engineer | Un aviso los pide por separado de Data Engineer | **hecho** |
+| Cada puesto dice en qué se diferencia del de al lado | El resumen contaba qué hace, no cómo elegir entre dos parecidos | **hecho** |
+
 ## 4. Cuesta mucho
 
 | Qué | Por qué acá | Estado |
