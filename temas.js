@@ -661,9 +661,58 @@ var TEMAS = {
    {
     "ruta": "cs50",
     "archivo": "cs50.html",
-    "id": "c04",
-    "t": "CS50 SQL",
-    "min": 2100
+    "id": "x07",
+    "t": "CS50x · Semana 7 · SQL",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q00",
+    "t": "CS50 SQL · Semana 0 · Consultar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q01",
+    "t": "CS50 SQL · Semana 1 · Relacionar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q02",
+    "t": "CS50 SQL · Semana 2 · Diseñar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q03",
+    "t": "CS50 SQL · Semana 3 · Escribir",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q04",
+    "t": "CS50 SQL · Semana 4 · Ver",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q05",
+    "t": "CS50 SQL · Semana 5 · Optimizar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q06",
+    "t": "CS50 SQL · Semana 6 · Escalar",
+    "min": 300
    },
    {
     "ruta": "dbt",
@@ -754,9 +803,79 @@ var TEMAS = {
    {
     "ruta": "cs50",
     "archivo": "cs50.html",
-    "id": "c03",
-    "t": "CS50 Python",
-    "min": 3000
+    "id": "x06",
+    "t": "CS50x · Semana 6 · Python",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p00",
+    "t": "CS50 Python · Semana 0 · Funciones",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p01",
+    "t": "CS50 Python · Semana 1 · Condicionales",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p02",
+    "t": "CS50 Python · Semana 2 · Bucles",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p03",
+    "t": "CS50 Python · Semana 3 · Excepciones",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p04",
+    "t": "CS50 Python · Semana 4 · Bibliotecas",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p05",
+    "t": "CS50 Python · Semana 5 · Pruebas unitarias",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p06",
+    "t": "CS50 Python · Semana 6 · Archivos",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p07",
+    "t": "CS50 Python · Semana 7 · Expresiones regulares",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p08",
+    "t": "CS50 Python · Semana 8 · Orientación a objetos",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p09",
+    "t": "CS50 Python · Proyecto final",
+    "min": 300
    },
    {
     "ruta": "data_science",
@@ -1469,30 +1588,212 @@ var TEMAS = {
    {
     "ruta": "cs50",
     "archivo": "cs50.html",
+    "id": "x00",
+    "t": "CS50x · Semana 0 · Scratch",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x01",
+    "t": "CS50x · Semana 1 · C",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x02",
+    "t": "CS50x · Semana 2 · Arrays",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x03",
+    "t": "CS50x · Semana 3 · Algoritmos",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x04",
+    "t": "CS50x · Semana 4 · Memoria",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x05",
+    "t": "CS50x · Semana 5 · Estructuras de datos",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x06",
+    "t": "CS50x · Semana 6 · Python",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x07",
+    "t": "CS50x · Semana 7 · SQL",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x08",
+    "t": "CS50x · Semana 8 · HTML, CSS y JavaScript",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x09",
+    "t": "CS50x · Semana 9 · Flask",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x10",
+    "t": "CS50x · Semana 10 · El cierre",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "x11",
+    "t": "CS50x · Proyecto final",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p00",
+    "t": "CS50 Python · Semana 0 · Funciones",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p01",
+    "t": "CS50 Python · Semana 1 · Condicionales",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p02",
+    "t": "CS50 Python · Semana 2 · Bucles",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p03",
+    "t": "CS50 Python · Semana 3 · Excepciones",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p04",
+    "t": "CS50 Python · Semana 4 · Bibliotecas",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p05",
+    "t": "CS50 Python · Semana 5 · Pruebas unitarias",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p06",
+    "t": "CS50 Python · Semana 6 · Archivos",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p07",
+    "t": "CS50 Python · Semana 7 · Expresiones regulares",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p08",
+    "t": "CS50 Python · Semana 8 · Orientación a objetos",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "p09",
+    "t": "CS50 Python · Proyecto final",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q00",
+    "t": "CS50 SQL · Semana 0 · Consultar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q01",
+    "t": "CS50 SQL · Semana 1 · Relacionar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q02",
+    "t": "CS50 SQL · Semana 2 · Diseñar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q03",
+    "t": "CS50 SQL · Semana 3 · Escribir",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q04",
+    "t": "CS50 SQL · Semana 4 · Ver",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q05",
+    "t": "CS50 SQL · Semana 5 · Optimizar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
+    "id": "q06",
+    "t": "CS50 SQL · Semana 6 · Escalar",
+    "min": 300
+   },
+   {
+    "ruta": "cs50",
+    "archivo": "cs50.html",
     "id": "c01",
     "t": "CS50 Scratch",
     "min": 3000
-   },
-   {
-    "ruta": "cs50",
-    "archivo": "cs50.html",
-    "id": "c02",
-    "t": "CS50x, introducción a las ciencias de la computación",
-    "min": 3600
-   },
-   {
-    "ruta": "cs50",
-    "archivo": "cs50.html",
-    "id": "c03",
-    "t": "CS50 Python",
-    "min": 3000
-   },
-   {
-    "ruta": "cs50",
-    "archivo": "cs50.html",
-    "id": "c04",
-    "t": "CS50 SQL",
-    "min": 2100
    },
    {
     "ruta": "cs50",

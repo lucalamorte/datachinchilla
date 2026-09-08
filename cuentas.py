@@ -38,6 +38,16 @@ LETRAS = [
  (22,u"veintid\u00f3s"),(23,u"veintitr\u00e9s"),(24,u"veinticuatro"),
  (25,u"veinticinco"),(26,u"veintis\u00e9is"),(27,u"veintisiete"),
  (28,u"veintiocho"),(29,u"veintinueve"),(30,u"treinta"),(31,u"treinta y uno"),
+ # Hasta cuarenta y cinco. Llegaba a treinta y uno, y CS50 paso a
+ # treinta y siete al partirse en semanas: un texto que dijera
+ # "treinta y siete pasos" no lo reconocia la tabla, no lo comprobaba
+ # nadie y pasaba de largo. Una ruta que crece mas alla de su
+ # comprobacion se queda sin comprobacion, y en silencio.
+ (32,u"treinta y dos"),(33,u"treinta y tres"),(34,u"treinta y cuatro"),
+ (35,u"treinta y cinco"),(36,u"treinta y seis"),(37,u"treinta y siete"),
+ (38,u"treinta y ocho"),(39,u"treinta y nueve"),(40,u"cuarenta"),
+ (41,u"cuarenta y uno"),(42,u"cuarenta y dos"),(43,u"cuarenta y tres"),
+ (44,u"cuarenta y cuatro"),(45,u"cuarenta y cinco"),
 ]
 PALABRA = dict(LETRAS)
 NUMERO  = dict((p, n) for n, p in LETRAS)

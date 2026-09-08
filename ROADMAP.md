@@ -74,7 +74,8 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (10) Verificador de todos los links del sitio | `links.py`: 434 links, ninguno roto. 126 que se habían mudado, apuntados al lugar nuevo con `mudar.py` | **hecho** |
 | (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | `contenido.py`: 1613 h, ningún tema pedido sin material | **hecho** |
 | 41 pasos se parten en 10 bloques o más; CS50 llega a "parte 1 de 40" | El número además reiniciaba cada semana. Ya no se numera cuando el paso no entra en la semana | **hecho** |
-| CS50 tiene cinco pasos de 50 a 60 horas | El arreglo del número lo hace honesto, no chico. Partirlos por su estructura real (CS50x tiene diez semanas publicadas) es trabajo de contenido | abierto |
+| CS50 tiene cinco pasos de 50 a 60 horas | Partido por la estructura que publica Harvard: 29 semanas + 8 cursos enteros. De 41.8 h por paso a 12.4 | **hecho** |
+| Data Engineer tiene pasos de 27 h; Games y Web, de 60 | Mismo caso que CS50. Su fuente no publica una estructura semanal, así que no hay de dónde sacarla | abierto |
 | MLOps: 1 paso y 1 hora, y ML Engineer lo pide en nivel 4 | `mlops.html`: 13 pasos. ML Engineer pasó de 89% a 100% | **hecho** |
 | Visualización: 3 pasos para lo que pide Data Analyst | `visualizacion.html`: 9 pasos. El tema pasó de 4 pasos a 13 | **hecho** |
 | (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |

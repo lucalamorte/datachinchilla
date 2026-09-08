@@ -73,10 +73,10 @@ PAGINAS = {
         "ogtitulo": u"Arma tu propia ruta con las piezas que ya están",
     },
     "cs50.html": {
-        "titulo": u"Los once cursos de CS50, ordenados · " + MARCA,
-        "desc": u"El catálogo abierto de CS50 de Harvard en un mapa: de Scratch a inteligencia artificial, con qué enseña cada curso, cuánto lleva y para quién es. Todo gratis.",
+        "titulo": u"CS50 de Harvard, semana por semana · " + MARCA,
+        "desc": u"El catálogo abierto de CS50 en un mapa. CS50x, Python y bases de datos van semana por semana, con la estructura que publica Harvard; los otros ocho van enteros. Todo gratis.",
         "color": u"#150809",
-        "ogtitulo": u"Los once cursos abiertos de CS50, en orden",
+        "ogtitulo": u"CS50 de Harvard, semana por semana",
     },
     "deep-learning.html": {
         "titulo": u"Deep learning y PyTorch, gratis y en orden · " + MARCA,

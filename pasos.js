@@ -605,12 +605,534 @@ var PASOS = [
   "clave": "cs50",
   "nombre": "CS50",
   "actos": [
-   "Arrancar",
-   "Lenguajes y datos",
+   "CS50x, semana por semana",
+   "Python y bases de datos",
    "Especializarse",
    "Para otros roles"
   ],
   "pasos": [
+   {
+    "id": "x00",
+    "t": "CS50x · Semana 0 · Scratch",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Programación visual con bloques: bucles, condiciones y variables sin pelear con la sintaxis.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/0/",
+    "boss": true,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x01",
+    "t": "CS50x · Semana 1 · C",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "El primer lenguaje de verdad. Compilar, tipos, funciones y por qué C se sigue enseñando primero.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/1/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x02",
+    "t": "CS50x · Semana 2 · Arrays",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Arreglos, cadenas y argumentos de línea de comandos. Acá aparece la idea de que la memoria es una fila.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/2/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x03",
+    "t": "CS50x · Semana 3 · Algoritmos",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Búsqueda, ordenamiento y notación asintótica. Es la semana que más se nota en una entrevista.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/3/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x04",
+    "t": "CS50x · Semana 4 · Memoria",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo pensás el resto.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/4/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x05",
+    "t": "CS50x · Semana 5 · Estructuras de datos",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Listas enlazadas, tablas de hash y árboles. Lo que hay debajo de cada estructura que después usás sin mirar.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/5/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x06",
+    "t": "CS50x · Semana 6 · Python",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "El mismo problema en un lenguaje de alto nivel, y por qué se entiende mejor habiendo pasado por C.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/6/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x07",
+    "t": "CS50x · Semana 7 · SQL",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Guardar datos en una base y consultarlos. Es la puerta a la mitad del catálogo de este sitio.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/7/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x08",
+    "t": "CS50x · Semana 8 · HTML, CSS y JavaScript",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "La web del lado del navegador: estructura, estilo y comportamiento.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/8/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x09",
+    "t": "CS50x · Semana 9 · Flask",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Del lado del servidor: rutas, plantillas y sesiones, con Python.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/9/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x10",
+    "t": "CS50x · Semana 10 · El cierre",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "La última semana de material antes del proyecto.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/weeks/10/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "x11",
+    "t": "CS50x · Proyecto final",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Lo que quieras, con lo que aprendiste. Es lo que después mostrás, y lo que hace que el curso se te quede.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/x/project/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p00",
+    "t": "CS50 Python · Semana 0 · Funciones",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Funciones, argumentos y valores de retorno, desde cero.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/0/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p01",
+    "t": "CS50 Python · Semana 1 · Condicionales",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Decidir: comparaciones, ramas y el operador que no esperabas.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/1/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p02",
+    "t": "CS50 Python · Semana 2 · Bucles",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Repetir sin repetirte, y cuándo conviene cada forma.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/2/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p03",
+    "t": "CS50 Python · Semana 3 · Excepciones",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Que el programa no explote cuando el usuario escribe cualquier cosa.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/3/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p04",
+    "t": "CS50 Python · Semana 4 · Bibliotecas",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Usar lo que ya está escrito, y publicar lo tuyo como paquete.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/4/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p05",
+    "t": "CS50 Python · Semana 5 · Pruebas unitarias",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Probar tu propio código con pytest. Se cruza con la ruta de testing.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/5/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p06",
+    "t": "CS50 Python · Semana 6 · Archivos",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Leer y escribir archivos, CSV incluido, que es la mitad del trabajo con datos.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/6/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p07",
+    "t": "CS50 Python · Semana 7 · Expresiones regulares",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Buscar patrones en texto. Feo de leer y difícil de reemplazar.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/7/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p08",
+    "t": "CS50 Python · Semana 8 · Orientación a objetos",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Clases, atributos y métodos, con la explicación que hace que se entienda.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/weeks/8/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "p09",
+    "t": "CS50 Python · Proyecto final",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Un programa tuyo, en Python, con lo de las nueve semanas.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/python/project/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q00",
+    "t": "CS50 SQL · Semana 0 · Consultar",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "SELECT, filtros y orden. La consulta que vas a escribir todos los días.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/0/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q01",
+    "t": "CS50 SQL · Semana 1 · Relacionar",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Varias tablas y cómo se unen: JOINs, claves y por qué existen.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/1/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q02",
+    "t": "CS50 SQL · Semana 2 · Diseñar",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Cómo se arma un esquema que no te va a doler en un año.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/2/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q03",
+    "t": "CS50 SQL · Semana 3 · Escribir",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "INSERT, UPDATE y DELETE, y qué pasa cuando algo falla en el medio.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/3/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q04",
+    "t": "CS50 SQL · Semana 4 · Ver",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Vistas: guardar una consulta para no repetirla, y para no mostrar de más.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/4/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q05",
+    "t": "CS50 SQL · Semana 5 · Optimizar",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Índices y por qué una consulta que tardaba un minuto tarda un segundo.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/5/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
+   {
+    "id": "q06",
+    "t": "CS50 SQL · Semana 6 · Escalar",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Concurrencia y qué cambia cuando la base la usan muchos a la vez.",
+    "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
+    "cert": "",
+    "i": "",
+    "u": "https://cs50.harvard.edu/sql/weeks/6/",
+    "boss": false,
+    "wins": [
+     "Una semana concreta, con su clase y su ejercicio",
+     "Se marca sola: no hay que terminar el curso entero para avanzar",
+     "Entra en un bloque de tu semana, que es para lo que existe la agenda"
+    ]
+   },
    {
     "id": "c01",
     "t": "CS50 Scratch",
@@ -627,60 +1149,6 @@ var PASOS = [
      "Entender qué es un bucle, una condición y una variable sin pelear con puntos y comas",
      "Perderle el miedo a la idea de programar",
      "Tener algo hecho que se puede mostrar"
-    ]
-   },
-   {
-    "id": "c02",
-    "t": "CS50x, introducción a las ciencias de la computación",
-    "min": 3600,
-    "act": 1,
-    "time": "12 semanas",
-    "sum": "El curso legendario. Pensamiento algorítmico y resolución de problemas, con C, Python y SQL de paso.",
-    "goal": "Terminas este curso cuando puedes descomponer un problema y elegir la estructura de datos correcta antes de escribir nada.",
-    "cert": "",
-    "i": "",
-    "u": "https://cs50.harvard.edu/x/",
-    "boss": true,
-    "wins": [
-     "Entender qué hace la computadora por debajo: memoria, punteros, complejidad",
-     "Comparar algoritmos y saber por qué uno tarda más",
-     "El proyecto final, que es tuyo y sirve de carta de presentación"
-    ]
-   },
-   {
-    "id": "c03",
-    "t": "CS50 Python",
-    "min": 3000,
-    "act": 2,
-    "time": "10 semanas",
-    "sum": "Programar de verdad en Python, con tests, manejo de errores y librerías.",
-    "goal": "Terminas este curso cuando escribes un programa con sus pruebas y sabes por qué falla cuando falla.",
-    "cert": "",
-    "i": "",
-    "u": "https://cs50.harvard.edu/python/",
-    "boss": false,
-    "wins": [
-     "Funciones, clases y manejo de excepciones",
-     "Escribir tests, que es lo que separa un script de un programa",
-     "Expresiones regulares y manipulación de archivos"
-    ]
-   },
-   {
-    "id": "c04",
-    "t": "CS50 SQL",
-    "min": 2100,
-    "act": 2,
-    "time": "7 semanas",
-    "sum": "Diseño de bases de datos, no solo consultas: normalización, índices y transacciones.",
-    "goal": "Terminas este curso cuando diseñas un esquema desde cero y justificas cada tabla.",
-    "cert": "",
-    "i": "",
-    "u": "https://cs50.harvard.edu/sql/",
-    "boss": false,
-    "wins": [
-     "Modelar entidades y relaciones antes de escribir la primera tabla",
-     "Escribir consultas que no se arrastran, con índices donde corresponde",
-     "Entender transacciones y qué pasa cuando dos personas escriben a la vez"
     ]
    },
    {
