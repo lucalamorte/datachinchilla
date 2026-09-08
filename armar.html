@@ -522,6 +522,9 @@ svg{ flex-shrink:0; }
 /* --- El menu -------------------------------------------------------
    Para ir de una pagina a otra sin volver a la portada. En el
    telefono es la unica forma: ahi no hay pie a la vista. */
+/* Sin top ni right acá: los pone el script, medidos contra el botón.
+   Clavado a la esquina de la ventana, el panel abria a 213 pixeles
+   del boton que lo abre, porque el encabezado esta centrado. */
 .menu{
   position:fixed; z-index:60; top:58px; right:14px;
   width:min(280px, calc(100vw - 28px));
@@ -1917,14 +1920,45 @@ if(document.readyState === "loading"){
   var p = document.getElementById("menuPanel");
   if(!b || !p) return;
 
+  /* Pegado al boton, no a la esquina de la ventana.
+
+     El panel era top:58px right:14px, o sea clavado al borde. El
+     boton vive en el encabezado, que esta centrado y con ancho
+     maximo: en una ventana de 1440 el boton termina en 1203 y el
+     panel en 1416. Se abria a 213 pixeles de lo que lo abre, y
+     cuanto mas ancha la pantalla peor.
+
+     Se mide al abrir. La derecha del panel se alinea con la del
+     boton, y arriba queda justo debajo del encabezado. Si no entra
+     por la izquierda se lo mete a la fuerza, que es mejor que
+     mostrarlo cortado. */
+  function colocar(){
+    var r = b.getBoundingClientRect();
+    var barra = document.querySelector(".topbar");
+    var abajo = barra ? barra.getBoundingClientRect().bottom : r.bottom;
+    var ancho = p.offsetWidth || 280;
+    var x = r.right - ancho;
+    if(x < 8) x = 8;
+    if(x + ancho > window.innerWidth - 8) x = window.innerWidth - 8 - ancho;
+    p.style.left = Math.round(x) + "px";
+    p.style.right = "auto";
+    p.style.top = Math.round(abajo + 6) + "px";
+  }
+
   function abrir(si){
     p.hidden = !si;
     b.setAttribute("aria-expanded", si ? "true" : "false");
+    if(si) colocar();
   }
   b.addEventListener("click", function(ev){
     ev.stopPropagation();
     abrir(p.hidden);
   });
+  /* Un panel abierto que se queda donde estaba al cambiar el tamano
+     es el mismo problema que arreglamos. */
+  window.addEventListener("resize", function(){
+    if(!p.hidden) colocar();
+  }, { passive: true });
   document.addEventListener("click", function(ev){
     if(p.hidden) return;
     if(p.contains(ev.target) || ev.target === b) return;
