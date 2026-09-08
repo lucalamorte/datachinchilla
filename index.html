@@ -1570,12 +1570,9 @@ a.via{ text-decoration:none; }
   grid-template-columns:max-content;
   align-items:center; gap:8px;
 }
-.puerta-cv{
-  display:inline-flex; align-items:center; gap:7px; width:fit-content;
-  font-size:12.5px; font-weight:650; text-decoration:none;
-  color:var(--text-3); padding:6px 2px;
-}
-.puerta-cv:hover{ color:var(--accent-strong); }
+/* El link "Cambiar mi CV" que estuvo aca se fue: el menu lo tiene, y
+   el bloque "Tu ruta" tambien, con sus dos botones. Tres caminos al
+   mismo lado en la misma pantalla es lo que veniamos sacando. */
 @media (max-width:560px){
   .puerta.fila{ flex-wrap:wrap; }
   .puerta.fila .p-ir{ margin-left:0; }
@@ -3157,15 +3154,15 @@ function pintarPuertas(){
        sigue, y por donde se sigue. Como tarjeta era una caja de
        ciento cuarenta pixeles de alto con dos lineas de texto
        adentro y aire en el resto. */
-    h += '<a class="puerta fila" href="' + esc(sigue.ruta.archivo) + '#' + esc(sigue.paso.id) + '">' +
+    /* Al curso, no a la pagina. El ancla era "#<id>" y en las paginas
+       de ruta los nodos se llaman "card-<id>": no existia, y el
+       navegador te dejaba arriba de todo a buscar entre veintitres
+       tarjetas cual era la que seguias. */
+    h += '<a class="puerta fila" href="' + esc(sigue.ruta.archivo) +
+      '#card-' + esc(sigue.paso.id) + '">' +
       '<span class="p-ico">' + icon("arrow", 19) + '</span>' +
-      '<span class="p-txt"><b>Retoma tu ruta</b>' +
-        '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span></a>' +
-      /* Y como llegar al CV. Estaba solo en el bloque "Tu ruta", que
-         al subir la agenda quedo abajo del pliegue: existia y no se
-         veia, que para quien lo busca es lo mismo que no estar. */
-      '<a class="puerta-cv" href="cv.html">' + icon("user", 14) +
-        'Cambiar mi CV</a>';
+      '<span class="p-txt"><b>Retoma donde lo dejaste</b>' +
+        '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span></a>';
   }
   /* La puerta "Practica de hoy" se fue: mostraba el mismo problema
      que las tarjetas de la seccion de abajo y llevaba al mismo lado.

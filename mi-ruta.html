@@ -836,6 +836,18 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 .chin-atras:hover{ color:var(--text-2); }
 .chin-atras[hidden]{ display:none; }
 
+
+/* El curso al que volviste, marcado un momento: al cerrar la ficha,
+   saber cual era entre veintitres. */
+.node.recien{
+  outline:3px solid var(--accent);
+  outline-offset:3px;
+  animation:reciennodo 2.4s ease-out;
+}
+@keyframes reciennodo{
+  0%, 60%{ outline-color:var(--accent); }
+  100%{ outline-color:transparent; }
+}
 </style>
 </head>
 <body>
@@ -2083,6 +2095,30 @@ function engancharBarra(){
   }, fresh ? 0 : 400);
 }
 
+
+/* Volver al curso que estabas haciendo.
+
+   La portada linkea a #card-<id>. El navegador ya salta ahi solo,
+   pero saltar no es abrir: lo que uno viene a hacer es ver ese curso,
+   asi que se abre su ficha. Y se lo marca un momento, para que al
+   cerrar la ficha sepas cual era entre veintitres.
+
+   Va con un respiro porque renderMap() acaba de escribir el mapa y el
+   nodo puede no estar todavia cuando corre el init. */
+function abrirDelHash(){
+  var h = (location.hash || "").replace("#", "");
+  if(h.indexOf("card-") !== 0) return;
+  var id = h.slice(5);
+  window.setTimeout(function(){
+    var el = document.getElementById(h);
+    if(!el) return;
+    el.scrollIntoView({ block: "center" });
+    el.classList.add("recien");
+    window.setTimeout(function(){ el.classList.remove("recien"); }, 2400);
+    try{ openSheet(id); }catch(e){}
+  }, 120);
+}
+
 function init(){
   PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
   var stored = safeGet(STORAGE.theme);
@@ -2106,6 +2142,7 @@ function init(){
   engancharBarra();
   if(!NODES.length){ sinRuta(); return; }
   renderMap();
+  abrirDelHash();
   renderPaths();
   pintarSigue();
   paintStates();
