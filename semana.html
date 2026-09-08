@@ -1587,13 +1587,9 @@ function pintarRutasActivas(){
   var b = caja.querySelectorAll("[data-ruta]"), j;
   for(j=0;j<b.length;j++){
     b[j].addEventListener("click", function(){
-      /* Sacar o sumar una ruta cambia tu semana, o sea tu avance:
-         pide cuenta igual que marcar un curso. */
-      if(window.PathSync && PathSync.puedeGuardar && !PathSync.puedeGuardar()){
-        toast("Para cambiar tu semana hace falta una cuenta.");
-        try{ abrirCuenta(); }catch(e){ try{ openAccount(); }catch(e2){} }
-        return;
-      }
+      /* Tampoco pide cuenta: es la otra mitad del mismo camino.
+         Arreglar el guardado del CV y dejar esto pidiendo cuenta
+         seria mover la pared un metro. */
       Onb.alternarRuta(this.getAttribute("data-ruta"));
       /* La semana se rehace: es lo unico que cambia al sacar una. */
       pintarRutasActivas();

@@ -2011,7 +2011,7 @@ a.via{ text-decoration:none; }
 <script src="guia.js?v=b91387ac"></script>
 <script src="plan.js?v=33f63d17"></script>
 <script src="problemas.js?v=40933293"></script>
-<script src="practica.js?v=ba7e93cc"></script>
+<script src="practica.js?v=855019e6"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 (function(){
@@ -2083,7 +2083,7 @@ var PATHS = [
   },
   {
     t: "CS50, de Harvard", nivel: "Desde cero", i: "school", u: "cs50.html", listo: true,
-    d: "Los once cursos abiertos de Harvard, ordenados en su propio mapa. Los de SQL y Python son parte de esta ruta; el resto va de Scratch a inteligencia artificial.",
+    d: "Los once cursos abiertos de Harvard, ordenados en su propio mapa. Los tres que se hacen enteros van semana por semana; el resto va de Scratch a inteligencia artificial.",
     s: "abrir la ruta"
   },
   {
@@ -3165,12 +3165,11 @@ function renderRetos(){
     var lleva = Practica.hoyCuantos(b.id), listo = lleva >= Practica.POR_DIA;
     var av = Practica.avance(b.id);
 
-    /* Los que quedan, en orden. Se calcula aca y no en practica.js
-       porque es lo unico que hace falta: la lista de pendientes. */
-    var pend = [], k;
-    for(k=0;k<b.items.length;k++){
-      if(!Practica.hecho(b.id, b.items[k])) pend.push(b.items[k]);
-    }
+    /* Los que quedan, de facil a dificil. Esto se calculaba aca
+       sobre b.items, que es el orden del archivo: Blind 75 empieza
+       con uno medio y el cuarto es dificil. El orden bueno ya
+       existia en practica.js; lo que faltaba era pedirlo. */
+    var pend = Practica.pendientes(b.id);
     var en = retoEn[b.id] || 0;
     if(en >= pend.length) en = 0;
     retoEn[b.id] = en;
@@ -3229,11 +3228,10 @@ function renderRetos(){
       /* El que esta en pantalla, no el primero pendiente: con las
          flechas ya no son el mismo, y marcar otro seria mentirle a
          quien acaba de resolver este. */
-      var bb = Practica.bancoDe(id), pp = [], w;
-      for(w=0;w<bb.items.length;w++){
-        if(!Practica.hecho(id, bb.items[w])) pp.push(bb.items[w]);
-      }
-      var s = pp[retoEn[id] || 0] || null;
+      /* La misma lista que se pinto arriba, pedida al mismo lugar.
+         Antes eran dos copias iguales; si se arreglaba una sola,
+         marcabas el que veias y se tildaba el que no. */
+      var s = Practica.pendientes(id)[retoEn[id] || 0] || null;
       if(!s) return;
       var r = Practica.marcar(id, s, true);
       if(r.sinCuenta){ pedirCuenta(); return; }

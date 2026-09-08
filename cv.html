@@ -1395,8 +1395,8 @@ a.credit:hover{ border-color:var(--accent); background:var(--surface-2); }
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
           <span class="stack"><span class="verb">Guardarla y</span><span class="dest">ver mi ruta</span></span>
         </button>
-        <p class="guardar-nota" id="guardarNota" hidden>Para quedarte con tu ruta hace falta
-          una cuenta. Leer el CV y ver el resultado no la piden.</p>
+        <p class="guardar-nota" id="guardarNota" hidden>Tu ruta queda guardada en este
+          navegador. Entra con tu mail solo si la quieres en otra computadora.</p>
       </div>
     </div>
 
@@ -2108,11 +2108,21 @@ function guardarComoRuta(){
   /* Guardar la ruta es guardar avance: deja tu puesto, tus rutas
      activas y tu camino. Leer el CV y ver el resultado siguen
      abiertos, porque eso no guarda nada. */
-  if(window.PathSync && PathSync.puedeGuardar && !PathSync.puedeGuardar()){
-    toast("Para quedarte con tu ruta hace falta una cuenta.");
-    try{ openAccount(); }catch(e){ try{ abrirCuenta(); }catch(e2){} }
-    return;
-  }
+  /* Sin cuenta tambien se guarda, en este navegador.
+
+     Aca se pedia una, y era la excepcion de su propio flujo: el CV,
+     los temas que sacaste o agregaste, las respuestas y el puesto ya
+     se guardaban sin cuenta. Se guardaban los cinco pasos y se
+     rechazaba el sexto, que es el unico que los vuelve utiles.
+
+     Y el costo no era solo este boton: sin rutas activas no hay
+     plan, sin plan no hay agenda, y la portada quedaba igual que la
+     de alguien que nunca entro. El widget de la agenda se pidio tres
+     veces y estaba puesto las tres: lo que faltaba era el plan.
+
+     La cuenta sigue sirviendo para lo que dice su propio cartel,
+     llevarte el avance a otra computadora. Onb.guardar() ya escribe
+     en el perfil cuando hay sesion y en localStorage cuando no. */
 
   /* Se cierra el plan: qué rutas quedan activas, con qué días y
      cuántas horas. Es lo que después leen la portada, la agenda y la
@@ -2426,8 +2436,9 @@ function init(){
   });
 
   document.getElementById("guardarRuta").addEventListener("click", guardarComoRuta);
-  /* El aviso, solo a quien no entro: a quien ya tiene cuenta no le
-     sirve leer que hace falta una. */
+  /* El aviso, solo a quien no entro. Ya no dice que hace falta una
+     cuenta -no hace falta-: dice donde quedo guardada la ruta, que
+     es lo unico que cambia entre entrar y no entrar. */
   var nota = document.getElementById("guardarNota");
   if(nota && window.PathSync && PathSync.puedeGuardar){
     nota.hidden = PathSync.puedeGuardar();

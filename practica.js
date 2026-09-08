@@ -170,6 +170,26 @@ var Practica = (function(){
     });
   }
 
+  /* Los que te faltan, en el orden en que conviene hacerlos.
+
+     Vivia suelta en la portada, escrita sobre b.items -el orden del
+     archivo- mientras aca al lado ordenados() ordenaba por
+     dificultad. Dos ideas del orden en el mismo sitio: la portada
+     ofrecia un medio primero y un dificil cuarto.
+
+     Habia una segunda copia identica, la del boton "Lo resolvi".
+     Coincidian, porque las dos estaban igual de mal. Pero arreglar
+     una sola las habria puesto en ordenes distintos y entonces si:
+     marcabas el que veias y se tildaba otro. Por eso las dos piden
+     la misma lista y no hay ninguna escrita a mano. */
+  function pendientes(id){
+    var lista = ordenados(id), mapa = leer(), out = [], i;
+    for(i=0;i<lista.length;i++){
+      if(!mapa[clave(id, lista[i])]) out.push(lista[i]);
+    }
+    return out;
+  }
+
   function siguiente(id){
     var lista = ordenados(id), mapa = leer(), i;
     for(i=0;i<lista.length;i++){
@@ -192,6 +212,7 @@ var Practica = (function(){
     bancos: function(){ return (typeof PROBLEMAS !== "undefined") ? PROBLEMAS : []; },
     bancoDe: bancoDe, clave: clave, hecho: hecho, marcar: marcar,
     avance: avance, ordenados: ordenados, siguiente: siguiente,
+    pendientes: pendientes,
     hoyCuantos: hoyCuantos, bancoDeHoy: bancoDeHoy, racha: racha
   };
 })();

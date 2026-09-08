@@ -279,6 +279,26 @@ horas. Abajo se arma la semana con bloques concretos.
 **Falla si** un día se llena de bloques chiquitos: el tope son **dos
 bloques de estudio por día**.
 
+### 9a. Todo esto, sin entrar con tu mail
+
+Este es el caso que hay que hacer **primero**, y el que se saltó tres
+veces: hacer el recorrido entero **sin cuenta**, en una ventana de
+incógnito.
+
+Antes, el último botón del CV -"Guardar mi ruta"- avisaba que hacía
+falta una cuenta y volvía sin guardar nada. Sin rutas activas no hay
+plan, sin plan no hay agenda, y la portada quedaba **igual que la de
+alguien que nunca entró**. El widget de la agenda estaba puesto desde
+hacía rato: lo que no existía era el plan.
+
+**Falla si** después de guardar la ruta sin cuenta, la portada no
+tiene agenda, o si el botón abre el cartel de la cuenta.
+
+**Falla si** en `/semana` sumar o sacar una ruta pide cuenta.
+
+La cuenta sigue haciendo falta para **marcar cursos y ejercicios**.
+Eso es a propósito y no es un fallo.
+
 Ahora vuelve a la portada. Tiene que verse, **sin scrollear**:
 
 - Un renglón en el hero que dice **"Hoy: N horas"** con lo que toca, y
@@ -311,6 +331,24 @@ Anda a `/practica`.
 - Los enunciados abren en LeetCode y StrataScratch
 - Hay **tres filtros** con su número: "Por hacer", "Resueltos",
   "Todos"
+
+### 10a. De fácil a difícil, y punto
+
+Mira el **primer** ejercicio que ofrece cada banco, en la portada y en
+`/practica`, con la cuenta recién empezada.
+
+- Blind 75 tiene que empezar por uno **fácil**
+- Avanzando con las flechas, primero salen los **18 fáciles**, después
+  los **51 medios**, y al final los **6 difíciles**
+- Dentro de la misma dificultad va primero el más resuelto
+
+**Falla si** aparece un medio primero y un difícil cuarto. La portada
+recorría la lista en el orden del archivo, que arranca 128 medio, 1
+fácil, 3 medio: no era al azar, pero se veía igual que al azar, y es
+peor, porque parece que hay un criterio.
+
+**Falla si** marcas "Lo resolví" y se tilda otro. La lista que se
+pinta y la que usa el botón tienen que ser la misma.
 
 **Marcar pide cuenta.** Sin haber entrado, tocar el tilde no marca
 nada: tiene que aparecer el cartel de la cuenta.
