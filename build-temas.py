@@ -26,6 +26,42 @@ AQUI = u"C:/Users/Luca/Desktop/snowflake path/"
 # ---------------------------------------------------------------- temas
 # (clave, nombre, [senales de CV], [reglas sobre el titulo del paso])
 # Todo ya normalizado: sin acentos y en minuscula.
+# Las senales que AFIRMAN, en vez de mencionar. Son de dos clases y
+# valen igual:
+#
+#   - Nombres propios de herramientas. Nadie escribe "Airflow" en su CV
+#     sin haber tocado Airflow.
+#   - Titulos de puesto. Decir que sos desarrollador es decir que
+#     programas; decir que sos data scientist es decir que entrenas
+#     modelos.
+#
+# Las genericas -"pipeline", "software", "consultas"- no dicen nada
+# parecido: aparecen en cualquier CV. Por eso esta lista existe y no es
+# simplemente "todas las senales".
+FUERTES = [
+ "postgres", "mysql", "sql server", "oracle", "bigquery", "redshift",
+ "snowflake", "plsql", "pandas", "numpy", "jupyter", "django", "flask",
+ "fastapi", "scipy", "leetcode", "git", "javascript", "java", "scratch",
+ "dbt", "kimball", "inmon", "star schema", "data vault", "airflow",
+ "dagster", "prefect", "kafka", "nifi", "scrum", "bpmn", "jira",
+ "kanban", "pytest", "great expectations", "aws", "azure", "gcp",
+ "google cloud", "lambda", "terraform", "docker", "kubernetes",
+ "openshift", "hadoop", "spark", "pyspark", "mapreduce", "hive",
+ "hbase", "yarn", "databricks", "flink", "scikit", "sklearn", "xgboost",
+ "random forest", "tensorflow", "pytorch", "keras", "cnn", "rnn", "gpt",
+ "openai", "claude", "langchain", "rag", "bedrock", "mlflow",
+ "kubeflow", "sagemaker", "feature store", "tableau", "power bi",
+ "powerbi", "looker", "metabase", "superset", "matplotlib", "seaborn",
+ "plotly", "typescript", "react", "angular", "vue", "svelte", "next.js",
+ "nextjs", "tailwind", "jquery", "redux", "sass", "webpack", "vite",
+ "react native", "flutter", "bootstrap", "graphql", "node", "nodejs",
+ "node.js", "express", "spring", "spring boot", ".net", "laravel",
+ "rails", "nestjs", "jwt", "oauth", "solidity", "ethereum", "defi",
+ "desarrollador", "developer", "programador", "software engineer",
+ "ingeniero de software", "full stack", "fullstack", "data scientist",
+ "cientifico de datos", "analista funcional",
+]
+
 TEMAS = [
  ("sql", u"SQL",
   ["sql", "postgres", "mysql", "sql server", "oracle", "bigquery", "redshift",
@@ -39,8 +75,14 @@ TEMAS = [
   ["python", "pandas", "numpy", "jupyter", "dataframe"]),
 
  ("prog", u"Fundamentos de programación",
+  # Los titulos de puesto afirman el tema entero, igual que "data
+  # scientist" para machine learning: decir que sos desarrollador es
+  # decir que programas. Sin esto, a un senior developer le
+  # preguntabamos si programa.
   ["algoritmo", "estructura de datos", "leetcode", "complejidad", "big o",
-   "programacion", "software", "git", "javascript", "java", "scratch"],
+   "programacion", "software", "git", "javascript", "java", "scratch",
+   "desarrollador", "developer", "programador", "software engineer",
+   "ingeniero de software", "full stack", "fullstack"],
   ["cs50", "scratch", "algoritmo", "estructura", "javascript", "programacion",
    "introduccion a las ciencias"]),
 
@@ -420,6 +462,10 @@ def main():
 
     salida = {
         "temas": [{"id": c, "nombre": n, "senales": s} for c, n, s, g in TEMAS],
+        # Cuales de esas senales afirman en vez de mencionar. Van
+        # aparte y no dentro de cada tema porque la regla no es del
+        # tema, es de la palabra.
+        "fuertes": FUERTES,
         "puestos": PUESTOS,
         "pasosPorTema": indice,
     }

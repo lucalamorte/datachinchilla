@@ -57,6 +57,12 @@ var CV = (function(){
     "no se", "no tengo", "no cuento con", "no manejo", "no domino",
     "no conozco", "no use", "no usé", "no he usado", "no he trabajado",
     "no trabaje", "no llegue a", "no alcance a", "no toque",
+    /* En presente. Estaban solo en pasado -"no use", "no trabaje"- y
+       "No uso dbt ni Airflow" no negaba nada. Es el mismo verbo, no
+       otro caso: van los que ya estaban, conjugados como los escribe
+       cualquiera que hable de lo que hace hoy. */
+    "no uso", "no utilizo", "no utilice", "no utilicé", "no trabajo",
+    "no toco",
     "nunca use", "nunca usé", "nunca he", "nunca trabaje", "nunca toque",
     "desconozco", "cero", "nada de", "poco y nada de",
     "sin experiencia", "sin conocimiento", "sin conocimientos",
@@ -164,6 +170,14 @@ var CV = (function(){
     return false;
   }
 
+  /* Las senales que afirman -nombres de herramientas y titulos de
+     puesto-, en un objeto para no recorrer la lista por cada una. */
+  var FUERTE = (function(){
+    var m = {}, l = (typeof TEMAS !== "undefined" && TEMAS.fuertes) || [], i;
+    for(i=0;i<l.length;i++) m[l[i]] = true;
+    return m;
+  })();
+
   /* Qué temas asoma el CV, y con cuánta insistencia. */
   function leer(texto){
     var t = limpiar(texto), out = {}, i, j;
@@ -173,8 +187,25 @@ var CV = (function(){
         if(apareceEn(t, tema.senales[j])) vistas.push(tema.senales[j]);
       }
       if(vistas.length){
+        /* Nombrar una herramienta no es haberla oido nombrar.
+
+           El nivel salia de cuantas senales distintas toca el CV, y
+           eso trata igual a "software" que a "dbt". Un CV con dbt y
+           Airflow daba modelado 1 y pipelines 1 -"los oyo nombrar"- y
+           el sitio le ofrecia los cursos de dbt y de Airflow a alguien
+           que los usa todos los dias.
+
+           Si lo que toco AFIRMA -un nombre propio, o un titulo de
+           puesto-, el nivel arranca en 2.
+           No en 3: usar dbt no es dominar el modelado, y el tercer
+           nivel se lo sigue ganando quien nombra varias cosas del
+           tema. */
+        var afirma = false, h;
+        for(h=0;h<vistas.length && !afirma;h++){
+          if(FUERTE[vistas[h]]) afirma = true;
+        }
         out[tema.id] = {
-          nivel: Math.min(3, vistas.length),   /* 1 mención es 1; 3 o más, 3 */
+          nivel: Math.min(3, Math.max(vistas.length, afirma ? 2 : 0)),
           senales: vistas
         };
       }

@@ -84,11 +84,29 @@
    cursos, que es de lo que se trata el sitio. */
 .chin-pose .c-ficha rect{ fill:var(--marca); }
 .chin-pose .c-ficha .c-ficha-l{ fill:var(--surface); opacity:.85; }
-/* La pala. Con la mano sola habia que creerle al dibujo. */
+/* La pala. Con la mano sola habia que creerle al dibujo.
+
+   El mango va mas fino que la hoja: si van iguales, el conjunto se lee
+   como una mancha alargada y no como una herramienta. Y la T arriba es
+   lo que mas la identifica, mas que la hoja. */
+/* Y no sigue el acento ni la marca: madera y metal.
+
+   Iba del tono de las patas, que sale de la misma marca que el
+   cuerpo, asi que la pala se perdia adentro de ella. Cualquier tono
+   derivado del violeta le va a pasar lo mismo, por claro u oscuro que
+   se lo ponga: contra un cuerpo violeta hay que salirse del violeta.
+
+   Es el segundo objeto de estos dibujos con color propio. El primero
+   es el fuego del cohete, por la misma razon: hay cosas que existen
+   en el mundo con un color y pintarlas de otro las vuelve una forma
+   abstracta. */
 .chin-pose .c-pala-m{
-  fill:none; stroke:var(--marca-strong); stroke-width:4; stroke-linecap:round;
+  fill:none; stroke:#B07A45; stroke-width:3.4; stroke-linecap:round;
 }
-.chin-pose .c-pala-h{ fill:var(--marca-strong); }
+.chin-pose .c-pala-t{
+  fill:none; stroke:#B07A45; stroke-width:4.6; stroke-linecap:round;
+}
+.chin-pose .c-pala-h{ fill:#B9C3D0; }
 .chin-pose .c-lupa-c{
   fill:color-mix(in srgb, var(--marca) 12%, transparent);
   stroke:var(--marca-strong); stroke-width:3.4;

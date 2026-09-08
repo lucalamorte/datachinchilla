@@ -98,8 +98,11 @@ var Chin = (function(){
           '</g>';
       }
       return '<g class="c-cava">' +
-          '<g class="c-tierra">' + ficha(20, 70, -18) + ficha(28, 62, 12) + '</g>' +
-          '<g class="c-tierra c-tierra-2">' + ficha(80, 68, 20) + '</g>' +
+          /* Arriba y a los costados, que es donde hay aire: abajo a la
+             izquierda chocaban con la pala y las tres formas juntas se
+             leian como una sola mancha. */
+          '<g class="c-tierra">' + ficha(15, 30, -20) + ficha(30, 14, 10) + '</g>' +
+          '<g class="c-tierra c-tierra-2">' + ficha(86, 30, 18) + '</g>' +
           /* Inclinada hacia el pozo. Derecha y con dos patas abajo
              era una chinchilla sentada detras de un monticulo: la
              postura tenia que decir "cabeza adentro" antes que
@@ -129,9 +132,19 @@ var Chin = (function(){
                Va debajo de la mano, para que se lea que la sostiene y
                no que flota al lado. */
             '<g class="c-mano-cava c-mano-izq">' +
+              /* La pala. La anterior era un palito y un rombo: no se
+                 entendia que era. Lo que hace que una pala se lea es
+                 el mango en T arriba y una hoja ancha que se angosta
+                 hacia la punta, no el palo.
+
+                 Y la hoja entra en el borde del pozo, no adentro: el
+                 monticulo se dibuja despues y tapa todo lo que pase de
+                 y=69, asi que una hoja mas abajo no se veia. */
               '<g class="c-pala">' +
-                '<path class="c-pala-m" d="M22 52L34 72"/>' +
-                '<path class="c-pala-h" d="M30 69l8-5 6 9-8 5Z"/>' +
+                '<path class="c-pala-t" d="M13 38L25 32"/>' +
+                '<path class="c-pala-m" d="M19 35L37 70"/>' +
+                '<path class="c-pala-h" d="M30.5 63.5L41.5 57.8' +
+                  'L49 72.5Q42 77 34.5 74.2Z"/>' +
               '</g>' +
               '<ellipse class="c-pata" cx="33" cy="71" rx="7.5" ry="4.4" ' +
                 'transform="rotate(30 33 71)"/>' +

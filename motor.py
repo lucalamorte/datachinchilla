@@ -65,6 +65,25 @@ CASOS = [
  (u"Entreno modelos y los llevo a produccion con MLflow y Docker.",
   ["mlops"], []),
 
+ # --- nombrar una herramienta no es haberla oido nombrar ----------
+ #
+ # El nivel salia de cuantas senales distintas toca el CV, y eso trata
+ # igual a "software" que a "dbt". Un CV con dbt y Airflow daba
+ # modelado 1 y pipelines 1 -"los oyo nombrar"- y el sitio le ofrecia
+ # los cursos de dbt y de Airflow a alguien que los usa todos los dias.
+ (u"Data Engineer. Modelo el warehouse en dbt y orquesto con Airflow.",
+  ["modelado:2", "pipelines:2"], []),
+ # Y un titulo de puesto afirma igual que un nombre propio: a un
+ # senior developer le preguntabamos si programa.
+ (u"Senior developer con 8 anos de experiencia.", ["prog:2"], []),
+ # Lo generico sigue valiendo lo que vale.
+ # Y que el piso no se le pegue a lo generico: estas siguen en 1.
+ (u"Trabajo con software y consultas.", ["prog:1", "sql:1"], []),
+ # Y el piso no le gana a la negacion. "No uso" estaba solo en pasado
+ # -"no use"-, asi que "No uso dbt ni Airflow" no negaba nada, y con
+ # el piso puesto pasaba de contar 1 a contar 2.
+ (u"No uso dbt ni Airflow.", [], ["modelado", "pipelines"]),
+
  # --- lo nuevo: que deje de detectar lo que se niega --------------
  (u"No tengo experiencia en Spark.", [], ["bigdata"]),
  (u"No se Docker.", [], ["cloud"]),
@@ -117,7 +136,11 @@ carga("cv.js");
 const casos = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 const salida = casos.map(function(c){
   const det = globalThis.CV.leer(c);
-  return Object.keys(det).filter(function(k){ return !det[k].deducido; });
+  const out = {};
+  Object.keys(det).forEach(function(k){
+    if(!det[k].deducido) out[k] = det[k].nivel;
+  });
+  return out;
 });
 process.stdout.write(JSON.stringify(salida));
 """
@@ -152,17 +175,30 @@ def main():
     vistos = json.loads(crudo.decode("utf-8"))
     mal = 0
     for (texto, deben, no_deben), salio in zip(CASOS, vistos):
-        faltan = [t for t in deben if t not in salio]
+        # "sql" pide que este; "sql:2" pide ademas que llegue a ese
+        # nivel. Sin el nivel, un caso sobre cuanto pesa una senal no
+        # prueba nada: el tema aparece igual valiendo 1 que valiendo 2,
+        # y el caso pasa con la regla puesta y sin ella.
+        faltan, flojos = [], []
+        for d in deben:
+            k, piso = (d.split(":") + ["0"])[:2]
+            piso = int(piso)
+            if k not in salio:
+                faltan.append(k)
+            elif salio[k] < piso:
+                flojos.append(u"%s en %d, esperaba %d" % (k, salio[k], piso))
         sobran = [t for t in no_deben if t in salio]
-        if not faltan and not sobran:
+        if not faltan and not sobran and not flojos:
             continue
         mal += 1
         print(u'  %s' % texto.replace("\\n", " / "))
         if faltan:
             print(u"      no detecto: %s" % ", ".join(faltan))
+        if flojos:
+            print(u"      se queda corto: %s" % ", ".join(flojos))
         if sobran:
             print(u"      detecto de mas: %s   (salio: %s)"
-                  % (", ".join(sobran), ", ".join(salio)))
+                  % (", ".join(sobran), ", ".join(sorted(salio))))
 
     print()
     print(u"los %d casos pasan" % len(CASOS) if not mal else
