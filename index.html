@@ -3258,8 +3258,19 @@ function renderRetos(){
    Esto es el widget: cuanto rato y con que, hoy. Lleva a la agenda
    completa, que sigue existiendo con los siete dias. */
 function renderHoyMini(){
+  /* La agenda no espera a que tengas plan.
+
+     Aca habia un `!hayPlan()`, asi que este renglon solo salia para
+     quien ya habia armado su ruta. Con el estado limpio -o sea al
+     entrar por primera vez, o probando el sitio- no salia nunca, y
+     por eso la agenda "no estaba en la portada" por mas que el
+     widget estuviera puesto.
+
+     Plan.armar() sin nada guardado ya devuelve la semana entera, con
+     sus bloques de practica, estudio y repaso. No habia nada que
+     proteger: el `if` solo escondia. */
   var m = document.getElementById("hoyMini");
-  if(!m || typeof Plan === "undefined" || !hayPlan()) return;
+  if(!m || typeof Plan === "undefined") return;
 
   Plan.cargar();
   var d = Plan.deHoy(), bl = d.bloques, i, total = 0, que = [], q;
@@ -3294,8 +3305,9 @@ function renderHoyMini(){
 
 function renderHoy(){
   renderHoyMini();
+  /* Y la agenda de los siete dias, por lo mismo. */
   var caja = document.getElementById("hoy");
-  if(!caja || typeof Plan === "undefined" || !hayPlan()) return;
+  if(!caja || typeof Plan === "undefined") return;
 
   Plan.cargar();
   var r = Plan.armar(), hoy = Plan.hoy(), d, i, b;
