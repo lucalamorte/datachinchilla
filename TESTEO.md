@@ -45,7 +45,7 @@ Tiene que verse:
 - "Práctica diaria" con dos tarjetas (Python y SQL)
 - El catálogo de rutas, con seis tarjetas y un botón para ver el resto
 - Un globo de la chinchilla que dice "Hola, soy la chinchilla" y
-  "Paso 1 de 9"
+  "Paso 1 de 10"
 
 **No tiene que verse** el renglón de la agenda ni el bloque "Tu ruta":
 quien no configuró nada no tiene agenda que mostrar.
@@ -73,15 +73,22 @@ Tienen que salir los nueve, en este orden y en estas páginas:
 
 | Paso | Dice | Dónde estás |
 |---|---|---|
-| 1 de 9 | Hola, soy la chinchilla | portada |
-| 2 de 9 | Primero, cuéntame de ti | portada |
-| 3 de 9 | ¿A dónde vas? | cv |
-| 4 de 9 | Ahora sí, tu experiencia | cv |
-| 5 de 9 | Esto ya lo sabes | cv |
-| 6 de 9 | Y esto es lo que falta | cv |
-| 7 de 9 | Ésta es tu ruta | una ruta |
-| 8 de 9 | Acá se arma tu semana | semana |
-| 9 de 9 | Listo, ésta es tu portada | portada |
+| 1 de 10 | Hola, soy la chinchilla | portada |
+| 2 de 10 | Primero, cuéntame de ti | portada |
+| 3 de 10 | ¿A dónde vas? | cv |
+| 4 de 10 | Ahora sí, tu experiencia | cv |
+| 5 de 10 | Esto ya lo sabes | cv |
+| 6 de 10 | Cinco preguntas, de a una | cv |
+| 7 de 10 | Y esto es lo que falta | cv |
+| 8 de 10 | Ésta es tu ruta | una ruta |
+| 9 de 10 | Acá se arma tu semana | semana |
+| 10 de 10 | Listo, ésta es tu portada | portada |
+
+Los pasos de `cv` tienen que seguir el orden de la página: puesto, CV,
+skills, preguntas, ruta. **Falla si** el globo salta una sección, o si
+te manda a buscar algo donde no está. El paso del CV decía "contesta
+las cuatro preguntas de abajo": eran cinco, y abajo del CV estaban los
+skills.
 
 En el paso 4 vas a tener que pegar un CV de verdad para poder seguir.
 Usa el de la sección 14.

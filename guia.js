@@ -73,9 +73,12 @@ var Guia = (function(){
       id: "cargar",
       donde: "cv",
       titulo: "Ahora sí, tu experiencia",
-      texto: "Arrastra el CV o pega el texto. Si no lo tienes a mano, contesta " +
-             "las cuatro preguntas de abajo y sale lo mismo. En cuanto lo lea te " +
-             "muestro qué reconocí y cuál de las rutas te sirve.",
+      /* Decia "las cuatro preguntas de abajo". Son cinco, y abajo del
+         CV ya no estan: quedaron dos secciones mas abajo, despues de
+         los skills. Mandaba a buscar algo donde no estaba. */
+      texto: "Arrastra el CV o pega el texto. Si no lo tienes a mano no pasa " +
+             "nada: sigue igual y más adelante te hago unas preguntas que " +
+             "sirven para lo mismo. En cuanto lea algo te muestro qué reconocí.",
       accion: "Ya está, seguir",
       lleva: "",
       ancla: "#cvZona",
@@ -85,12 +88,28 @@ var Guia = (function(){
       id: "leido",
       donde: "cv",
       titulo: "Esto ya lo sabes",
+      /* Solo hablaba de sacar. Agregar se puede desde que se pidio, y
+         este globo era el unico lugar que no lo decia. */
       texto: "Lo que reconocí en lo que contaste, y que por eso no te voy a " +
-             "ofrecer. Si alguno no corresponde, sácalo con su cruz y rehago la " +
-             "ruta sin él.",
+             "ofrecer. Si alguno no corresponde, sácalo con su cruz; y si me " +
+             "falta alguno que sabes, agrégalo tú. Rehago la ruta con eso.",
       accion: "Está bien así",
       lleva: "",
       ancla: "#sabe"
+    },
+    {
+      /* Este paso no existia y la seccion si. El recorrido saltaba de
+         los skills a la ruta, y en el medio aparecia una seccion de
+         preguntas de la que no habia hablado nadie. */
+      id: "preguntas",
+      donde: "cv",
+      titulo: "Cinco preguntas, de a una",
+      texto: "Para afinar lo que te falta. Van de a una y se contestan rápido; " +
+             "lo que respondas se suma a lo que ya reconocí. Si prefieres, " +
+             "puedes seguir sin contestarlas.",
+      accion: "Seguir",
+      lleva: "",
+      ancla: "#pasoPreg"
     },
     {
       id: "guardar",
