@@ -3245,6 +3245,248 @@ var CATALOGO = [
   "hs": "5 h",
   "nivel": "Curso 10",
   "pago": false
+ },
+ {
+  "id": "mlops:m01",
+  "nodo": "m01",
+  "ruta": "mlops",
+  "n": 1,
+  "t": "Los principios de MLOps",
+  "d": "Qué es MLOps y qué no: por qué un modelo que anda en un notebook no es un sistema, y qué hace falta agregarle para que lo sea. El texto de referencia del tema, abierto.",
+  "hs": "2 h",
+  "nivel": "Curso 1",
+  "pago": false
+ },
+ {
+  "id": "mlops:m02",
+  "nodo": "m02",
+  "ruta": "mlops",
+  "n": 2,
+  "t": "Los niveles 0, 1 y 2, de Google",
+  "d": "El artículo de arquitectura que define la escalera: hacerlo a mano, automatizar el entrenamiento, automatizar el pipeline entero. Es la respuesta a «dónde está tu equipo» en una entrevista.",
+  "hs": "2 h",
+  "nivel": "Curso 2",
+  "pago": false
+ },
+ {
+  "id": "mlops:m03",
+  "nodo": "m03",
+  "ruta": "mlops",
+  "n": 3,
+  "t": "Diseñar el sistema, no el modelo",
+  "d": "Made With ML arranca por donde hay que arrancar: qué problema resuelve, cómo se mide, y recién después qué modelo. Es el error más caro y el más común.",
+  "hs": "3 h",
+  "nivel": "Curso 3",
+  "pago": false
+ },
+ {
+  "id": "mlops:m04",
+  "nodo": "m04",
+  "ruta": "mlops",
+  "n": 4,
+  "t": "MLflow, primeros pasos",
+  "d": "La herramienta que vas a encontrar puesta en la mayoría de los equipos. Instalarla, correr el primer experimento y ver qué guarda.",
+  "hs": "2 h",
+  "nivel": "Curso 4",
+  "pago": false
+ },
+ {
+  "id": "mlops:m05",
+  "nodo": "m05",
+  "ruta": "mlops",
+  "n": 5,
+  "t": "Seguimiento de experimentos",
+  "d": "Parámetros, métricas y artefactos de cada corrida. Es lo que convierte «probé como veinte cosas» en una tabla que se puede mirar.",
+  "hs": "3 h",
+  "nivel": "Curso 5",
+  "pago": false
+ },
+ {
+  "id": "mlops:m06",
+  "nodo": "m06",
+  "ruta": "mlops",
+  "n": 6,
+  "t": "Versionar los datos, no sólo el código",
+  "d": "DVC pone los datos y los modelos bajo control de versiones, junto al código. Sin esto, «el modelo de marzo» es una carpeta que ya nadie sabe cuál era.",
+  "hs": "2 h",
+  "nivel": "Curso 6",
+  "pago": false
+ },
+ {
+  "id": "mlops:m07",
+  "nodo": "m07",
+  "ruta": "mlops",
+  "n": 7,
+  "t": "Seguimiento, con el curso al lado",
+  "d": "La misma idea contada por Made With ML, con el proyecto entero armándose alrededor. Sirve para ver cómo encaja en un flujo real.",
+  "hs": "3 h",
+  "nivel": "Curso 7",
+  "pago": false
+ },
+ {
+  "id": "mlops:m08",
+  "nodo": "m08",
+  "ruta": "mlops",
+  "n": 8,
+  "t": "El registro de modelos",
+  "d": "Dónde vive el modelo que está en producción, quién lo aprobó y cómo se pasa de la versión 3 a la 4 sin cortar el servicio.",
+  "hs": "2 h",
+  "nivel": "Curso 8",
+  "pago": false
+ },
+ {
+  "id": "mlops:m09",
+  "nodo": "m09",
+  "ruta": "mlops",
+  "n": 9,
+  "t": "Servir el modelo",
+  "d": "Que el modelo responda a un pedido: como servicio, por lotes o adentro de otra aplicación. Las tres formas y cuándo conviene cada una.",
+  "hs": "3 h",
+  "nivel": "Curso 9",
+  "pago": false
+ },
+ {
+  "id": "mlops:m10",
+  "nodo": "m10",
+  "ruta": "mlops",
+  "n": 10,
+  "t": "Que se despliegue solo",
+  "d": "Integración y entrega continuas para modelos: que un cambio pase las pruebas, entrene y despliegue sin que nadie ejecute nada a mano.",
+  "hs": "3 h",
+  "nivel": "Curso 10",
+  "pago": false
+ },
+ {
+  "id": "mlops:m11",
+  "nodo": "m11",
+  "ruta": "mlops",
+  "n": 11,
+  "t": "Monitoreo y deriva",
+  "d": "Un modelo no se rompe: se degrada, en silencio, mientras el mundo cambia. Evidently mide esa deriva y avisa antes de que la note el negocio.",
+  "hs": "3 h",
+  "nivel": "Curso 11",
+  "pago": false
+ },
+ {
+  "id": "mlops:m12",
+  "nodo": "m12",
+  "ruta": "mlops",
+  "n": 12,
+  "t": "Probar código, datos y modelo",
+  "d": "Tres cosas distintas que se prueban distinto. Un modelo puede pasar todas las pruebas del código y estar entrenado con datos rotos.",
+  "hs": "3 h",
+  "nivel": "Curso 12",
+  "pago": false
+ },
+ {
+  "id": "mlops:m13",
+  "nodo": "m13",
+  "ruta": "mlops",
+  "n": 13,
+  "t": "Monitorear el sistema entero",
+  "d": "La vuelta completa de Made With ML: qué mirar del sistema, no sólo del modelo, y cómo cerrar el ciclo para volver a entrenar.",
+  "hs": "3 h",
+  "nivel": "Curso 13",
+  "pago": false
+ },
+ {
+  "id": "viz:v01",
+  "nodo": "v01",
+  "ruta": "viz",
+  "n": 1,
+  "t": "Fundamentos de visualización, el libro",
+  "d": "Claus Wilke publicó el libro entero y gratis en la web. Por qué un gráfico se entiende o no: escalas, color, cuánta información tolera un ojo, y los errores que se repiten en todas las presentaciones.",
+  "hs": "8 h",
+  "nivel": "Curso 1",
+  "pago": false
+ },
+ {
+  "id": "viz:v02",
+  "nodo": "v02",
+  "ruta": "viz",
+  "n": 2,
+  "t": "Qué gráfico uso para esto",
+  "d": "El catálogo de visualizaciones, en español: entras por lo que quieres mostrar -una comparación, una parte de un todo, un cambio en el tiempo- y sales con los gráficos que sirven.",
+  "hs": "2 h",
+  "nivel": "Curso 2",
+  "pago": false
+ },
+ {
+  "id": "viz:v03",
+  "nodo": "v03",
+  "ruta": "viz",
+  "n": 3,
+  "t": "Contar algo con un gráfico",
+  "d": "La guía de Storytelling with Data. Un gráfico correcto y un gráfico que convence no son lo mismo, y la diferencia es casi toda decisiones de qué sacar.",
+  "hs": "2 h",
+  "nivel": "Curso 3",
+  "pago": false
+ },
+ {
+  "id": "viz:v04",
+  "nodo": "v04",
+  "ruta": "viz",
+  "n": 4,
+  "t": "Power BI, de cero",
+  "d": "Conectar los datos, limpiarlos y hacer el primer informe. Microsoft publica su formación completa, gratis y en español.",
+  "hs": "5 h",
+  "nivel": "Curso 4",
+  "pago": false
+ },
+ {
+  "id": "viz:v05",
+  "nodo": "v05",
+  "ruta": "viz",
+  "n": 5,
+  "t": "Modelar los datos",
+  "d": "El paso que separa un informe que anda de uno que aguanta: relaciones entre tablas, medidas y DAX. Es donde se traba todo el mundo.",
+  "hs": "6 h",
+  "nivel": "Curso 5",
+  "pago": false
+ },
+ {
+  "id": "viz:v06",
+  "nodo": "v06",
+  "ruta": "viz",
+  "n": 6,
+  "t": "Visualizaciones y análisis",
+  "d": "Las visualizaciones que trae, cuándo usar cada una, y cómo se arma un tablero que la gente pueda recorrer sola.",
+  "hs": "5 h",
+  "nivel": "Curso 6",
+  "pago": false
+ },
+ {
+  "id": "viz:v07",
+  "nodo": "v07",
+  "ruta": "viz",
+  "n": 7,
+  "t": "Looker Studio, de Google",
+  "d": "Gratis de verdad, en el navegador y conectado a lo de Google. Es lo que vas a encontrar en empresas chicas y en marketing.",
+  "hs": "3 h",
+  "nivel": "Curso 7",
+  "pago": false
+ },
+ {
+  "id": "viz:v08",
+  "nodo": "v08",
+  "ruta": "viz",
+  "n": 8,
+  "t": "Tableau, con Tableau Public",
+  "d": "La herramienta que domina en las empresas grandes. Tableau Public es gratis y su formación es abierta: alcanza para saber trabajar en ella.",
+  "hs": "4 h",
+  "nivel": "Curso 8",
+  "pago": false
+ },
+ {
+  "id": "viz:v09",
+  "nodo": "v09",
+  "ruta": "viz",
+  "n": 9,
+  "t": "Metabase, código abierto",
+  "d": "La que se instala una empresa cuando no quiere pagar licencias. Preguntar en lenguaje casi natural sobre una base, y armar tableros arriba de SQL.",
+  "hs": "3 h",
+  "nivel": "Curso 9",
+  "pago": false
  }
 ];
 
@@ -3412,5 +3654,21 @@ var CATALOGO_RUTAS = [
   "color": "#A94F2E",
   "icono": "biz",
   "orden": 20
+ },
+ {
+  "id": "mlops",
+  "nombre": "MLOps",
+  "archivo": "mlops.html",
+  "color": "#4338CA",
+  "icono": "flow",
+  "orden": 21
+ },
+ {
+  "id": "viz",
+  "nombre": "Visualización y BI",
+  "archivo": "visualizacion.html",
+  "color": "#A16207",
+  "icono": "chart",
+  "orden": 22
  }
 ];

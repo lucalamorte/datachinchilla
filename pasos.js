@@ -5482,5 +5482,430 @@ var PASOS = [
   ],
   "nivel": "Desde cero",
   "nivelN": 0
+ },
+ {
+  "archivo": "mlops.html",
+  "clave": "mlops",
+  "nombre": "MLOps",
+  "actos": [
+   "Qué cambia al salir del notebook",
+   "Que se pueda repetir",
+   "Ponerlo a correr",
+   "Que siga funcionando"
+  ],
+  "pasos": [
+   {
+    "id": "m01",
+    "t": "Los principios de MLOps",
+    "min": 120,
+    "act": 1,
+    "time": "2 h",
+    "sum": "Qué es MLOps y qué no: por qué un modelo que anda en un notebook no es un sistema, y qué hace falta agregarle para que lo sea. El texto de referencia del tema, abierto.",
+    "goal": "Terminas esta parte cuando explicas por qué el 80% de los modelos nunca llegan a producción.",
+    "cert": "",
+    "i": "",
+    "u": "https://ml-ops.org/content/mlops-principles",
+    "boss": true,
+    "wins": [
+     "El vocabulario con el que se habla de esto",
+     "Qué se rompe cuando un modelo sale del notebook",
+     "Las tres partes que hay que versionar: código, datos y modelo"
+    ]
+   },
+   {
+    "id": "m02",
+    "t": "Los niveles 0, 1 y 2, de Google",
+    "min": 120,
+    "act": 1,
+    "time": "2 h",
+    "sum": "El artículo de arquitectura que define la escalera: hacerlo a mano, automatizar el entrenamiento, automatizar el pipeline entero. Es la respuesta a «dónde está tu equipo» en una entrevista.",
+    "goal": "Terminas esta parte cuando ubicas a tu equipo en un nivel y sabes cuál es el siguiente.",
+    "cert": "",
+    "i": "",
+    "u": "https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning",
+    "boss": false,
+    "wins": [
+     "Una escalera concreta en vez de una lista de herramientas",
+     "Qué automatizar primero, que es la pregunta cara",
+     "Es el documento que todos citan"
+    ]
+   },
+   {
+    "id": "m03",
+    "t": "Diseñar el sistema, no el modelo",
+    "min": 180,
+    "act": 1,
+    "time": "3 h",
+    "sum": "Made With ML arranca por donde hay que arrancar: qué problema resuelve, cómo se mide, y recién después qué modelo. Es el error más caro y el más común.",
+    "goal": "Terminas esta parte cuando escribes qué métrica de negocio tiene que mover tu modelo, antes de entrenarlo.",
+    "cert": "",
+    "i": "",
+    "u": "https://madewithml.com/courses/mlops/systems-design/",
+    "boss": false,
+    "wins": [
+     "Del problema del negocio a la métrica del modelo",
+     "Por qué empezar por el modelo es empezar por el final",
+     "El curso entero es abierto, sin cuenta"
+    ]
+   },
+   {
+    "id": "m04",
+    "t": "MLflow, primeros pasos",
+    "min": 120,
+    "act": 2,
+    "time": "2 h",
+    "sum": "La herramienta que vas a encontrar puesta en la mayoría de los equipos. Instalarla, correr el primer experimento y ver qué guarda.",
+    "goal": "Terminas esta parte cuando vuelves a un experimento de la semana pasada y sabes exactamente con qué lo corriste.",
+    "cert": "",
+    "i": "",
+    "u": "https://mlflow.org/docs/latest/getting-started/index.html",
+    "boss": true,
+    "wins": [
+     "Registrar qué corriste, con qué datos y qué dio",
+     "Comparar corridas en vez de acordarte",
+     "Es de código abierto: no hay nada que pagar"
+    ]
+   },
+   {
+    "id": "m05",
+    "t": "Seguimiento de experimentos",
+    "min": 180,
+    "act": 2,
+    "time": "3 h",
+    "sum": "Parámetros, métricas y artefactos de cada corrida. Es lo que convierte «probé como veinte cosas» en una tabla que se puede mirar.",
+    "goal": "Terminas esta parte cuando eliges un modelo mostrando la comparación, no contándola.",
+    "cert": "",
+    "i": "",
+    "u": "https://mlflow.org/docs/latest/ml/tracking/",
+    "boss": false,
+    "wins": [
+     "Qué registrar y qué no, que es la mitad del asunto",
+     "Comparar veinte corridas sin planillas",
+     "El registro es lo que después permite volver atrás"
+    ]
+   },
+   {
+    "id": "m06",
+    "t": "Versionar los datos, no sólo el código",
+    "min": 120,
+    "act": 2,
+    "time": "2 h",
+    "sum": "DVC pone los datos y los modelos bajo control de versiones, junto al código. Sin esto, «el modelo de marzo» es una carpeta que ya nadie sabe cuál era.",
+    "goal": "Terminas esta parte cuando reproduces un resultado de hace tres meses con un comando.",
+    "cert": "",
+    "i": "",
+    "u": "https://dvc.org/doc/start",
+    "boss": false,
+    "wins": [
+     "Git para archivos que no entran en Git",
+     "Reproducir de verdad, no de memoria",
+     "Es lo que falta cuando alguien dice que no puede repetir un número"
+    ]
+   },
+   {
+    "id": "m07",
+    "t": "Seguimiento, con el curso al lado",
+    "min": 180,
+    "act": 2,
+    "time": "3 h",
+    "sum": "La misma idea contada por Made With ML, con el proyecto entero armándose alrededor. Sirve para ver cómo encaja en un flujo real.",
+    "goal": "Terminas esta parte cuando tu proyecto registra cada corrida sin que tengas que acordarte.",
+    "cert": "",
+    "i": "",
+    "u": "https://madewithml.com/courses/mlops/experiment-tracking/",
+    "boss": false,
+    "wins": [
+     "La herramienta dentro de un proyecto, no suelta",
+     "Qué se automatiza y qué queda a mano",
+     "Código completo para copiar y adaptar"
+    ]
+   },
+   {
+    "id": "m08",
+    "t": "El registro de modelos",
+    "min": 120,
+    "act": 3,
+    "time": "2 h",
+    "sum": "Dónde vive el modelo que está en producción, quién lo aprobó y cómo se pasa de la versión 3 a la 4 sin cortar el servicio.",
+    "goal": "Terminas esta parte cuando promueves un modelo a producción y puedes volver atrás en un minuto.",
+    "cert": "",
+    "i": "",
+    "u": "https://mlflow.org/docs/latest/ml/model-registry/",
+    "boss": true,
+    "wins": [
+     "Etapas: desarrollo, prueba, producción",
+     "Volver a la versión anterior sin drama, que es lo que te salva",
+     "Quién aprobó qué, que en algunos rubros te lo van a pedir"
+    ]
+   },
+   {
+    "id": "m09",
+    "t": "Servir el modelo",
+    "min": 180,
+    "act": 3,
+    "time": "3 h",
+    "sum": "Que el modelo responda a un pedido: como servicio, por lotes o adentro de otra aplicación. Las tres formas y cuándo conviene cada una.",
+    "goal": "Terminas esta parte cuando tu modelo contesta por HTTP y sabes cuánto tarda.",
+    "cert": "",
+    "i": "",
+    "u": "https://mlflow.org/docs/latest/ml/deployment/",
+    "boss": false,
+    "wins": [
+     "Las tres formas de servir, con sus costos",
+     "Latencia: la diferencia entre un modelo bueno y uno usable",
+     "Empaquetar el modelo con lo que necesita para correr"
+    ]
+   },
+   {
+    "id": "m10",
+    "t": "Que se despliegue solo",
+    "min": 180,
+    "act": 3,
+    "time": "3 h",
+    "sum": "Integración y entrega continuas para modelos: que un cambio pase las pruebas, entrene y despliegue sin que nadie ejecute nada a mano.",
+    "goal": "Terminas esta parte cuando un cambio tuyo llega a producción sin que abras una terminal.",
+    "cert": "",
+    "i": "",
+    "u": "https://madewithml.com/courses/mlops/cicd/",
+    "boss": false,
+    "wins": [
+     "El pipeline completo, del commit al modelo servido",
+     "Qué tiene que frenar el despliegue y qué no",
+     "Es el nivel 2 del artículo de Google, hecho"
+    ]
+   },
+   {
+    "id": "m11",
+    "t": "Monitoreo y deriva",
+    "min": 180,
+    "act": 4,
+    "time": "3 h",
+    "sum": "Un modelo no se rompe: se degrada, en silencio, mientras el mundo cambia. Evidently mide esa deriva y avisa antes de que la note el negocio.",
+    "goal": "Terminas esta parte cuando tienes una alerta que salta cuando tu modelo empieza a fallar, no cuando ya falló.",
+    "cert": "",
+    "i": "",
+    "u": "https://docs.evidentlyai.com/quickstart_ml",
+    "boss": true,
+    "wins": [
+     "Deriva de datos y deriva de concepto, que no son lo mismo",
+     "Qué medir cuando no tienes las etiquetas reales todavía",
+     "Es la parte del trabajo que sólo se nota cuando falta"
+    ]
+   },
+   {
+    "id": "m12",
+    "t": "Probar código, datos y modelo",
+    "min": 180,
+    "act": 4,
+    "time": "3 h",
+    "sum": "Tres cosas distintas que se prueban distinto. Un modelo puede pasar todas las pruebas del código y estar entrenado con datos rotos.",
+    "goal": "Terminas esta parte cuando tus pruebas cubren las tres cosas y no sólo las funciones.",
+    "cert": "",
+    "i": "",
+    "u": "https://madewithml.com/courses/mlops/testing/",
+    "boss": false,
+    "wins": [
+     "Probar los datos, que es lo que nadie hace",
+     "Probar el comportamiento del modelo, no sólo su métrica",
+     "Se cruza con la ruta de testing que ya está acá"
+    ]
+   },
+   {
+    "id": "m13",
+    "t": "Monitorear el sistema entero",
+    "min": 180,
+    "act": 4,
+    "time": "3 h",
+    "sum": "La vuelta completa de Made With ML: qué mirar del sistema, no sólo del modelo, y cómo cerrar el ciclo para volver a entrenar.",
+    "goal": "Terminas esta parte cuando el sistema te dice solo cuándo hay que reentrenar.",
+    "cert": "",
+    "i": "",
+    "u": "https://madewithml.com/courses/mlops/monitoring/",
+    "boss": false,
+    "wins": [
+     "Del monitoreo al reentrenamiento, que es el ciclo entero",
+     "Qué mirar del sistema y no del modelo",
+     "Cierra la ruta con el proyecto funcionando de punta a punta"
+    ]
+   }
+  ],
+  "nivel": "Con Python sabido",
+  "nivelN": 2
+ },
+ {
+  "archivo": "visualizacion.html",
+  "clave": "viz",
+  "nombre": "Visualización y BI",
+  "actos": [
+   "Cómo se lee un gráfico",
+   "Power BI",
+   "Las otras"
+  ],
+  "pasos": [
+   {
+    "id": "v01",
+    "t": "Fundamentos de visualización, el libro",
+    "min": 480,
+    "act": 1,
+    "time": "8 h",
+    "sum": "Claus Wilke publicó el libro entero y gratis en la web. Por qué un gráfico se entiende o no: escalas, color, cuánta información tolera un ojo, y los errores que se repiten en todas las presentaciones.",
+    "goal": "Terminas esta parte cuando miras un gráfico ajeno y sabes decir qué está mal en él.",
+    "cert": "",
+    "i": "",
+    "u": "https://clauswilke.com/dataviz/",
+    "boss": true,
+    "wins": [
+     "Los principios, que sirven en cualquier herramienta",
+     "El catálogo de gráficos con qué hace bien cada uno",
+     "Gratis y completo: no es una muestra del libro pago"
+    ]
+   },
+   {
+    "id": "v02",
+    "t": "Qué gráfico uso para esto",
+    "min": 120,
+    "act": 1,
+    "time": "2 h",
+    "sum": "El catálogo de visualizaciones, en español: entras por lo que quieres mostrar -una comparación, una parte de un todo, un cambio en el tiempo- y sales con los gráficos que sirven.",
+    "goal": "Terminas esta parte cuando eliges el gráfico por lo que quieres decir y no por costumbre.",
+    "cert": "",
+    "i": "",
+    "u": "https://datavizcatalogue.com/ES/",
+    "boss": false,
+    "wins": [
+     "Entrar por la pregunta, no por el tipo de gráfico",
+     "Está en español, que en este tema es raro",
+     "Se consulta, no se recorre: queda de referencia"
+    ]
+   },
+   {
+    "id": "v03",
+    "t": "Contar algo con un gráfico",
+    "min": 120,
+    "act": 1,
+    "time": "2 h",
+    "sum": "La guía de Storytelling with Data. Un gráfico correcto y un gráfico que convence no son lo mismo, y la diferencia es casi toda decisiones de qué sacar.",
+    "goal": "Terminas esta parte cuando tu gráfico se entiende sin que estés al lado explicándolo.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.storytellingwithdata.com/chart-guide",
+    "boss": false,
+    "wins": [
+     "Qué sacar, que es más importante que qué poner",
+     "Dirigir la mirada a lo que importa",
+     "Es lo que separa un tablero que se usa de uno que se abrió una vez"
+    ]
+   },
+   {
+    "id": "v04",
+    "t": "Power BI, de cero",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Conectar los datos, limpiarlos y hacer el primer informe. Microsoft publica su formación completa, gratis y en español.",
+    "goal": "Terminas esta parte cuando armas un informe con datos tuyos y lo compartes.",
+    "cert": "",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/get-started-power-bi/",
+    "boss": true,
+    "wins": [
+     "De un archivo suelto a un informe que otro puede abrir",
+     "Limpiar los datos antes de graficarlos, que es la mitad del trabajo",
+     "Gratis, en español y sin cuenta para leerlo"
+    ]
+   },
+   {
+    "id": "v05",
+    "t": "Modelar los datos",
+    "min": 360,
+    "act": 2,
+    "time": "6 h",
+    "sum": "El paso que separa un informe que anda de uno que aguanta: relaciones entre tablas, medidas y DAX. Es donde se traba todo el mundo.",
+    "goal": "Terminas esta parte cuando escribes una medida que suma bien sin importar cómo filtren.",
+    "cert": "",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/model-power-bi/",
+    "boss": false,
+    "wins": [
+     "Relaciones entre tablas: por qué el total no da",
+     "DAX, lo suficiente para no copiar fórmulas de internet",
+     "Se cruza con modelado de datos, que ya está en el sitio"
+    ]
+   },
+   {
+    "id": "v06",
+    "t": "Visualizaciones y análisis",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "Las visualizaciones que trae, cuándo usar cada una, y cómo se arma un tablero que la gente pueda recorrer sola.",
+    "goal": "Terminas esta parte cuando alguien encuentra su respuesta en tu tablero sin preguntarte.",
+    "cert": "",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/perform-analytics-power-bi/",
+    "boss": false,
+    "wins": [
+     "Filtros y segmentaciones que no confunden",
+     "Un tablero que se recorre, no una pila de gráficos",
+     "Con esto cierras el temario de la certificación PL-300"
+    ]
+   },
+   {
+    "id": "v07",
+    "t": "Looker Studio, de Google",
+    "min": 180,
+    "act": 3,
+    "time": "3 h",
+    "sum": "Gratis de verdad, en el navegador y conectado a lo de Google. Es lo que vas a encontrar en empresas chicas y en marketing.",
+    "goal": "Terminas esta parte cuando publicas un tablero que se actualiza solo y se comparte con un link.",
+    "cert": "",
+    "i": "",
+    "u": "https://support.google.com/looker-studio/answer/6283323",
+    "boss": true,
+    "wins": [
+     "Sin instalar nada y sin licencia",
+     "Conecta con Sheets, BigQuery y Analytics",
+     "Es la que más aparece cuando no hay presupuesto"
+    ]
+   },
+   {
+    "id": "v08",
+    "t": "Tableau, con Tableau Public",
+    "min": 240,
+    "act": 3,
+    "time": "4 h",
+    "sum": "La herramienta que domina en las empresas grandes. Tableau Public es gratis y su formación es abierta: alcanza para saber trabajar en ella.",
+    "goal": "Terminas esta parte cuando abres un libro de Tableau ajeno y sabes qué hace.",
+    "cert": "",
+    "i": "",
+    "u": "https://public.tableau.com/app/resources/learn",
+    "boss": false,
+    "wins": [
+     "La otra mitad del mercado, la que Power BI no tiene",
+     "Tableau Public es gratis: lo pago es la versión de empresa",
+     "Poder trabajar donde ya está elegida"
+    ]
+   },
+   {
+    "id": "v09",
+    "t": "Metabase, código abierto",
+    "min": 180,
+    "act": 3,
+    "time": "3 h",
+    "sum": "La que se instala una empresa cuando no quiere pagar licencias. Preguntar en lenguaje casi natural sobre una base, y armar tableros arriba de SQL.",
+    "goal": "Terminas esta parte cuando dejas armado un tablero que el equipo consulta sin saber SQL.",
+    "cert": "",
+    "i": "",
+    "u": "https://www.metabase.com/learn/",
+    "boss": false,
+    "wins": [
+     "Tableros arriba de SQL, que es lo que ya sabes",
+     "De código abierto: se instala y no se paga",
+     "Es la puerta para que el resto del equipo consulte solo"
+    ]
+   }
+  ],
+  "nivel": "Con SQL sabido",
+  "nivelN": 1
  }
 ];

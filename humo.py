@@ -29,6 +29,7 @@ PAGINAS = [
     "claude.html",
     "ml-aplicado.html", "web3.html", "fullstack.html", "airflow.html",
     "testing.html", "nube.html", "funcional.html",
+    "mlops.html", "visualizacion.html",
     "mi-ruta.html",
     "preguntas.html",
     "recursos.html",

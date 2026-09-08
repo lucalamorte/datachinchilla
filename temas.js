@@ -689,6 +689,20 @@ var TEMAS = {
     "id": "f09",
     "t": "SQL: mirar los datos tú mismo",
     "min": 240
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v07",
+    "t": "Looker Studio, de Google",
+    "min": 180
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v09",
+    "t": "Metabase, código abierto",
+    "min": 180
    }
   ],
   "python": [
@@ -775,6 +789,27 @@ var TEMAS = {
     "id": "g05",
     "t": "Pythonic DAGs con la TaskFlow API",
     "min": 90
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m04",
+    "t": "MLflow, primeros pasos",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m06",
+    "t": "Versionar los datos, no sólo el código",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m07",
+    "t": "Seguimiento, con el curso al lado",
+    "min": 180
    }
   ],
   "cloud": [
@@ -1050,6 +1085,27 @@ var TEMAS = {
     "id": "n09",
     "t": "Cloud Digital Leader, de Google",
     "min": 480
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m08",
+    "t": "El registro de modelos",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m09",
+    "t": "Servir el modelo",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m10",
+    "t": "Que se despliegue solo",
+    "min": 180
    }
   ],
   "pipelines": [
@@ -1828,6 +1884,13 @@ var TEMAS = {
     "id": "f08",
     "t": "Casos de uso y UML",
     "min": 60
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v05",
+    "t": "Modelar los datos",
+    "min": 360
    }
   ],
   "calidad": [
@@ -1956,6 +2019,27 @@ var TEMAS = {
     "id": "t13",
     "t": "Accesibilidad: probar que se pueda usar",
     "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m11",
+    "t": "Monitoreo y deriva",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m12",
+    "t": "Probar código, datos y modelo",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m13",
+    "t": "Monitorear el sistema entero",
+    "min": 180
    }
   ],
   "bigdata": [
@@ -2128,6 +2212,13 @@ var TEMAS = {
     "id": "d05",
     "t": "Regresión lineal con PyTorch",
     "min": 420
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m05",
+    "t": "Seguimiento de experimentos",
+    "min": 180
    }
   ],
   "viz": [
@@ -2158,6 +2249,69 @@ var TEMAS = {
     "id": "f10",
     "t": "Power BI, del lado de quien pide",
     "min": 300
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v01",
+    "t": "Fundamentos de visualización, el libro",
+    "min": 480
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v02",
+    "t": "Qué gráfico uso para esto",
+    "min": 120
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v03",
+    "t": "Contar algo con un gráfico",
+    "min": 120
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v04",
+    "t": "Power BI, de cero",
+    "min": 300
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v05",
+    "t": "Modelar los datos",
+    "min": 360
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v06",
+    "t": "Visualizaciones y análisis",
+    "min": 300
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v07",
+    "t": "Looker Studio, de Google",
+    "min": 180
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v08",
+    "t": "Tableau, con Tableau Public",
+    "min": 240
+   },
+   {
+    "ruta": "viz",
+    "archivo": "visualizacion.html",
+    "id": "v09",
+    "t": "Metabase, código abierto",
+    "min": 180
    }
   ],
   "deep": [
@@ -2675,6 +2829,83 @@ var TEMAS = {
     "id": "c16",
     "t": "The AI-Native SDLC Playbook",
     "min": 60
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m01",
+    "t": "Los principios de MLOps",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m02",
+    "t": "Los niveles 0, 1 y 2, de Google",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m03",
+    "t": "Diseñar el sistema, no el modelo",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m04",
+    "t": "MLflow, primeros pasos",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m06",
+    "t": "Versionar los datos, no sólo el código",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m07",
+    "t": "Seguimiento, con el curso al lado",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m08",
+    "t": "El registro de modelos",
+    "min": 120
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m09",
+    "t": "Servir el modelo",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m10",
+    "t": "Que se despliegue solo",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m12",
+    "t": "Probar código, datos y modelo",
+    "min": 180
+   },
+   {
+    "ruta": "mlops",
+    "archivo": "mlops.html",
+    "id": "m13",
+    "t": "Monitorear el sistema entero",
+    "min": 180
    }
   ],
   "producto": [

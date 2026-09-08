@@ -39,6 +39,8 @@ RUTAS = {
     "testing.html":        "testing",
     "nube.html":           "nube",
     "funcional.html":      "funcional",
+    "mlops.html":          "mlops",
+    "visualizacion.html":  "viz",
 }
 
 BOTON = u'''      <button class="btn-quiet btn-mia" id="miaBtn" type="button" hidden>

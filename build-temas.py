@@ -183,6 +183,19 @@ POR_TRAMO = {
  # traducir lo que el negocio necesita no encajaba en ninguno de los
  # diecisiete que habia, y meterlo en "calidad" o en "modelado"
  # habria sido acomodarlo para no crear uno.
+ # MLOps: los cuatro tramos son mlops, y los que tocan nube y
+ # pruebas lo dicen tambien, porque es lo que de verdad ensenan.
+ ("mlops", 1):        ["mlops"],
+ ("mlops", 2):        ["mlops", "python"],
+ ("mlops", 3):        ["mlops", "cloud"],
+ ("mlops", 4):        ["mlops", "calidad"],
+
+ # Visualizacion: el primer tramo son principios, los otros dos
+ # herramientas. El de Power BI suma modelado, que es la mitad.
+ ("viz", 1):          ["viz"],
+ ("viz", 2):          ["viz", "modelado"],
+ ("viz", 3):          ["viz", "sql"],
+
  ("funcional", 1):    ["producto"],
  ("funcional", 2):    ["producto"],
  ("funcional", 3):    ["producto", "modelado"],

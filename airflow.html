@@ -1065,8 +1065,8 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
   <span id="toastText"></span>
 </div>
 
-<script src="pasos.js?v=0b6eb84f"></script>
-<script src="temas.js?v=9969571e"></script>
+<script src="pasos.js?v=f375cd48"></script>
+<script src="temas.js?v=e6dfed03"></script>
 <script src="cv.js?v=cbfec907"></script>
 <script src="onboarding.js?v=f56a235c"></script>
 <script src="guia.js?v=b91387ac"></script>
@@ -1413,7 +1413,10 @@ function paintStates(){
   var startBtn = document.getElementById("startBtn");
   if(cur === -1){
     document.getElementById("startVerb").textContent = "Catálogo completo";
-    document.getElementById("startDest").textContent = "Las quince partes";
+    /* Contado, no escrito: este texto decia "quince" en siete rutas
+       porque se heredo de Full Stack Open al copiar la pagina. */
+    document.getElementById("startDest").textContent =
+      "Los " + NODES.length + " pasos";
     startBtn.setAttribute("data-target", NODES[0].id);
   }else{
     document.getElementById("startVerb").textContent = c === 0 ? "Empezar por" : "Seguir por";

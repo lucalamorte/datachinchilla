@@ -126,6 +126,18 @@ PAGINAS = {
         "color": u"#0C0818",
         "ogtitulo": u"Preguntas frecuentes",
     },
+    "mlops.html": {
+        "titulo": u"MLOps gratis, en orden · " + MARCA,
+        "desc": u"Del notebook a un modelo que corre solo: MLflow, DVC, Evidently y el curso completo de Made With ML, en el orden que conviene y sin pagar nada.",
+        "color": u"#08121C",
+        "ogtitulo": u"MLOps, en orden",
+    },
+    "visualizacion.html": {
+        "titulo": u"Visualización y tableros gratis, en orden · " + MARCA,
+        "desc": u"Cómo se lee un gráfico y cómo se arma un tablero: el libro de Claus Wilke, el temario completo de Power BI, Looker Studio, Tableau y Metabase.",
+        "color": u"#08121C",
+        "ogtitulo": u"Visualización y tableros, en orden",
+    },
     "funcional.html": {
         "titulo": u"Analista funcional, gratis y en orden · " + MARCA,
         "desc": u"El material de referencia del oficio: la Guía Scrum, el manifiesto ágil, historias de usuario, BPMN y las dos habilidades técnicas que hacen falta.",

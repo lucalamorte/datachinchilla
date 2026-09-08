@@ -71,8 +71,8 @@ Estados: **abierto** · **en curso** · **hecho** · **a decidir**
 | (15) Evaluar el contenido: cuánto hay, qué falta, mínimo para lanzar | `contenido.py`: 1613 h, ningún tema pedido sin material | **hecho** |
 | 41 pasos se parten en 10 bloques o más; CS50 llega a "parte 1 de 40" | El número además reiniciaba cada semana. Ya no se numera cuando el paso no entra en la semana | **hecho** |
 | CS50 tiene cinco pasos de 50 a 60 horas | El arreglo del número lo hace honesto, no chico. Partirlos por su estructura real (CS50x tiene diez semanas publicadas) es trabajo de contenido | abierto |
-| MLOps: 1 paso y 1 hora, y ML Engineer lo pide en nivel 4 | El único agujero real de los ocho puestos | abierto |
-| Visualización: 3 pasos para lo que pide Data Analyst | Es la ruta más buscada y el tema más flaco | abierto |
+| MLOps: 1 paso y 1 hora, y ML Engineer lo pide en nivel 4 | `mlops.html`: 13 pasos. ML Engineer pasó de 89% a 100% | **hecho** |
+| Visualización: 3 pasos para lo que pide Data Analyst | `visualizacion.html`: 9 pasos. El tema pasó de 4 pasos a 13 | **hecho** |
 | (19) Que el CV real dé exactamente "Subir de nivel", sin hardcodear | Iteración sobre el motor | abierto |
 | (19b) Evaluar IA para leer el CV, sin que nadie pague | Decisión de arquitectura y de costo | a decidir |
 | El motor no entiende negaciones: "no sé Docker" cuenta como saber | Resuelto en `cv.js`, con `motor.py` como red: 23 casos, la mitad trampas | **hecho** |
