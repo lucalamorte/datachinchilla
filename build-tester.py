@@ -180,6 +180,21 @@ C = [
 # El <head> no se toca: lo reescribe build-brand.py entero, y por eso
 # la ruta se da de alta ahi y no aca.
 TEXTOS = [
+ # El texto del catalogo. Se hereda de airflow.html, que ahora
+ # habla de Astronomer: en una ruta de testing eso es falso.
+ (u"Toca cualquiera para ver qué te llevas y por qué está acá. "
+  u"Los de Astronomer dejan constancia en su academia; los de Apache "
+  u"son documentación y no dejan nada más que saberlo.",
+  u"Toca cualquiera para ver qué te llevas y por qué está acá. "
+  u"Ninguno deja credencial: son documentación oficial y abierta. La que "
+  u"existe en este mundo es ISTQB, y su examen se paga aparte.", 1),
+
+ # El href del boton del hero. La etiqueta se reemplazaba y el
+ # destino no: el boton decia un sitio y llevaba a otro, que es
+ # peor que un link roto porque no se nota.
+ (u'<a class="btn-quiet" href="https://academy.astronomer.io/" target="_blank" rel="noopener">',
+  u'<a class="btn-quiet" href="https://playwright.dev/" target="_blank" rel="noopener">', 1),
+
  (u"""  /* Airflow. Medido contra los fondos de verdad: 5.17:1 sobre
      --bg-2 en claro, 8.74:1 sobre --surface en oscuro. */
   --accent:        #0E6B78;

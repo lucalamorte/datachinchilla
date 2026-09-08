@@ -143,6 +143,12 @@ C = [
 ]
 
 TEXTOS = [
+ # El href del boton del hero. La etiqueta se reemplazaba y el
+ # destino no: el boton decia un sitio y llevaba a otro, que es
+ # peor que un link roto porque no se nota.
+ (u'<a class="btn-quiet" href="https://academy.astronomer.io/" target="_blank" rel="noopener">',
+  u'<a class="btn-quiet" href="https://scrumguides.org/" target="_blank" rel="noopener">', 1),
+
  (u"""  /* Airflow. Medido contra los fondos de verdad: 5.17:1 sobre
      --bg-2 en claro, 8.74:1 sobre --surface en oscuro. */
   --accent:        #0E6B78;
