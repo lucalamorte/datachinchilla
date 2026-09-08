@@ -35,6 +35,37 @@ var Chin = (function(){
       '<ellipse class="c-oreja-in" cx="62.4" cy="23" rx="4.6" ry="6.4" transform="rotate(21 62.4 23)"/>';
   }
 
+  /* La cola pomposa.
+
+     Una chinchilla sin cola se lee como un raton gordo. La tenia solo
+     la pose de dormir, y ahi hace de manta.
+
+     Es una espina curva de trazo grueso con tres mechones encima: a
+     104 pixeles, eso es lo que separa "pomposa" de "de raton". Un
+     solo trazo, por grueso que sea, sale liso.
+
+     `lado` es -1 o 1 porque el lugar libre cambia en cada pose: la
+     lupa ocupa la derecha, la taza tambien, y el brazo del saludo va
+     por ahi. `alto` sube la punta cuando el cuerpo esta inclinado.
+
+     Va antes del cuerpo en cada pose, para salir por detras. */
+  function cola(lado, x, y, alto){
+    var d = lado || 1, ax = (x === undefined ? 68 : x),
+        ay = (y === undefined ? 70 : y), up = alto || 0;
+    function p(dx, dy){ return (ax + d * dx) + " " + (ay + dy - up); }
+    /* Sale de abajo del lomo y sube por afuera. Empezaba a la altura
+       del hombro y con mechones de radio 6: eso no era una cola, era
+       un ala pegada al costado de la cabeza. */
+    return '<g class="c-cola-g">' +
+      '<path class="c-cola" d="M' + p(-2, 0) +
+        'Q' + p(15, 2) + " " + p(17, -15) + '"/>' +
+      '<circle class="c-mecha" cx="' + (ax + d * 7)  + '" cy="' + (ay + 1 - up)  + '" r="4.8"/>' +
+      '<circle class="c-mecha" cx="' + (ax + d * 13) + '" cy="' + (ay - 3 - up)  + '" r="4.6"/>' +
+      '<circle class="c-mecha" cx="' + (ax + d * 16) + '" cy="' + (ay - 10 - up) + '" r="4.2"/>' +
+      '<circle class="c-mecha" cx="' + (ax + d * 17) + '" cy="' + (ay - 16 - up) + '" r="3.4"/>' +
+      '</g>';
+  }
+
   function ojos(cerrados){
     if(cerrados){
       /* Dormida: dos arcos, que es lo único que hace falta. */
@@ -66,18 +97,48 @@ var Chin = (function(){
             '<circle cx="80" cy="70" r="2.8"/>' +
             '<circle cx="73" cy="64" r="2"/>' +
           '</g>' +
-          '<g class="c-bicho">' + cuerpo() + ojos(false) + hocico() +
-            '<ellipse class="c-pata" cx="34" cy="72" rx="6" ry="4.5"/>' +
-            '<ellipse class="c-pata" cx="66" cy="72" rx="6" ry="4.5"/>' +
+          /* Inclinada hacia el pozo. Derecha y con dos patas abajo
+             era una chinchilla sentada detras de un monticulo: la
+             postura tenia que decir "cabeza adentro" antes que
+             cualquier animacion. Gira desde la cadera. */
+          '<g class="c-bicho" transform="rotate(-9 50 74)">' +
+            /* Y por eso la cola queda alta: es lo que mas se ve de
+               una chinchilla metida en un pozo. */
+            cola(1, 70, 60, 12) +
+            cuerpo() + ojos(false) + hocico() +
+            /* Brazos, no pies. Eran dos ovalos iguales a la misma
+               altura abajo del cuerpo, o sea estar parada. Salen del
+               hombro, bajan al pozo -las manos quedan tapadas por el
+               monticulo, que es donde tienen que estar- y se mueven
+               alternados. */
+            '<g class="c-brazo-cava c-brazo-izq">' +
+              '<path class="c-hueso" d="M36 57L26 74"/>' +
+              '<ellipse class="c-pata" cx="25" cy="76" rx="6" ry="4.6"/>' +
+            '</g>' +
+            '<g class="c-brazo-cava c-brazo-der">' +
+              '<path class="c-hueso" d="M60 60L70 74"/>' +
+              '<ellipse class="c-pata" cx="71" cy="76" rx="6" ry="4.6"/>' +
+            '</g>' +
           '</g>' +
         '</g>' +
-        '<ellipse class="c-pozo" cx="50" cy="82" rx="34" ry="7"/>';
+        /* El pozo, mas alto y mas hondo. Era una elipse chata al pie
+           del dibujo: le tapaba cuatro pixeles y ella quedaba sentada
+           encima. Ahora el borde le cruza el cuerpo, o sea que la
+           mitad de abajo esta adentro, que es lo unico que hace que
+           un dibujo diga "escarbando" sin que lo diga el texto. */
+        '<ellipse class="c-pozo" cx="50" cy="80" rx="35" ry="11"/>';
     },
 
     /* Dormida, hecha un ovillo, con la cola de manta. */
     duerme: function(){
       return '<g class="c-duerme">' +
+          /* Acá hace de manta, enroscada, así que no usa cola():
+             es la única pose donde la cola no va detrás sino
+             alrededor. Los mechones la hacen pomposa igual. */
           '<path class="c-cola" d="M74 62q16 -4 14 10q-2 12 -16 8"/>' +
+          '<circle class="c-mecha" cx="84" cy="64" r="6"/>' +
+          '<circle class="c-mecha" cx="88" cy="72" r="5.6"/>' +
+          '<circle class="c-mecha" cx="82" cy="79" r="5.2"/>' +
           cuerpo() + ojos(true) + hocico() +
           '<g class="c-zzz">' +
             '<text x="74" y="26" class="c-z c-z1">z</text>' +
@@ -88,7 +149,8 @@ var Chin = (function(){
 
     /* Buscando: la lupa y la cabeza ladeada. */
     busca: function(){
-      return '<g class="c-busca">' + cuerpo() + ojos(false) + hocico() + '</g>' +
+      return '<g class="c-busca">' + cola(-1, 32, 70, 0) +
+        cuerpo() + ojos(false) + hocico() + '</g>' +
         '<g class="c-lupa">' +
           '<circle class="c-lupa-c" cx="76" cy="58" r="12"/>' +
           '<path class="c-lupa-m" d="M85 67l9 9"/>' +
@@ -98,6 +160,7 @@ var Chin = (function(){
     /* Festejando: las patas arriba y confeti. */
     festeja: function(){
       return '<g class="c-salta">' +
+          cola(1, 68, 70, 0) +
           cuerpo() + ojos(false) + hocico() +
           '<ellipse class="c-pata" cx="28" cy="50" rx="6" ry="4.5" transform="rotate(-40 28 50)"/>' +
           '<ellipse class="c-pata" cx="72" cy="50" rx="6" ry="4.5" transform="rotate(40 72 50)"/>' +
@@ -142,7 +205,7 @@ var Chin = (function(){
        desde el hombro: la mano sola, sin brazo, eran dos manchas a
        treinta pixeles una de otra. */
     saluda: function(){
-      return cuerpo() + ojos(false) + hocico() +
+      return cola(-1, 32, 70, 0) + cuerpo() + ojos(false) + hocico() +
         '<ellipse class="c-pata" cx="34" cy="74" rx="6" ry="4.5"/>' +
         '<g class="c-brazo">' +
           '<path class="c-hueso" d="M66 60L75 45"/>' +
@@ -152,7 +215,8 @@ var Chin = (function(){
 
     /* Con el cafe: va al lado de la invitacion, y nada mas. */
     cafe: function(){
-      return '<g class="c-toma">' + cuerpo() + ojos(false) + hocico() +
+      return '<g class="c-toma">' + cola(-1, 32, 70, 0) +
+          cuerpo() + ojos(false) + hocico() +
           '<ellipse class="c-pata" cx="30" cy="66" rx="6" ry="4.5"/>' +
         '</g>' +
         '<g class="c-taza">' +

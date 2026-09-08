@@ -444,9 +444,18 @@ que no entran en una maquina.
 Git, CI/CD con GitHub Actions, Docker.
 ```
 
-Con ese CV apuntando a **Data Engineer**, tiene que recomendar
-**"Subir de nivel"**. Es la vara: si recomienda otra cosa o arma una
-lista de cursos sueltos, es un fallo.
+Con ese CV apuntando a **Data Engineer**, tiene que reconocerle
+**siete temas**: SQL, Python, modelado, pipelines, nube, big data y
+fundamentos. Y con eso, recomendar **"Testing y QA"**, porque sus dos
+huecos son calidad y Python.
+
+**Falla si** reconoce menos de siete, o si recomienda "Subir de
+nivel". Esa era la vara vieja, de cuando el motor leia menos: no
+distinguia "Modelo el warehouse... staging... marts" -eso es modelado,
+y daba nivel 1- ni "DAGs que corren a diario" -eso es pipelines-. Con
+los siete temas leidos, "Subir de nivel" le queda con **24% de
+aprovechamiento**: tres de cada cuatro pasos de esa ruta ya los sabe,
+y ofrecersela es hacerle perder el tiempo.
 
 ### 14b. El CV que no es de datos
 
@@ -526,6 +535,35 @@ Abre el sitio en un teléfono, o achica la ventana a 375px.
 - Las tarjetas se apilan en una columna
 - El globo de la chinchilla no tapa la pantalla entera
 - El menú de tres rayas abre y se lee
+
+---
+
+## 17b. La chinchilla, en las siete poses
+
+Las poses salen en: la portada (saluda), el pozo del CV mientras lee
+(escarba), los vacíos de `/practica` (busca), el festejo al cerrar el
+día (cohete), los días libres de la agenda (duerme), la invitación al
+café (cafe) y el festejo común (festeja).
+
+- **Todas tienen cola**, y es pomposa: una espina curva con cuatro
+  mechones, no un cable. La única sin cola es la del cohete, y es a
+  propósito: ahí de ella se ve la cabeza por la ventanilla y nada más.
+- La de dormir la lleva enroscada alrededor, de manta.
+- La cola sale del **lomo bajo**, no del hombro. **Falla si** parece
+  un ala o un brazo levantado.
+
+**Escarbando**, que es la que más se mira porque sale mientras el
+sitio lee tu CV:
+
+- Se le ven **dos brazos** bajando al pozo, de un tono más claro que
+  el cuerpo, moviéndose **alternados**
+- El borde del pozo le **cruza el cuerpo**: la mitad de abajo está
+  adentro
+- Está inclinada hacia adelante y la cola le queda alta
+
+**Falla si** parece sentada detrás de un montículo, o si abajo se ven
+dos óvalos iguales a la misma altura: eso son pies, y era lo que
+había.
 
 ---
 
