@@ -18,7 +18,7 @@
 <!-- Las poses de la chinchilla y las animaciones del sitio. Va acá por
      lo mismo: si lo escribe otro script en el HTML, la próxima corrida
      de esta plantilla se lo lleva. Ya pasó con tema.css y con este. -->
-<link rel="stylesheet" href="chinchilla.css?v=3bb6f955">
+<link rel="stylesheet" href="chinchilla.css?v=15b8c846">
 
 <!-- Cómo se ve al compartirla. El dominio vive en build-catalog.py y en
      estas etiquetas: si cambia, es un reemplazo en los tres archivos. -->
@@ -1555,23 +1555,20 @@ a.via{ text-decoration:none; }
    otra, y lo que dice entra en un renglon. Como tarjeta era una caja
    con dos lineas adentro y aire en el resto. */
 .puerta.fila{
-  flex-direction:row; align-items:center; gap:14px;
-  padding:14px 18px;
+  flex-direction:row; align-items:center; gap:12px;
+  padding:11px 16px;
 }
-.puerta.fila .p-txt{ min-width:0; }
+.puerta.fila .p-txt{ min-width:0; gap:1px; }
 .puerta.fila .p-txt span{
   overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
-/* Solo la flecha. Decia "Seguir" al lado de una flecha que ya dice
-   eso, y la fila entera es un link: son tres formas de contar lo
-   mismo. */
-.puerta.fila .p-ir{ margin-left:auto; flex-shrink:0; }
-
-/* Y no ocupa el ancho entero: es un renglon de dos datos, no una
-   barra. */
+/* Ni "Seguir" ni flecha. Habia las dos, adentro de una fila que
+   entera es un link: tres formas de decir lo mismo, y la flecha de la
+   derecha ademas empujaba el texto y dejaba medio renglon vacio.
+   Queda el icono de la izquierda y lo que hay que leer. */
 .puertas:has(> .fila){
-  grid-template-columns:minmax(0, 620px);
-  align-items:center; gap:10px;
+  grid-template-columns:max-content;
+  align-items:center; gap:8px;
 }
 .puerta-cv{
   display:inline-flex; align-items:center; gap:7px; width:fit-content;
@@ -2025,7 +2022,7 @@ a.via{ text-decoration:none; }
 </dialog>
 
 <script src="pasos.js?v=65bf5593"></script>
-<script src="chinchilla.js?v=419ec8f2"></script>
+<script src="chinchilla.js?v=3f384fd4"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script src="temas.js?v=6526e6d5"></script>
 <script src="cv.js?v=5c07e222"></script>
@@ -3162,9 +3159,8 @@ function pintarPuertas(){
        adentro y aire en el resto. */
     h += '<a class="puerta fila" href="' + esc(sigue.ruta.archivo) + '#' + esc(sigue.paso.id) + '">' +
       '<span class="p-ico">' + icon("arrow", 19) + '</span>' +
-      '<span class="p-txt"><b>Retoma donde quedaste</b>' +
-        '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span>' +
-      '<span class="p-ir">' + icon("arrow", 14) + '</span></a>' +
+      '<span class="p-txt"><b>Retoma tu ruta</b>' +
+        '<span>' + esc(sigue.paso.t) + ' · ' + esc(sigue.ruta.nombre) + '</span></span></a>' +
       /* Y como llegar al CV. Estaba solo en el bloque "Tu ruta", que
          al subir la agenda quedo abajo del pliegue: existia y no se
          veia, que para quien lo busca es lo mismo que no estar. */

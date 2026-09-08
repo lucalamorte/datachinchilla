@@ -568,11 +568,15 @@ sitio lee tu CV:
 
 - Lo que sale volando son **fichas de curso**, no grumos de tierra:
   el dibujo tiene que decir para qué cava, no sólo que cava
-- El pozo es **opaco**: le tapa la mitad de abajo. **Falla si** se ve
-  el montículo a través del cuerpo, como si fuera de vidrio
-- **No lleva pala.** Hubo tres versiones y las tres empeoraron el
-  dibujo: a cien píxeles no entra una herramienta además del bicho, el
-  pozo, la cola y las fichas
+- El pozo va **detrás** de ella. **Falla si** el montículo le queda
+  por delante del cuerpo: en SVG lo último se dibuja encima, y el pozo
+  estaba al final. Hacerlo opaco no arregla eso, lo empeora
+- Tiene una **pala** en la mano izquierda: mango en T arriba, la pata
+  **sobre** el mango, la hoja abajo en la tierra. **Falla si** la pala
+  flota al lado de la pata en vez de estar agarrada
+- La pala es **madera y metal**, no violeta. **Falla si** se pierde
+  dentro del cuerpo: un tono derivado de la marca mide 1,35 a 1 contra
+  él, o sea la misma luminancia con otro color
 - El borde del pozo le **cruza el cuerpo**: la mitad de abajo está
   adentro, y está inclinada hacia adelante
 - La cola va del lado contrario a la pala

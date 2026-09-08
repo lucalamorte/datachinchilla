@@ -76,17 +76,28 @@
    fondo. Con el acento andaba de casualidad, porque el cuerpo era
    el acento; al aclarar el cuerpo paso a oscurecerlo y se leia
    como si la tapara. */
-/* El pozo, OPACO.
+/* El pozo va DETRAS de ella, no encima: en el SVG se dibuja primero.
 
-   Iba con transparencia y se dibuja despues que ella, asi que en vez
-   de taparle la mitad de abajo se la teñia: se veia el monticulo a
-   traves del cuerpo, como si la chinchilla fuera de vidrio. Un pozo
-   que deja ver lo que hay adentro no es un pozo.
+   Estaba al final y en SVG lo ultimo va arriba, asi que el monticulo
+   le quedaba por delante del cuerpo. Se probo hacerlo opaco y fue
+   peor: entonces la tapaba de verdad. El problema nunca fue la
+   transparencia, era el orden.
 
-   Opaco tapa de verdad, que es lo unico que hace que se lea "esta
-   metida ahi adentro". El tono sale del cuerpo y no del fondo para
-   que funcione igual en los dos temas. */
+   Y siendo el suelo, va opaco: un pozo que deja ver lo que tiene
+   detras no es un pozo. */
 .chin-pose .c-pozo{ fill:color-mix(in srgb, var(--chin-cuerpo) 34%, var(--surface)); }
+
+/* La pala: madera y metal, no la marca. Un tono derivado del violeta
+   se pierde adentro del cuerpo -el primer intento medía 1.35 a 1, la
+   misma luminancia con otro color-, asi que se sale del violeta. Es
+   el segundo objeto con color propio; el primero es el fuego. */
+.chin-pose .c-pala-m{
+  fill:none; stroke:#6B4226; stroke-width:3.4; stroke-linecap:round;
+}
+.chin-pose .c-pala-t{
+  fill:none; stroke:#6B4226; stroke-width:4.6; stroke-linecap:round;
+}
+.chin-pose .c-pala-h{ fill:#F1F5F9; }
 /* Los grumos salen del montículo, así que llevan su tono, un poco
    más marcado para que se vean en el aire. */
 /* Las fichas que salen del pozo. Eran grumos de tierra: con eso el

@@ -98,64 +98,55 @@ var Chin = (function(){
           '</g>';
       }
       return '<g class="c-cava">' +
-          /* Arriba y a los costados, que es donde hay aire: abajo a la
-             izquierda chocaban con la pala y las tres formas juntas se
-             leian como una sola mancha. */
+          /* EL POZO VA PRIMERO, o sea DETRAS de ella.
+
+             Estaba al final, y en SVG lo ultimo se dibuja encima: le
+             quedaba el monticulo por delante del cuerpo. Se probo
+             hacerlo opaco y fue peor, porque entonces la tapaba de
+             verdad. El problema no era la transparencia, era el orden.
+
+             Detras, es el suelo del que sale: ella esta parada en el
+             pozo, no atras de una mancha. */
+          '<ellipse class="c-pozo" cx="50" cy="80" rx="35" ry="11"/>' +
+
           '<g class="c-tierra">' + ficha(15, 30, -20) + ficha(30, 14, 10) + '</g>' +
           '<g class="c-tierra c-tierra-2">' + ficha(86, 30, 18) + '</g>' +
-          /* Inclinada hacia el pozo. Derecha y con dos patas abajo
-             era una chinchilla sentada detras de un monticulo: la
-             postura tenia que decir "cabeza adentro" antes que
-             cualquier animacion. Gira desde la cadera. */
+
+          /* Inclinada hacia el pozo. Derecha y con dos patas abajo era
+             una chinchilla sentada detras de un monticulo: la postura
+             tiene que decir "cavando" antes que la animacion. */
           '<g class="c-bicho" transform="rotate(-9 50 74)">' +
-            /* Y por eso la cola queda alta: es lo que mas se ve de
-               una chinchilla metida en un pozo. */
+            /* La cola alta, que es lo que mas se ve de una chinchilla
+               escarbando. Va del lado derecho, asi que la pala va del
+               izquierdo. */
             cola(1) +
             cuerpo() + ojos(false) + hocico() +
-            /* Las manos apoyadas en el borde, anchas y horizontales.
 
-               Antes eran dos brazos largos bajando del hombro. No
-               hace falta describir a que se parecian: la respuesta de
-               quien lo miro fue "dos penes colgando", y tenia razon.
-               Cualquier cosa vertical y redondeada colgando de un
-               cuerpo a esa altura se lee asi, y no hay animacion que
-               lo arregle.
+            /* La pala, agarrada.
 
-               Lo que dice "esta cavando" es la postura y el pozo, no
-               los brazos: inclinada hacia adelante, el borde del pozo
-               cruzandole el cuerpo, la tierra saltando y la cola
-               arriba. Las manos solo asoman en el borde. */
-            /* Sin pala.
+               El mango en T arriba, la pata SOBRE el mango a mitad de
+               camino -que es donde se agarra- y la hoja abajo, en la
+               tierra. Con el pozo detras la hoja se ve entera, que era
+               el otro motivo por el que no se entendia.
 
-               Hubo tres versiones y las tres empeoraron el dibujo: un
-               palito con un rombo que no se entendia, una pala que se
-               perdia adentro del cuerpo por el color, y una agarrada
-               que quedaba cruzando media chinchilla. A cien pixeles no
-               entra una herramienta ademas del bicho, el pozo, la cola
-               y las fichas: es una cosa mas en un dibujo que ya esta
-               lleno.
-
-               Lo que dice "esta escarbando" ya estaba antes de la
-               pala, y sigue: la postura inclinada, el borde del pozo
-               cruzandole el cuerpo, las manos apoyadas en ese borde y
-               las fichas saliendo. */
-            '<g class="c-mano-cava c-mano-izq">' +
-              '<ellipse class="c-pata" cx="32" cy="74" rx="7.5" ry="4.4" ' +
-                'transform="rotate(-14 32 74)"/>' +
+               No sigue la marca: es madera y metal, como el fuego del
+               cohete tiene su color. Un tono derivado del violeta se
+               pierde adentro del cuerpo, por claro u oscuro que sea. */
+            '<g class="c-pala">' +
+              '<path class="c-pala-t" d="M11 34L24 40"/>' +
+              '<path class="c-pala-m" d="M17 37L38 74"/>' +
+              '<path class="c-pala-h" d="M31 63L43 56L52 72Q44 78 36 74Z"/>' +
             '</g>' +
-            /* La otra mano solo asoma en el borde. */
+            '<ellipse class="c-pata" cx="27" cy="55" rx="7.5" ry="5" ' +
+              'transform="rotate(60 27 55)"/>' +
+
+            /* La otra mano asoma en el borde. */
             '<g class="c-mano-cava c-mano-der">' +
               '<ellipse class="c-pata" cx="66" cy="76" rx="7.5" ry="4.4" ' +
                 'transform="rotate(12 66 76)"/>' +
             '</g>' +
           '</g>' +
-        '</g>' +
-        /* El pozo, mas alto y mas hondo. Era una elipse chata al pie
-           del dibujo: le tapaba cuatro pixeles y ella quedaba sentada
-           encima. Ahora el borde le cruza el cuerpo, o sea que la
-           mitad de abajo esta adentro, que es lo unico que hace que
-           un dibujo diga "escarbando" sin que lo diga el texto. */
-        '<ellipse class="c-pozo" cx="50" cy="80" rx="35" ry="11"/>';
+        '</g>';
     },
 
     /* Dormida, hecha un ovillo, con la cola de manta. */
