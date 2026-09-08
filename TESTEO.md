@@ -328,6 +328,32 @@ de lo que vas a querer cambiar.
 un rincón de la cabecera cuando había otras dos formas de llegar;
 ahora es la única.
 
+### 9d. Mover los bloques a mano
+
+En `/semana`, con la semana armada.
+
+- **Arrastra** un bloque a otro día. Mientras arrastras, el día donde
+  va a caer se marca. **Falla si** no se marca: se suelta a ciegas
+- Con el bloque **enfocado**, las flechas ← y → lo mueven de día
+- Al pasar el mouse por encima aparecen **dos flechas** en el bloque.
+  En pantallas táctiles están siempre: arrastrar es HTML5 drag and
+  drop y al tacto no existe. **Falla si** en el teléfono no hay
+  ninguna forma de mover un bloque
+- **Recarga.** Los bloques siguen donde los pusiste
+- Anda a la **portada**: la agenda muestra lo mismo. No hace falta
+  nada especial ahí, lee el mismo repartidor
+
+**Falla si** al cambiar los días o las horas lo que moviste desaparece
+del todo. Los movimientos se aplican **después** de repartir: lo que
+no tocaste se reacomoda solo, y lo que moviste se respeta mientras ese
+bloque siga existiendo.
+
+**El botón "Volver al orden sugerido"** aparece sólo si moviste algo,
+pregunta antes, y si cancelas no toca nada. **Falla si** está visible
+sin haber movido nada: un botón que no hace nada es ruido.
+
+---
+
 ### 9b. Los bloques dicen algo útil
 
 Mira los nombres de los bloques.

@@ -28,7 +28,10 @@ var Plan = (function(){
      aguanta la cabeza; con más, el día deja de ser un día. */
   var MAX_POR_DIA  = 2;
 
-  var estado = { ruta: "sqlpy", horas: 6, dias: [0,1,2,3,4] };
+  /* `movidos` es lo unico que guarda algo sobre la distribucion:
+     por clave de bloque, a que dia lo mandaste a mano. El resto lo
+     decide el repartidor cada vez. */
+  var estado = { ruta: "sqlpy", horas: 6, dias: [0,1,2,3,4], movidos: {} };
 
   function perfil(){
     try{ return (window.PathSync && PathSync.store) ? PathSync.store.active() : null; }
@@ -45,6 +48,7 @@ var Plan = (function(){
       if(crudo.ruta)  estado.ruta  = String(crudo.ruta);
       if(crudo.horas) estado.horas = parseInt(crudo.horas, 10) || 6;
       if(Object.prototype.toString.call(crudo.dias) === "[object Array]") estado.dias = crudo.dias;
+      if(crudo.movidos && typeof crudo.movidos === "object") estado.movidos = crudo.movidos;
     }
     return estado;
   }
@@ -160,6 +164,10 @@ var Plan = (function(){
         : (partesDe[paso.id] === 0 ? " · " + tamano(paso.min) + " en total" : "");
       bloques.push({
         tipo: "estudio", min: dura, id: paso.id,
+        /* La parte, como dato y no solo adentro del texto: es la
+           mitad de la clave con la que se recuerda a donde lo
+           moviste. */
+        parte: parte,
         qué: paso.t + cola,
         url: ruta.archivo
       });
@@ -226,11 +234,93 @@ var Plan = (function(){
         url: "index.html#rutina"
       });
     }
+
+    /* La clave de cada bloque, y despues los que moviste a mano.
+
+       Tiene que ser estable entre semanas: armar() rehace todo desde
+       cero, asi que una clave por posicion no sirve. La de estudio es
+       el paso mas la parte; la de practica, el dia para el que se
+       genero -son intercambiables entre si-; la de repaso, una sola.
+
+       Los movimientos se aplican DESPUES de repartir, no en vez de:
+       lo que no moviste sigue donde el repartidor lo puso, y si
+       manana cambias los dias o las horas, eso se reacomoda solo. */
+    for(d=0;d<7;d++){
+      for(b=0;b<semana[d].bloques.length;b++){
+        var bq = semana[d].bloques[b];
+        bq.clave = bq.tipo === "estudio" ? ("e:" + bq.id + ":" + bq.parte)
+                 : bq.tipo === "practica" ? ("p:" + d)
+                 : "r";
+      }
+    }
+
+    var sueltos = [], destino;
+    for(d=0;d<7;d++){
+      for(b=semana[d].bloques.length-1;b>=0;b--){
+        destino = estado.movidos[semana[d].bloques[b].clave];
+        if(destino === undefined || destino === d) continue;
+        if(destino < 0 || destino > 6) continue;
+        sueltos.push({ a: destino, bloque: semana[d].bloques.splice(b, 1)[0] });
+      }
+    }
+    for(b=0;b<sueltos.length;b++){
+      semana[sueltos[b].a].bloques.push(sueltos[b].bloque);
+    }
+
+    /* Y en cada dia, la practica primero: es corta y es la que se
+       hace todos los dias. Sin esto, un bloque movido caia al final y
+       el dia quedaba con el orden al reves de los demas. */
+    for(d=0;d<7;d++){
+      semana[d].bloques.sort(function(x, y){
+        var o = { practica: 0, estudio: 1, repaso: 2 };
+        return o[x.tipo] - o[y.tipo];
+      });
+    }
+
     return { semana: semana, ruta: ruta, rutas: lista, practica: practica,
              estudio: estudio, repaso: repaso, practicar: practicar,
              /* Cuántos bloques no entraron: sirve para decir que te
                 sobra tiempo en vez de inventar días imposibles. */
              sobran: sobran };
+  }
+
+  /* Mover un bloque a otro dia, y volver a como estaba.
+
+     Se poda al guardar: una clave de un paso que ya terminaste no
+     tiene a que aplicarse, y dejarla ahi solo hace crecer el estado
+     para siempre. */
+  function mover(clave, dia){
+    if(!clave || dia < 0 || dia > 6) return false;
+    estado.movidos[clave] = dia;
+    podar();
+    guardar();
+    return true;
+  }
+
+  function sinMover(){
+    estado.movidos = {};
+    guardar();
+    return true;
+  }
+
+  function hayMovidos(){
+    var k;
+    for(k in estado.movidos) return true;
+    return false;
+  }
+
+  function podar(){
+    var vivas = {}, r, d, b;
+    /* Sin movidos, para no podar mirando el resultado de podar. */
+    var guardados = estado.movidos;
+    estado.movidos = {};
+    r = armar();
+    estado.movidos = guardados;
+    for(d=0;d<7;d++){
+      for(b=0;b<r.semana[d].bloques.length;b++) vivas[r.semana[d].bloques[b].clave] = true;
+    }
+    var k;
+    for(k in estado.movidos){ if(!vivas[k]) delete estado.movidos[k]; }
   }
 
   /* Lunes = 0, que es como está armada la semana. */
@@ -249,6 +339,7 @@ var Plan = (function(){
     cargar: cargar, guardar: guardar,
     rutas: rutas, rutaDe: rutaDe, activas: activas, quePracticar: quePracticar,
     hechosDe: hechosDe, pendientesDe: pendientesDe,
-    armar: armar, hoy: hoy, deHoy: deHoy
+    armar: armar, hoy: hoy, deHoy: deHoy,
+    mover: mover, sinMover: sinMover, hayMovidos: hayMovidos
   };
 })();
