@@ -132,19 +132,33 @@ var Chin = (function(){
                No sigue la marca: es madera y metal, como el fuego del
                cohete tiene su color. Un tono derivado del violeta se
                pierde adentro del cuerpo, por claro u oscuro que sea. */
-            '<g class="c-pala">' +
-              '<path class="c-pala-t" d="M11 34L24 40"/>' +
-              '<path class="c-pala-m" d="M17 37L38 74"/>' +
-              '<path class="c-pala-h" d="M31 63L43 56L52 72Q44 78 36 74Z"/>' +
-            '</g>' +
-            '<ellipse class="c-pata" cx="27" cy="55" rx="7.5" ry="5" ' +
-              'transform="rotate(60 27 55)"/>' +
+            /* La pala clavada en la tierra, al lado. No agarrada.
 
+               Agarrada no funciona a este tamano y ademas no cierra:
+               la chinchilla no tiene brazos dibujados, asi que
+               cualquier herramienta le queda apoyada encima. Cruzada
+               por delante, la hoja se leia como un parche blanco sobre
+               la panza -a este tamano una forma clara sobre el cuerpo
+               es una mancha del cuerpo, no un objeto-.
+
+               Clavada en el monticulo se entiende sola, es lo que uno
+               hace con la pala mientras saca tierra con las manos, y
+               no toca la silueta: entera a la izquierda del cuerpo,
+               que empieza en x=29.
+
+               Va afuera del grupo del bicho para que no se incline con
+               el: una pala clavada se queda quieta aunque el que cava
+               se mueva. */
             /* La otra mano asoma en el borde. */
             '<g class="c-mano-cava c-mano-der">' +
               '<ellipse class="c-pata" cx="66" cy="76" rx="7.5" ry="4.4" ' +
                 'transform="rotate(12 66 76)"/>' +
             '</g>' +
+          '</g>' +
+          '<g class="c-pala">' +
+            '<path class="c-pala-h" d="M12 66L24 62L29 80Q20 84 14 79Z"/>' +
+            '<path class="c-pala-m" d="M20 66L14 42"/>' +
+            '<path class="c-pala-t" d="M7 43L21 40"/>' +
           '</g>' +
         '</g>';
     },

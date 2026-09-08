@@ -139,7 +139,7 @@
    del pozo y vuelven. Antes eran dos brazos largos colgando del
    hombro, y a esa altura eso no se lee como brazos. */
 .c-mano-cava{ animation:cavamano 1.1s ease-in-out infinite; }
-.c-mano-izq{ transform-origin:32px 74px; }
+.c-mano-izq{ transform-origin:34px 74px; }
 .c-mano-der{ transform-origin:66px 76px; animation-delay:.55s; }
 @keyframes cavamano{
   0%, 100%{ transform:translateY(0) rotate(0deg); }

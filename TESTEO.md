@@ -571,11 +571,16 @@ sitio lee tu CV:
 - El pozo va **detrás** de ella. **Falla si** el montículo le queda
   por delante del cuerpo: en SVG lo último se dibuja encima, y el pozo
   estaba al final. Hacerlo opaco no arregla eso, lo empeora
-- Tiene una **pala** en la mano izquierda: mango en T arriba, la pata
-  **sobre** el mango, la hoja abajo en la tierra. **Falla si** la pala
-  flota al lado de la pata en vez de estar agarrada
+- Hay una **pala clavada en la tierra** a su izquierda, entera fuera
+  del cuerpo. **Falla si** la cruza por delante: a este tamaño una
+  forma clara sobre el cuerpo se lee como una mancha del cuerpo, no
+  como un objeto, y hubo cuatro versiones que lo hacían
+- No la agarra, y es a propósito: la chinchilla no tiene brazos
+  dibujados, así que cualquier herramienta le queda apoyada encima.
+  Clavada es lo que uno hace con la pala mientras saca tierra con las
+  manos
 - La pala es **madera y metal**, no violeta. **Falla si** se pierde
-  dentro del cuerpo: un tono derivado de la marca mide 1,35 a 1 contra
+  contra el cuerpo: un tono derivado de la marca mide 1,35 a 1 contra
   él, o sea la misma luminancia con otro color
 - El borde del pozo le **cruza el cuerpo**: la mitad de abajo está
   adentro, y está inclinada hacia adelante
