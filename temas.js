@@ -73,7 +73,10 @@ var TEMAS = {
     "datawarehouse",
     "dwh",
     "data vault",
-    "dbt"
+    "dbt",
+    "warehouse",
+    "staging",
+    "marts"
    ]
   },
   {
@@ -91,7 +94,9 @@ var TEMAS = {
     "kafka",
     "nifi",
     "streaming",
-    "batch"
+    "batch",
+    "dag",
+    "dags"
    ]
   },
   {
@@ -191,7 +196,12 @@ var TEMAS = {
     "clasificacion",
     "clustering",
     "modelo predictivo",
-    "feature engineering"
+    "feature engineering",
+    "entreno modelos",
+    "entrenar modelos",
+    "entrenamiento de modelos",
+    "data scientist",
+    "cientifico de datos"
    ]
   },
   {

@@ -270,9 +270,31 @@ var Onb = (function(){
        de React daba cero y quedaba afuera de su propia ruta: las
        rutas que piden saber programar se le escondían por
        "arranca más arriba de donde estás". */
+    /* Poner modelos en produccion, redes profundas o volumen es
+       experiencia, igual que pipelines o nube administrada. Faltaban
+       en la escalera y no los miraba nadie. */
+    if(n("mlops") >= 2 || n("deep") >= 2 || n("bigdata") >= 2) return 3;
     if(n("python") >= 2 || n("web") >= 2 || n("backend") >= 2 ||
        n("prog") >= 2) return 2;
     if(n("sql") >= 2) return 1;
+
+    /* Y varios temas a la vez, aunque cada uno suelto sea flojo.
+
+       "Data scientist. Python, scikit-learn, entreno modelos.
+       Estadistica y experimentos A/B" da python 1, ml 1 y stats 1:
+       tres senales de una mencion cada una, ninguna llega a 2, y la
+       escalera contestaba cero. O sea "empieza de cero", y con eso se
+       le escondian todas las rutas de nivel 1 y 2 -MLOps entre ellas,
+       que es exactamente la que ese CV pide-. Le ofreciamos AI:
+       fundamentos, que es de nivel 0.
+
+       Tres temas distintos no es alguien que empieza de cero, aunque
+       de cada uno haya dicho una linea. Va al final: si alguna senal
+       sola alcanzaba, ya contesto mas arriba. */
+    var cuantos = 0, k;
+    for(k in s){ if(s[k] && s[k].nivel >= 1) cuantos++; }
+    if(cuantos >= 3) return 2;
+    if(cuantos >= 2) return 1;
     return 0;
   }
 
@@ -343,6 +365,42 @@ var Onb = (function(){
 
       var tocaCentral = 0, c;
       for(c=0;c<centrales.length;c++){ if(temas[centrales[c]]) tocaCentral++; }
+
+      /* Y cuanto pesa lo central que toca, no cuantos toca.
+
+         Contarlos los empataba. A un Data Analyst que sabe SQL y dice
+         "no manejo ninguna herramienta de visualizacion", sus dos
+         temas centrales son sql y viz: Data Science toca sql -que ya
+         sabe- y Visualizacion toca viz -que es todo lo que le falta-,
+         y las dos daban 0.5. Con el empate mandaba `cubre`, y Data
+         Science gana ahi porque de paso cubre stats, python y ml. Le
+         terminabamos ofreciendo la ruta de otro puesto.
+
+         Pesado por lo que falta, tocar el tema que no sabes vale y
+         tocar el que ya sabes no. Si ya no te falta ninguno de los
+         centrales no hay con que pesar, y ahi vale el conteo de
+         antes. */
+      /* Cuanto de la ruta se dedica a lo central que te falta.
+
+         No alcanza con preguntar si la toca. A un Data Analyst que
+         sabe SQL y no maneja ninguna herramienta de visualizacion, sus
+         centrales son sql y viz. Data Science toca viz con 3 pasos de
+         15; Visualizacion y BI la toca con 9 de 10. Las dos "tocan
+         viz", asi que empataban, y con el empate mandaba `cubre`, que
+         premia a la ruta ancha: Data Science gana porque de paso trae
+         stats y python. Le daba la ruta de otro puesto.
+
+         Pesado por la parte de la ruta que va a eso, la diferencia
+         entre 9/10 y 3/15 aparece sola. */
+      var pesoCentral = 0, cubreCentral = 0, w, pasosRuta = 0, kk2;
+      for(kk2 in temas) pasosRuta += temas[kk2];
+      for(c=0;c<centrales.length;c++){
+        w = falta[centrales[c]] || 0;
+        pesoCentral += w;
+        if(temas[centrales[c]] && pasosRuta){
+          cubreCentral += w * (temas[centrales[c]] / pasosRuta);
+        }
+      }
       /* Si el puesto tiene oficio declarado y esta ruta no toca nada
          de él, queda afuera de la recomendación. */
       if(centrales.length && !tocaCentral) continue;
@@ -358,13 +416,17 @@ var Onb = (function(){
         aprovecha: pasosUtiles / pasosTotal,
         /* Cuántos de los temas centrales del puesto toca. Desempata:
            entre dos rutas parecidas, la que va más al centro. */
-        central: centrales.length ? tocaCentral / centrales.length : 0,
+        central: pesoCentral ? cubreCentral / pesoCentral
+                             : (centrales.length ? tocaCentral / centrales.length : 0),
         pasos: rs[j].pasos.length
       });
     }
     out.sort(function(a, b){
-      var pa = a.cubre * a.aprovecha * (1 + a.central);
-      var pb = b.cubre * b.aprovecha * (1 + b.central);
+      /* Lo central pesa doble que el resto. Con peso uno, cubrir
+         mucho de lo secundario todavia le ganaba a cubrir justo el
+         oficio del puesto, que es de lo que se trata elegir ruta. */
+      var pa = a.cubre * a.aprovecha * (1 + 2 * a.central);
+      var pb = b.cubre * b.aprovecha * (1 + 2 * b.central);
       return pb - pa;
     });
     return out;
@@ -377,7 +439,20 @@ var Onb = (function(){
   function laQueCalza(){
     var c = rutasQueCalzan();
     if(!c.length) return null;
-    return (c[0].cubre >= 0.5 && c[0].aprovecha >= 0.5) ? c[0] : null;
+    /* Que la mayor parte de la ruta te sirva, y que resuelva o bien
+       la mitad de todo lo que te falta, o bien la mitad de lo que el
+       puesto ES.
+
+       Pedir solo lo primero dejaba afuera a las rutas especializadas,
+       que es justo lo que uno quiere cuando le falta una sola cosa
+       grande: Visualizacion y BI cubre el 45% de todo lo que le falta
+       a un analista de negocio -pero el 67% de su oficio- y MLOps
+       cubre el 28% de lo que le falta a un data scientist -pero el
+       60% de lo que un ML Engineer es-. Las dos quedaban rechazadas y
+       se contestaba con una lista suelta, teniendo la ruta exacta
+       primera en el ranking. */
+    return (c[0].aprovecha >= 0.5 && (c[0].cubre >= 0.5 || c[0].central >= 0.5))
+      ? c[0] : null;
   }
 
   /* Los dos caminos. La regla contra la redundancia: un tema lo

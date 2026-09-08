@@ -45,14 +45,28 @@ TEMAS = [
    "introduccion a las ciencias"]),
 
  ("modelado", u"Modelado de datos",
+  # "warehouse", "staging" y "marts" sueltos. Un CV que dice "Modelo
+  # el warehouse en dbt sobre Snowflake: capas staging, intermediate y
+  # marts, con tests, documentacion y snapshots" tocaba una sola senal
+  # -"dbt"- porque "modelado" no esta en "Modelo" y "data warehouse"
+  # no esta en "el warehouse". Quedaba en nivel 1, o sea alguien que
+  # oyo hablar de modelar datos, y por eso a un data engineer con
+  # cuatro anios se le ofrecia la ruta de dbt, que es la herramienta
+  # que usa todos los dias.
   ["modelado", "data model", "star schema", "kimball", "inmon", "normalizacion",
-   "dimensional", "data warehouse", "datawarehouse", "dwh", "data vault", "dbt"],
+   "dimensional", "data warehouse", "datawarehouse", "dwh", "data vault", "dbt",
+   "warehouse", "staging", "marts"],
   ["modeling", "modelado", "dbt", "jaffle", "materializacion", "dimension",
    "esquema", "warehouse", "semantic", "jinja", "macro"]),
 
  ("pipelines", u"Pipelines y orquestación",
+  # "dag" y "dags": es como se nombra lo que uno arma en Airflow, y
+  # el CV de prueba dice "con DAGs que corren a diario" sin que nadie
+  # lo contara. Con airflow y etl nomas quedaba en nivel 2, o sea que
+  # a alguien que mantiene pipelines todos los dias se le ofrecia la
+  # ruta de Airflow.
   ["airflow", "etl", "elt", "pipeline", "ingesta", "orquestacion", "dagster",
-   "prefect", "kafka", "nifi", "streaming", "batch"],
+   "prefect", "kafka", "nifi", "streaming", "batch", "dag", "dags"],
   ["airflow", "pipeline", "kafka", "ingesta", "moving data", "streaming",
    "orquest", "etl", "elt", "snowpipe", "carga"]),
 
@@ -96,8 +110,20 @@ TEMAS = [
    "regresion lineal", "metodologia"]),
 
  ("ml", u"Machine learning",
+  # "entreno modelos" y el titulo del puesto. Un CV que dice "Data
+  # scientist. Python, scikit-learn, entreno modelos" tocaba una sola
+  # senal -"scikit"- y quedaba en nivel 1, o sea alguien que apenas
+  # oyo hablar de machine learning. Con eso, a un ML Engineer se le
+  # ofrecia AI: fundamentos -aprende ML y Python- en vez de MLOps, que
+  # es lo unico que ese CV dice que le falta.
+  #
+  # Entrenar modelos es hacer machine learning, y decir que sos data
+  # scientist tambien. Las dos son afirmaciones directas, y si vienen
+  # negadas las agarra la maquinaria de negacion como cualquier otra.
   ["machine learning", "scikit", "sklearn", "xgboost", "random forest",
-   "clasificacion", "clustering", "modelo predictivo", "feature engineering"],
+   "clasificacion", "clustering", "modelo predictivo", "feature engineering",
+   "entreno modelos", "entrenar modelos", "entrenamiento de modelos",
+   "data scientist", "cientifico de datos"],
   ["machine learning", "clasific", "clustering", "regresion", "pca", "kmeans",
    "k-means", "dbscan", "mean shift", "gaussian", "arbol", "bosque", "svm",
    "supervisado", "no supervisado", "recomend"]),

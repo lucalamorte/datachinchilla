@@ -115,6 +115,21 @@ var CV = (function(){
       }
       return true;
     }
+    /* "no ... ningun...". Un "no" con un "ningun" cerca es negacion
+       en cualquier verbo, y por eso va como regla y no como frase.
+
+       La lista tiene "no manejo", que agarra "No manejo ninguna
+       herramienta de visualizacion". No tiene "no puse", y por eso
+       "No puse ninguno en produccion" contaba como saber MLOps: al
+       CV de un data scientist se le ofrecia AI en vez de MLOps,
+       justamente lo que ese CV dice que le falta.
+
+       Enumerar verbos es perder contra el proximo. El "ningun" es lo
+       que las dos frases tienen en comun, y pide el "no" delante
+       para no comerse "sin ningun problema con Kafka", que es lo
+       contrario de una negacion. */
+    if(/(^|[^a-z])no\s+(?:[a-záéíóú]{1,14}\s+){0,3}ning[uú]n[oa]?($|[^a-z])/.test(frase)) return true;
+
     /* "sin Docker" pegado. Suelto no: "sin problemas con Docker" es
        lo contrario de una negación. */
     return /(^|[^a-z])sin\s+[a-z0-9 ]{0,12}$/.test(frase);
@@ -179,7 +194,12 @@ var CV = (function(){
     pipelines: [2, { prog: 1 }],
     bigdata:   [2, { prog: 1, cloud: 1 }],
     modelado:  [2, { sql: 1 }],
-    ml:        [2, { stats: 1, python: 1 }],
+    /* Python 2, no 1. Entrenar modelos con scikit-learn no se hace
+       sabiendo Python de oidas, y con el piso en 1 el CV de un data
+       scientist seguia contando Python como un tema a medio aprender:
+       Python quedaba como hueco central del puesto y le disputaba la
+       recomendacion a MLOps, que es el hueco de verdad. */
+    ml:        [2, { stats: 1, python: 2 }],
     deep:      [1, { ml: 1, python: 1 }],
     llm:       [2, { python: 1 }],
     mlops:     [1, { cloud: 1, ml: 1 }],

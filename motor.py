@@ -39,6 +39,32 @@ CASOS = [
  (u"Entreno modelos, scikit-learn, validacion cruzada.",
   ["ml"], []),
 
+ # --- "no ... ningun": un no con un ningun cerca es negacion -------
+ #
+ # La lista de frases tenia "no manejo" y no tenia "no puse". El
+ # primero agarraba "No manejo ninguna herramienta de visualizacion";
+ # el segundo dejaba pasar "No puse ninguno en produccion", asi que
+ # al CV de un data scientist se le daba por sabido MLOps y se le
+ # ofrecia AI: justo lo que ese CV dice que le falta.
+ #
+ # Enumerar verbos es perder contra el proximo, asi que la regla mira
+ # el "ningun", que es lo que las dos frases tienen en comun, y pide
+ # un "no" delante para no comerse "sin ningun problema con Kafka".
+ (u"Data scientist. Python, scikit-learn, entreno modelos. "
+  u"Estadistica y experimentos A/B. No puse ninguno en produccion.",
+  ["ml", "python", "stats"], ["mlops"]),
+ (u"No puse ningun modelo en produccion. Uso Docker y Kubernetes todos los dias.",
+  ["cloud"], ["mlops"]),
+ (u"Analista de negocio. Excel y SQL en Postgres. "
+  u"No manejo ninguna herramienta de visualizacion ni tableros.",
+  ["sql"], ["viz"]),
+ # Y la trampa al reves: "sin ningun problema con X" no niega X.
+ (u"Backend con Kafka. Sin ningun problema con Kafka en produccion, lo uso a diario.",
+  ["pipelines"], []),
+ # Que la regla no se coma lo que si esta.
+ (u"Entreno modelos y los llevo a produccion con MLflow y Docker.",
+  ["mlops"], []),
+
  # --- lo nuevo: que deje de detectar lo que se niega --------------
  (u"No tengo experiencia en Spark.", [], ["bigdata"]),
  (u"No se Docker.", [], ["cloud"]),
