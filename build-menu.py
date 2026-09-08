@@ -157,8 +157,8 @@ CSS = u'''
 .menu-i:hover{ background:var(--surface-2); }
 /* Donde estas parado. Sin esto hay que mirar la direccion para
    saberlo. */
-.menu-i.aqui{ background:var(--accent-soft); }
-.menu-i.aqui b{ color:var(--accent-strong); }
+.menu-i.aqui{ background:var(--marca-soft); }
+.menu-i.aqui b{ color:var(--marca-strong); }
 '''
 
 n = 0

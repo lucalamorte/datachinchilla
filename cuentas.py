@@ -28,7 +28,7 @@
 
    Uso: python cuentas.py
 """
-import io, json, re, sys
+import io, os, json, re, sys
 
 LETRAS = [
  (3,u"tres"),(4,u"cuatro"),(5,u"cinco"),(6,u"seis"),(7,u"siete"),(8,u"ocho"),
@@ -198,6 +198,35 @@ for _r in rutas:
         mal += 1
         print(u"  %-20s %-16s promete algo de Anthropic, y no es la ruta de Claude" %
               (_r["archivo"], u"la credencial"))
+
+# --- y que la chinchilla no cambie de color con la pagina
+#
+# Cada ruta tiene su acento y eso esta bien: sirve para saber donde
+# estas. Pero el acento se llevaba tambien la marca -el logo, la
+# chinchilla del nav, la del pie, la de los globos-, asi que la cara
+# del sitio era carmesi en CS50 y naranja en dbt. Una marca que cambia
+# de color no es una marca.
+#
+# Lo que es de ella va con --marca. Que no se cuele el acento de la
+# pagina otra vez: la forma de que vuelva es copiar una pagina, que es
+# como volvieron las otras tres cosas de aca arriba.
+for _a in sorted(os.listdir(".")):
+    if not _a.endswith(".html") or _a.startswith("_") or _a == "og.html":
+        continue
+    _h = io.open(_a, encoding="utf-8").read()
+    if 'fill="var(--accent-soft)"' in _h:
+        mal += 1
+        print(u"  %-20s %-16s la cara pintada con el acento de la pagina" %
+              (_a, u"la marca"))
+
+_css = io.open("chinchilla.css", encoding="utf-8").read()
+# El unico acento que puede quedar es el borde de la caja del festejo,
+# que es un contenedor de la pagina y no ella.
+_sobra = _css.count("var(--accent") - 1
+if _sobra > 0:
+    mal += 1
+    print(u"  %-20s %-16s %d usos del acento de mas" %
+          ("chinchilla.css", u"la marca", _sobra))
 
 print()
 print(u"los numeros coinciden" if not mal else

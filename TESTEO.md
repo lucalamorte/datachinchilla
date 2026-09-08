@@ -567,6 +567,33 @@ había.
 
 ---
 
+## 17c. La marca no cambia de color, la ruta sí
+
+Abrí tres rutas de colores muy distintos: `/cs50` (carmesí), `/dbt`
+(naranja) y `/airflow` (verde azulado).
+
+**Lo que NO cambia entre las tres**, porque es del sitio y no de la
+página: el logo, la chinchilla del nav, la del pie, la de los globos,
+el hover de los botones de la barra, el menu y el pie. Todo eso es
+violeta en las 30 páginas.
+
+**Lo que SÍ cambia**, porque es de la ruta: el título del hero, el
+botón grande, el mapa y sus nodos, la barra de avance y las insignias.
+
+**Falla si** la chinchilla sale carmesí en CS50 o naranja en dbt. Era
+así: el acento de la página era el único color del sitio y se llevaba
+también la marca. Una marca que cambia de color no es una marca.
+
+**Falla si** deja de distinguirse en qué ruta estás. El color de la
+ruta sirve, y por eso no se fue: se quedó con lo que es de la ruta.
+
+`cuentas.py` lo comprueba solo, de los dos lados: que ninguna cara esté
+pintada con `--accent-soft`, y que `chinchilla.css` no use el acento
+más que en el borde de la caja del festejo, que es un contenedor de la
+página y no ella.
+
+---
+
 ## 18. En claro y en oscuro
 
 Toca el botón de la luna en varias páginas.

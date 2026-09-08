@@ -30,7 +30,7 @@ VIEJO = u""".chin-pose{ width:104px; height:96px; overflow:visible; }
 .chin-pose .c-cuerpo,
 .chin-pose .c-cabeza{ fill:var(--accent); }
 .chin-pose .c-oreja{ fill:var(--accent); }
-.chin-pose .c-oreja-in{ fill:var(--accent-soft); }
+.chin-pose .c-oreja-in{ fill:var(--marca-soft); }
 .chin-pose .c-ojo{ fill:var(--surface); }
 .chin-pose .c-brillo{ fill:var(--accent); }
 .chin-pose .c-hocico{ fill:var(--surface); }
@@ -71,7 +71,7 @@ NUEVO = u"""/* --- La cara, que no depende del tema ----------------------------
 .chin-pose .c-cuerpo,
 .chin-pose .c-cabeza{ fill:var(--chin-cuerpo); }
 .chin-pose .c-oreja{ fill:var(--chin-cuerpo); }
-.chin-pose .c-oreja-in{ fill:var(--accent-soft); }
+.chin-pose .c-oreja-in{ fill:var(--marca-soft); }
 .chin-pose .c-ojo{ fill:var(--chin-ojo); }
 /* El brillo va claro porque ahora el ojo es oscuro. Antes el ojo era
    claro y el brillo llevaba el acento; invertido, no se veia. */
@@ -86,7 +86,7 @@ NUEVO = u"""/* --- La cara, que no depende del tema ----------------------------
 }"""
 
 VIEJO_ASOMA = u""".chin-asoma .c-cabeza, .chin-asoma .c-oreja{ fill:var(--accent); }
-.chin-asoma .c-oreja-in{ fill:var(--accent-soft); }
+.chin-asoma .c-oreja-in{ fill:var(--marca-soft); }
 .chin-asoma .c-ojo, .chin-asoma .c-hocico{ fill:var(--surface); }
 .chin-asoma .c-brillo{ fill:var(--accent); }"""
 
@@ -97,7 +97,7 @@ NUEVO_ASOMA = u"""/* La que se asoma en el pie, con la misma cara que las demas.
 }
 :root[data-theme="dark"] .chin-asoma{ --chin-cuerpo: var(--accent); }
 .chin-asoma .c-cabeza, .chin-asoma .c-oreja{ fill:var(--chin-cuerpo); }
-.chin-asoma .c-oreja-in{ fill:var(--accent-soft); }
+.chin-asoma .c-oreja-in{ fill:var(--marca-soft); }
 .chin-asoma .c-ojo, .chin-asoma .c-hocico{ fill:var(--chin-ojo); }
 .chin-asoma .c-brillo{ fill:#FFFFFF; }"""
 
