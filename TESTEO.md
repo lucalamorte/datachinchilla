@@ -306,14 +306,27 @@ tiene agenda, o si el botón abre el cartel de la cuenta.
 La cuenta sigue haciendo falta para **marcar cursos y ejercicios**.
 Eso es a propósito y no es un fallo.
 
-Ahora vuelve a la portada. Tiene que verse, **sin scrollear**:
+### 9c. Una sola agenda, y un botón para acomodarla
 
-- Un renglón en el hero que dice **"Hoy: N horas"** con lo que toca, y
-  un enlace "Ver la agenda"
-- Más abajo, la agenda de los siete días, **antes** del bloque "Tu
-  ruta"
+Vuelve a la portada. Tiene que verse **sin scrollear** la agenda de
+los **siete días**, con hoy marcado, y en su cabecera un botón
+**"Acomodar mi semana"** que lleva a `/semana`.
 
 **Falla si** hay que bajar dos pantallas para encontrar la agenda.
+
+**Falla si** hay más de una cosa hablando de la semana en esa
+pantalla. Había tres: un renglón en el hero con lo de hoy, una puerta
+"Tu semana", y la agenda con su enlace. Las tres decían lo mismo y dos
+llevaban al mismo lado; el renglón además decía menos, porque mostraba
+hoy y la agenda muestra hoy y los otros seis días.
+
+Contando el menú, los caminos a `/semana` desde la portada tienen que
+ser **dos**: el menú, que es navegación, y el botón, que está al lado
+de lo que vas a querer cambiar.
+
+**Falla si** el botón no parece un botón. Era un enlace de 12,5 px en
+un rincón de la cabecera cuando había otras dos formas de llegar;
+ahora es la única.
 
 ### 9b. Los bloques dicen algo útil
 
