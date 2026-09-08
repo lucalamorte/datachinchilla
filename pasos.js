@@ -5110,5 +5110,182 @@ var PASOS = [
   ],
   "nivel": "Desde cero",
   "nivelN": 0
+ },
+ {
+  "archivo": "nube.html",
+  "clave": "nube",
+  "nombre": "Credenciales de nube",
+  "actos": [
+   "Qué es la nube",
+   "AWS",
+   "Datos en la nube",
+   "Google"
+  ],
+  "pasos": [
+   {
+    "id": "n01",
+    "t": "Conceptos de nube",
+    "min": 300,
+    "act": 1,
+    "time": "5 h",
+    "sum": "Qué es la nube y qué no: modelos de servicio, modelos de despliegue, en qué cambia pagar por uso. Es la mitad del examen AZ-900 y es lo único de todo esto que no depende del proveedor.",
+    "goal": "Terminas esta parte cuando explicas la diferencia entre IaaS, PaaS y SaaS con un ejemplo tuyo.",
+    "cert": "AZ-900",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+    "boss": true,
+    "wins": [
+     "El vocabulario que los tres proveedores comparten",
+     "Por qué la nube cambia el costo de equivocarse, que es de lo que se trata",
+     "Gratis, en español y sin cuenta para leerlo"
+    ]
+   },
+   {
+    "id": "n02",
+    "t": "Arquitectura y servicios",
+    "min": 360,
+    "act": 1,
+    "time": "6 h",
+    "sum": "Las piezas concretas: regiones, zonas, cómputo, red y almacenamiento. Los nombres cambian entre proveedores, las piezas no.",
+    "goal": "Terminas esta parte cuando dibujas dónde vive cada cosa de una aplicación en la nube.",
+    "cert": "AZ-900",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+    "boss": false,
+    "wins": [
+     "Regiones y zonas: por qué importa dónde está tu servidor",
+     "Cómputo, red y almacenamiento, que es de lo que está hecho todo",
+     "Aprender los conceptos en uno te sirve en los tres"
+    ]
+   },
+   {
+    "id": "n03",
+    "t": "Administración y gobernanza",
+    "min": 240,
+    "act": 1,
+    "time": "4 h",
+    "sum": "Lo que nadie estudia y todos necesitan: cuánto va a costar, quién puede tocar qué, y cómo no llevarte una sorpresa a fin de mes.",
+    "goal": "Terminas esta parte cuando puedes estimar el costo de algo antes de encenderlo.",
+    "cert": "AZ-900",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/describe-azure-management-governance/",
+    "boss": false,
+    "wins": [
+     "Calcular el costo antes, no después de la factura",
+     "Permisos: quién puede hacer qué, que es la mitad de la seguridad",
+     "Con esto cierras el temario completo de AZ-900"
+    ]
+   },
+   {
+    "id": "n04",
+    "t": "AWS Cloud Practitioner Essentials",
+    "min": 360,
+    "act": 2,
+    "time": "6 h",
+    "sum": "El curso oficial y gratuito de AWS para su credencial de entrada. Los mismos conceptos del tramo anterior, con los nombres de AWS, que son los que aparecen en los avisos de trabajo.",
+    "goal": "Terminas esta parte cuando lees un aviso que pide EC2, S3 y VPC y sabes de qué habla.",
+    "cert": "AWS CCP",
+    "i": "",
+    "u": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/",
+    "boss": true,
+    "wins": [
+     "Los nombres de AWS, que es lo que se pide por nombre",
+     "El modelo de responsabilidad compartida, que entra en el examen y en la vida",
+     "Es el curso oficial: no hay intermediario"
+    ]
+   },
+   {
+    "id": "n05",
+    "t": "El mismo curso en Skill Builder",
+    "min": 300,
+    "act": 2,
+    "time": "5 h",
+    "sum": "La versión con seguimiento de avance y prácticas. Skill Builder tiene una parte paga; ésta no lo es. Pide crear una cuenta gratuita.",
+    "goal": "Terminas esta parte cuando das el examen de práctica y te alcanza.",
+    "cert": "AWS CCP",
+    "i": "",
+    "u": "https://explore.skillbuilder.aws/learn/courses/134/aws-cloud-practitioner-essentials",
+    "boss": false,
+    "wins": [
+     "Ejercicios y examen de práctica, que es lo que falta para presentarse",
+     "Tu avance queda guardado del lado de AWS",
+     "Cuenta gratuita: lo pago de Skill Builder es otra cosa"
+    ]
+   },
+   {
+    "id": "n06",
+    "t": "Fundamentos de datos en Azure",
+    "min": 480,
+    "act": 3,
+    "time": "8 h",
+    "sum": "DP-900: datos relacionales y no relacionales, analítica, y qué servicio se usa para qué. Es la credencial que más cruza con el resto de este sitio.",
+    "goal": "Terminas esta parte cuando eliges entre una base relacional y una de documentos con un argumento.",
+    "cert": "DP-900",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/courses/dp-900t00",
+    "boss": true,
+    "wins": [
+     "Relacional contra no relacional, decidido y no adivinado",
+     "Qué servicio hace qué, que es la pregunta de todos los días",
+     "Se cruza con SQL y con modelado, que ya están acá"
+    ]
+   },
+   {
+    "id": "n07",
+    "t": "Microsoft Fabric",
+    "min": 240,
+    "act": 3,
+    "time": "4 h",
+    "sum": "La plataforma con la que Microsoft juntó todo lo de datos en un solo lugar. Está apareciendo en los avisos y casi no hay material ordenado en español.",
+    "goal": "Terminas esta parte cuando sabes qué reemplaza Fabric y qué no.",
+    "cert": "",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/get-started-fabric/",
+    "boss": false,
+    "wins": [
+     "Qué es y qué junta, sin el folleto",
+     "Dónde encaja si ya sabes SQL y modelado",
+     "Es reciente: saberlo distingue"
+    ]
+   },
+   {
+    "id": "n08",
+    "t": "Empezar en ingeniería de datos",
+    "min": 300,
+    "act": 3,
+    "time": "5 h",
+    "sum": "El camino de Microsoft para el rol, con los servicios de datos en la nube. Es el puente entre esta ruta y la de Data Engineer.",
+    "goal": "Terminas esta parte cuando entiendes cómo se arma un pipeline con servicios administrados en vez de con tu propio servidor.",
+    "cert": "",
+    "i": "",
+    "u": "https://learn.microsoft.com/es-es/training/paths/get-started-data-engineering/",
+    "boss": false,
+    "wins": [
+     "Pipelines sin mantener servidores",
+     "Cómo se ve el trabajo de datos del lado de la nube",
+     "Conecta con la ruta de Data Engineer que ya está acá"
+    ]
+   },
+   {
+    "id": "n09",
+    "t": "Cloud Digital Leader, de Google",
+    "min": 480,
+    "act": 4,
+    "time": "8 h",
+    "sum": "La ruta oficial de Google para su credencial de entrada. Seis actividades sobre nube, datos e IA. Pide crear una cuenta gratuita para verla.",
+    "goal": "Terminas esta parte cuando puedes comparar los tres proveedores sin repetir lo que dice cada folleto.",
+    "cert": "Cloud Digital Leader",
+    "i": "",
+    "u": "https://skills.google/paths/9",
+    "boss": true,
+    "wins": [
+     "El tercero de los tres grandes, con sus nombres",
+     "Nube, datos e IA juntos, que es como Google la vende",
+     "Cuenta gratuita: los laboratorios con créditos son aparte y no hacen falta acá"
+    ]
+   }
+  ],
+  "nivel": "Desde cero",
+  "nivelN": 0
  }
 ];

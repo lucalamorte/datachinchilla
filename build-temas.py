@@ -170,6 +170,13 @@ POR_TRAMO = {
  # sin esto los quince pasos caerian en el mismo saco.
  # Testing: cada tramo suma calidad, que es lo suyo, y ademas el
  # mundo sobre el que se prueba en ese tramo.
+ # Credenciales de nube: los tres primeros tramos son nube pura, y
+ # el de datos cruza con lo que el sitio ya ensena.
+ ("nube", 1):         ["cloud"],
+ ("nube", 2):         ["cloud"],
+ ("nube", 3):         ["cloud", "sql", "modelado", "pipelines"],
+ ("nube", 4):         ["cloud"],
+
  ("testing", 1):      ["calidad"],
  ("testing", 2):      ["calidad", "prog"],
  ("testing", 3):      ["calidad", "web", "backend"],

@@ -37,6 +37,7 @@ RUTAS = {
     "fullstack.html":      "fullstack",
     "airflow.html":        "airflow",
     "testing.html":        "testing",
+    "nube.html":           "nube",
 }
 
 BOTON = u'''      <button class="btn-quiet btn-mia" id="miaBtn" type="button" hidden>

@@ -3036,6 +3036,105 @@ var CATALOGO = [
   "hs": "2 h",
   "nivel": "Curso 13",
   "pago": false
+ },
+ {
+  "id": "nube:n01",
+  "nodo": "n01",
+  "ruta": "nube",
+  "n": 1,
+  "t": "Conceptos de nube",
+  "d": "Qué es la nube y qué no: modelos de servicio, modelos de despliegue, en qué cambia pagar por uso. Es la mitad del examen AZ-900 y es lo único de todo esto que no depende del proveedor.",
+  "hs": "5 h",
+  "nivel": "Curso 1",
+  "pago": false
+ },
+ {
+  "id": "nube:n02",
+  "nodo": "n02",
+  "ruta": "nube",
+  "n": 2,
+  "t": "Arquitectura y servicios",
+  "d": "Las piezas concretas: regiones, zonas, cómputo, red y almacenamiento. Los nombres cambian entre proveedores, las piezas no.",
+  "hs": "6 h",
+  "nivel": "Curso 2",
+  "pago": false
+ },
+ {
+  "id": "nube:n03",
+  "nodo": "n03",
+  "ruta": "nube",
+  "n": 3,
+  "t": "Administración y gobernanza",
+  "d": "Lo que nadie estudia y todos necesitan: cuánto va a costar, quién puede tocar qué, y cómo no llevarte una sorpresa a fin de mes.",
+  "hs": "4 h",
+  "nivel": "Curso 3",
+  "pago": false
+ },
+ {
+  "id": "nube:n04",
+  "nodo": "n04",
+  "ruta": "nube",
+  "n": 4,
+  "t": "AWS Cloud Practitioner Essentials",
+  "d": "El curso oficial y gratuito de AWS para su credencial de entrada. Los mismos conceptos del tramo anterior, con los nombres de AWS, que son los que aparecen en los avisos de trabajo.",
+  "hs": "6 h",
+  "nivel": "Curso 4",
+  "pago": false
+ },
+ {
+  "id": "nube:n05",
+  "nodo": "n05",
+  "ruta": "nube",
+  "n": 5,
+  "t": "El mismo curso en Skill Builder",
+  "d": "La versión con seguimiento de avance y prácticas. Skill Builder tiene una parte paga; ésta no lo es. Pide crear una cuenta gratuita.",
+  "hs": "5 h",
+  "nivel": "Curso 5",
+  "pago": false
+ },
+ {
+  "id": "nube:n06",
+  "nodo": "n06",
+  "ruta": "nube",
+  "n": 6,
+  "t": "Fundamentos de datos en Azure",
+  "d": "DP-900: datos relacionales y no relacionales, analítica, y qué servicio se usa para qué. Es la credencial que más cruza con el resto de este sitio.",
+  "hs": "8 h",
+  "nivel": "Curso 6",
+  "pago": false
+ },
+ {
+  "id": "nube:n07",
+  "nodo": "n07",
+  "ruta": "nube",
+  "n": 7,
+  "t": "Microsoft Fabric",
+  "d": "La plataforma con la que Microsoft juntó todo lo de datos en un solo lugar. Está apareciendo en los avisos y casi no hay material ordenado en español.",
+  "hs": "4 h",
+  "nivel": "Curso 7",
+  "pago": false
+ },
+ {
+  "id": "nube:n08",
+  "nodo": "n08",
+  "ruta": "nube",
+  "n": 8,
+  "t": "Empezar en ingeniería de datos",
+  "d": "El camino de Microsoft para el rol, con los servicios de datos en la nube. Es el puente entre esta ruta y la de Data Engineer.",
+  "hs": "5 h",
+  "nivel": "Curso 8",
+  "pago": false
+ },
+ {
+  "id": "nube:n09",
+  "nodo": "n09",
+  "ruta": "nube",
+  "n": 9,
+  "t": "Cloud Digital Leader, de Google",
+  "d": "La ruta oficial de Google para su credencial de entrada. Seis actividades sobre nube, datos e IA. Pide crear una cuenta gratuita para verla.",
+  "hs": "8 h",
+  "nivel": "Curso 9",
+  "pago": false
  }
 ];
 
@@ -3187,5 +3286,13 @@ var CATALOGO_RUTAS = [
   "color": "#15803D",
   "icono": "check",
   "orden": 18
+ },
+ {
+  "id": "nube",
+  "nombre": "Credenciales de nube",
+  "archivo": "nube.html",
+  "color": "#1E5F9E",
+  "icono": "cloud",
+  "orden": 19
  }
 ];

@@ -126,6 +126,12 @@ PAGINAS = {
         "color": u"#0C0818",
         "ogtitulo": u"Preguntas frecuentes",
     },
+    "nube.html": {
+        "titulo": u"Credenciales de nube gratis, en orden · " + MARCA,
+        "desc": u"El temario completo de AZ-900, DP-900, AWS Cloud Practitioner y Cloud Digital Leader, con el material oficial de cada proveedor y sin pagar por estudiarlo.",
+        "color": u"#08121C",
+        "ogtitulo": u"Credenciales de nube, en orden",
+    },
     "testing.html": {
         "titulo": u"Testing y QA gratis, en orden \u00b7 " + MARCA,
         "desc": u"Probar software sin pagar nada: el s\u00edlabo de ISTQB y la documentaci\u00f3n oficial de Playwright, Cypress, pytest y k6, en el orden que conviene.",

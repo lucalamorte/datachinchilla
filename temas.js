@@ -628,6 +628,27 @@ var TEMAS = {
     "id": "f14",
     "t": "Parte 14 &middot; Next.js",
     "min": 1020
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n06",
+    "t": "Fundamentos de datos en Azure",
+    "min": 480
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n07",
+    "t": "Microsoft Fabric",
+    "min": 240
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n08",
+    "t": "Empezar en ingeniería de datos",
+    "min": 300
    }
   ],
   "python": [
@@ -926,6 +947,69 @@ var TEMAS = {
     "id": "t13",
     "t": "Accesibilidad: probar que se pueda usar",
     "min": 120
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n01",
+    "t": "Conceptos de nube",
+    "min": 300
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n02",
+    "t": "Arquitectura y servicios",
+    "min": 360
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n03",
+    "t": "Administración y gobernanza",
+    "min": 240
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n04",
+    "t": "AWS Cloud Practitioner Essentials",
+    "min": 360
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n05",
+    "t": "El mismo curso en Skill Builder",
+    "min": 300
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n06",
+    "t": "Fundamentos de datos en Azure",
+    "min": 480
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n07",
+    "t": "Microsoft Fabric",
+    "min": 240
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n08",
+    "t": "Empezar en ingeniería de datos",
+    "min": 300
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n09",
+    "t": "Cloud Digital Leader, de Google",
+    "min": 480
    }
   ],
   "pipelines": [
@@ -1012,6 +1096,27 @@ var TEMAS = {
     "id": "t12",
     "t": "Carga: qué pasa cuando entran mil",
     "min": 180
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n06",
+    "t": "Fundamentos de datos en Azure",
+    "min": 480
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n07",
+    "t": "Microsoft Fabric",
+    "min": 240
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n08",
+    "t": "Empezar en ingeniería de datos",
+    "min": 300
    }
   ],
   "ml": [
@@ -1662,6 +1767,27 @@ var TEMAS = {
     "id": "l26",
     "t": "Agentes con esquema, con PydanticAI",
     "min": 45
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n06",
+    "t": "Fundamentos de datos en Azure",
+    "min": 480
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n07",
+    "t": "Microsoft Fabric",
+    "min": 240
+   },
+   {
+    "ruta": "nube",
+    "archivo": "nube.html",
+    "id": "n08",
+    "t": "Empezar en ingeniería de datos",
+    "min": 300
    }
   ],
   "calidad": [
