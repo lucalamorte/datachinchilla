@@ -134,7 +134,9 @@ var Guia = (function(){
              "cuenta. Lo que falta es cuándo: te la reparto en tu semana.",
       accion: "Armar mi semana",
       lleva: "semana.html",
-      ancla: "#sigue"
+      /* Al boton, que es donde quedo la accion: la franja "Ahora,
+         cuando" que estaba aca se fue por decir lo mismo. */
+      ancla: "#miaBtn"
     },
     {
       id: "repartir",
@@ -199,6 +201,24 @@ var Guia = (function(){
 
   /* Si ya hiciste algo por tu cuenta, la guía no te lo vuelve a
      pedir: se adelanta hasta donde de verdad estás. */
+  /* Ya contaste tu experiencia: el CV, o dos respuestas, o haber
+     dicho que no tenes el CV a mano. Las tres cierran el mismo paso,
+     porque el paso pregunta por tu experiencia y decir que no tenes el
+     CV es una forma de contestarlo.
+
+     Vive en un solo lugar a proposito. Estaba escrita dos veces -en
+     alDia() y en falta()- y al agregar la tercera forma actualice una
+     sola: el globo decia "pega tu CV" y escondia el boton despues de
+     que ya habias apretado "No tengo el CV a mano". El recorrido
+     quedaba trabado en el paso 4 igual que antes. */
+  function contasteTuExperiencia(){
+    if(typeof Onb === "undefined") return false;
+    Onb.cargar();
+    return !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
+           Object.keys(Onb.estado.respuestas || {}).length >= 2 ||
+           !!Onb.estado.sinCv;
+  }
+
   function alDia(){
     if(typeof Onb === "undefined") return;
     Onb.cargar();
@@ -212,15 +232,7 @@ var Guia = (function(){
        al paso de la semana, que sólo se pinta en una página de ruta,
        y en cv.html el globo desaparecía para siempre. */
     var hayPuesto = !!Onb.estado.puesto;
-    /* O el CV, o dos respuestas, o haber dicho que no tenes CV.
-
-       Las tres cierran el mismo paso: el paso pregunta por tu
-       experiencia, y decir "no tengo el CV a mano" es una forma de
-       contestarlo. Sin la tercera, el boton existia en la pagina y el
-       recorrido seguia trabado igual. */
-    var hayCV = !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
-                Object.keys(Onb.estado.respuestas || {}).length >= 2 ||
-                !!Onb.estado.sinCv;
+    var hayCV = contasteTuExperiencia();
 
     /* La marca explícita: los días y los minutos vienen con valor
        por defecto y siempre daban que sí. */
@@ -344,18 +356,19 @@ var Guia = (function(){
     if(typeof Onb === "undefined") return null;
     Onb.cargar();
     if(p.pide === "puesto"){
-      return Onb.estado.puesto ? null : "Elige un puesto para seguir.";
+      return Onb.estado.puesto ? null : "Falta elegir el puesto.";
     }
     if(p.pide === "cv"){
-      var hay = !!(Onb.estado.cv && Onb.estado.cv.replace(/\s/g, "").length >= 30) ||
-                Object.keys(Onb.estado.respuestas || {}).length >= 2;
-      return hay ? null : "Pega tu CV o contesta las preguntas para seguir.";
+      /* Corto: el parrafo de arriba ya explica las dos formas, y este
+         renglon repetia la explicacion entera al lado. Lo que falta
+         aca es decir QUE falta, no volver a contar como se hace. */
+      return contasteTuExperiencia() ? null : "Falta tu experiencia.";
     }
     if(p.pide === "ruta"){
-      return Onb.estado.hecho ? null : "Guarda la ruta para seguir.";
+      return Onb.estado.hecho ? null : "Falta guardar la ruta.";
     }
     if(p.pide === "semana"){
-      return Onb.estado.semanaLista ? null : "Reparte tu semana para seguir.";
+      return Onb.estado.semanaLista ? null : "Falta repartir la semana.";
     }
     return null;
   }

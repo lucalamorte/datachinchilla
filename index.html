@@ -1719,7 +1719,7 @@ a.via{ text-decoration:none; }
 
 .chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
   text-transform:uppercase; color:var(--text-3); }
-.chin-b{ margin-left:auto; padding:10px 16px; }
+.chin-b{ padding:10px 16px; }
 .chin-b .dest{ font-size:14px; }
 @media (max-width:560px){
   .chin{ right:12px; left:12px; bottom:12px; width:auto; }
@@ -1777,10 +1777,16 @@ a.via{ text-decoration:none; }
 .menu-i.aqui b{ color:var(--marca-strong); }
 
 /* Volver un paso. Va tenue: es una salida, no el camino. */
+/* A la izquierda de todo, y con su flecha. Estaba a la derecha,
+   pegado al boton de seguir: dos botones juntos donde uno va para
+   adelante y el otro para atras se aprietan mal. Y decia "Atras" a
+   secas, que no dice atras de que. */
 .chin-atras{
+  order:-1; margin-right:auto;
+  display:inline-flex; align-items:center; gap:5px;
   border:0; background:none; cursor:pointer; font:inherit;
   font-size:12px; font-weight:700; color:var(--text-3);
-  padding:4px 2px; text-decoration:underline;
+  padding:4px 2px;
 }
 .chin-atras:hover{ color:var(--text-2); }
 .chin-atras[hidden]{ display:none; }
@@ -2064,7 +2070,7 @@ a.via{ text-decoration:none; }
 <script src="temas.js?v=6526e6d5"></script>
 <script src="cv.js?v=5c07e222"></script>
 <script src="onboarding.js?v=88e5d242"></script>
-<script src="guia.js?v=a8884261"></script>
+<script src="guia.js?v=9ad03b28"></script>
 <script src="plan.js?v=dcf11161"></script>
 <script src="problemas.js?v=40933293"></script>
 <script src="practica.js?v=855019e6"></script>
@@ -2620,12 +2626,11 @@ function renderPaths(){
         'title="' + (mia ? "Sacar de tu semana" : "Sumar a tu semana") + '">' +
         icon("check", 12) + (mia ? "En tu semana" : "Sumar a mi semana") + '</button>'
       : "";
-    /* Cinta solo cuando dice algo. "Lista para hacer" estaba en las
-       dieciséis: una etiqueta que llevan todas no distingue nada, y
-       ocupaba el mismo lugar que ésta, que sí. */
-    var cinta = mia
-      ? '<span class="own-ribbon mia-ribbon">' + icon("check", 11) + 'En tu semana</span>'
-      : '';
+    /* Sin cinta. Decia "En tu semana", igual que el boton de abajo, y
+       encima el boton hace algo -la saca- y la cinta no hacia nada.
+       Dos carteles identicos en la misma tarjeta no son enfasis, son
+       uno de mas. El borde de la tarjeta ya dice que es tuya. */
+    var cinta = '';
 
     html += '<div class="card-wrap' + (mia ? " es-mia" : "") + '">' + estrella + marca + (p.listo
       ? '<a class="card" href="' + p.u + '">' + cinta + cuerpo +
@@ -3850,7 +3855,7 @@ if(document.readyState === "loading"){
     <div class="chin-acc">
       <span class="chin-n" id="chinN"></span>
       <span class="chin-pide" id="chinPide" hidden></span>
-      <button class="chin-atras" type="button" id="chinAtras" hidden>Atrás</button>
+      <button class="chin-atras" type="button" id="chinAtras" hidden><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Paso anterior</button>
       <button class="chin-2" type="button" id="chinB2" hidden></button>
       <button class="btn-primary chin-b" type="button" id="chinB">
         <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>

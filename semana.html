@@ -1087,7 +1087,7 @@ a.bloque:hover{ border-color:var(--accent); }
 
 .chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
   text-transform:uppercase; color:var(--text-3); }
-.chin-b{ margin-left:auto; padding:10px 16px; }
+.chin-b{ padding:10px 16px; }
 .chin-b .dest{ font-size:14px; }
 @media (max-width:560px){
   .chin{ right:12px; left:12px; bottom:12px; width:auto; }
@@ -1142,10 +1142,16 @@ a.bloque:hover{ border-color:var(--accent); }
 .menu-i.aqui b{ color:var(--marca-strong); }
 
 /* Volver un paso. Va tenue: es una salida, no el camino. */
+/* A la izquierda de todo, y con su flecha. Estaba a la derecha,
+   pegado al boton de seguir: dos botones juntos donde uno va para
+   adelante y el otro para atras se aprietan mal. Y decia "Atras" a
+   secas, que no dice atras de que. */
 .chin-atras{
+  order:-1; margin-right:auto;
+  display:inline-flex; align-items:center; gap:5px;
   border:0; background:none; cursor:pointer; font:inherit;
   font-size:12px; font-weight:700; color:var(--text-3);
-  padding:4px 2px; text-decoration:underline;
+  padding:4px 2px;
 }
 .chin-atras:hover{ color:var(--text-2); }
 .chin-atras[hidden]{ display:none; }
@@ -1339,7 +1345,7 @@ a.bloque:hover{ border-color:var(--accent); }
 <script src="temas.js?v=6526e6d5"></script>
 <script src="cv.js?v=5c07e222"></script>
 <script src="onboarding.js?v=88e5d242"></script>
-<script src="guia.js?v=a8884261"></script>
+<script src="guia.js?v=9ad03b28"></script>
 <script src="plan.js?v=dcf11161"></script>
 <script>
 (function(){
@@ -2274,7 +2280,7 @@ if(document.readyState === "loading"){
     <div class="chin-acc">
       <span class="chin-n" id="chinN"></span>
       <span class="chin-pide" id="chinPide" hidden></span>
-      <button class="chin-atras" type="button" id="chinAtras" hidden>Atrás</button>
+      <button class="chin-atras" type="button" id="chinAtras" hidden><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Paso anterior</button>
       <button class="btn-primary chin-b" type="button" id="chinB">
         <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>
       </button>

@@ -757,7 +757,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 
 .chin-n{ font-size:11px; font-weight:800; letter-spacing:.06em;
   text-transform:uppercase; color:var(--text-3); }
-.chin-b{ margin-left:auto; padding:10px 16px; }
+.chin-b{ padding:10px 16px; }
 .chin-b .dest{ font-size:14px; }
 @media (max-width:560px){
   .chin{ right:12px; left:12px; bottom:12px; width:auto; }
@@ -824,10 +824,16 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 .menu-i.aqui b{ color:var(--marca-strong); }
 
 /* Volver un paso. Va tenue: es una salida, no el camino. */
+/* A la izquierda de todo, y con su flecha. Estaba a la derecha,
+   pegado al boton de seguir: dos botones juntos donde uno va para
+   adelante y el otro para atras se aprietan mal. Y decia "Atras" a
+   secas, que no dice atras de que. */
 .chin-atras{
+  order:-1; margin-right:auto;
+  display:inline-flex; align-items:center; gap:5px;
   border:0; background:none; cursor:pointer; font:inherit;
   font-size:12px; font-weight:700; color:var(--text-3);
-  padding:4px 2px; text-decoration:underline;
+  padding:4px 2px;
 }
 .chin-atras:hover{ color:var(--text-2); }
 .chin-atras[hidden]{ display:none; }
@@ -956,6 +962,10 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
         <span class="stack"><span class="verb" id="miaVerb">Sumar a</span><span class="dest" id="miaDest">mi semana</span></span>
       </button>
+      <a class="btn-quiet btn-semana" id="verSemana" href="semana.html" hidden>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <span class="stack"><span class="verb">Ir a</span><span class="dest">mi semana</span></span>
+      </a>
     </div>
     <p class="hero-foot">Los cursos son de CognitiveClass, la plataforma abierta de IBM. Yo no los doy ni tengo relación con ellos: esta página solo los ordena, dice qué te llevas de cada uno y enlaza directo. El orden es una sugerencia, no un requisito.</p>
   </div>
@@ -1044,22 +1054,10 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 </section>
 
 
-<section class="section sigue" id="sigue" hidden>
-  <div class="wrap">
-    <a class="sigue-caja" href="semana.html">
-      <span class="ico">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-      </span>
-      <span class="txt">
-        <b>Ahora, cuándo</b>
-        <span id="sigueSub">Esta es tu ruta. Falta repartirla en la semana: qué días, a qué hora y cuánto rato.</span>
-      </span>
-      <span class="fl">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </span>
-    </a>
-  </div>
-</section>
+<!-- Aca estaba la franja "Ahora, cuando", que ocupaba el ancho
+     entero para llevar a la semana. Lo hace el boton "Ir a mi
+     semana" del hero, que ademas esta al lado del de sumar: es
+     donde uno esta mirando cuando piensa en su semana. -->
 
 
 <section class="section" id="aportar">
@@ -1138,7 +1136,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="temas.js?v=6526e6d5"></script>
 <script src="cv.js?v=5c07e222"></script>
 <script src="onboarding.js?v=88e5d242"></script>
-<script src="guia.js?v=a8884261"></script>
+<script src="guia.js?v=9ad03b28"></script>
 <script src="chinchilla.js?v=cbbec988"></script>
 <script src="path-sync.js?v=73ed780d"></script>
 <script>
@@ -1805,11 +1803,13 @@ var MI_CLAVE = "arquitectura";
 /* El pie sale solo si esta es tu ruta, la que salio del CV. Mirar una
    ruta del catalogo no es elegirla, asi que ahi no aparece. */
 function pintarSigue(){
-  var caja = document.getElementById("sigue");
-  if(!caja || typeof Onb === "undefined") return;
+  /* El boton para ir a la semana sale solo si esta ruta ya esta
+     sumada: antes de eso no hay nada que ver alla. Mirar una ruta del
+     catalogo no es elegirla. */
+  var b = document.getElementById("verSemana");
+  if(!b || typeof Onb === "undefined") return;
   Onb.cargar();
-  var mia = (Onb.estado.rutas || []).indexOf(MI_CLAVE) >= 0;
-  caja.hidden = !mia;
+  b.hidden = (Onb.estado.rutas || []).indexOf(MI_CLAVE) < 0;
 }
 
 
@@ -2275,7 +2275,7 @@ if(document.readyState === "loading"){
     <div class="chin-acc">
       <span class="chin-n" id="chinN"></span>
       <span class="chin-pide" id="chinPide" hidden></span>
-      <button class="chin-atras" type="button" id="chinAtras" hidden>Atrás</button>
+      <button class="chin-atras" type="button" id="chinAtras" hidden><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Paso anterior</button>
       <button class="chin-2" type="button" id="chinB2" hidden></button>
       <button class="btn-primary chin-b" type="button" id="chinB">
         <span class="stack"><span class="verb">Seguir</span><span class="dest" id="chinBT"></span></span>
