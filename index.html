@@ -1479,6 +1479,15 @@ a.via{ text-decoration:none; }
 .ag-mas svg{ width:13px; height:13px; }
 .ag-mas:hover{ border-color:var(--accent); }
 
+/* La agenda cuando todavia no hay ruta. Dice que falta y como, en vez
+   de llenarse con la ruta que trae el estado por defecto. */
+.ag-nada-aun{
+  display:flex; flex-direction:column; align-items:flex-start; gap:14px;
+  padding:20px 18px 22px;
+}
+.ag-nada-aun p{ margin:0; font-size:13.5px; color:var(--text-2); max-width:62ch; }
+.ag-nada-aun .ag-mas{ margin-left:0; }
+
 .ag{ list-style:none; margin:0; padding:0; }
 .ag-dia{
   display:flex; align-items:center; gap:12px;
@@ -2071,7 +2080,7 @@ a.via{ text-decoration:none; }
 <script src="cv.js?v=5c07e222"></script>
 <script src="onboarding.js?v=88e5d242"></script>
 <script src="guia.js?v=9ad03b28"></script>
-<script src="plan.js?v=dcf11161"></script>
+<script src="plan.js?v=409442b9"></script>
 <script src="problemas.js?v=40933293"></script>
 <script src="practica.js?v=855019e6"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -3333,6 +3342,24 @@ function renderHoy(){
 
   Plan.cargar();
   var r = Plan.armar(), hoy = Plan.hoy(), d, i, b;
+
+  /* Sin ruta elegida, la agenda dice que falta elegirla. Antes se
+     llenaba sola con SQL y Python, que es lo que trae el estado por
+     defecto: una semana entera de cosas que nadie pidio. */
+  if(r.sinRuta){
+    document.getElementById("hoyCard").innerHTML =
+      '<div class="ag-cab"><h3>Tu agenda</h3>' +
+        '<span class="ag-sub">Todavía vacía</span></div>' +
+      '<div class="ag-nada-aun">' +
+        '<p><b>Acá va tu semana, cuando tengas ruta.</b> No te armo una ' +
+        'agenda antes de saber a qué apuntas: lo que te sirve a vos no ' +
+        'es lo que le sirve a cualquiera.</p>' +
+        '<a class="ag-mas" href="cv.html">' + icon("user", 13) +
+          'Armar mi ruta</a>' +
+      '</div>';
+    caja.classList.add("on");
+    return;
+  }
 
   var html = "";
   for(d=0;d<7;d++){

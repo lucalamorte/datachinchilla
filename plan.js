@@ -74,7 +74,18 @@ var Plan = (function(){
         if(r) out.push(r);
       }
     }
-    if(!out.length){
+    /* Y si no elegiste ninguna, ninguna.
+
+       Aca se devolvia rutaDe(estado.ruta), que arranca en "sqlpy" por
+       defecto: alguien que nunca conto nada abria la portada y
+       encontraba una semana entera de SQL y Python. Si esa persona
+       quiere ser full stack, lo primero que ve el sitio es una semana
+       de cosas que no le sirven.
+
+       Estaba puesto para que la agenda no saliera vacia. Pero una
+       agenda llena de algo que no elegiste es peor que una vacia: la
+       vacia dice la verdad. */
+    if(!out.length && estado.ruta && rutaElegidaAMano()){
       r = rutaDe(estado.ruta);
       if(r) out.push(r);
     }
@@ -83,14 +94,61 @@ var Plan = (function(){
 
   /* Qué conviene practicar a diario, según lo que te falta. Antes
      decía siempre "SQL y algoritmos" aunque ya supieras SQL. */
+  /* Que la ruta del plan la hayas elegido vos y no sea el valor con
+     el que nace el estado. Se sabe porque quedo guardada: cargar()
+     solo la pisa si venia en lo guardado. */
+  function rutaElegidaAMano(){
+    var pf = perfil(), crudo = null;
+    if(pf && pf.plan) crudo = pf.plan;
+    else { try{ crudo = JSON.parse(get(K) || "null"); }catch(e){ crudo = null; } }
+    return !!(crudo && crudo.ruta);
+  }
+
+  /* Que practicar sale del PUESTO, no de la nada.
+
+     Antes miraba solo cuanto sabias de SQL y de Python, asi que a
+     cualquiera que no supiera ninguno de los dos -o sea a cualquiera
+     que recien llega- le ponia "SQL y Python, mezclados" cinco dias
+     por semana. A alguien que apunta a full stack eso no le sirve, y
+     nadie le pregunto.
+
+     Los dos bancos que hay son consultas SQL y algoritmos. Si el
+     puesto no pide ninguna de las dos cosas, no hay practica: es
+     mejor una semana con menos que una semana con relleno.
+
+     Y el nombre: el banco de algoritmos esta escrito en Python, pero
+     lo que entrena son algoritmos. Decirle "Python" a un full stack
+     que programa en JavaScript era describir la herramienta en vez de
+     lo que se practica. */
   function quePracticar(){
+    var pide = {};
+    if(typeof Onb !== "undefined" && typeof CV !== "undefined" && Onb.estado.puesto){
+      var pu = CV.puestoDe(Onb.estado.puesto);
+      if(pu && pu.temas) pide = pu.temas;
+    }
+    /* Sin puesto elegido no se adivina: se practica lo que sirve para
+       casi cualquier entrevista tecnica, que son los algoritmos. */
+    var sinPuesto = !Object.keys(pide).length;
+
+    var quiereSql  = sinPuesto ? false : (pide.sql || 0) >= 2;
+    var quiereProg = sinPuesto ? true  : ((pide.python || 0) >= 2 ||
+                                          (pide.prog || 0) >= 2 ||
+                                          (pide.backend || 0) >= 2 ||
+                                          (pide.web || 0) >= 2);
+    if(!quiereSql && !quiereProg) return null;
+
     var sabe = (typeof Onb !== "undefined" && Onb.estado.temas) ? Onb.estado.temas : {};
     var sql = sabe.sql ? sabe.sql.nivel : 0;
     var py  = sabe.python ? sabe.python.nivel : 0;
-    if(sql < 2 && py < 2) return { qué: "SQL y Python, mezclados", b: "ambos" };
-    if(sql < 2)           return { qué: "SQL, una o dos consultas", b: "sql" };
-    if(py < 2)            return { qué: "Python, un ejercicio", b: "py" };
-    return { qué: "SQL y algoritmos, para no perder la mano", b: "ambos" };
+
+    if(quiereSql && quiereProg){
+      if(sql < 2 && py < 2) return { qué: "SQL y algoritmos, mezclados", b: "ambos" };
+      if(sql < 2)           return { qué: "SQL, una o dos consultas", b: "sql" };
+      if(py < 2)            return { qué: "Algoritmos, un ejercicio", b: "py" };
+      return { qué: "SQL y algoritmos, para no perder la mano", b: "ambos" };
+    }
+    if(quiereSql) return { qué: "SQL, una o dos consultas", b: "sql" };
+    return { qué: "Algoritmos, un ejercicio", b: "py" };
   }
 
   function rutaDe(clave){
@@ -181,15 +239,29 @@ var Plan = (function(){
 
   function armar(){
     var lista = activas();
-    var ruta = lista[0] || rutaDe(estado.ruta);
+
+    /* Sin ruta elegida no se arma nada. Devuelve la semana vacia -los
+       siete dias siguen ahi, que es el marco- y avisa por que, para
+       que quien la pinte diga la verdad en vez de mostrar bloques de
+       algo que nadie pidio. */
+    if(!lista.length){
+      var vacia = [], v;
+      for(v=0;v<7;v++) vacia.push({ dia: v, bloques: [] });
+      return { semana: vacia, ruta: null, rutas: [], practica: 0,
+               estudio: 0, repaso: 0, practicar: null, sobran: 0,
+               sinRuta: true };
+    }
+
+    var ruta = lista[0];
     var dias = estado.dias.slice(0).sort(function(a,b){ return a - b; });
     if(!dias.length) dias = [0,1,2,3,4];
 
     var total    = estado.horas * 60;
-    var practica = MIN_PRACTICA * dias.length;
+    var practicarAntes = quePracticar();
+    var practica = practicarAntes ? MIN_PRACTICA * dias.length : 0;
     var repaso   = dias.length >= 3 ? MIN_REPASO : 0;
     var estudio  = Math.max(0, total - practica - repaso);
-    var practicar = quePracticar();
+    var practicar = practicarAntes;
 
     /* El estudio se reparte entre todas las activas, no en una sola:
        tener tres rutas activas y estudiar siempre la primera era lo
@@ -209,12 +281,17 @@ var Plan = (function(){
     var semana = [], d, b;
     for(d=0;d<7;d++) semana.push({ dia: d, bloques: [] });
 
-    for(b=0;b<dias.length;b++){
-      semana[dias[b]].bloques.push({
-        tipo: "practica", min: MIN_PRACTICA,
-        qué: practicar.qué,
-        url: "index.html#rutina"
-      });
+    /* Solo si hay algo que practicar para este puesto. Un analista
+       funcional no necesita resolver algoritmos cinco dias por
+       semana, y ponerselo igual es relleno. */
+    if(practicar){
+      for(b=0;b<dias.length;b++){
+        semana[dias[b]].bloques.push({
+          tipo: "practica", min: MIN_PRACTICA,
+          qué: practicar.qué,
+          url: "index.html#rutina"
+        });
+      }
     }
 
     /* Cronológico, para que la parte 1 caiga antes que la 2; y
