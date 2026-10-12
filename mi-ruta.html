@@ -1162,7 +1162,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 
 var STORAGE = {
   theme: "snowpro-path/v1/theme",
-  anon:  "subirnivel-path/v1/anon"
+  anon:  "miruta-path/v1/anon"
 };
 var CONFIG = {
   /* Firebase. Vacios, el sitio funciona igual con perfiles locales,
@@ -1344,12 +1344,48 @@ function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ retu
 function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
 function activeProfile(){ return sessionId && profiles[sessionId] ? profiles[sessionId] : null; }
 
+
+/* El avance que estaba en el cajon de Subir de nivel.
+
+   Esta pagina es una copia de subir-nivel.html y se quedo con su
+   clave, en los dos lados: p.subirnivel y "subirnivel-path/v1/anon".
+   Marcabas algo en tu ruta armada y aparecia marcado alla, y al
+   reves.
+
+   Aca no se puede repartir por ids como en las otras ocho: los nodos
+   de esta pagina se arman en el momento con lo que elegiste, asi que
+   al cargar todavia no existen. Se copia lo que hay tal cual, que es
+   exactamente lo que las dos paginas muestran hoy: nadie ve cambiar
+   nada, y a partir de ahora van por separado. Lo viejo no se toca,
+   que es de subir-nivel. */
+function migrarDelCajonCompartido(p){
+  var MARCA = "miruta-path/v1/migrado";
+  if(safeGet(MARCA)) return;
+  safeSet(MARCA, "1");
+
+  var dePerfil = (p && p.subirnivel && p.subirnivel.done) || null;
+  var deAnon = null;
+  try{
+    var raw = safeGet("subirnivel-path/v1/anon");
+    deAnon = raw ? (JSON.parse(raw) || {}).done : null;
+  }catch(e){ deAnon = null; }
+
+  var mezcla = PathSync.union(dePerfil || {}, deAnon || {});
+  var cuantas = 0, z;
+  for(z in mezcla) cuantas++;
+  if(!cuantas) return;
+
+  if(p){ p.miruta = { done: mezcla }; PathSync.store.save(); }
+  else safeSet(STORAGE.anon, JSON.stringify({ done: mezcla }));
+}
+
 function loadState(){
   profiles = PathSync.store.load();
   sessionId = PathSync.store.sessionId();
   var p = activeProfile();
-  if(p && p.subirnivel && typeof p.subirnivel === "object"){
-    cs = { done: p.subirnivel.done || {} };
+  migrarDelCajonCompartido(p);
+  if(p && p.miruta && typeof p.miruta === "object"){
+    cs = { done: p.miruta.done || {} };
   }else{
     try{
       var raw = safeGet(STORAGE.anon);
@@ -1380,7 +1416,7 @@ function absorberCompartidos(){
 function saveState(){
   var p = activeProfile();
   if(p){
-    p.subirnivel = cs;
+    p.miruta = cs;
     return PathSync.store.save();
   }
   return safeSet(STORAGE.anon, JSON.stringify(cs));
@@ -1394,7 +1430,7 @@ function ensureLocal(){
   profiles = PathSync.store.all();
   sessionId = p.id;
   PathSync.store.setActive(p.id);
-  p.subirnivel = cs;
+  p.miruta = cs;
   PathSync.store.save();
   paintAccount();
   return p;

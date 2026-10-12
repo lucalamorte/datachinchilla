@@ -1146,7 +1146,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 
 var STORAGE = {
   theme: "snowpro-path/v1/theme",
-  anon:  "aifund-path/v1/anon"
+  anon:  "mlops-path/v1/anon"
 };
 var CONFIG = {
   /* Firebase. Vacios, el sitio funciona igual con perfiles locales,
@@ -1394,12 +1394,55 @@ function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ retu
 function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
 function activeProfile(){ return sessionId && profiles[sessionId] ? profiles[sessionId] : null; }
 
+
+/* El avance que estaba en el cajon compartido.
+
+   Esta pagina guardaba en p.aifund y en "aifund-path/v1/anon", igual
+   que otras ocho: es una copia de ai-fundamentos a la que se le
+   cambio todo menos eso. Marcabas un curso aca y aparecia marcado en
+   las otras, y la que abrias despues pisaba el cajon con lo suyo.
+
+   Se rescata lo que es de esta ruta mirando los ids de sus propios
+   nodos, y se deja donde corresponde. Corre una sola vez.
+
+   Lo viejo no se borra: ai-fundamentos sigue siendo el dueno de esa
+   clave y lo necesita. */
+function migrarDelCajonCompartido(p){
+  var MARCA = "mlops-path/v1/migrado";
+  if(safeGet(MARCA)) return;
+  safeSet(MARCA, "1");
+
+  var mios = {}, i;
+  for(i=0;i<NODES.length;i++) mios[NODES[i].id] = true;
+  function soloMios(d){
+    var o = {}, k;
+    for(k in (d || {})){ if(mios[k] && d[k]) o[k] = true; }
+    return o;
+  }
+
+  var dePerfil = (p && p.aifund && p.aifund.done) || null;
+  var deAnon = null;
+  try{
+    var raw = safeGet("aifund-path/v1/anon");
+    deAnon = raw ? (JSON.parse(raw) || {}).done : null;
+  }catch(e){ deAnon = null; }
+
+  var mezcla = PathSync.union(soloMios(dePerfil), soloMios(deAnon));
+  var cuantas = 0, z;
+  for(z in mezcla) cuantas++;
+  if(!cuantas) return;
+
+  if(p){ p.mlops = { done: mezcla }; PathSync.store.save(); }
+  else safeSet(STORAGE.anon, JSON.stringify({ done: mezcla }));
+}
+
 function loadState(){
   profiles = PathSync.store.load();
   sessionId = PathSync.store.sessionId();
   var p = activeProfile();
-  if(p && p.aifund && typeof p.aifund === "object"){
-    cs = { done: p.aifund.done || {} };
+  migrarDelCajonCompartido(p);
+  if(p && p.mlops && typeof p.mlops === "object"){
+    cs = { done: p.mlops.done || {} };
   }else{
     try{
       var raw = safeGet(STORAGE.anon);
@@ -1430,7 +1473,7 @@ function absorberCompartidos(){
 function saveState(){
   var p = activeProfile();
   if(p){
-    p.aifund = cs;
+    p.mlops = cs;
     return PathSync.store.save();
   }
   return safeSet(STORAGE.anon, JSON.stringify(cs));
@@ -1444,7 +1487,7 @@ function ensureLocal(){
   profiles = PathSync.store.all();
   sessionId = p.id;
   PathSync.store.setActive(p.id);
-  p.aifund = cs;
+  p.mlops = cs;
   PathSync.store.save();
   paintAccount();
   return p;
