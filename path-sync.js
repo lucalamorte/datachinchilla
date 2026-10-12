@@ -291,14 +291,26 @@ var PathSync = (function(){
     isOn: function(){ return !!(cfg.apiKey && cfg.projectId); },
     session: function(){ return ses; },
 
-    /* Guardar avance pide cuenta SI HAY NUBE. Un unico lugar que lo
-       diga, para que no haya dos ideas distintas de que significa
-       estar logueado repartidas por las paginas.
+    /* Guardar avance NO pide cuenta. Nunca.
 
-       Sin nube devuelve true: la cuenta existe para que tu avance te
-       siga a otra computadora, y si no hay a donde sincronizar,
-       pedirla no protege nada, solo impide guardar. */
-    puedeGuardar: function(){ return !cfg.apiKey || !cfg.projectId || !!ses; },
+       Esto decia `!!ses`: con la nube encendida, marcar un curso
+       pedia cuenta. Con el proyecto de Supabase borrado eso dejo el
+       sitio sin poder marcar nada, y arreglarlo "mientras no haya
+       nube" era tratar el sintoma: el dia que se enciende la nube
+       vuelve el mismo problema, y ahora con diez mil visitas por mes
+       de las que casi ninguna tiene cuenta.
+
+       La cuenta existe para una sola cosa, y es la que dice el cartel
+       de la cuenta desde el principio: que tu avance te siga a otra
+       computadora. El avance se guarda siempre en este navegador, y
+       si ademas hay sesion, se sincroniza. Pedir cuenta para marcar
+       no protege nada: solo impide guardar.
+
+       Queda como funcion y no como `true` suelto porque es la
+       pregunta que hacen veintiocho lugares, y el dia que haya una
+       razon de verdad para negarse, se contesta aca y en ningun otro
+       lado. */
+    puedeGuardar: function(){ return true; },
 
     /* --------------------------------------------------- entrar */
 
