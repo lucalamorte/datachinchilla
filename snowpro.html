@@ -2931,6 +2931,10 @@ function renderAuth(note){
       sincronizarPerfil();
       PathSync.evento("snowpath", "entro", { ruta: "snowpro" });
       runPending();
+      /* Y la barra, que es donde se ve si entraste. Repintar
+         solo el modal dejaba el chip diciendo "Entrar" con la
+         sesion ya abierta, hasta recargar. */
+      paintAccount();
     }
   });
   body.scrollTop = 0;
@@ -3996,10 +4000,16 @@ function init(){
   renderQuizModes();
 
   if(nubeLista){
-    var fresh = PathSync.captureHash(function(msg){
+  /* captureHash es asincrono: canjea el token de Google contra
+     Firebase y eso tarda. Lo que sigue corria en la linea de abajo,
+     o sea antes de que la sesion existiera: pintaba el estado viejo
+     y nadie volvia a mirar. Por eso tambien se repinta cuando la
+     promesa termina. */
+  PathSync.captureHash(function(msg){
       cloudMsg = msg;
       toast("El link del mail no sirvió: " + msg);
-    });
+    })
+    .then(function(){ refreshSes(); paintAccount(); });
     refreshSes();
     /* El link de recuperación trae sesión, y aun así hay que pedir la
        contraseña nueva: si no, la vieja sigue siendo la que vale. */

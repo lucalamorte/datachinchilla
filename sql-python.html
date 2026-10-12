@@ -2170,9 +2170,15 @@ function init(){
   cuentaDlg.addEventListener("click", function(ev){ if(ev.target === cuentaDlg) cerrarCuenta(); });
 
   /* El link del mail y el de Google vuelven acá con la sesión en el hash. */
-  var fresh = PathSync.captureHash(function(m){
+  /* captureHash es asincrono: canjea el token de Google contra
+     Firebase y eso tarda. Lo que sigue corria en la linea de abajo,
+     o sea antes de que la sesion existiera: pintaba el estado viejo
+     y nadie volvia a mirar. Por eso tambien se repinta cuando la
+     promesa termina. */
+  PathSync.captureHash(function(m){
     toast("El link del mail no sirvió: " + m);
-  });
+  })
+    .then(function(){ refreshSes(); paintAccount(); });
   if(PathSync.session()){
     paintAccount();
     if(PathSync.hashType() === "recovery"){

@@ -1689,6 +1689,10 @@ function montarAcceso(vista){
       cloudSync();
       sincronizarPerfil();
       PathSync.evento("snowpath", "entro", { ruta: "armar" });
+      /* Y la barra, que es donde se ve si entraste. Repintar
+         solo el modal dejaba el chip diciendo "Entrar" con la
+         sesion ya abierta, hasta recargar. */
+      paintAccount();
     }
   });
 }
@@ -1719,6 +1723,10 @@ function renderAccess(msg){
       renderAccount("");
       cloudSync();
       sincronizarPerfil();
+      /* Y la barra, que es donde se ve si entraste. Repintar
+         solo el modal dejaba el chip diciendo "Entrar" con la
+         sesion ya abierta, hasta recargar. */
+      paintAccount();
     }
   });
   if(msg) PathSync.authUI.mensaje(msg);
@@ -1734,6 +1742,8 @@ function wireAccount(){
     PathSync.signOut();
     refreshSes();
     renderAccount("");
+    /* Y la barra: sin esto cerrabas sesion y tu nombre seguia arriba. */
+    paintAccount();
     toast("Listo, este navegador ya no sincroniza.");
   });
 }

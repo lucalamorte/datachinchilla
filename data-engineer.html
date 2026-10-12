@@ -1719,6 +1719,10 @@ function montarAcceso(vista){
       cloudSync();
       sincronizarPerfil();
       PathSync.evento("snowpath", "entro", { ruta: "data_engineer" });
+      /* Y la barra, que es donde se ve si entraste. Repintar
+         solo el modal dejaba el chip diciendo "Entrar" con la
+         sesion ya abierta, hasta recargar. */
+      paintAccount();
     }
   });
 }
@@ -1761,6 +1765,10 @@ function renderAccess(msg){
       renderAccount("");
       cloudSync();
       sincronizarPerfil();
+      /* Y la barra, que es donde se ve si entraste. Repintar
+         solo el modal dejaba el chip diciendo "Entrar" con la
+         sesion ya abierta, hasta recargar. */
+      paintAccount();
     }
   });
   if(msg) PathSync.authUI.mensaje(msg);
@@ -1777,6 +1785,8 @@ function wireAccount(){
     PathSync.signOut();
     refreshSes();
     renderAccount("");
+    /* Y la barra: sin esto cerrabas sesion y tu nombre seguia arriba. */
+    paintAccount();
     toast("Listo, este navegador ya no sincroniza.");
   });
 }
@@ -2688,10 +2698,16 @@ function init(){
   acctDlg.addEventListener("click", function(ev){ if(ev.target === acctDlg) hideAcct(); });
 
   if(nubeLista){
-    var fresh = PathSync.captureHash(function(m){
+  /* captureHash es asincrono: canjea el token de Google contra
+     Firebase y eso tarda. Lo que sigue corria en la linea de abajo,
+     o sea antes de que la sesion existiera: pintaba el estado viejo
+     y nadie volvia a mirar. Por eso tambien se repinta cuando la
+     promesa termina. */
+  PathSync.captureHash(function(m){
       cloudMsg = m;
       toast("El link del mail no sirvió: " + m);
-    });
+    })
+    .then(function(){ refreshSes(); paintAccount(); });
     refreshSes();
     /* El link de recuperación trae sesión, y aun así hay que pedir la
        contraseña nueva: si no, la vieja sigue siendo la que vale. */
