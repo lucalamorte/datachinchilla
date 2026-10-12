@@ -78,10 +78,48 @@ y copiá del snippet que te muestra:
 - `apiKey`
 - `projectId`
 
-Y el tercero, solo si querés Google: **Google Cloud → APIs y servicios →
-Credenciales → OAuth 2.0 Client IDs → "Web client (auto created by
-Google Service)"**. Copiá el **Client ID** (termina en
-`.apps.googleusercontent.com`).
+### El tercero: Google
+
+Solo si querés ese botón. Va en **Google Cloud**, no en Firebase — pero
+es el mismo proyecto:
+
+```
+https://console.cloud.google.com/apis/credentials?project=datachinchilla
+```
+
+En **ID de cliente de OAuth 2.0** vas a ver uno que dice **"Web client
+(auto created by Google Service)"**. Ese lo creó Firebase solo cuando
+activaste Google. Abrilo.
+
+**Antes de copiar nada, agregale estas URLs**, porque Google rechaza
+cualquier vuelta que no esté anotada a mano:
+
+**Orígenes autorizados de JavaScript**
+```
+https://datachinchilla.com
+https://pruebas.datachinchilla.pages.dev
+http://localhost:8126
+```
+
+**URI de redireccionamiento autorizados**
+```
+https://datachinchilla.com/
+https://pruebas.datachinchilla.pages.dev/
+http://localhost:8126/
+```
+
+> **La barra final importa** y que sean solo tres también: el sitio
+> vuelve siempre a la raíz y después te lleva solo a la página donde
+> estabas. Si volviera a la página de origen habría que anotar las 30
+> páginas por cada dominio — noventa URLs, y una más cada vez que se
+> agrega una ruta.
+
+Guardá, y recién ahí copiá el **ID de cliente**, que termina en
+`.apps.googleusercontent.com`.
+
+Los cambios en estas credenciales pueden tardar unos minutos en tomar
+efecto. Si te dice `redirect_uri_mismatch`, es esto: esperá un rato o
+revisá que la URL coincida **exacta**, barra incluida.
 
 Con esos tres, en las 30 páginas:
 

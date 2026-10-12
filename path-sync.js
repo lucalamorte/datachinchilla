@@ -346,7 +346,22 @@ var PathSync = (function(){
       }
       var nonce = Math.random().toString(36).slice(2) + nowSec();
       set("snowpro-path/v1/nonce", nonce);
-      var vuelve = location.origin + location.pathname;
+
+      /* Google vuelve SIEMPRE a la raiz, no a la pagina donde
+         estabas.
+
+         No es un detalle: Google exige que cada redirect_uri este
+         cargada a mano en las credenciales, una por una. Volviendo a
+         la pagina de origen habria que cargar treinta paginas por
+         cada dominio -produccion, pruebas y local-, o sea noventa
+         URLs, y cada ruta nueva seria una mas que agregar y que
+         alguien se va a olvidar.
+
+         Volviendo a la raiz son tres. La pagina donde estabas queda
+         guardada aca y captureHash te devuelve ahi despues de
+         canjear el token. */
+      set("snowpro-path/v1/volver", location.pathname + location.search);
+      var vuelve = location.origin + "/";
       location.href = "https://accounts.google.com/o/oauth2/v2/auth" +
         "?client_id=" + encodeURIComponent(cfg.googleClientId) +
         "&response_type=id_token" +
@@ -422,8 +437,18 @@ var PathSync = (function(){
           /* Google firma el nonce adentro del token; Firebase lo
              comprueba si se lo pasamos. */
           nonce: nonce || undefined
-        }).then(function(d){ return guardarSesion(d); })
-          ["catch"](function(e){ if(onError) onError(e.message || String(e)); return null; });
+        }).then(function(d){
+          guardarSesion(d);
+          /* Y de vuelta a donde estabas. Google siempre devuelve a la
+             raiz -ver signInWithGoogle- asi que sin esto, entrar
+             desde una ruta te dejaba en la portada. */
+          var pagina = get("snowpro-path/v1/volver") || "";
+          del("snowpro-path/v1/volver");
+          if(pagina && pagina !== location.pathname){
+            location.replace(pagina);
+          }
+          return ses;
+        })["catch"](function(e){ if(onError) onError(e.message || String(e)); return null; });
       }
 
       var mErr = /[#&]error=([^&]+)/.exec(hash);
