@@ -1139,7 +1139,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="onboarding.js?v=88e5d242"></script>
 <script src="guia.js?v=9ad03b28"></script>
 <script src="chinchilla.js?v=cbbec988"></script>
-<script src="path-sync.js?v=70274b62"></script>
+<script src="path-sync.js?v=2b36e516"></script>
 <script>
 (function(){
 "use strict";
@@ -1148,22 +1148,18 @@ var STORAGE = {
   theme: "snowpro-path/v1/theme",
   anon:  "aifund-path/v1/anon"
 };
-/* Sin nube, por ahora.
-
-   El proyecto de Supabase que habia aca se borro: el dominio ni
-   resuelve. Dejar la direccion puesta no es neutro -cada intento de
-   entrar es una espera y un error- asi que se vacia, y con eso
-   PathSync.isOn() da false y ninguna pagina intenta nada.
-
-   Tu avance vive en este navegador, que es lo que el cartel de la
-   cuenta viene diciendo desde siempre.
-
-   Cuando haya backend nuevo, se cargan estos dos valores y vuelve a
-   haber nube: el store local siempre fue la fuente y la nube una capa
-   encima, asi que no hay nada que migrar de este lado. */
 var CONFIG = {
-  supabaseUrl: "",
-  supabaseKey: ""
+  /* Firebase. Vacios, el sitio funciona igual con perfiles locales,
+     que es como esta hasta que exista el proyecto.
+
+     La apiKey es publica por diseno y viaja en el navegador: lo que
+     protege los datos son las reglas de Firestore, no esconderla. Los
+     pasos para crear todo esto estan en FIREBASE.md. */
+  firebaseApiKey: "",
+  firebaseProjectId: "",
+  /* Solo para entrar con Google. Firebase lo crea solo al activar ese
+     metodo; esta en Google Cloud, en Credenciales, como "Web client". */
+  googleClientId: ""
 };
 
 function icon(name, size){
@@ -2099,7 +2095,7 @@ function abrirDelHash(){
 }
 
 function init(){
-  PathSync.configure(CONFIG.supabaseUrl, CONFIG.supabaseKey);
+  PathSync.configure(CONFIG.firebaseApiKey, CONFIG.firebaseProjectId, CONFIG.googleClientId);
   var stored = safeGet(STORAGE.theme);
   if(stored !== "dark" && stored !== "light"){
     var light = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;

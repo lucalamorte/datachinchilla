@@ -1,21 +1,29 @@
 /* ============================================================
    path-sync.js
-   Capa de sesión y sincronización contra Supabase, compartida por
-   las dos páginas del sitio. Acá vive una sola vez todo lo que
-   toca la red: entrar por mail, refrescar el token, leer y escribir
-   la fila de progreso.
+   Capa de sesión y sincronización contra Firebase, compartida por
+   todas las páginas del sitio. Acá vive una sola vez todo lo que
+   toca la red: entrar, refrescar el token, leer y escribir.
+
+   Era Supabase. El proyecto se borró, así que se cambió la capa de
+   red y nada más: los veintinueve nombres que exporta PathSync y sus
+   contratos son los mismos, y por eso ninguna página cambió una
+   línea.
 
    Sin claves cargadas, PathSync.isOn() devuelve false y ninguna
-   página intenta nada: siguen funcionando con perfiles locales.
+   página intenta nada: siguen funcionando con perfiles locales, que
+   es como está el sitio hasta que haya proyecto nuevo.
 
-   La anon key es pública por diseño y viaja en el navegador.
-   La service role NUNCA va acá.
+   Sin SDK, a propósito: la librería de Firebase pesa más que este
+   archivo entero para hacer lo que hacen cuatro fetch.
+
+   La apiKey es pública por diseño y viaja en el navegador: lo que
+   protege los datos son las reglas de Firestore, no esconderla.
    ============================================================ */
 var PathSync = (function(){
   "use strict";
 
   var KEY_SESSION = "snowpro-path/v1/cloud";
-  var cfg = { url: "", key: "" };
+  var cfg = { apiKey: "", projectId: "", googleClientId: "" };
   var ses = null;          // { access_token, refresh_token, expires_at, user_id, email }
   var lastType = "";       // que clase de link nos trajo: "recovery", "magiclink", ...
 
@@ -55,7 +63,16 @@ var PathSync = (function(){
   function del(k){ try{ window.localStorage.removeItem(k); return true; }catch(e){ return false; } }
 
   function nowSec(){ return Math.floor(Date.now() / 1000); }
-  function base(){ return cfg.url.replace(/\/+$/, ""); }
+
+  /* Las dos APIs de Firebase que se usan. Identity Toolkit autentica
+     y se identifica con la apiKey en la query; Firestore guarda y se
+     identifica con el token de la persona en la cabecera. */
+  var AUTH_API  = "https://identitytoolkit.googleapis.com/v1/";
+  var TOKEN_API = "https://securetoken.googleapis.com/v1/token";
+  function fsBase(){
+    return "https://firestore.googleapis.com/v1/projects/" + cfg.projectId +
+           "/databases/(default)/documents";
+  }
 
   function load(){
     try{
@@ -67,255 +84,396 @@ var PathSync = (function(){
     return ses ? set(KEY_SESSION, JSON.stringify(ses)) : del(KEY_SESSION);
   }
 
-  function headers(withToken){
-    var h = { "apikey": cfg.key, "Content-Type": "application/json" };
-    if(withToken && ses) h["Authorization"] = "Bearer " + ses.access_token;
-    return h;
-  }
-
   /* Nunca asume que la respuesta es JSON: un error de infraestructura
      contesta HTML y parsearlo escondería la causa real. */
-  function call(path, opts){
+  function pedir(url, opts){
     opts = opts || {};
-    return fetch(base() + path, {
+    return fetch(url, {
       method: opts.method || "GET",
-      headers: opts.headers || headers(true),
+      headers: opts.headers || { "Content-Type": "application/json" },
       body: opts.body ? JSON.stringify(opts.body) : undefined
     })["catch"](function(){
       throw new Error("no pude contactar al servidor, revisa tu conexión");
     }).then(function(r){
-      return r.text().then(function(t){
+      return r.text().then(function(txt){
         var data = null;
-        if(t){
-          try{ data = JSON.parse(t); }catch(e){ data = null; }
-        }
-        if(!r.ok){
-          var msg = (data && (data.msg || data.message || data.error_description || data.error)) ||
-                    ("el servidor respondió " + r.status);
-          throw new Error(msg);
-        }
+        if(txt){ try{ data = JSON.parse(txt); }catch(e){ data = null; } }
+        if(!r.ok) throw new Error(mensajeDe(data, r.status));
         return data;
       });
     });
+  }
+
+  /* Firebase contesta con códigos en inglés y en mayúsculas. Dejarlos
+     pasar tal cual sería mostrarle "EMAIL_NOT_FOUND" a alguien que
+     solo se equivocó de mail. */
+  var DICE = {
+    EMAIL_EXISTS: "ese mail ya tiene cuenta",
+    EMAIL_NOT_FOUND: "ese mail no tiene cuenta",
+    INVALID_PASSWORD: "la contraseña no es ésa",
+    INVALID_LOGIN_CREDENTIALS: "el mail o la contraseña no son ésos",
+    USER_DISABLED: "esa cuenta está deshabilitada",
+    WEAK_PASSWORD: "la contraseña tiene que tener al menos seis caracteres",
+    INVALID_EMAIL: "ese mail no parece un mail",
+    EXPIRED_OOB_CODE: "el link venció, pedí uno nuevo",
+    INVALID_OOB_CODE: "el link no sirve, pedí uno nuevo",
+    TOO_MANY_ATTEMPTS_TRY_LATER: "demasiados intentos, probá de nuevo en un rato",
+    OPERATION_NOT_ALLOWED: "esa forma de entrar no está activada en el proyecto"
+  };
+  function mensajeDe(data, status){
+    var m = data && data.error && data.error.message;
+    if(!m) return "el servidor respondió " + status;
+    var corto = String(m).split(" : ")[0];
+    return DICE[corto] || corto;
+  }
+
+  function authCall(metodo, cuerpo){
+    return pedir(AUTH_API + metodo + "?key=" + encodeURIComponent(cfg.apiKey),
+                 { method: "POST", body: cuerpo });
   }
 
   function ensureFresh(){
     if(!ses) return Promise.reject(new Error("no hay sesión"));
     if(ses.expires_at - 60 > nowSec()) return Promise.resolve();
     if(!ses.refresh_token) return Promise.reject(new Error("la sesión venció, entra de nuevo"));
-    return call("/auth/v1/token?grant_type=refresh_token", {
+    /* Este es el unico endpoint de Firebase que no habla JSON: pide
+       el cuerpo como formulario. Por eso va con fetch directo y no
+       con pedir(), que serializa JSON. */
+    return fetch(TOKEN_API + "?key=" + encodeURIComponent(cfg.apiKey), {
       method: "POST",
-      headers: headers(false),
-      body: { refresh_token: ses.refresh_token }
-    }).then(function(d){
-      ses.access_token = d.access_token;
-      ses.refresh_token = d.refresh_token || ses.refresh_token;
-      ses.expires_at = nowSec() + (d.expires_in || 3600);
-      save();
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: "grant_type=refresh_token&refresh_token=" +
+            encodeURIComponent(ses.refresh_token)
+    })["catch"](function(){
+      throw new Error("no pude contactar al servidor, revisa tu conexión");
+    }).then(function(r){
+      return r.text().then(function(txt){
+        var d = null;
+        if(txt){ try{ d = JSON.parse(txt); }catch(e){ d = null; } }
+        if(!r.ok || !d || !d.id_token){
+          /* Un refresh que no sirve es una sesion que se termino, y
+             hay que decirlo: dejarla a medias hace que el siguiente
+             guardado falle en silencio. */
+          ses = null; save();
+          throw new Error("la sesión venció, entra de nuevo");
+        }
+        ses.access_token = d.id_token;
+        ses.refresh_token = d.refresh_token || ses.refresh_token;
+        ses.expires_at = nowSec() + (parseInt(d.expires_in, 10) || 3600);
+        save();
+      });
     });
   }
 
-  /* GoTrue devuelve la sesion igual en signup, login y refresh: una sola
-     funcion para guardarla evita que cada camino invente su propia forma. */
+  /* Identity Toolkit devuelve lo mismo en alta, login y canje de
+     Google: una sola funcion para guardarlo evita que cada camino
+     invente su propia forma. */
   function guardarSesion(d, email){
     ses = {
-      access_token: d.access_token,
-      refresh_token: d.refresh_token || "",
-      expires_at: nowSec() + (d.expires_in || 3600),
-      user_id: (d.user && d.user.id) || "",
-      email: (d.user && d.user.email) || email || ""
+      access_token: d.idToken || "",
+      refresh_token: d.refreshToken || "",
+      expires_at: nowSec() + (parseInt(d.expiresIn, 10) || 3600),
+      user_id: d.localId || "",
+      email: d.email || email || ""
     };
     save();
     return ses;
   }
 
   function fetchUser(){
-    return call("/auth/v1/user").then(function(u){
-      ses.user_id = u.id;
-      ses.email = u.email || "";
-      save();
-      return u;
+    return authCall("accounts:lookup", { idToken: ses.access_token })
+      .then(function(d){
+        var u = (d.users && d.users[0]) || {};
+        ses.user_id = u.localId || ses.user_id;
+        ses.email = u.email || ses.email;
+        save();
+        return u;
+      });
+  }
+
+  /* --------------------------------------------------- Firestore
+
+     Firestore no guarda JSON: guarda valores con su tipo declarado.
+     Estas dos funciones traducen en los dos sentidos, para que el
+     resto del archivo siga hablando en objetos comunes. */
+  function aFire(v){
+    if(v === null || v === undefined) return { nullValue: null };
+    if(typeof v === "boolean") return { booleanValue: v };
+    if(typeof v === "number"){
+      return (v % 1 === 0) ? { integerValue: String(v) } : { doubleValue: v };
+    }
+    if(Object.prototype.toString.call(v) === "[object Array]"){
+      var arr = [], i;
+      for(i=0;i<v.length;i++) arr.push(aFire(v[i]));
+      return { arrayValue: { values: arr } };
+    }
+    if(typeof v === "object"){
+      var campos = {}, k;
+      for(k in v){ if(Object.prototype.hasOwnProperty.call(v, k)) campos[k] = aFire(v[k]); }
+      return { mapValue: { fields: campos } };
+    }
+    return { stringValue: String(v) };
+  }
+
+  function deFire(f){
+    if(!f) return null;
+    if("nullValue" in f) return null;
+    if("booleanValue" in f) return f.booleanValue;
+    if("integerValue" in f) return parseInt(f.integerValue, 10);
+    if("doubleValue" in f) return f.doubleValue;
+    if("timestampValue" in f) return f.timestampValue;
+    if("stringValue" in f) return f.stringValue;
+    if("arrayValue" in f){
+      var vals = (f.arrayValue && f.arrayValue.values) || [], out = [], i;
+      for(i=0;i<vals.length;i++) out.push(deFire(vals[i]));
+      return out;
+    }
+    if("mapValue" in f) return deFireCampos((f.mapValue && f.mapValue.fields) || {});
+    return null;
+  }
+  function deFireCampos(campos){
+    var out = {}, k;
+    for(k in campos) out[k] = deFire(campos[k]);
+    return out;
+  }
+  function aFireCampos(obj){
+    var out = {}, k;
+    for(k in obj){ if(Object.prototype.hasOwnProperty.call(obj, k)) out[k] = aFire(obj[k]); }
+    return out;
+  }
+
+  function fsHeaders(){
+    return { "Content-Type": "application/json",
+             "Authorization": "Bearer " + (ses ? ses.access_token : "") };
+  }
+
+  /* Un documento, por su camino. Si no existe devuelve null en vez de
+     reventar: "todavia no guardaste nada" no es un error. */
+  function fsLeer(camino){
+    return pedir(fsBase() + "/" + camino, { headers: fsHeaders() })
+      .then(function(d){ return d && d.fields ? deFireCampos(d.fields) : null; })
+      ["catch"](function(){ return null; });
+  }
+
+  /* PATCH con updateMask escribe sin pisar lo que no viene, que es lo
+     que hacia el upsert con merge-duplicates. */
+  function fsEscribir(camino, datos){
+    var campos = aFireCampos(datos), mask = [], k;
+    for(k in campos) mask.push("updateMask.fieldPaths=" + encodeURIComponent(k));
+    return pedir(fsBase() + "/" + camino + (mask.length ? "?" + mask.join("&") : ""), {
+      method: "PATCH", headers: fsHeaders(), body: { fields: campos }
     });
   }
 
+  /* Y agregar sin pisar: las colecciones que solo crecen -eventos,
+     consentimientos- no tienen un documento por persona que
+     actualizar, cada registro es un hecho nuevo con su fecha. */
+  function fsAgregar(coleccion, datos){
+    return pedir(fsBase() + "/" + coleccion, {
+      method: "POST", headers: fsHeaders(), body: { fields: aFireCampos(datos) }
+    });
+  }
+
+  function mio(){ return "usuarios/" + (ses ? ses.user_id : ""); }
+
   return {
     /* --------------------------------------------------- arranque */
-    configure: function(url, key){
-      cfg.url = url || "";
-      cfg.key = key || "";
-      if(cfg.url && cfg.key) load();
-      return cfg.url && cfg.key ? true : false;
+    /* Los nombres de los parametros quedan genericos a proposito: las
+       paginas llaman configure(a, b, c) y no tienen por que saber de
+       que proveedor son. */
+    configure: function(apiKey, projectId, googleClientId){
+      cfg.apiKey = apiKey || "";
+      cfg.projectId = projectId || "";
+      cfg.googleClientId = googleClientId || "";
+      if(cfg.apiKey && cfg.projectId) load();
+      return !!(cfg.apiKey && cfg.projectId);
     },
-    isOn: function(){ return !!(cfg.url && cfg.key); },
+    isOn: function(){ return !!(cfg.apiKey && cfg.projectId); },
     session: function(){ return ses; },
 
     /* Guardar avance pide cuenta SI HAY NUBE. Un unico lugar que lo
        diga, para que no haya dos ideas distintas de que significa
        estar logueado repartidas por las paginas.
 
-       Sin nube devuelve true, y no es un parche: la cuenta existe
-       para que tu avance te siga a otra computadora. Si no hay a
-       donde sincronizar, pedirla no protege nada, solo impide
-       guardar. Con el proyecto borrado esto dejaba el sitio sin
-       poder marcar un solo curso: marcabas, se abria el cartel de la
-       cuenta, y ahi moria. */
-    puedeGuardar: function(){ return !cfg.url || !cfg.key || !!ses; },
+       Sin nube devuelve true: la cuenta existe para que tu avance te
+       siga a otra computadora, y si no hay a donde sincronizar,
+       pedirla no protege nada, solo impide guardar. */
+    puedeGuardar: function(){ return !cfg.apiKey || !cfg.projectId || !!ses; },
 
     /* --------------------------------------------------- entrar */
 
-    /* El link del mail vuelve a la misma URL de la que salio. Abierta
-       como archivo local no hay a donde volver: location.origin es la
-       cadena "null" y Supabase no puede redirigir ahi. */
+    /* El link del mail y el de Google vuelven a la misma URL de la que
+       salieron. Abierta como archivo local no hay a donde volver:
+       location.origin es la cadena "null". */
     canReturn: function(){
       return location.protocol === "http:" || location.protocol === "https:";
     },
 
+    signUp: function(email, password){
+      return authCall("accounts:signUp", {
+        email: email, password: password, returnSecureToken: true
+      }).then(function(d){ return guardarSesion(d, email); });
+    },
+
+    signIn: function(email, password){
+      return authCall("accounts:signInWithPassword", {
+        email: email, password: password, returnSecureToken: true
+      }).then(function(d){ return guardarSesion(d, email); });
+    },
+
+    /* Google sin SDK. Se va a Google por el id_token y despues se lo
+       canjea en signInWithIdp; el canje lo hace captureHash al
+       volver.
+
+       El nonce queda guardado para comprobar que el token que vuelve
+       es el de este pedido y no uno pegado a mano en la barra. */
+    signInWithGoogle: function(){
+      if(!cfg.googleClientId){
+        return Promise.reject(new Error(
+          "falta el client id de Google en la configuración del sitio"));
+      }
+      var nonce = Math.random().toString(36).slice(2) + nowSec();
+      set("snowpro-path/v1/nonce", nonce);
+      var vuelve = location.origin + location.pathname;
+      location.href = "https://accounts.google.com/o/oauth2/v2/auth" +
+        "?client_id=" + encodeURIComponent(cfg.googleClientId) +
+        "&response_type=id_token" +
+        "&scope=" + encodeURIComponent("openid email profile") +
+        "&redirect_uri=" + encodeURIComponent(vuelve) +
+        "&nonce=" + encodeURIComponent(nonce) +
+        "&prompt=select_account";
+      return Promise.resolve(null);
+    },
+
+    /* Entrar con un link en vez de contrasena. Pide tener activado
+       "Email link" en el proyecto; si no lo esta, Firebase lo dice y
+       el mensaje llega tal cual al panel. */
     sendLink: function(email, app){
       if(location.protocol !== "http:" && location.protocol !== "https:"){
         return Promise.reject(new Error(
           "abriste la página como archivo local y el link del mail no tiene a dónde " +
           "volver. Sube la página a internet o levántala en un servidor y entra desde ahí."));
       }
-      var back = location.origin + location.pathname;
-      return call("/auth/v1/otp?redirect_to=" + encodeURIComponent(back), {
-        method: "POST",
-        headers: headers(false),
-        body: { email: email, create_user: true, data: { app: app || "snowpath" } }
+      set("snowpro-path/v1/mail-link", email || "");
+      return authCall("accounts:sendOobCode", {
+        requestType: "EMAIL_SIGNIN",
+        email: email,
+        continueUrl: location.origin + location.pathname,
+        canHandleCodeInApp: true
       });
     },
 
-    /* --------------------------------------------------- contraseña
-
-       Entrar con contraseña no necesita volver de ningún lado: la sesión
-       llega en la misma respuesta. Registrarse y recuperar sí, porque
-       pasan por un mail. */
-    signIn: function(email, password){
-      return call("/auth/v1/token?grant_type=password", {
-        method: "POST",
-        headers: headers(false),
-        body: { email: email, password: password }
-      }).then(function(d){ guardarSesion(d, email); return true; });
-    },
-
-    /* Si el proyecto pide confirmar el mail, Supabase no devuelve sesión.
-       Se avisa en vez de dar por hecho que entró: decir "listo" y que
-       después no ande es peor que pedir un paso más. */
-    signUp: function(email, password, app){
-      var back = location.origin + location.pathname;
-      return call("/auth/v1/signup?redirect_to=" + encodeURIComponent(back), {
-        method: "POST",
-        headers: headers(false),
-        body: { email: email, password: password, data: { app: app || "snowpath" } }
-      }).then(function(d){
-        if(d && d.access_token){ guardarSesion(d, email); return { entro: true }; }
-        return { entro: false };
-      });
-    },
-
-    /* Google se va del sitio y vuelve con los tokens en el hash, igual
-       que el link del mail: por eso lo levanta el mismo captureHash.
-
-       supabase-js hace exactamente esta llamada por dentro. Acá se
-       escribe a mano porque la librería entera, para una redirección,
-       no se paga sola.
-
-       Ojo con una consecuencia: en el alta por Google la metadata la
-       escribe Google, así que no lleva nuestro campo "app" y el trigger
-       de origen marca account_created_here en false. */
-    signInWithGoogle: function(){
-      location.href = base() + "/auth/v1/authorize?provider=google&redirect_to=" +
-        encodeURIComponent(location.origin + location.pathname);
-    },
-
-    /* Manda el mail para elegir una contraseña nueva. El link vuelve a
-       esta misma página con type=recovery en el hash. */
     sendReset: function(email){
-      var back = location.origin + location.pathname;
-      return call("/auth/v1/recover?redirect_to=" + encodeURIComponent(back), {
-        method: "POST",
-        headers: headers(false),
-        body: { email: email }
+      return authCall("accounts:sendOobCode", {
+        requestType: "PASSWORD_RESET",
+        email: email,
+        continueUrl: location.origin + location.pathname
       });
     },
 
-    /* Cambiar la contraseña necesita una sesión: la del link de
-       recuperación, o la de alguien que ya entró. */
+    /* La contrasena nueva, con el codigo que vino en el link. */
     setPassword: function(password){
-      if(!ses) return Promise.reject(new Error("no hay sesión"));
-      return ensureFresh().then(function(){
-        return call("/auth/v1/user", { method: "PUT", body: { password: password } });
-      });
+      var codigo = get("snowpro-path/v1/oob") || "";
+      if(!codigo) return Promise.reject(new Error("el link no sirve, pedí uno nuevo"));
+      return authCall("accounts:resetPassword", {
+        oobCode: codigo, newPassword: password
+      }).then(function(d){
+        del("snowpro-path/v1/oob");
+        /* Cambiar la contrasena no deja sesion: se entra con la
+           nueva, que ademas confirma que quedo bien guardada. */
+        return authCall("accounts:signInWithPassword", {
+          email: d.email, password: password, returnSecureToken: true
+        });
+      }).then(function(d){ return guardarSesion(d); });
     },
 
-    /* Qué clase de link nos trajo. Sirve para saber que hay que pedir una
-       contraseña nueva en vez de entrar y ya. */
     hashType: function(){ return lastType; },
 
-    /* El link del mail vuelve con los tokens en el hash de la URL.
-       Devuelve true si había una sesión nueva para tomar. */
+    /* Lo que vuelve en la URL: el id_token de Google, o el codigo de
+       un link de mail. Las dos cosas se limpian de la barra apenas se
+       leen, porque un token en el historial es un token regalado. */
     captureHash: function(onError){
-      var h = location.hash || "";
-      if(h.indexOf("access_token") < 0 && h.indexOf("error") < 0) return false;
-      var out = {}, parts = h.replace(/^#/, "").split("&"), i, kv;
-      for(i=0;i<parts.length;i++){
-        kv = parts[i].split("=");
-        out[decodeURIComponent(kv[0])] = decodeURIComponent((kv[1] || "").replace(/\+/g, " "));
+      var hash = location.hash || "", busq = location.search || "";
+      var limpio = location.origin + location.pathname;
+
+      var mTok = /[#&]id_token=([^&]+)/.exec(hash);
+      if(mTok){
+        var nonce = get("snowpro-path/v1/nonce") || "";
+        del("snowpro-path/v1/nonce");
+        history.replaceState(null, "", limpio);
+        lastType = "google";
+        return authCall("accounts:signInWithIdp", {
+          postBody: "id_token=" + mTok[1] + "&providerId=google.com",
+          requestUri: limpio,
+          returnIdpCredential: true,
+          returnSecureToken: true,
+          /* Google firma el nonce adentro del token; Firebase lo
+             comprueba si se lo pasamos. */
+          nonce: nonce || undefined
+        }).then(function(d){ return guardarSesion(d); })
+          ["catch"](function(e){ if(onError) onError(e.message || String(e)); return null; });
       }
-      if(history.replaceState) history.replaceState(null, "", location.pathname + location.search);
-      if(out.error || out.error_description){
-        if(onError) onError(out.error_description || out.error);
-        return false;
+
+      var mErr = /[#&]error=([^&]+)/.exec(hash);
+      if(mErr){
+        history.replaceState(null, "", limpio);
+        if(onError) onError(decodeURIComponent(mErr[1]).replace(/\+/g, " "));
+        return Promise.resolve(null);
       }
-      if(!out.access_token) return false;
-      lastType = out.type || "";
-      ses = {
-        access_token: out.access_token,
-        refresh_token: out.refresh_token || "",
-        expires_at: nowSec() + (parseInt(out.expires_in, 10) || 3600),
-        user_id: "", email: ""
-      };
-      save();
-      return true;
+
+      var mModo = /[?&]mode=([^&]+)/.exec(busq);
+      var mCod  = /[?&]oobCode=([^&]+)/.exec(busq);
+      if(mModo && mCod){
+        var modo = mModo[1], codigo = mCod[1];
+        history.replaceState(null, "", limpio);
+        if(modo === "resetPassword"){
+          /* Se guarda para setPassword: el panel pide la contrasena
+             nueva en otra pantalla, asi que el codigo tiene que
+             sobrevivir a ese paso. */
+          set("snowpro-path/v1/oob", codigo);
+          lastType = "recovery";
+          return Promise.resolve(null);
+        }
+        if(modo === "signIn"){
+          lastType = "magiclink";
+          var mail = get("snowpro-path/v1/mail-link") || "";
+          del("snowpro-path/v1/mail-link");
+          return authCall("accounts:signInWithEmailLink", {
+            oobCode: codigo, email: mail
+          }).then(function(d){ return guardarSesion(d, mail); })
+            ["catch"](function(e){ if(onError) onError(e.message || String(e)); return null; });
+        }
+      }
+      return Promise.resolve(null);
     },
 
     signOut: function(){
-      if(ses){
-        ensureFresh()
-          .then(function(){ return call("/auth/v1/logout", { method: "POST" }); })
-          ["catch"](function(){ /* del lado del navegador se cierra igual */ });
-      }
+      /* Firebase no tiene "cerrar sesion" del lado del servidor para
+         un token que ya se emitio: se vence solo en una hora. Lo que
+         se tira es el refresh, que es lo que la mantiene viva. */
       ses = null;
       save();
+      del("snowpro-path/v1/oob");
+      return Promise.resolve(true);
     },
 
-    /* --------------------------------------------------- datos */
-    ready: function(){
-      if(!ses) return Promise.reject(new Error("no hay sesión"));
-      return ensureFresh().then(function(){
-        return ses.user_id ? null : fetchUser();
-      });
-    },
+    ready: function(){ return ensureFresh(); },
 
+    /* --------------------------------------------------- datos
+
+       Las tablas eran una fila por persona; en Firestore eso es un
+       documento por persona, colgado del suyo. */
     getRow: function(table){
-      return call("/rest/v1/" + table + "?select=*&user_id=eq." + encodeURIComponent(ses.user_id))
-        .then(function(rows){ return (rows && rows.length) ? rows[0] : null; });
+      return fsLeer(mio() + "/datos/" + table);
     },
 
     upsertRow: function(table, row){
-      var h = headers(true);
-      h["Prefer"] = "resolution=merge-duplicates,return=minimal";
-      row.user_id = ses.user_id;
-      return call("/rest/v1/" + table, { method: "POST", headers: h, body: [row] });
+      return fsEscribir(mio() + "/datos/" + table, row);
     },
 
-    /* Insertar sin pisar. Las tablas que solo se agregan (eventos,
-       consentimientos) no tienen una fila por persona que actualizar:
-       cada registro es un hecho nuevo con su fecha. */
     insertRow: function(table, row){
-      var h = headers(true);
-      h["Prefer"] = "return=minimal";
-      row.user_id = ses.user_id;
-      return call("/rest/v1/" + table, { method: "POST", headers: h, body: [row] });
+      row.fecha = row.fecha || new Date().toISOString();
+      return fsAgregar(mio() + "/" + table, row);
     },
 
     /* --------------------------------------------------- perfil y uso
@@ -327,12 +485,7 @@ var PathSync = (function(){
     guardarPerfil: function(datos){
       if(!ses) return Promise.resolve(false);
       return this.ready()
-        .then(function(){
-          var h = headers(true);
-          h["Prefer"] = "resolution=merge-duplicates,return=minimal";
-          datos.user_id = ses.user_id;
-          return call("/rest/v1/usuarios", { method: "POST", headers: h, body: [datos] });
-        })
+        .then(function(){ return fsEscribir(mio(), datos); })
         .then(function(){ return true; })
         ["catch"](function(){ return false; });
     },
@@ -340,16 +493,11 @@ var PathSync = (function(){
     leerPerfil: function(){
       if(!ses) return Promise.resolve(null);
       return this.ready()
-        .then(function(){
-          return call("/rest/v1/usuarios?select=*&user_id=eq." +
-                      encodeURIComponent(ses.user_id));
-        })
-        .then(function(filas){ return (filas && filas.length) ? filas[0] : null; })
+        .then(function(){ return fsLeer(mio()); })
         ["catch"](function(){ return null; });
     },
 
-    /* Cada sí y cada no queda con su fecha. El estado en usuarios lo
-       actualiza un trigger: el navegador no puede escribirlo. */
+    /* Cada sí y cada no queda con su fecha. */
     registrarConsentimiento: function(valor, app){
       if(!ses) return Promise.resolve(false);
       var self = this;
