@@ -18,7 +18,7 @@ u"""Producto: recursos, no una ruta.
    no pretenden ser un curso.
 
    De paso, la pagina tenia voseo -"si construis", "tenes uno",
-   "escribime"- y el sitio es de tuteo en todos lados.
+   "escríbeme"- y el sitio es de tuteo en todos lados.
 
    Uso: python build-producto.py
 """
@@ -118,9 +118,9 @@ t = t.replace(VIEJO_CIERRE, NUEVO_CIERRE, 1)
 VOSEO = [
  (u"Si construís cualquier cosa que use alguien que no seas vos.",
   u"Si construyes cualquier cosa que use alguien que no seas tú."),
- (u"<b>¿Tenés uno que debería estar acá?</b>",
+ (u"<b>¿Tienes uno que debería estar acá?</b>",
   u"<b>¿Tienes uno que debería estar acá?</b>"),
- (u">Escribime</a>", u">Escríbeme</a>"),
+ (u">Escríbeme</a>", u">Escríbeme</a>"),
 ]
 for v, n in VOSEO:
     if t.count(v) == 1:

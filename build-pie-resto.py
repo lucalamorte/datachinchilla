@@ -19,14 +19,14 @@ D = os.path.dirname(os.path.abspath(__file__))
 VIEJO = u'''    <nav class="foot-links">
       <a href="index.html#rutas">Todas las rutas</a>
       <a href="armar.html">Armar la mía</a>
-      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
+      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invítame un café</a>
       <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
     </nav>'''
 
 NUEVO = u'''    <nav class="foot-links">
       <a href="recursos.html">Recursos</a>
       <a href="preguntas.html">Preguntas frecuentes</a>
-      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
+      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invítame un café</a>
       <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
     </nav>'''
 

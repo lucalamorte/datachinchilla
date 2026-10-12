@@ -156,7 +156,7 @@ function tarjetaArmada(r){
       '<span class="go">Abrirla ' + icon("arrow", 12) + '</span></a></div>';
 }
 
-/* Las rutas del sitio que tenés en tu semana también son tuyas: el
+/* Las rutas del sitio que tienes en tu semana también son tuyas: el
    filtro "Tuyas" junta las tres cosas, o diría una cosa y mostraría
    otra. */
 function enTuSemana(p){

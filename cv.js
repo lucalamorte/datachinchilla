@@ -10,7 +10,7 @@
    Cómo estima el nivel: contando señales distintas del mismo tema.
    Un CV que dice "SQL" dice menos que uno que dice "SQL, Postgres,
    BigQuery y window functions", aunque los dos digan SQL. No es una
-   medida de cuánto sabes, es una medida de cuánto contás, que es
+   medida de cuánto sabes, es una medida de cuánto cuentas, que es
    con lo único que se puede trabajar leyendo un papel.
 
    Depende de temas.js.

@@ -149,10 +149,17 @@ var PathSync = (function(){
     isOn: function(){ return !!(cfg.url && cfg.key); },
     session: function(){ return ses; },
 
-    /* Guardar avance pide cuenta. Un unico lugar que lo diga, para
-       que no haya dos ideas distintas de que significa estar
-       logueado repartidas por las paginas. */
-    puedeGuardar: function(){ return !!ses; },
+    /* Guardar avance pide cuenta SI HAY NUBE. Un unico lugar que lo
+       diga, para que no haya dos ideas distintas de que significa
+       estar logueado repartidas por las paginas.
+
+       Sin nube devuelve true, y no es un parche: la cuenta existe
+       para que tu avance te siga a otra computadora. Si no hay a
+       donde sincronizar, pedirla no protege nada, solo impide
+       guardar. Con el proyecto borrado esto dejaba el sitio sin
+       poder marcar un solo curso: marcabas, se abria el cartel de la
+       cuenta, y ahi moria. */
+    puedeGuardar: function(){ return !cfg.url || !cfg.key || !!ses; },
 
     /* --------------------------------------------------- entrar */
 

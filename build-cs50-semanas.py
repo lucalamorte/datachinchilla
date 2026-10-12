@@ -48,7 +48,7 @@ CS50X = [
  (u"Semana 3 · Algoritmos", u"weeks/3/",
   u"Búsqueda, ordenamiento y notación asintótica. Es la semana que más se nota en una entrevista."),
  (u"Semana 4 · Memoria", u"weeks/4/",
-  u"Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo pensás el resto."),
+  u"Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo piensas el resto."),
  (u"Semana 5 · Estructuras de datos", u"weeks/5/",
   u"Listas enlazadas, tablas de hash y árboles. Lo que hay debajo de cada estructura que después usás sin mirar."),
  (u"Semana 6 · Python", u"weeks/6/",

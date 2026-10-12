@@ -923,7 +923,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
   <a class="menu-i" href="index.html"><span class="mi-ico-caja"><svg class="mi-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span><span class="mi-txt"><b>Inicio</b><span>Por dónde empezar</span></span></a>
   <p class="menu-t">Tu camino</p>
   <a class="menu-i" href="cv.html"><span class="mi-ico-caja"><svg class="mi-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><span class="mi-txt"><b>Tu CV</b><span>Tu ruta salida de tu experiencia</span></span></a>
-  <a class="menu-i" href="armar.html"><span class="mi-ico-caja"><svg class="mi-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h7M4 12h16M4 18h11"/><circle cx="15" cy="6" r="2"/><circle cx="19" cy="18" r="2"/></svg></span><span class="mi-txt"><b>Ármala a mano</b><span>Elegís los niveles y los ordenás</span></span></a>
+  <a class="menu-i" href="armar.html"><span class="mi-ico-caja"><svg class="mi-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h7M4 12h16M4 18h11"/><circle cx="15" cy="6" r="2"/><circle cx="19" cy="18" r="2"/></svg></span><span class="mi-txt"><b>Ármala a mano</b><span>Eliges los niveles y los ordenas</span></span></a>
   <a class="menu-i" href="semana.html"><span class="mi-ico-caja"><svg class="mi-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><span class="mi-txt"><b>Tu semana</b><span>Qué día, cuánto rato y con qué</span></span></a>
   <p class="menu-t">Estudiar</p>
   <a class="menu-i" href="index.html#rutas"><span class="mi-ico-caja"><svg class="mi-ico" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h13v15"/><path d="M6 17h13v4H6a2 2 0 0 1 0-4z"/></svg></span><span class="mi-txt"><b>Todas las rutas</b><span>El catálogo entero</span></span></a>
@@ -1079,7 +1079,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
     <nav class="foot-links">
       <a href="recursos.html">Recursos</a>
       <a href="preguntas.html">Preguntas frecuentes</a>
-      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invitame un café</a>
+      <a href="https://ko-fi.com/lucalamorte" target="_blank" rel="noopener">Invítame un café</a>
       <a href="https://www.linkedin.com/in/lclamorte/" target="_blank" rel="noopener">Luca Lamorte</a>
     </nav>
   </div>
@@ -1132,13 +1132,13 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
   <span id="toastText"></span>
 </div>
 
-<script src="pasos.js?v=65bf5593"></script>
+<script src="pasos.js?v=36f5a604"></script>
 <script src="temas.js?v=6526e6d5"></script>
-<script src="cv.js?v=5c07e222"></script>
+<script src="cv.js?v=bece6d00"></script>
 <script src="onboarding.js?v=88e5d242"></script>
 <script src="guia.js?v=9ad03b28"></script>
 <script src="chinchilla.js?v=cbbec988"></script>
-<script src="path-sync.js?v=73ed780d"></script>
+<script src="path-sync.js?v=70274b62"></script>
 <script>
 (function(){
 "use strict";
@@ -1147,9 +1147,22 @@ var STORAGE = {
   theme: "snowpro-path/v1/theme",
   anon:  "cs50-path/v1/anon"
 };
+/* Sin nube, por ahora.
+
+   El proyecto de Supabase que habia aca se borro: el dominio ni
+   resuelve. Dejar la direccion puesta no es neutro -cada intento de
+   entrar es una espera y un error- asi que se vacia, y con eso
+   PathSync.isOn() da false y ninguna pagina intenta nada.
+
+   Tu avance vive en este navegador, que es lo que el cartel de la
+   cuenta viene diciendo desde siempre.
+
+   Cuando haya backend nuevo, se cargan estos dos valores y vuelve a
+   haber nube: el store local siempre fue la fuente y la nube una capa
+   encima, asi que no hay nada que migrar de este lado. */
 var CONFIG = {
-  supabaseUrl: "https://sscfykrodjnfnnbmkopp.supabase.co",
-  supabaseKey: "sb_publishable_t8bH_XUtTPUi9XnEPxJrgQ_9qTsK-m6"
+  supabaseUrl: "",
+  supabaseKey: ""
 };
 
 function icon(name, size){
@@ -1245,7 +1258,7 @@ var NODES = [
   {
     id: "x04", act: 1, time: "5 h", i: "code", hue: "#DC2626",
     title: "CS50x · Semana 4 · Memoria",
-    summary: "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo pensás el resto.",
+    summary: "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo piensas el resto.",
     goal: "Terminas esta parte cuando entregas su problem set y te compila.",
     wins: ["Una semana concreta, con su clase y su ejercicio",
            "Se marca sola: no hay que terminar el curso entero para avanzar",

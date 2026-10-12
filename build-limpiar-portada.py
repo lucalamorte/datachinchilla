@@ -9,7 +9,7 @@
       que si tiene.
 
    2. La banda "Ya sabes la mitad de esto?" se va entera. Lleva al
-      mismo lado que la tarjeta "Armala a mano" de arriba: es la
+      mismo lado que la tarjeta "Ármala a mano" de arriba: es la
       misma accion dos veces en la misma pagina. De las dos, la de
       arriba forma parte de las tres puertas, que son una estructura
       pensada; esta es un agregado. Y de paso se resuelve que el

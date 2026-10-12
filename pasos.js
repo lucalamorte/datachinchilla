@@ -689,7 +689,7 @@ var PASOS = [
     "min": 300,
     "act": 1,
     "time": "5 h",
-    "sum": "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo pensás el resto.",
+    "sum": "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo piensas el resto.",
     "goal": "Terminas esta parte cuando entregas su problem set y te compila.",
     "cert": "",
     "i": "",
@@ -5267,7 +5267,7 @@ var PASOS = [
     "u": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/taskflow.html",
     "boss": false,
     "wins": [
-     "Decoradores en vez de operadores para lo que hacés todos los días",
+     "Decoradores en vez de operadores para lo que haces todos los días",
      "Cómo viajan los datos de una tarea a la siguiente",
      "Por qué el código queda más corto y más fácil de probar"
     ]
@@ -5473,7 +5473,7 @@ var PASOS = [
     "min": 120,
     "act": 3,
     "time": "2 h",
-    "sum": "La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir vos la que usa la empresa donde entres.",
+    "sum": "La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir tú la que usa la empresa donde entres.",
     "goal": "Terminas esta parte cuando lees una suite de Cypress ajena y sabes qué hace.",
     "cert": "",
     "i": "",

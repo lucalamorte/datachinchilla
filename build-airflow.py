@@ -83,7 +83,7 @@ C = [
   u"Pythonic DAGs con la TaskFlow API",
   u"Escribir DAGs como funciones de Python en vez de como grafos armados a mano.",
   u"Terminas esta parte cuando tus tareas se pasan datos entre sí sin que tengas que pensar en XComs.",
-  [u"Decoradores en vez de operadores para lo que hacés todos los días",
+  [u"Decoradores en vez de operadores para lo que haces todos los días",
    u"Cómo viajan los datos de una tarea a la siguiente",
    u"Por qué el código queda más corto y más fácil de probar"],
   "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/taskflow.html"),

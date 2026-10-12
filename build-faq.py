@@ -73,9 +73,9 @@ FAQ = [
   u"pestana sin guardar, no queda nada."),
 
  (u"¿Para qué necesito una cuenta?",
-  u"Sólo para que tu avance te siga a otra computadora. Podés recorrer "
+  u"Sólo para que tu avance te siga a otra computadora. Puedes recorrer "
   u"todo el sitio, leer las rutas, ver los problemas y sacar tu ruta del CV "
-  u"sin crear nada. La cuenta hace falta recién cuando querés que lo que "
+  u"sin crear nada. La cuenta hace falta recién cuando quieres que lo que "
   u"marcaste quede guardado.",
   u"Solo para guardar tu avance y que te siga en otro dispositivo. Se "
   u"puede recorrer todo el sitio sin crear cuenta."),
@@ -91,7 +91,7 @@ FAQ = [
  (u"¿Y si un curso deja de ser gratis o el link se cae?",
   u"Se saca o se reemplaza. Ya pasó: cinco problemas de práctica pasaron a "
   u"ser de pago y se cambiaron por otros gratis que entrenan lo mismo. Si "
-  u"encontrás uno roto o con candado, escribime y lo miro.",
+  u"encuentras uno roto o con candado, escríbeme y lo miro.",
   u"Se saca o se reemplaza por algo gratis equivalente. Se puede avisar por "
   u"correo si se encuentra un link roto o de pago."),
 ]

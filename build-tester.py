@@ -120,7 +120,7 @@ C = [
 
  ("t08", 3, "2 h", "web", False, "",
   u"Cypress, la otra escuela",
-  u"La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir vos la que usa la empresa donde entres.",
+  u"La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir tú la que usa la empresa donde entres.",
   u"Terminas esta parte cuando lees una suite de Cypress ajena y sabes qué hace.",
   [u"El mismo problema resuelto con otra filosofía",
    u"Qué gana y qué pierde contra Playwright",

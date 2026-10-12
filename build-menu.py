@@ -34,7 +34,7 @@ D = os.path.dirname(os.path.abspath(__file__))
 DESTINOS = [
  ("index.html",     u"Inicio",           u"Por dónde empezar"),
  ("cv.html",        u"Tu CV",            u"Tu ruta salida de tu experiencia"),
- ("armar.html",     u"Ármala a mano",    u"Elegís los niveles y los ordenás"),
+ ("armar.html",     u"Ármala a mano",    u"Eliges los niveles y los ordenas"),
  ("index.html#rutas", u"Todas las rutas", u"El catálogo entero"),
  ("practica.html",  u"Práctica diaria",  u"Blind 75 y consultas de entrevistas"),
  ("semana.html",    u"Tu semana",        u"Qué día, cuánto rato y con qué"),

@@ -95,7 +95,7 @@ var Practica = (function(){
   var BLOQUE = { strata: "sql", blind75: "py" };
 
   /* El día se marca solo cuando hiciste los suficientes, y se
-     desmarca si los deshacés. La racha deja de depender de que uno
+     desmarca si los deshaces. La racha deja de depender de que uno
      se acuerde de apretar un botón. */
   /* Devuelve true sólo en el salto: el día que no estaba marcado y
      queda marcado. Es el momento del festejo, y acá es el único lugar

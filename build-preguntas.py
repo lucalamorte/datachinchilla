@@ -33,7 +33,7 @@ FAQ = [
  (u"¿Esto cuesta algo?",
   u"No, y no hay una versión de pago más adelante. Es un aporte: junté en un "
   u"lugar el material gratuito que ya existe suelto por internet y le puse un "
-  u"orden. Si te sirvió y te dan ganas, podés "
+  u"orden. Si te sirvió y te dan ganas, puedes "
   u"<a href=\"https://ko-fi.com/lucalamorte\" target=\"_blank\" rel=\"noopener\">invitarme un café</a> "
   u"o <a href=\"https://www.linkedin.com/in/lclamorte/\" target=\"_blank\" rel=\"noopener\">saludarme por LinkedIn</a>, "
   u"que siempre alegra. Ninguna de las dos cosas destraba nada: quien no las "
@@ -58,9 +58,9 @@ FAQ = [
   u"pestana sin guardar, no queda nada."),
 
  (u"¿Para qué necesito una cuenta?",
-  u"Sólo para que tu avance te siga a otra computadora. Podés recorrer todo el "
+  u"Sólo para que tu avance te siga a otra computadora. Puedes recorrer todo el "
   u"sitio, leer las rutas, ver los problemas y sacar tu ruta del CV sin crear "
-  u"nada. La cuenta hace falta recién cuando querés que lo que marcaste quede "
+  u"nada. La cuenta hace falta recién cuando quieres que lo que marcaste quede "
   u"guardado.",
   u"Solo para guardar el avance y que siga en otro dispositivo. Se puede "
   u"recorrer todo el sitio sin crear cuenta."),
@@ -73,9 +73,9 @@ FAQ = [
   u"emite una constancia de recorrido que aclara que no es oficial."),
 
  (u"¿Y si un curso deja de ser gratis o el link se cae?",
-  u"Se saca o se reemplaza por algo gratis que sirva igual. Si encontrás uno "
+  u"Se saca o se reemplaza por algo gratis que sirva igual. Si encuentras uno "
   u"roto o con candado, "
-  u"<a href=\"mailto:luca.lamorte@kcc.com?subject=Un%20link%20roto%20en%20DataChinchilla\">escribime</a> "
+  u"<a href=\"mailto:luca.lamorte@kcc.com?subject=Un%20link%20roto%20en%20DataChinchilla\">escríbeme</a> "
   u"y lo miro.",
   u"Se saca o se reemplaza por algo gratis equivalente. Se puede avisar por "
   u"correo."),
@@ -83,7 +83,7 @@ FAQ = [
  (u"¿Puedo sumar material?",
   u"Sí, y es bienvenido: un curso, un canal, un dataset o un apunte tuyo, "
   u"mientras sea gratis y se pueda enlazar. "
-  u"<a href=\"mailto:luca.lamorte@kcc.com?subject=Material%20para%20DataChinchilla\">Escribime</a> "
+  u"<a href=\"mailto:luca.lamorte@kcc.com?subject=Material%20para%20DataChinchilla\">Escríbeme</a> "
   u"y lo miro.",
   u"Si. Se puede proponer por correo cualquier material gratuito y enlazable."),
 ]
@@ -109,7 +109,7 @@ def cuerpo():
         u'    <span class="eyebrow">Preguntas frecuentes</span>\n'
         u'    <h1>Antes de que lo <span class="grad">preguntes</span></h1>\n'
         u'    <p class="hero-lead">Lo que suele preguntarse antes de empezar. Si te queda '
-        u'algo afuera, escribime y lo agrego.</p>\n'
+        u'algo afuera, escríbeme y lo agrego.</p>\n'
         u'  </div>\n'
         u'</section>\n\n'
         u'<section class="section" id="preguntas">\n'

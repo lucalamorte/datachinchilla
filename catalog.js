@@ -425,7 +425,7 @@ var CATALOGO = [
   "ruta": "cs50",
   "n": 5,
   "t": "CS50x · Semana 4 · Memoria",
-  "d": "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo pensás el resto.",
+  "d": "Punteros, memoria dinámica y archivos. La semana que más gente asusta, y la que más cambia cómo piensas el resto.",
   "hs": "5 h",
   "nivel": "Curso 5",
   "pago": false
@@ -3263,7 +3263,7 @@ var CATALOGO = [
   "ruta": "testing",
   "n": 8,
   "t": "Cypress, la otra escuela",
-  "d": "La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir vos la que usa la empresa donde entres.",
+  "d": "La herramienta que muchos equipos ya tienen puesta. Conviene conocerla: no vas a elegir tú la que usa la empresa donde entres.",
   "hs": "2 h",
   "nivel": "Curso 8",
   "pago": false

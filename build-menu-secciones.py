@@ -46,7 +46,7 @@ GRUPOS = [
  (u"Tu camino", [
    ("cv.html", u"Tu CV", u"Tu ruta salida de tu experiencia",
     u'<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>'),
-   ("armar.html", u"Ármala a mano", u"Elegís los niveles y los ordenás",
+   ("armar.html", u"Ármala a mano", u"Eliges los niveles y los ordenas",
     u'<path d="M4 6h7M4 12h16M4 18h11"/><circle cx="15" cy="6" r="2"/><circle cx="19" cy="18" r="2"/>'),
    ("semana.html", u"Tu semana", u"Qué día, cuánto rato y con qué",
     u'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'),

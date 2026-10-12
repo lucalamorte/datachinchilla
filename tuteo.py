@@ -23,6 +23,17 @@ D = u"C:/Users/Luca/Desktop/snowflake path/"
 PARES = [
  # imperativos
  (u"Pegá", u"Pega"), (u"pegá", u"pega"),
+ (u"Invitame", u"Invítame"), (u"invitame", u"invítame"),
+ (u"Ayudame", u"Ayúdame"), (u"ayudame", u"ayúdame"),
+ # presente de indicativo
+ (u"Elegís", u"Eliges"), (u"elegís", u"eliges"), (u"ordenás", u"ordenas"),
+ (u"hacés", u"haces"), (u"deshacés", u"deshaces"), (u"pensás", u"piensas"),
+ (u"llegás", u"llegas"), (u"acabás", u"acabas"), (u"contás", u"cuentas"),
+ (u"Podés", u"Puedes"), (u"podés", u"puedes"), (u"querés", u"quieres"),
+ (u"Tenés", u"Tienes"), (u"tenés", u"tienes"),
+ (u"elegir vos", u"elegir tú"),
+ (u"Escribime", u"Escríbeme"), (u"escribime", u"escríbeme"),
+ (u"Encontrás", u"Encuentras"), (u"encontrás", u"encuentras"),
  (u"Contá", u"Cuenta"), (u"contá", u"cuenta"),
  (u"Soltá", u"Suelta"), (u"soltá", u"suelta"),
  (u"Pasá", u"Pasa"), (u"pasá", u"pasa"),
