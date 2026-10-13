@@ -881,6 +881,41 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
    con el mismo id: todas las paginas lo enganchan por getElementById
    sin guardarse de que no exista. */
 .menu-tema #themeBtn{ margin-left:auto; }
+
+/* --- Compartir el logro ----------------------------------------- */
+/* La tarjeta era un diploma que pedia disculpas por no serlo: emisor,
+   tipo, y un pie chiquito aclarando que no acredita nada. Terminar
+   una ruta es un logro de verdad; lo que uno quiere con un logro es
+   contarlo, no enmarcarlo. */
+.cert-compartir{
+  display:flex; flex-wrap:wrap; gap:9px; justify-content:center;
+  margin-top:18px;
+}
+.cert-compartir a, .cert-compartir button{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 14px; border-radius:var(--r-pill);
+  font-size:13px; font-weight:700; font-family:inherit;
+  text-decoration:none; cursor:pointer;
+  color:var(--text); background:var(--surface-2);
+  border:1px solid var(--divider);
+}
+.cert-compartir a:hover, .cert-compartir button:hover{ border-color:var(--accent); }
+.cert-compartir svg{ width:15px; height:15px; }
+/* El aviso sube de pie de pagina a parte del texto: decir en letra
+   chica que esto no acredita nada es la forma de decirlo sin que se
+   lea. */
+.cert-aviso{
+  position:relative; margin:14px 0 0; font-size:12px; line-height:1.5;
+  color:var(--text-3);
+}
+
+/* La tarjeta, cuando de verdad la terminaste. Antes decia "se
+   desbloquea" y no habia nada que la desbloqueara: la marca de agua
+   que dice EJEMPLO estaba puesta para siempre. */
+.cert-card .cert-compartir{ display:none; }
+.cert-card.lograda .cert-compartir{ display:flex; }
+.cert-card.lograda .cert-agua{ display:none; }
+.cert-card.lograda .cert-hoja{ border-color:var(--accent); }
 </style>
 </head>
 <body>
@@ -1000,20 +1035,33 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">A dónde llegas</p>
-      <h2>La constancia de esta ruta</h2>
-      <p>Esta constancia la emito yo y solo dice que recorriste la guía. Los cursos que dejan credencial propia lo avisan en su paso del mapa.</p>
+      <h2>Cuando termines, contalo</h2>
+      <p>Terminar esta ruta es un logro y merece contarse. No es un certificado: es lo que hiciste, dicho por el sitio donde lo hiciste. Los cursos que sí dejan credencial propia lo avisan en su paso del mapa.</p>
     </div>
     <div class="certs">
 
       <article class="cert-card">
-        <span class="cert-tag">De esta guía</span>
+        <span class="cert-tag">Para compartir</span>
         <div class="cert-hoja">
           <span class="cert-agua" aria-hidden="true"></span>
           <div class="cert-emisor">DataChinchilla</div>
           <div class="cert-tipo">Constancia de recorrido</div>
           <p class="cert-nombre" data-cert-nombre>Tu nombre</p>
-          <p class="cert-linea">completó esta ruta:<br>los diecisiete cursos de la ruta de especialización.</p>
-          <p class="cert-pie">Ejemplo. No es un certificado oficial ni acredita conocimientos: lo emito yo y solo dice que recorriste esta guía.</p>
+          <p class="cert-linea" data-cert-linea>terminó la ruta de <b>esta ruta</b> en DataChinchilla.</p>
+          <p class="cert-aviso">No es un certificado ni acredita conocimientos: lo emito yo
+            y dice lo que hiciste. Las credenciales de verdad las dejan los cursos, y en el
+            mapa se avisa cuáles.</p>
+        </div>
+        <div class="cert-compartir">
+          <a data-compartir="wa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.5-4-4.6-4.2-.1-.2-1-1.4-1-2.6s.6-1.8.9-2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.5.3 0 .1 0 .6-.2 1.2z"/></svg>
+            WhatsApp</a>
+          <a data-compartir="in" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.1 21 14.2V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"/></svg>
+            LinkedIn</a>
+          <button type="button" data-compartir="copiar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            Copiar</button>
         </div>
         <p class="cert-nota">Se desbloquea cuando cierres los diecisiete cursos del mapa.</p>
       </article>
@@ -1459,6 +1507,7 @@ function bajarDeLaNube(){
     done = cs.done;
     saveState();
     renderMap();
+  pintarLogro();
   bajarDeLaNube();
     if(typeof pintarMia === "function") pintarMia();
   });
@@ -1498,6 +1547,11 @@ function absorberCompartidos(){
 
 
 function saveState(){
+  /* La tarjeta mira el avance, y aca es por donde pasa todo
+     cambio de avance: marcar, desmarcar y lo que baja de la
+     nube. Engancharlo en toggleDone dejaba afuera los otros
+     dos. */
+  if(typeof pintarLogro === "function") pintarLogro();
   /* Y arriba, si hay sesion. Va antes del return porque el
      cuerpo de abajo tiene varios: poniendolo despues se
      ejecutaba en un solo camino y el avance subia a veces. */
@@ -1547,6 +1601,30 @@ function indexById(id){
 /* ============================================================
    RENDER
    ============================================================ */
+
+/* Desbloquear la tarjeta al cerrar el ultimo paso.
+
+   Se mira contra NODES y no contra un numero escrito: una ruta que
+   crece -CS50 paso de once pasos a treinta y siete- dejaria el numero
+   viejo diciendo que terminaste cuando no.
+
+   Corre al pintar el mapa y cada vez que marcas, que son los dos
+   momentos en que esto puede cambiar. */
+function pintarLogro(){
+  var card = document.querySelector(".cert-card");
+  if(!card || typeof NODES === "undefined") return;
+  var faltan = 0, i;
+  for(i=0;i<NODES.length;i++){ if(!done[NODES[i].id]) faltan++; }
+  card.classList.toggle("lograda", faltan === 0);
+  var nota = card.querySelector(".cert-nota");
+  if(nota){
+    nota.textContent = faltan === 0
+      ? "Lo terminaste. La tarjeta es tuya y el texto dice lo que hiciste."
+      : (faltan === 1 ? "Falta un paso del mapa."
+                      : "Faltan " + faltan + " pasos del mapa.");
+  }
+}
+
 function renderMap(){
   var html = "", lastAct = 0, side = 0;
   for(var i=0;i<NODES.length;i++){
@@ -2423,6 +2501,72 @@ if(document.readyState === "loading"){
   document.addEventListener("keydown", function(ev){
     if(ev.key === "Escape" && !p.hidden){ abrir(false); b.focus(); }
   });
+})();
+</script>
+<script>
+/* Los botones de compartir.
+
+   El texto se arma en el momento porque el nombre sale del perfil y
+   puede cambiar sin recargar: dejarlo escrito en el HTML lo dejaba
+   diciendo "Tu nombre" a quien acababa de entrar.
+
+   LinkedIn solo acepta una URL -el texto lo saca de las etiquetas og
+   de esta pagina, que ya estan puestas-. WhatsApp acepta el texto
+   armado, que es lo que hace que ahi se lea bien. */
+(function(){
+  "use strict";
+  function texto(){
+    var n = document.querySelector("[data-cert-nombre]");
+    var l = document.querySelector("[data-cert-linea]");
+    var quien = (n && n.textContent || "").trim();
+    /* Sin el punto final: la frase sigue con el signo de cierre y
+       despues el link, y "DataChinchilla. ¡" quedaba raro. */
+    var que = (l && l.textContent || "").trim().replace(/\.\s*$/, "");
+    if(!quien || quien === "Tu nombre"){
+      return "¡Terminé " + que.replace(/^terminó /, "") + "!";
+    }
+    return "¡" + quien + " " + que + "!";
+  }
+  function url(){ return location.origin + location.pathname; }
+
+  function enganchar(){
+    var wa = document.querySelector('[data-compartir="wa"]');
+    var inn = document.querySelector('[data-compartir="in"]');
+    var cp = document.querySelector('[data-compartir="copiar"]');
+    if(wa) wa.setAttribute("href",
+      "https://wa.me/?text=" + encodeURIComponent(texto() + " " + url()));
+    if(inn) inn.setAttribute("href",
+      "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(url()));
+    if(cp && !cp.dataset.listo){
+      cp.dataset.listo = "1";
+      cp.addEventListener("click", function(){
+        var t = texto() + " " + url();
+        var ok = function(){
+          var antes = cp.lastChild.nodeValue;
+          cp.lastChild.nodeValue = " Copiado";
+          window.setTimeout(function(){ cp.lastChild.nodeValue = antes; }, 1600);
+        };
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(t).then(ok, function(){});
+        }else{
+          /* Sin portapapeles -http sin cifrar, navegadores viejos- se
+             selecciona para que al menos se pueda copiar a mano. */
+          var a = document.createElement("textarea");
+          a.value = t; document.body.appendChild(a); a.select();
+          try{ document.execCommand("copy"); ok(); }catch(e){}
+          a.remove();
+        }
+      });
+    }
+  }
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", function(){ window.setTimeout(enganchar, 140); });
+  }else{
+    window.setTimeout(enganchar, 140);
+  }
+  /* Y de nuevo cuando cambia el nombre: el perfil puede llegar
+     despues, o podes entrar sin recargar. */
+  document.addEventListener("click", function(){ window.setTimeout(enganchar, 300); });
 })();
 </script>
 

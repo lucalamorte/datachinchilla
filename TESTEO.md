@@ -551,6 +551,44 @@ mostrarla.
 
 ---
 
+## 15b. El logro, y que se pueda contar
+
+Al final de cualquier ruta, la sección **"Cuando termines, contalo"**.
+
+Con la ruta a medias:
+
+- La tarjeta tiene la marca de agua **EJEMPLO**
+- **No hay botones de compartir.** Compartir "terminé la ruta" sin
+  haberla terminado no es un botón que sobra: es uno que miente
+- Abajo dice cuántos pasos faltan
+
+Marcá **todos** los pasos. Entonces:
+
+- Se va la marca de agua
+- Aparecen **WhatsApp, LinkedIn y Copiar**
+- Abajo dice "Lo terminaste"
+
+Y desmarcá uno: vuelve atrás todo, y dice "Falta un paso del mapa".
+
+**Falla si** la tarjeta dice "se desbloquea" y nunca se desbloquea.
+Era así: el texto prometía algo que no pasaba, en el sitio que se
+sostiene en que lo que dice es verdad.
+
+**El texto que comparte**, con y sin cuenta:
+
+| | |
+|---|---|
+| sin nombre | ¡Terminé la ruta de dbt en DataChinchilla! |
+| con nombre | ¡Luca Lamorte terminó la ruta de dbt en DataChinchilla! |
+
+**Falla si** queda un punto antes del link, o si abre `¡` y no cierra.
+
+**El aviso de que no es un certificado va a la vista**, no en letra
+chica al final. **Falla si** vuelve a ser un pie de página: decirlo
+donde no se lee es no decirlo.
+
+---
+
 ## 16. Que nada prometa lo que no da
 
 Esto es de leer, no de tocar. Abre `/airflow`, `/fullstack` y
