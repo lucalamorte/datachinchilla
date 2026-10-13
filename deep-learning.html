@@ -1138,7 +1138,7 @@ dialog.sheet[open]{ animation:sheetIn 180ms cubic-bezier(.2,.8,.3,1); }
 <script src="onboarding.js?v=88e5d242"></script>
 <script src="guia.js?v=9ad03b28"></script>
 <script src="chinchilla.js?v=cbbec988"></script>
-<script src="path-sync.js?v=fef6cacc"></script>
+<script src="path-sync.js?v=64190764"></script>
 <script>
 (function(){
 "use strict";
@@ -1500,6 +1500,28 @@ function safeGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ retu
 function safeSet(k, v){ try{ window.localStorage.setItem(k, v); return true; }catch(e){ return false; } }
 function activeProfile(){ return sessionId && profiles[sessionId] ? profiles[sessionId] : null; }
 
+
+/* Traer de la nube lo que se marco en otra computadora.
+
+   Es lo unico que la cuenta promete -"entra con tu mail para llevarlo
+   a otra computadora"- y hasta ahora no pasaba: las rutas guardaban
+   en este navegador y nada mas.
+
+   La union es la regla: lo marcado en cualquier lado queda. Desmarcar
+   no se propaga, y es barato al lado de perder avance. */
+function bajarDeLaNube(){
+  if(!window.PathSync || !PathSync.sincronizarRuta || !MI_CLAVE) return;
+  PathSync.sincronizarRuta(MI_CLAVE, done).then(function(mezcla){
+    if(!mezcla) return;
+    cs.done = mezcla;
+    done = cs.done;
+    saveState();
+    renderMap();
+  bajarDeLaNube();
+    if(typeof pintarMia === "function") pintarMia();
+  });
+}
+
 function loadState(){
   profiles = PathSync.store.load();
   sessionId = PathSync.store.sessionId();
@@ -1534,6 +1556,12 @@ function absorberCompartidos(){
 
 
 function saveState(){
+  /* Y arriba, si hay sesion. Va antes del return porque el
+     cuerpo de abajo tiene varios: poniendolo despues se
+     ejecutaba en un solo camino y el avance subia a veces. */
+  if(window.PathSync && PathSync.subirRuta && MI_CLAVE){
+    PathSync.subirRuta(MI_CLAVE, done);
+  }
   var p = activeProfile();
   if(p){
     p.deeplearning = cs;
@@ -2322,7 +2350,14 @@ function init(){
   PathSync.captureHash(function(m){
     toast("El link del mail no sirvió: " + m);
   })
-    .then(function(){ refreshSes(); paintAccount(); });
+    .then(function(){
+      /* Solo paintAccount: las paginas de ruta no tienen
+         refreshSes -es de las de la aplicacion- y llamarlo aca
+         tiraba un ReferenceError adentro de la promesa, o sea en
+         silencio salvo que mires la consola. paintAccount lee la
+         sesion de PathSync directo, asi que alcanza. */
+      paintAccount();
+    });
   if(PathSync.session()){
     paintAccount();
     if(PathSync.hashType() === "recovery"){

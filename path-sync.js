@@ -513,6 +513,59 @@ var PathSync = (function(){
       return fsAgregar(mio() + "/" + table, row);
     },
 
+    /* Sincronizar el avance de una ruta, en los dos sentidos.
+
+       Hasta ahora la nube era de una sola direccion: las paginas
+       escribian el perfil y nunca lo leian, y las veintidos rutas ni
+       siquiera subian el avance. O sea que la cuenta no hacia lo
+       unico que promete su propio cartel, que tu avance te siga a
+       otra computadora.
+
+       La mezcla es la union: lo marcado en cualquier lado queda. Es
+       la misma regla que ya usaba union() para los hitos, y la razon
+       es la de siempre -perder avance es caro-. El precio es que
+       desmarcar en una maquina no se propaga a la otra, y es un
+       precio barato comparado con el otro error.
+
+       Devuelve el mapa mezclado si cambio algo respecto de lo local,
+       y null si no habia nada que traer: asi quien llama repinta solo
+       cuando hace falta.
+
+       Es best-effort como todo lo de aca: si la red falla, el avance
+       local sigue intacto y se intenta la proxima vez. */
+    sincronizarRuta: function(clave, local){
+      if(!clave || !this.isOn() || !ses) return Promise.resolve(null);
+      var self = this, mio = local || {};
+      return this.ready()
+        .then(function(){ return self.getRow(clave); })
+        .then(function(fila){
+          var remoto = (fila && fila.done) || {};
+          var mezcla = self.union(mio, remoto);
+
+          var cambio = false, k;
+          for(k in mezcla){ if(!mio[k]){ cambio = true; break; } }
+          var faltaArriba = false;
+          for(k in mezcla){ if(!remoto[k]){ faltaArriba = true; break; } }
+
+          /* Solo se escribe si arriba falta algo. Subir lo mismo que
+             ya esta es un pedido de red por cada visita a cada ruta. */
+          if(faltaArriba) self.upsertRow(clave, { done: mezcla });
+          return cambio ? mezcla : null;
+        })
+        ["catch"](function(){ return null; });
+    },
+
+    /* Subir el avance de una ruta, sin leer. Se usa al marcar: ahi ya
+       sabemos que lo local es lo mas nuevo. */
+    subirRuta: function(clave, local){
+      if(!clave || !this.isOn() || !ses) return Promise.resolve(false);
+      var self = this;
+      return this.ready()
+        .then(function(){ return self.upsertRow(clave, { done: local || {} }); })
+        .then(function(){ return true; })
+        ["catch"](function(){ return false; });
+    },
+
     /* --------------------------------------------------- perfil y uso
 
        Todo lo de abajo es best-effort: si falla, la app sigue andando.
