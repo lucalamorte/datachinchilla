@@ -3181,6 +3181,83 @@ var CATALOGO = [
   "pago": false
  },
  {
+  "id": "empezar:e01",
+  "nodo": "e01",
+  "ruta": "empezar",
+  "n": 1,
+  "t": "CS50x, de Harvard",
+  "d": "El curso de introducción a las ciencias de la computación de Harvard, entero y gratis. Arranca moviendo bloques y termina con vos escribiendo C, Python y SQL. No es un curso de lenguajes: es el que te enseña a pensar un problema antes de escribir una línea.",
+  "hs": "60 horas",
+  "nivel": "Curso 1",
+  "pago": false
+ },
+ {
+  "id": "empezar:e02",
+  "nodo": "e02",
+  "ruta": "empezar",
+  "n": 2,
+  "t": "CS50 Python",
+  "d": "Python de cero a orientación a objetos, del mismo equipo. Después de CS50x se entiende el doble: ya sabés qué está pasando abajo, así que esto es aprender a decirlo cómodo.",
+  "hs": "50 horas",
+  "nivel": "Curso 2",
+  "pago": false
+ },
+ {
+  "id": "empezar:e03",
+  "nodo": "e03",
+  "ruta": "empezar",
+  "n": 3,
+  "t": "CS50 SQL",
+  "d": "Consultar, diseñar y escribir en una base de datos. Es la mitad del trabajo de casi cualquier puesto técnico, y la que más gente saltea por parecer aburrida.",
+  "hs": "35 horas",
+  "nivel": "Curso 3",
+  "pago": false
+ },
+ {
+  "id": "empezar:e04",
+  "nodo": "e04",
+  "ruta": "empezar",
+  "n": 4,
+  "t": "Full Stack Open, de Helsinki",
+  "d": "La aplicación entera: React adelante, Node atrás, base de datos, tests y despliegue. Está en español y lo publica la Universidad de Helsinki.",
+  "hs": "255 horas",
+  "nivel": "Curso 4",
+  "pago": false
+ },
+ {
+  "id": "empezar:e05",
+  "nodo": "e05",
+  "ruta": "empezar",
+  "n": 5,
+  "t": "Google Cloud: fundamentos de la nube",
+  "d": "Dónde vive eso que acabás de construir. Qué es una máquina virtual, un contenedor y una base administrada, y por qué una empresa paga por no tener servidores propios.",
+  "hs": "5 horas",
+  "nivel": "Curso 5",
+  "pago": false
+ },
+ {
+  "id": "empezar:e06",
+  "nodo": "e06",
+  "ruta": "empezar",
+  "n": 6,
+  "t": "Un proyecto chico de cada área",
+  "d": "Acá se terminan los cursos generales. Elegí cuatro áreas que te den curiosidad -datos, IA, backend, sistemas, lo que sea- y hacé un proyecto de fin de semana de cada una. Chico de verdad: algo que funcione, no algo que impresione.",
+  "hs": "40 horas",
+  "nivel": "Curso 6",
+  "pago": false
+ },
+ {
+  "id": "empezar:e07",
+  "nodo": "e07",
+  "ruta": "empezar",
+  "n": 7,
+  "t": "Elegir a dónde vas",
+  "d": "Ahora sí la pregunta tiene respuesta. Con un año de fundamentos y cuatro proyectos encima, elegí el camino: backend, data engineering, IA, nube, frontend, testing. El sitio tiene una ruta para cada uno.",
+  "hs": "1 h",
+  "nivel": "Curso 7",
+  "pago": false
+ },
+ {
   "id": "testing:t01",
   "nodo": "t01",
   "ruta": "testing",
@@ -3918,12 +3995,20 @@ var CATALOGO_RUTAS = [
   "orden": 17
  },
  {
+  "id": "empezar",
+  "nombre": "No sé qué seguir",
+  "archivo": "empezar.html",
+  "color": "#4338CA",
+  "icono": "boss",
+  "orden": 18
+ },
+ {
   "id": "testing",
   "nombre": "Testing y QA",
   "archivo": "testing.html",
   "color": "#15803D",
   "icono": "check",
-  "orden": 18
+  "orden": 19
  },
  {
   "id": "nube",
@@ -3931,7 +4016,7 @@ var CATALOGO_RUTAS = [
   "archivo": "nube.html",
   "color": "#1E5F9E",
   "icono": "cloud",
-  "orden": 19
+  "orden": 20
  },
  {
   "id": "funcional",
@@ -3939,7 +4024,7 @@ var CATALOGO_RUTAS = [
   "archivo": "funcional.html",
   "color": "#A94F2E",
   "icono": "biz",
-  "orden": 20
+  "orden": 21
  },
  {
   "id": "mlops",
@@ -3947,7 +4032,7 @@ var CATALOGO_RUTAS = [
   "archivo": "mlops.html",
   "color": "#4338CA",
   "icono": "flow",
-  "orden": 21
+  "orden": 22
  },
  {
   "id": "viz",
@@ -3955,6 +4040,6 @@ var CATALOGO_RUTAS = [
   "archivo": "visualizacion.html",
   "color": "#A16207",
   "icono": "chart",
-  "orden": 22
+  "orden": 23
  }
 ];

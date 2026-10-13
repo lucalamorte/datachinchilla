@@ -156,6 +156,12 @@ PAGINAS = {
         "color": u"#08121C",
         "ogtitulo": u"Testing y QA, en orden",
     },
+    "empezar.html": {
+        "titulo": u"No s\u00e9 qu\u00e9 seguir: el camino de cero \u00b7 " + MARCA,
+        "desc": u"Si no sab\u00e9s qu\u00e9 camino seguir en tech, \u00e9ste es el camino: CS50x, Python, SQL y Full Stack Open en orden, m\u00e1s nube, y despu\u00e9s cuatro proyectos chicos para elegir con informaci\u00f3n propia.",
+        "color": u"#0B1020",
+        "ogtitulo": u"No s\u00e9 qu\u00e9 seguir: el camino de cero",
+    },
     "airflow.html": {
         "titulo": u"Airflow gratis, en orden · " + MARCA,
         "desc": u"Orquestación con Apache Airflow sin pagar nada: los caminos de Astronomer Academy y los cinco tutoriales oficiales de Apache, en orden.",

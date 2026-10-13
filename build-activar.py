@@ -36,6 +36,7 @@ RUTAS = {
     "web3.html":           "web3",
     "fullstack.html":      "fullstack",
     "airflow.html":        "airflow",
+    "empezar.html":        "empezar",
     "testing.html":        "testing",
     "nube.html":           "nube",
     "funcional.html":      "funcional",

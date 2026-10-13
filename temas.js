@@ -482,6 +482,20 @@ var TEMAS = {
  ],
  "puestos": [
   {
+   "id": "no_se",
+   "nombre": "Todavía no sé",
+   "resumen": "Querés entrar a tech y todavía no sabés a qué. Primero los fundamentos, y el camino se elige después con información tuya.",
+   "distingue": "Es el único que no termina en un puesto: termina en poder elegirlo.",
+   "temas": {
+    "prog": 3,
+    "python": 3,
+    "sql": 2,
+    "web": 2,
+    "cloud": 2,
+    "backend": 1
+   }
+  },
+  {
    "id": "data_engineer",
    "nombre": "Data Engineer",
    "resumen": "Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
@@ -907,6 +921,13 @@ var TEMAS = {
     "min": 1020
    },
    {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e03",
+    "t": "CS50 SQL",
+    "min": 2100
+   },
+   {
     "ruta": "funcional",
     "archivo": "funcional.html",
     "id": "f09",
@@ -1068,6 +1089,13 @@ var TEMAS = {
     "id": "g05",
     "t": "Pythonic DAGs con la TaskFlow API",
     "min": 90
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e02",
+    "t": "CS50 Python",
+    "min": 3000
    }
   ],
   "cloud": [
@@ -1259,6 +1287,20 @@ var TEMAS = {
     "id": "f14",
     "t": "Parte 14 · Next.js",
     "min": 1020
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e04",
+    "t": "Full Stack Open, de Helsinki",
+    "min": 7200
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e05",
+    "t": "Google Cloud, los fundamentos",
+    "min": 960
    },
    {
     "ruta": "nube",
@@ -2028,6 +2070,41 @@ var TEMAS = {
     "id": "f02",
     "t": "Parte 2 · Hablar con el servidor",
     "min": 1020
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e01",
+    "t": "CS50x, de Harvard",
+    "min": 3600
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e02",
+    "t": "CS50 Python",
+    "min": 3000
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e03",
+    "t": "CS50 SQL",
+    "min": 2100
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e06",
+    "t": "Un proyecto chico de cada área",
+    "min": 2400
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e07",
+    "t": "Elegir a dónde vas",
+    "min": 60
    },
    {
     "ruta": "testing",
@@ -3457,6 +3534,13 @@ var TEMAS = {
     "id": "f10",
     "t": "Parte 10 · React Native",
     "min": 1020
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e04",
+    "t": "Full Stack Open, de Helsinki",
+    "min": 7200
    }
   ],
   "backend": [
@@ -3522,6 +3606,13 @@ var TEMAS = {
     "id": "f14",
     "t": "Parte 14 · Next.js",
     "min": 1020
+   },
+   {
+    "ruta": "empezar",
+    "archivo": "empezar.html",
+    "id": "e04",
+    "t": "Full Stack Open, de Helsinki",
+    "min": 7200
    }
   ]
  }

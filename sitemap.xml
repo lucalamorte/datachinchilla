@@ -111,6 +111,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://datachinchilla.com/empezar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://datachinchilla.com/airflow</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

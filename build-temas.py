@@ -297,6 +297,14 @@ POR_TRAMO = {
  ("testing", 3):      ["calidad"],
  ("testing", 4):      ["calidad"],
 
+ # El camino de cero. Cada tramo ensena lo que ensena, sin inflar:
+ # el primero son fundamentos, el segundo construir algo entero y
+ # publicarlo, y el tercero no ensena un tema nuevo -es probar y
+ # elegir- asi que suma programacion y nada mas.
+ ("empezar", 1):      ["prog", "python", "sql"],
+ ("empezar", 2):      ["web", "backend", "cloud"],
+ ("empezar", 3):      ["prog"],
+
  ("fullstack", 1):    ["web", "prog"],
  ("fullstack", 2):    ["backend", "calidad"],
  ("fullstack", 3):    ["web"],
@@ -327,6 +335,22 @@ POR_RUTA = {
 # Cuanto pide cada puesto de cada tema: 3 es el dia a dia, 2 se usa
 # seguido, 1 se toca. Lo que no figura, no se pide.
 PUESTOS = [
+ # El puesto que no es un puesto, y el que le faltaba al sitio.
+ #
+ # El flujo del CV arranca preguntando a que apuntas, y para mucha
+ # gente esa es justamente la pregunta. Sin una opcion que diga "no
+ # se", esa persona elige cualquiera y el sitio le contesta
+ # cualquier cosa.
+ #
+ # Pide los fundamentos que sirven para todos los caminos y nada
+ # especializado: pedir ml o pipelines seria empujarlo hacia un lado
+ # antes de que elija.
+ {"id": "no_se", "nombre": u"Todav\u00eda no s\u00e9",
+  "resumen": u"Quer\u00e9s entrar a tech y todav\u00eda no sab\u00e9s a qu\u00e9. Primero los fundamentos, y el camino se elige despu\u00e9s con informaci\u00f3n tuya.",
+  "distingue": u"Es el \u00fanico que no termina en un puesto: termina en poder elegirlo.",
+  "temas": {"prog": 3, "python": 3, "sql": 2, "web": 2, "cloud": 2,
+            "backend": 1}},
+
  {"id": "data_engineer", "nombre": u"Data Engineer",
   "resumen": u"Construir y sostener los pipelines y el modelo de datos del que vive todo el resto.",
   "distingue": u"Mueve y ordena los datos para que otros los usen. No los analiza ni entrena modelos con ellos.",

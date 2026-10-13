@@ -5331,6 +5331,146 @@ var PASOS = [
   "nivelN": 2
  },
  {
+  "archivo": "empezar.html",
+  "clave": "empezar",
+  "nombre": "No sé qué seguir",
+  "actos": [
+   "Pensar como programador",
+   "Construir algo entero",
+   "Probar y elegir"
+  ],
+  "pasos": [
+   {
+    "id": "e01",
+    "t": "CS50x, de Harvard",
+    "min": 3600,
+    "act": 1,
+    "time": "60 horas",
+    "sum": "El curso de introducción a las ciencias de la computación de Harvard, entero y gratis. Arranca moviendo bloques y termina con vos escribiendo C, Python y SQL. No es un curso de lenguajes: es el que te enseña a pensar un problema antes de escribir una línea.",
+    "goal": "Terminas este paso cuando entregas el proyecto final: algo tuyo, con lo que aprendiste.",
+    "cert": "Certificado gratis de CS50",
+    "i": "",
+    "u": "cs50.html",
+    "boss": true,
+    "wins": [
+     "Es el mejor punto de partida que existe, y es gratis",
+     "Te deja pensando en problemas, no memorizando sintaxis",
+     "En el sitio está partido en once semanas con su proyecto, para que entre en tu agenda"
+    ]
+   },
+   {
+    "id": "e02",
+    "t": "CS50 Python",
+    "min": 3000,
+    "act": 1,
+    "time": "50 horas",
+    "sum": "Python de cero a orientación a objetos, del mismo equipo. Después de CS50x se entiende el doble: ya sabés qué está pasando abajo, así que esto es aprender a decirlo cómodo.",
+    "goal": "Terminas este paso cuando entregas su proyecto final en Python.",
+    "cert": "Certificado gratis de CS50",
+    "i": "",
+    "u": "cs50.html",
+    "boss": false,
+    "wins": [
+     "El lenguaje que más puertas abre: datos, backend, scripts, IA",
+     "Nueve semanas y un proyecto, cada una con su ejercicio",
+     "Es la herramienta que vas a usar en cualquiera de los caminos que elijas después"
+    ]
+   },
+   {
+    "id": "e03",
+    "t": "CS50 SQL",
+    "min": 2100,
+    "act": 1,
+    "time": "35 horas",
+    "sum": "Consultar, diseñar y escribir en una base de datos. Es la mitad del trabajo de casi cualquier puesto técnico, y la que más gente saltea por parecer aburrida.",
+    "goal": "Terminas este paso cuando podés diseñar un esquema y consultarlo sin mirar apuntes.",
+    "cert": "Certificado gratis de CS50",
+    "i": "",
+    "u": "cs50.html",
+    "boss": false,
+    "wins": [
+     "Siete semanas, una por verbo: consultar, relacionar, diseñar, escribir",
+     "Sirve igual si terminás en datos, en backend o en producto",
+     "Es lo que separa pedirle los datos a alguien de ir a buscarlos"
+    ]
+   },
+   {
+    "id": "e04",
+    "t": "Full Stack Open, de Helsinki",
+    "min": 15300,
+    "act": 2,
+    "time": "255 horas",
+    "sum": "La aplicación entera: React adelante, Node atrás, base de datos, tests y despliegue. Está en español y lo publica la Universidad de Helsinki.",
+    "goal": "Terminas este paso cuando tenés una aplicación tuya publicada y andando, con su base de datos.",
+    "cert": "Certificado gratis de la Universidad de Helsinki",
+    "i": "",
+    "u": "fullstack.html",
+    "boss": true,
+    "wins": [
+     "Es el salto de 'hice ejercicios' a 'hice algo que funciona'",
+     "Lo primero que podés mostrar en una entrevista",
+     "Quince partes, con certificado de la universidad al terminar"
+    ]
+   },
+   {
+    "id": "e05",
+    "t": "Google Cloud: fundamentos de la nube",
+    "min": 300,
+    "act": 2,
+    "time": "5 horas",
+    "sum": "Dónde vive eso que acabás de construir. Qué es una máquina virtual, un contenedor y una base administrada, y por qué una empresa paga por no tener servidores propios.",
+    "goal": "Terminas este paso cuando entendés qué pasa entre que alguien escribe tu dirección y tu aplicación responde.",
+    "cert": "Insignia de Google Cloud",
+    "i": "",
+    "u": "https://www.skills.google/course_templates/153",
+    "boss": false,
+    "wins": [
+     "Después de publicar algo, esto deja de ser abstracto",
+     "Insignia de Google al terminar",
+     "Es la base común de nube, DevOps y data engineering"
+    ]
+   },
+   {
+    "id": "e06",
+    "t": "Un proyecto chico de cada área",
+    "min": 2400,
+    "act": 3,
+    "time": "40 horas",
+    "sum": "Acá se terminan los cursos generales. Elegí cuatro áreas que te den curiosidad -datos, IA, backend, sistemas, lo que sea- y hacé un proyecto de fin de semana de cada una. Chico de verdad: algo que funcione, no algo que impresione.",
+    "goal": "Terminas este paso cuando tenés cuatro cosas hechas y podés decir cuál te dio ganas de seguir.",
+    "cert": "",
+    "i": "",
+    "u": "",
+    "boss": false,
+    "wins": [
+     "Ningún curso te va a decir qué te gusta: lo dice hacerlo",
+     "Cuatro fines de semana valen más que cuatro cursos más",
+     "Lo que no te gusta también es información, y se descubre rápido"
+    ]
+   },
+   {
+    "id": "e07",
+    "t": "Elegir a dónde vas",
+    "min": 60,
+    "act": 3,
+    "time": "1 h",
+    "sum": "Ahora sí la pregunta tiene respuesta. Con un año de fundamentos y cuatro proyectos encima, elegí el camino: backend, data engineering, IA, nube, frontend, testing. El sitio tiene una ruta para cada uno.",
+    "goal": "Terminas este paso cuando sumás a tu semana la ruta del camino que elegiste.",
+    "cert": "",
+    "i": "",
+    "u": "index.html#rutas",
+    "boss": true,
+    "wins": [
+     "Es el único paso del sitio que no es estudiar, es decidir",
+     "Elegís con información propia, no con descripciones de puestos",
+     "Y si te equivocás, lo de abajo no se pierde: los fundamentos sirven para todas"
+    ]
+   }
+  ],
+  "nivel": "Desde cero",
+  "nivelN": 0
+ },
+ {
   "archivo": "testing.html",
   "clave": "testing",
   "nombre": "Testing y QA",
